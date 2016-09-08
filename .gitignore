@@ -1,4 +1,3 @@
-*.pdf
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
@@ -179,3 +178,7 @@ TSWLatexianTemp*
 
 # KBibTeX
 *~[0-9]*
+
+# Binary
+*.pdf
+*.pdf
