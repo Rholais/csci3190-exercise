@@ -149,13 +149,33 @@ Express each of these propositions as an English sentence.
 
 \begin{enumerate}
 \item Each inhabitant of a remote village always tells the truth
-or always lies.A villager will give only a “Yes” or a “No”
+or always lies.A villager will give only a \textquotedblleft Yes\textquotedblright or a \textquotedblleft No\textquotedblright
 response to a question a tourist asks. Suppose you are a
 tourist visiting this area and come to a fork in the road.
 One branch leads to the ruins you want to visit; the other
 branch leads deep into the jungle. A villager is standing
 at the fork in the road. What one question can you ask the
 villager to determine which branch to take?
+
+\item To use the wireless network in the airport you must pay
+the daily fee unless you are a subscriber to the service.
+Express your answer in terms of $w$: "You can use the wireless
+network in the airport," $d$: "You pay the daily fee,"
+and $s$: "You are a subscriber to the service."
+
+Exercises $3 - 7$ relate to inhabitants of the island of knights
+and knaves created by Smullyan, where knights always tell
+the truth and knaves always lie. You encounter two people,
+A and B. Determine, if possible, what A and B are if they
+address you in the ways described. If you cannot determine
+what these two people are, can you draw any conclusions?
+\item A says "At least one of us is a knave" and B says nothing.
+\item A says "The two of us are both knights" and B says "A
+is a knave."
+\item A says "I am a knave or B is a knight" and B says nothing.
+\item Both A and B say "I am a knight."
+\item A says "We are both knaves" and B says nothing.
+
 \end{enumerate}
 
 \subsection{Propositional Equivalences}
@@ -168,6 +188,19 @@ by using truth tables.
 
 \item Show that $(p \vee q) \wedge (\neg p \vee r) \rightarrow (q \vee r)$ is a tautology.
 
+\item Show that $(\neg(p \vee F) \wedge (\neg q \wedge T)) \vee p$ and $q\rightarrow p$ are equivalent.
+
+\item Show that $((\neg p) \rightarrow (r\vee q)) \equiv ((\neg r)\rightarrow ((\neg p)\rightarrow q))$.
+
+\item Show that $(p \rightarrow (r \rightarrow q))\equiv (p \rightarrow q)\vee \neg r$.
+
+\item Show that $(p \rightarrow q) \vee (p \rightarrow r) \equiv p \rightarrow (q\vee r)$.
+
+\item Show that $(s \rightarrow r) \vee (q \rightarrow r) \equiv s\vee q \rightarrow  r$.
+
+\item Show that $\neg p \rightarrow (q \rightarrow \neg r)\equiv r \rightarrow (q \rightarrow p)$.
+
+\item Show that $(\neg p \vee q) \wedge (r \vee \neg q) \wedge (p \vee q) \equiv q\wedge r$.
 \end{enumerate}
 
 \subsection{Predicates and Quantifiers}
@@ -272,6 +305,46 @@ logically equivalent.
 \subsection{Nested Quantifiers}
 
 \begin{enumerate}
+\item Translate these statements into English, where the domain
+for each variable consists of all real numbers.
+\begin{enumerate}
+	\item $\forall x \exists y (x < y)$
+	\item $\forall x \forall y (((x \ge 0) \wedge (y \ge 0)) \rightarrow (x y \ge 0))$
+	\item $\forall x \forall y \exists z (x y = z)$
+\end{enumerate}
+
+\item Let $Q(x, y)$ be the statement \textquotedblleft $x$ has sent an e-mail message
+to $y$,\textquotedblright where the domain for both $x$ and $y$ consists of
+all students in your class. Express each of these quantifications in English.
+\begin{enumerate}
+	\item $\exists x \exists y Q(x, y)$
+	\item $\exists x \forall y Q(x, y)$
+	\item $\forall x \exists y Q(x, y)$
+	\item $\forall x \forall y Q(x, y)$
+\end{enumerate}
+
+\item Let $S(x)$ be the predicate \textquotedblleft $x$ is a student,\textquotedblright $F(x)$ the predicate
+\textquotedblleft $x$ is a faculty member,\textquotedblright and $A(x, y)$ the predicate
+\textquotedblleft $x$ has asked $y$ a question,\textquotedblright where the domain consists of
+all people associated with your school. Use quantifiers to
+express each of these statements.
+\begin{enumerate}
+	\item Lois has asked Professor Michaels a question.
+	\item Every student has asked Professor Gross a question
+	\item Every faculty member has either asked Professor
+	Miller a question or been asked a question by Professor
+	Miller
+	\item Some student has not asked any faculty member a
+	question.
+	\item There is a faculty member who has never been asked
+	a question by a student.
+	\item Some student has asked every faculty member a question.
+	\item There is a faculty member who has asked every other
+	faculty member a question.
+	\item Some student has never been asked a question by a
+	faculty member.
+\end{enumerate}
+	
 \item Show that $\forall x P(x) \wedge \exists x Q(x)$ is logically equivalent
 to $\forall x \exists y (P(x) \wedge Q(y))$, where all quantifiers have
 the same nonempty domain.
@@ -327,6 +400,14 @@ have the same truth value.
 \begin{enumerate}
 \item \textquotedblleft If I were to ask you whether the right branch
 leads to the ruins, would you answer yes? \textquotedblright
+\item $w \rightarrow (d \vee s)$
+\item A is a knight and B is a knave
+\item A is a knave and B is a knight.
+\item A is a knight and B is a knight.
+\item We don’t know anything about A and B. If A (or B) is a knight, then A (or B) would
+truthfully say, “I am a knight”. Likewise, if A (or B) is a knave, they would untruthfully
+say, “I am a knight”.
+\item A is a knave and B is a knight.
 \end{enumerate}
 
 \subsubsection{Propositional Equivalences}
@@ -349,6 +430,84 @@ leads to the ruins, would you answer yes? \textquotedblright
 
 \item If both $q$ and $r$ are false, $(p \vee q)$ and $(\neg p \vee r)$ is opposite, then $(\neg q \wedge \neg r) \rightarrow \neg (p \vee q) \vee \neg (\neg p \vee r)$ is tautology, so $\neg(q \vee r) \rightarrow \neg ((p \vee q) \wedge (\neg p \vee r))$ is tautology, and $(p \vee q) \wedge (\neg p \vee r) \rightarrow (q \vee r)$ is tautology.
 
+\item  $(\neg(p \vee F) \wedge (\neg q \wedge T)) \vee p$
+
+$\equiv (\neg p \wedge \neg q)\vee p$
+
+$\equiv (\neg p\vee p) \wedge (\neg q \vee p)$
+
+ $\equiv T \wedge (\neg q \vee p)$
+
+ $\equiv \neg q \vee p$
+  
+  $\equiv  q \rightarrow p$
+ 
+ \item $ (\neg p) \rightarrow (r\vee q)$
+ 
+ $\equiv  \neg(\neg p) \vee (r\vee q)$
+
+$\equiv  p \vee (r\vee q)$
+
+$\equiv  r \vee (p\vee q)$
+
+$\equiv  (\neg(\neg r)) \vee (p\vee q)$
+
+$\equiv  (\neg r)\rightarrow (p\vee q)$
+
+$\equiv  (\neg r)\rightarrow ((\neg(\neg p))\vee q)$
+
+$\equiv  (\neg r)\rightarrow ((\neg p)\rightarrow q)$
+
+\item $p \rightarrow (r \rightarrow q)$
+
+$\equiv \neg p \vee  (r \rightarrow q)$
+
+$\equiv \neg p \vee  (\neg r \vee q)$
+
+$\equiv (\neg p \vee   q) \vee \neg r$
+
+$\equiv ( p \rightarrow q) \vee \neg r$
+
+\item  $(p \rightarrow q) \vee (p \rightarrow r)$
+
+$\equiv (\neg p \vee q) \vee (\neg p \vee r)$
+
+$\equiv (\neg p \vee \neg p) \vee ( q \vee r)$
+
+$\equiv  p \rightarrow ( q \vee r)$
+
+\item LHS $\equiv (\neg s \vee r) \wedge (\neg q \vee r)$
+
+$\equiv(\neg s \wedge \neg q) \vee r $
+
+$\equiv\neg ( s \wedge q) \vee r $
+
+$(s \wedge q)\rightarrow r \equiv$ RHS 
+
+\item  $\neg p \rightarrow (q \rightarrow \neg r)$
+
+$\equiv \neg \neg p \vee (\neg q \vee \neg r)$
+
+$\equiv  p \vee (\neg q \vee \neg r)$
+
+$\equiv  \neg r \vee (\neg q \vee p)$
+
+$\equiv r \rightarrow (q \rightarrow p)$
+
+\item $(\neg p \vee q) \wedge (r \vee \neg q) \wedge (p \vee q)$
+
+$ \equiv (q \vee \neg p)\wedge (q \vee p) \wedge (r \vee \neg q) $
+
+$\equiv(q\vee (p \wedge \neg p)) \wedge (r \vee \neg q)$
+
+$\equiv(q\vee F)\wedge (r \vee \neg q)$
+
+$\equiv q \wedge (r \vee \neg q)$
+
+$\equiv (q \wedge r )\vee( q \wedge \neg q)$
+
+$\equiv (q\wedge r)\vee F$
+$\equiv q\wedge r$
 \end{enumerate}
 
 \subsubsection{Predicates and Quantifiers}
@@ -443,25 +602,60 @@ at least one value of $x$ in the domain.
 \subsubsection{Nested Quantifiers}
 
 \begin{enumerate}
-	\item Suppose that $\forall x P(x) \wedge \exists x Q(x)$ is true. Then $P(x)$ is true for all $x$ and there is an element $y$ for which $Q(y)$ is true.
-	Because $P(x) \wedge Q(y)$ is true for all $x$ and there is a $y$ for which
-	$Q(y)$ is true, $\forall x \exists y (P(x) \wedge Q(y))$ is true. Conversely, suppose
-	that the second proposition is true. Let x be an element
-	in the domain. There is a $y$ such that $Q(y)$ is true, so $\exists x Q(x)$
-	is true. Because $\forall x P(x)$ is also true, it follows that the first
-	proposition is true.
+\item 
+\begin{enumerate}
+	\item For every real number $x$ there exists a real number $y$
+	such that $x$ is less than $y$.
+	\item For every real number $x$ and real
+	number $y$, if $x$ and $y$ are both nonnegative, then their product
+	is nonnegative.
+	\item or every real number $x$ and real number
+	$y$, there exists a real number $z$ such that $xy = z$.
+\end{enumerate}
+
+\item 
+\begin{enumerate}
+	\item There is some student in your class who has sent a message to
+	some student in your class.
+	\item There is some student in your
+	class who has sent a message to every student in your class.
+	\item Every student in your class has sent a message to at least
+	one student in your class.
+	\item Every student in the class
+	has sent a message to every student in the class.
+\end{enumerate}
+
+\item 
+\begin{enumerate}
+	\item $A(Lois, Prof. Michaels)$
+	\item $\forall x (S(x) \rightarrow A(x, Prof. Gross))$
+	\item $\forall x (F(x) \rightarrow (A(x, Prof. Miller) \vee A(Prof. Miller, x)))$
+	\item $\exists x (S(x) \wedge \forall y (F(y) \rightarrow \neg A(x, y)))$
+	\item $\exists x (F(x) \wedge \forall y (S(y) \rightarrow \neg A(y, x)))$
+	\item $\forall y (F(y) \rightarrow \exists x (S(x) \vee A(x, y)))$
+	\item $\exists x (F(x) \wedge \forall y ((f(y) \wedge (y \ne x)) \rightarrow A(x, y)))$
+	\item $\exists x (S(x) \wedge \forall y (F(y) \rightarrow \neg A(y, x)))$
+\end{enumerate}
 	
-	\item Suppose that $\forall x P(x) \vee \exists x Q(x)$ is
-	true. Then either $P(x)$ is true for all $x$, or there exists a $y$ for
-	which $Q(y)$ is true. In the former case, $P(x) \vee Q(y)$ is true
-	for all x, so $\forall x \exists y (P(x) \vee Q(y))$ is true. In the latter case,
-	$Q(y)$ is true for a particular $y$, so $P(x) \vee Q(y)$ is true for all
-	$x$ and consequently $\forall x \exists y(P(x) \vee Q(y))$ is true. Conversely,
-	suppose that the second proposition is true. If $P(x)$ is true for
-	all $x$, then the first proposition is true. If not, $P(x)$ is false for
-	some $x$, and for this $x$ there must be a $y$ such that $P(x) \vee Q(y)$
-	is true. Hence, $Q(y)$ must be true, so $\exists y Q(y)$ is true. It follows
-	that the first proposition must hold.
+\item Suppose that $\forall x P(x) \wedge \exists x Q(x)$ is true. Then $P(x)$ is true for all $x$ and there is an element $y$ for which $Q(y)$ is true.
+Because $P(x) \wedge Q(y)$ is true for all $x$ and there is a $y$ for which
+$Q(y)$ is true, $\forall x \exists y (P(x) \wedge Q(y))$ is true. Conversely, suppose
+that the second proposition is true. Let x be an element
+in the domain. There is a $y$ such that $Q(y)$ is true, so $\exists x Q(x)$
+is true. Because $\forall x P(x)$ is also true, it follows that the first
+proposition is true.
+	
+\item Suppose that $\forall x P(x) \vee \exists x Q(x)$ is
+true. Then either $P(x)$ is true for all $x$, or there exists a $y$ for
+which $Q(y)$ is true. In the former case, $P(x) \vee Q(y)$ is true
+for all x, so $\forall x \exists y (P(x) \vee Q(y))$ is true. In the latter case,
+$Q(y)$ is true for a particular $y$, so $P(x) \vee Q(y)$ is true for all
+$x$ and consequently $\forall x \exists y(P(x) \vee Q(y))$ is true. Conversely,
+suppose that the second proposition is true. If $P(x)$ is true for
+all $x$, then the first proposition is true. If not, $P(x)$ is false for
+some $x$, and for this $x$ there must be a $y$ such that $P(x) \vee Q(y)$
+is true. Hence, $Q(y)$ must be true, so $\exists y Q(y)$ is true. It follows
+that the first proposition must hold.
 \end{enumerate}
 
 
