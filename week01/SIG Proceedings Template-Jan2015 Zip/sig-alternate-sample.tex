@@ -103,7 +103,7 @@ variables have the same truth value.
 
 \begin{enumerate}
 \item Each inhabitant of a remote village always tells the truth
-or always lies.A villager will give only a “Yes” or a “No”
+or always lies.A villager will give only a \textquotedblleft Yes\textquotedblright or a \textquotedblleft No\textquotedblright
 response to a question a tourist asks. Suppose you are a
 tourist visiting this area and come to a fork in the road.
 One branch leads to the ruins you want to visit; the other
@@ -226,6 +226,14 @@ logically equivalent.
 \subsection{Nested Quantifiers}
 
 \begin{enumerate}
+\item Translate these statements into English, where the domain
+for each variable consists of all real numbers.
+\begin{enumerate}
+	\item $\forall x \exists y (x < y)$
+	\item $\forall x \forall y (((x \ge 0) \wedge (y \ge 0)) \rightarrow (x y \ge 0))$
+	\item $\forall x \forall y \exists z (x y = z)$
+\end{enumerate}
+	
 \item Show that $\forall x P(x) \wedge \exists x Q(x)$ is logically equivalent
 to $\forall x \exists y (P(x) \wedge Q(y))$, where all quantifiers have
 the same nonempty domain.
@@ -374,25 +382,36 @@ at least one value of $x$ in the domain.
 \subsubsection{Nested Quantifiers}
 
 \begin{enumerate}
-	\item Suppose that $\forall x P(x) \wedge \exists x Q(x)$ is true. Then $P(x)$ is true for all $x$ and there is an element $y$ for which $Q(y)$ is true.
-	Because $P(x) \wedge Q(y)$ is true for all $x$ and there is a $y$ for which
-	$Q(y)$ is true, $\forall x \exists y (P(x) \wedge Q(y))$ is true. Conversely, suppose
-	that the second proposition is true. Let x be an element
-	in the domain. There is a $y$ such that $Q(y)$ is true, so $\exists x Q(x)$
-	is true. Because $\forall x P(x)$ is also true, it follows that the first
-	proposition is true.
+\item 
+\begin{enumerate}
+	\item For every real number $x$ there exists a real number $y$
+	such that $x$ is less than $y$.
+	\item For every real number $x$ and real
+	number $y$, if $x$ and $y$ are both nonnegative, then their product
+	is nonnegative.
+	\item or every real number $x$ and real number
+	$y$, there exists a real number $z$ such that $xy = z$.
+\end{enumerate}
 	
-	\item Suppose that $\forall x P(x) \vee \exists x Q(x)$ is
-	true. Then either $P(x)$ is true for all $x$, or there exists a $y$ for
-	which $Q(y)$ is true. In the former case, $P(x) \vee Q(y)$ is true
-	for all x, so $\forall x \exists y (P(x) \vee Q(y))$ is true. In the latter case,
-	$Q(y)$ is true for a particular $y$, so $P(x) \vee Q(y)$ is true for all
-	$x$ and consequently $\forall x \exists y(P(x) \vee Q(y))$ is true. Conversely,
-	suppose that the second proposition is true. If $P(x)$ is true for
-	all $x$, then the first proposition is true. If not, $P(x)$ is false for
-	some $x$, and for this $x$ there must be a $y$ such that $P(x) \vee Q(y)$
-	is true. Hence, $Q(y)$ must be true, so $\exists y Q(y)$ is true. It follows
-	that the first proposition must hold.
+\item Suppose that $\forall x P(x) \wedge \exists x Q(x)$ is true. Then $P(x)$ is true for all $x$ and there is an element $y$ for which $Q(y)$ is true.
+Because $P(x) \wedge Q(y)$ is true for all $x$ and there is a $y$ for which
+$Q(y)$ is true, $\forall x \exists y (P(x) \wedge Q(y))$ is true. Conversely, suppose
+that the second proposition is true. Let x be an element
+in the domain. There is a $y$ such that $Q(y)$ is true, so $\exists x Q(x)$
+is true. Because $\forall x P(x)$ is also true, it follows that the first
+proposition is true.
+	
+\item Suppose that $\forall x P(x) \vee \exists x Q(x)$ is
+true. Then either $P(x)$ is true for all $x$, or there exists a $y$ for
+which $Q(y)$ is true. In the former case, $P(x) \vee Q(y)$ is true
+for all x, so $\forall x \exists y (P(x) \vee Q(y))$ is true. In the latter case,
+$Q(y)$ is true for a particular $y$, so $P(x) \vee Q(y)$ is true for all
+$x$ and consequently $\forall x \exists y(P(x) \vee Q(y))$ is true. Conversely,
+suppose that the second proposition is true. If $P(x)$ is true for
+all $x$, then the first proposition is true. If not, $P(x)$ is false for
+some $x$, and for this $x$ there must be a $y$ such that $P(x) \vee Q(y)$
+is true. Hence, $Q(y)$ must be true, so $\exists y Q(y)$ is true. It follows
+that the first proposition must hold.
 \end{enumerate}
 
 
