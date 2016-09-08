@@ -233,6 +233,38 @@ for each variable consists of all real numbers.
 	\item $\forall x \forall y (((x \ge 0) \wedge (y \ge 0)) \rightarrow (x y \ge 0))$
 	\item $\forall x \forall y \exists z (x y = z)$
 \end{enumerate}
+
+\item Let $Q(x, y)$ be the statement \textquotedblleft $x$ has sent an e-mail message
+to $y$,\textquotedblright where the domain for both $x$ and $y$ consists of
+all students in your class. Express each of these quantifications in English.
+\begin{enumerate}
+	\item $\exists x \exists y Q(x, y)$
+	\item $\exists x \forall y Q(x, y)$
+	\item $\forall x \exists y Q(x, y)$
+	\item $\forall x \forall y Q(x, y)$
+\end{enumerate}
+
+\item Let $S(x)$ be the predicate \textquotedblleft $x$ is a student,\textquotedblright $F(x)$ the predicate
+\textquotedblleft $x$ is a faculty member,\textquotedblright and $A(x, y)$ the predicate
+\textquotedblleft $x$ has asked $y$ a question,\textquotedblright where the domain consists of
+all people associated with your school. Use quantifiers to
+express each of these statements.
+\begin{enumerate}
+	\item Lois has asked Professor Michaels a question.
+	\item Every student has asked Professor Gross a question
+	\item Every faculty member has either asked Professor
+	Miller a question or been asked a question by Professor
+	Miller
+	\item Some student has not asked any faculty member a
+	question.
+	\item There is a faculty member who has never been asked
+	a question by a student.
+	\item Some student has asked every faculty member a question.
+	\item There is a faculty member who has asked every other
+	faculty member a question.
+	\item Some student has never been asked a question by a
+	faculty member.
+\end{enumerate}
 	
 \item Show that $\forall x P(x) \wedge \exists x Q(x)$ is logically equivalent
 to $\forall x \exists y (P(x) \wedge Q(y))$, where all quantifiers have
@@ -391,6 +423,30 @@ at least one value of $x$ in the domain.
 	is nonnegative.
 	\item or every real number $x$ and real number
 	$y$, there exists a real number $z$ such that $xy = z$.
+\end{enumerate}
+
+\item 
+\begin{enumerate}
+	\item There is some student in your class who has sent a message to
+	some student in your class.
+	\item There is some student in your
+	class who has sent a message to every student in your class.
+	\item Every student in your class has sent a message to at least
+	one student in your class.
+	\item Every student in the class
+	has sent a message to every student in the class.
+\end{enumerate}
+
+\item 
+\begin{enumerate}
+	\item $A(Lois, Prof. Michaels)$
+	\item $\forall x (S(x) \rightarrow A(x, Prof. Gross))$
+	\item $\forall x (F(x) \rightarrow (A(x, Prof. Miller) \vee A(Prof. Miller, x)))$
+	\item $\exists x (S(x) \wedge \forall y (F(y) \rightarrow \neg A(x, y)))$
+	\item $\exists x (F(x) \wedge \forall y (S(y) \rightarrow \neg A(y, x)))$
+	\item $\forall y (F(y) \rightarrow \exists x (S(x) \vee A(x, y)))$
+	\item $\exists x (F(x) \wedge \forall y ((f(y) \wedge (y \ne x)) \rightarrow A(x, y)))$
+	\item $\exists x (S(x) \wedge \forall y (F(y) \rightarrow \neg A(y, x)))$
 \end{enumerate}
 	
 \item Suppose that $\forall x P(x) \wedge \exists x Q(x)$ is true. Then $P(x)$ is true for all $x$ and there is an element $y$ for which $Q(y)$ is true.
