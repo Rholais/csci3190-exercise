@@ -1,0 +1,399 @@
+% This is "sig-alternate.tex" V2.1 April 2013
+% This file should be compiled with V2.5 of "sig-alternate.cls" May 2012
+%
+% This example file demonstrates the use of the 'sig-alternate.cls'
+% V2.5 LaTeX2e document class file. It is for those submitting
+% articles to ACM Conference Proceedings WHO DO NOT WISH TO
+% STRICTLY ADHERE TO THE SIGS (PUBS-BOARD-ENDORSED) STYLE.
+% The 'sig-alternate.cls' file will produce a similar-looking,
+% albeit, 'tighter' paper resulting in, invariably, fewer pages.
+%
+% ----------------------------------------------------------------------------------------------------------------
+% This .tex file (and associated .cls V2.5) produces:
+%       1) The Permission Statement
+%       2) The Conference (location) Info information
+%       3) The Copyright Line with ACM data
+%       4) NO page numbers
+%
+% as against the acm_proc_article-sp.cls file which
+% DOES NOT produce 1) thru' 3) above.
+%
+% Using 'sig-alternate.cls' you have control, however, from within
+% the source .tex file, over both the CopyrightYear
+% (defaulted to 200X) and the ACM Copyright Data
+% (defaulted to X-XXXXX-XX-X/XX/XX).
+% e.g.
+% \CopyrightYear{2007} will cause 2007 to appear in the copyright line.
+% \crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
+%
+% ---------------------------------------------------------------------------------------------------------------
+% This .tex source is an example which *does* use
+% the .bib file (from which the .bbl file % is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission, you *NEED* to 'insert'
+% your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+% ================= IF YOU HAVE QUESTIONS =======================
+% Questions regarding the SIGS styles, SIGS policies and
+% procedures, Conferences etc. should be sent to
+% Adrienne Griscti (griscti@acm.org)
+%
+% Technical questions _only_ to
+% Gerald Murray (murray@hq.acm.org)
+% ===============================================================
+%
+% For tracking purposes - this is V2.0 - May 2012
+
+\documentclass{sig-alternate-05-2015}
+
+\usepackage{booktabs}
+
+\begin{document}
+
+% Copyright
+%\setcopyright{acmcopyright}
+%\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
+
+
+% DOI
+%\doi{10.475/123_4}
+
+% ISBN
+%\isbn{123-4567-24-567/08/06}
+
+%Conference
+%\conferenceinfo{PLDI '13}{June 16--19, 2013, Seattle, WA, USA}
+
+%\acmPrice{\$15.00}
+
+%
+% --- Author Metadata here ---
+%\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
+%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+% --- End of Author Metadata ---
+
+\title{CSCI 3190 \\ Introduction to Discrete Mathematics and Algorithms}
+\subtitle{Extended Exercise 1}
+
+\maketitle
+\begin{abstract}
+
+\end{abstract}
+
+\keywords{}
+
+\section{Propositional Logic}
+\subsection{Propositional Logic}
+
+\begin{enumerate}
+\item Explain, without using a truth table, why $(p \vee q \vee r) \wedge
+(\neg p \vee \neg q \vee \neg r)$ is true when at least one of $p$, $q$, and $r$
+is true and at least one is false, but is false when all three
+variables have the same truth value.
+\end{enumerate}
+
+\subsection{Application}
+
+\begin{enumerate}
+\item Each inhabitant of a remote village always tells the truth
+or always lies.A villager will give only a “Yes” or a “No”
+response to a question a tourist asks. Suppose you are a
+tourist visiting this area and come to a fork in the road.
+One branch leads to the ruins you want to visit; the other
+branch leads deep into the jungle. A villager is standing
+at the fork in the road. What one question can you ask the
+villager to determine which branch to take?
+\end{enumerate}
+
+\subsection{Propositional Equivalences}
+
+\begin{enumerate}
+\item Show that $(p \wedge q) \rightarrow p$ is a tautology
+by using truth tables.
+
+\item Determine whether $(\neg q \wedge (p \rightarrow q)) \rightarrow \neg p$ is a tautology.
+
+\item Show that $(p \vee q) \wedge (\neg p \vee r) \rightarrow (q \vee r)$ is a tautology.
+
+\end{enumerate}
+
+\subsection{Predicates and Quantifiers}
+
+\begin{enumerate}
+\item Let $P(x)$ denote the statement \textquotedblleft $x \le 4$.\textquotedblright What are these
+truth values?
+\begin{enumerate}
+	\item $P(0)$
+	\item $P(4)$
+	\item $P(6)$
+\end{enumerate}
+
+\item Let $P(x)$ be the statement \textquotedblleft $x$ spends more than five hours
+every weekday in class,\textquotedblright where the domain for $x$ consists
+of all students. Express each of these quantifications in
+English.
+\begin{enumerate}
+	\item $\exists x P(x)$
+	\item $\forall x P(x)$
+	\item $\exists x \neg P(x)$
+	\item $\forall x \neg P(x)$
+\end{enumerate}
+
+\item Translate these statements into English, where $C(x)$ is \textquotedblleft $x$
+is a comedian\textquotedblright and $F(x)$ is \textquotedblleft $x$ is funny\textquotedblright and the domain
+consists of all people.
+\begin{enumerate}
+	\item $\forall x (C(x) \rightarrow F(x))$
+	\item $\forall x (C(x) \wedge F(x))$
+	\item $\exists x (C(x) \rightarrow F(x))$
+	\item $\exists x (C(x) \wedge F(x))$
+\end{enumerate}
+
+\item Let $P(x)$ be the statement \textquotedblleft $x$ can speak Cantonese\textquotedblright and let
+$Q(x)$ be the statement \textquotedblleft $x$ knows the computer language
+C++.\textquotedblright Express each of these sentences in terms of $P(x)$,
+$Q(x)$, quantifiers, and logical connectives. The domain
+for quantifiers consists of all students at CU.
+\begin{enumerate}
+	\item There is a student at CU who can speak Cantonese
+	and who knows C++.
+	\item There is a student at CU who can speak Cantonese
+	but who doesn’t know C++.
+	\item Every student at CU either can speak Cantonese
+	or knows C++.
+	\item No student at CU can speak Cantonese or knows
+	C++.
+\end{enumerate}
+
+\item Let $P(x)$ be the statement \textquotedblleft $x = x^2$.\textquotedblright If the domain consists
+of the integers, what are these truth values?
+\begin{enumerate}
+	\item $P(0)$
+	\item $P(1)$
+	\item $P(2)$
+	\item $P(-1)$
+	\item $\exists x P(x)$
+	\item $\forall x P(x)$
+\end{enumerate}
+
+\item Suppose that the domain of the propositional function
+$P(x)$ consists of the integers 0 and 1. Write out
+each of these propositions using disjunctions, conjunctions,
+and negations.
+\begin{enumerate}
+	\item $\exists x P(x)$
+	\item $\forall x P(x)$
+	\item $\exists x \neg P(x)$
+	\item $\forall x \neg P(x)$
+	\item $\neg \exists x P(x)$
+	\item $\neg \forall x P(x)$
+\end{enumerate}
+
+\item For each of these statements find a domain for which the
+statement is true and a domain for which the statement is
+false.
+\begin{enumerate}
+	\item Everyone is studying discrete mathematics.
+	\item Everyone is older than 21 years.
+	\item Every two people have the same mother.
+	\item No two different people have the same grandmother.
+\end{enumerate}
+
+\item Find a counterexample, if possible, to these universally
+quantified statements, where the domain for all variables
+consists of all integers.
+\begin{enumerate}
+	\item $\forall x (x^2 \ge x)$
+	\item $\forall x (x > 0 \vee x < 0)$
+	\item $\forall (x = 1)$
+\end{enumerate}
+
+\item Determine whether $\forall x (P(x) \rightarrow Q(x))$ and $\forall x P(x) \rightarrow
+\forall x Q(x)$ are logically equivalent. Justify your answer.
+
+\item Show that $\exists x (P(x) \vee Q(x))$ and $\exists x P(x) \vee \exists x Q(x)$ are
+logically equivalent.
+
+\end{enumerate}
+
+\subsection{Nested Quantifiers}
+
+\begin{enumerate}
+\item Show that $\forall x P(x) \wedge \exists x Q(x)$ is logically equivalent
+to $\forall x \exists y (P(x) \wedge Q(y))$, where all quantifiers have
+the same nonempty domain.
+
+\item Show that $\forall xP(x) \vee \exists x Q(x)$ is equivalent to $\forall x \exists y
+(P(x) \vee Q(y))$, where all quantifiers have the same
+nonempty domain.
+\end{enumerate}
+
+\newpage
+%APPENDICES are optional
+%\balancecolumns
+\appendix
+%Appendix A
+\section{Answer}
+\subsection{Propositional Logic}
+\subsubsection{Propositional Logic}
+\begin{enumerate}
+
+\item The first clause is true if and only if at least one of $p$, $q$, and
+$r$ is true. The second clause is true if and only if at least one of
+the three variables is false. Therefore the entire statement is
+true if and only if there is at least one T and one F among the
+truth values of the variables, in other words, that they don’t all
+have the same truth value.
+\end{enumerate}
+
+\subsubsection{Application}
+
+\begin{enumerate}
+\item \textquotedblleft If I were to ask you whether the right branch
+leads to the ruins, would you answer yes? \textquotedblright
+\end{enumerate}
+
+\subsubsection{Propositional Equivalences}
+\begin{enumerate}
+\item {\ }
+\begin{table}[htb]
+	\centering
+	\caption{Truth Table}
+	\begin{tabular}{cccc} \toprule
+		$p$ & $q$ & $p \wedge q$ & $(p \wedge q) \rightarrow p$\\ \midrule
+		T & T & T & T\\ 
+		T & F & F & T\\
+		F & T & F & T\\
+		F & F & F & T\\
+		\hline\end{tabular}
+\end{table}
+
+
+\item It is a tautology.
+
+\item If both $q$ and $r$ are false, $(p \vee q)$ and $(\neg p \vee r)$ is opposite, then $(\neg q \wedge \neg r) \rightarrow \neg (p \vee q) \vee \neg (\neg p \vee r)$ is tautology, so $\neg(q \vee r) \rightarrow \neg ((p \vee q) \wedge (\neg p \vee r))$ is tautology, and $(p \vee q) \wedge (\neg p \vee r) \rightarrow (q \vee r)$ is tautology.
+
+\end{enumerate}
+
+\subsubsection{Predicates and Quantifiers}
+
+\begin{enumerate}
+\item 
+\begin{enumerate}
+	\item T
+	\item T
+	\item F
+\end{enumerate}
+
+\item 
+\begin{enumerate}
+	\item There
+	is a student who spends more than 5 hours every weekday
+	in class.
+	\item Every student spends more than 5 hours every
+	weekday in class.
+	\item There is a student who does not
+	spend more than 5 hours every weekday in class.
+	\item No
+	student spends more than 5 hours every weekday in class.
+\end{enumerate}
+
+\item 
+\begin{enumerate}
+	\item Every comedian is funny.
+	\item Every person is a funny
+	comedian.
+	\item There exists a person such that if she or he is
+	a comedian, then she or he is funny.
+	\item Some comedians
+	are funny.
+\end{enumerate}
+
+\item 
+\begin{enumerate}
+	\item $\exists x (P(x) \wedge Q(x))$
+	\item $\exists x (P(x) \wedge \neg Q(x))$
+	\item $\forall x (P(x) \vee Q(x))$
+	\item $\forall x \neg (P(x) \vee Q(x)$
+\end{enumerate}
+
+\item 
+\begin{enumerate}
+	\item T
+	\item T
+	\item F
+	\item F
+	\item T
+	\item F
+\end{enumerate}
+
+\item 
+\begin{enumerate}
+	\item $P(0) \vee P(1)$
+	\item $P(0) \wedge P(1)$
+	\item $\neg P(0) \vee \neg P(1)$
+	\item $\neg P(0) \wedge \neg P(1)$
+	\item $\neg(P(0) \vee P(1))$
+	\item $\neg(P(0) \wedge P(1))$
+\end{enumerate}
+
+\item Many answers are possible.
+\begin{enumerate}
+	\item All students in CSCI3190; all students in	the world
+	\item All members of the Legislative Council; all students in CSCI3190
+	\item Tan Sri Dr Runme Shaw and Sir Run Run Shaw; all members of the Legislative Council
+	\item Sir Donald Tsang Yam-kuen and Leung Chun-ying; all students in the world
+\end{enumerate}
+
+\item 
+\begin{enumerate}
+	\item There is no counterexample.
+	\item $x = 0$
+	\item $x = 2$
+\end{enumerate}
+
+\item They are not equivalent.
+Let $P(x)$ be any propositional function that is sometimes
+true and sometimes false, and let $Q(x)$ be any propositional
+function that is always false. Then $\forall x (P(x) \rightarrow Q(x))$ is false
+but $\forall x P(x) \rightarrow \forall x Q(x)$ is true.
+
+\item Both statements are
+true precisely when at least one of $P(x)$ and $Q(x)$ is true for
+at least one value of $x$ in the domain.
+
+\end{enumerate}
+
+\subsubsection{Nested Quantifiers}
+
+\begin{enumerate}
+	\item Suppose that $\forall x P(x) \wedge \exists x Q(x)$ is true. Then $P(x)$ is true for all $x$ and there is an element $y$ for which $Q(y)$ is true.
+	Because $P(x) \wedge Q(y)$ is true for all $x$ and there is a $y$ for which
+	$Q(y)$ is true, $\forall x \exists y (P(x) \wedge Q(y))$ is true. Conversely, suppose
+	that the second proposition is true. Let x be an element
+	in the domain. There is a $y$ such that $Q(y)$ is true, so $\exists x Q(x)$
+	is true. Because $\forall x P(x)$ is also true, it follows that the first
+	proposition is true.
+	
+	\item Suppose that $\forall x P(x) \vee \exists x Q(x)$ is
+	true. Then either $P(x)$ is true for all $x$, or there exists a $y$ for
+	which $Q(y)$ is true. In the former case, $P(x) \vee Q(y)$ is true
+	for all x, so $\forall x \exists y (P(x) \vee Q(y))$ is true. In the latter case,
+	$Q(y)$ is true for a particular $y$, so $P(x) \vee Q(y)$ is true for all
+	$x$ and consequently $\forall x \exists y(P(x) \vee Q(y))$ is true. Conversely,
+	suppose that the second proposition is true. If $P(x)$ is true for
+	all $x$, then the first proposition is true. If not, $P(x)$ is false for
+	some $x$, and for this $x$ there must be a $y$ such that $P(x) \vee Q(y)$
+	is true. Hence, $Q(y)$ must be true, so $\exists y Q(y)$ is true. It follows
+	that the first proposition must hold.
+\end{enumerate}
+
+
+\end{document}
