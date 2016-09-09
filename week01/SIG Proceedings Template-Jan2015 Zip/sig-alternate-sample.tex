@@ -46,8 +46,8 @@
 % For tracking purposes - this is V2.0 - May 2012
 
 \documentclass{sig-alternate-05-2015}
-
 \usepackage{booktabs}
+
 
 \begin{document}
 
@@ -90,7 +90,6 @@
 \keywords{}
 
 \section{Propositional Logic}
-
 \begin{enumerate}
 \item Which of these sentences are propositions? What are the
 truth values of those that are propositions?
@@ -417,6 +416,10 @@ the same nonempty domain.
 nonempty domain.
 \end{enumerate}
 
+\nocite{*}
+\bibliographystyle{abbrv}
+\bibliography{ref}  % sigproc.bib is the name of the Bibliography in this case
+ 
 \newpage
 %APPENDICES are optional
 %\balancecolumns
@@ -778,6 +781,5 @@ some $x$, and for this $x$ there must be a $y$ such that $P(x) \vee Q(y)$
 is true. Hence, $Q(y)$ must be true, so $\exists y Q(y)$ is true. It follows
 that the first proposition must hold.
 \end{enumerate}
-
 
 \end{document}
