@@ -142,7 +142,7 @@ propositions as an English sentence.
 	\item $\neg p \wedge (p \vee \neg q)$
 \end{enumerate}
 
-\item Let $p$, $q$, and $r$ be the propositions
+\item Let $p$, $q$, and $r$ be the propositions.
 
 $p$ : Grizzly bears have been seen in the area.
 
@@ -171,7 +171,7 @@ have been seen in the area and berries are ripe along
 the trail.
 \end{enumerate}
 
-\item Let $p$, $q$, and $r$ be the propositions
+\item Let $p$, $q$, and $r$ be the propositions.
 
 $p$ :You have the flu.
 
@@ -180,6 +180,7 @@ $q$ :You miss the final examination.
 $r$ :You pass the course.
 
 Express each of these propositions as an English sentence.
+
 \begin{enumerate}
 	\item $p\rightarrow q$
 	\item $\neg q \leftrightarrow r$
@@ -210,7 +211,7 @@ $n$ of the statements in this list are false.\textquotedblright
 
 \begin{enumerate}
 \item Each inhabitant of a remote village always tells the truth
-or always lies.A villager will give only a \textquotedblleft Yes\textquotedblright or a \textquotedblleft No\textquotedblright
+or always lies. A villager will give only a \textquotedblleft Yes\textquotedblright or a \textquotedblleft No\textquotedblright
 response to a question a tourist asks. Suppose you are a
 tourist visiting this area and come to a fork in the road.
 One branch leads to the ruins you want to visit; the other
@@ -258,11 +259,19 @@ by using truth tables.
 
 \item Show that $(p \rightarrow q) \vee (p \rightarrow r) \equiv p \rightarrow (q\vee r)$.
 
-\item Show that $(s \rightarrow r) \vee (q \rightarrow r) \equiv s\vee q \rightarrow  r$.
+\item Show that $(s \rightarrow r) \wedge (q \rightarrow r) \equiv s\wedge q \rightarrow  r$.
 
 \item Show that $\neg p \rightarrow (q \rightarrow \neg r)\equiv r \rightarrow (q \rightarrow p)$.
 
 \item Show that $(\neg p \vee q) \wedge (r \vee \neg q) \wedge (p \vee q) \equiv q\wedge r$.
+
+\item Show that $(\neg p \wedge (p \vee q))\rightarrow q$ is a tautology.
+
+\item Show that $((p\rightarrow q)\wedge (q\rightarrow r)) \rightarrow (p\rightarrow r)$ is a  tautology.
+
+\item Show that $(p\wedge (p \rightarrow q))\rightarrow q$ is a tautology.
+
+\item Show that $((p\vee q)\wedge (p \rightarrow r) \wedge (q\rightarrow r))\rightarrow r$ is a  tautology.
 \end{enumerate}
 
 \section{Predicates and Quantifiers}
@@ -552,8 +561,43 @@ say, \textquotedblleft I am a knight\textquotedblright.
 
 \item It is a tautology.
 
+$(\neg q \wedge (p \rightarrow q)) \rightarrow \neg p$
+
+$\equiv \neg (\neg q \wedge (p \rightarrow q)) \vee \neg p$
+
+$\equiv q \vee \neg (\neg p \vee q)) \vee \neg p$
+
+$\equiv q \vee ( p \wedge \neg q) \vee \neg p$
+
+$\equiv ((q \vee p) \wedge (q \vee \neg q) ) \vee \neg p$
+
+$\equiv ((q \vee p) \wedge T ) \vee \neg p$
+
+$\equiv q \vee p \vee \neg p$
+$\equiv T$
+
 \item If both $q$ and $r$ are false, $(p \vee q)$ and $(\neg p \vee r)$ is opposite, then $(\neg q \wedge \neg r) \rightarrow \neg (p \vee q) \vee \neg (\neg p \vee r)$ is tautology, so $\neg(q \vee r) \rightarrow \neg ((p \vee q) \wedge (\neg p \vee r))$ is tautology, and $(p \vee q) \wedge (\neg p \vee r) \rightarrow (q \vee r)$ is tautology.
 
+Or:
+
+$(p\vee q) \wedge (\neg p \vee r)\rightarrow (q \vee r)$
+
+$\equiv \neg (p\vee q) \vee \neg (\neg p \vee r)\vee  (q \vee r)$
+
+$\equiv (\neg p\wedge \neg q) \vee (p \wedge \neg r)\vee  (q \vee r)$
+
+$\equiv (\neg p\wedge \neg q) \vee q \vee (p \wedge \neg r) \vee r$
+
+$\equiv ((\neg p\vee q)\wedge (\neg q\vee q) ) \vee (p \wedge \neg r) \vee r$
+
+$\equiv ((\neg p\vee q)\wedge T) \vee ((p \vee r) \wedge (\neg r \vee r)) $
+
+$\equiv (\neg p\vee q) \vee ((p \vee r) \wedge T) $
+
+$\equiv \neg p\vee q \vee p \vee r $
+
+$\equiv (\neg p \vee p)\vee q \vee r $
+$\equiv T $
 \item  $(\neg(p \vee F) \wedge (\neg q \wedge T)) \vee p$
 
 $\equiv (\neg p \wedge \neg q)\vee p$
@@ -632,6 +676,50 @@ $\equiv (q \wedge r )\vee( q \wedge \neg q)$
 
 $\equiv (q\wedge r)\vee F$
 $\equiv q\wedge r$
+
+\item $(\neg p \wedge (p \vee q))\rightarrow q$
+
+$\equiv \neg (\neg p \wedge (p \vee q))\vee q$
+
+$\equiv  ( p \vee (\neg p \wedge \neg q))\vee q$
+
+$\equiv  ( (p \vee \neg p) \wedge (p \vee \neg q))\vee q$
+
+$\equiv   p \vee \neg q \vee q$ $\equiv  T$
+\item $((p\rightarrow q)\wedge (q\rightarrow r)) \rightarrow (p\rightarrow r)$
+
+$\equiv \neg ((\neg p\vee q)\wedge (\neg q\vee r)) \vee(\neg p\vee r)$
+
+$\equiv (( p\wedge \neg q)\vee (q\wedge \neg r)) \vee(\neg p\vee r)$
+
+$\equiv (( p\vee \neg p)\wedge (\neg q \vee \neg p))\vee (q\wedge \neg r)) \vee r$
+
+$\equiv  (\neg q \vee \neg p)\vee ((q\vee r)\wedge (\neg r\vee r))$
+
+$\equiv  \neg q \vee \neg p\vee q\vee r$ $\equiv T$
+\item $(p\wedge (p \rightarrow q))\rightarrow q$
+
+$\equiv \neg (p\wedge (\neg p \vee q))\vee q$
+
+$\equiv \neg p\vee ( p \wedge \neg q)\vee q$
+
+$\equiv ((\neg p\vee p) \wedge (\neg p \vee \neg q)\vee q$
+
+$\equiv \neg p \vee \neg q\vee q$ $\equiv T$
+
+\item $((p\vee q)\wedge (p \rightarrow r) \wedge (q\rightarrow r))\rightarrow r$
+
+$\equiv \neg((p\vee q)\wedge (\neg p \vee r) \wedge (\neg q\vee r))\vee r$
+
+$\equiv (\neg p\wedge \neg q)\vee (p \wedge \neg r) \vee (q\wedge \neg r)\vee r$
+
+$\equiv (\neg p\wedge \neg q)\vee (p \wedge \neg r) \vee ((q\vee r) \wedge (\neg r\vee r))$
+
+$\equiv (\neg p\wedge \neg q)\vee (p \wedge \neg r) \vee q\vee r$
+
+$\equiv ((\neg p\vee q )\wedge (\neg q\vee q)) \vee ((p \vee r)\wedge (\neg r\vee r))$
+
+$\equiv \neg p\vee q  \vee p \vee r$ $\equiv T$
 \end{enumerate}
 
 \subsection{Predicates and Quantifiers}
