@@ -80,7 +80,7 @@
 % --- End of Author Metadata ---
 
 \title{CSCI 3190 \\ Introduction to Discrete Mathematics and Algorithms}
-\subtitle{Extended Exercise 1}
+\subtitle{Extended Exercise 2}
 
 \maketitle
 \begin{abstract}
@@ -90,6 +90,43 @@
 \keywords{}
 
 \section{Sets}
+\begin{enumerate}
+\item This exercise presents \textbf{Russell’s paradox}. Let $S$ be the
+set that contains a set $x$ if the set $x$ does not belong to
+itself, so that $S = \{x | x \notin x\}$.
+\begin{enumerate}
+	\item Show the assumption that $S$ is a member of $S$ leads to
+	a contradiction.
+	\item Show the assumption that $S$ is not a member of $S$ leads
+	to a contradiction.
+\end{enumerate}
+\item Describe a procedure for listing all the subsets of a finite
+set.
+\end{enumerate}
+
+\section{Set Operations}
+\begin{enumerate}
+\item Determine whether the symmetric difference is associative;
+that is, if $A$, $B$, and $C$ are sets, does it follow that
+$A \oplus (B \oplus C) = (A \oplus B) \oplus C$?
+\item Suppose that $A$, $B$, and $C$ are sets such that $A \oplus C =
+B \oplus C$. Must it be the case that $A = B$?
+\end{enumerate}
+\section{Functions}
+
+\begin{enumerate}
+\item Suppose that $f$ is a function from $A$ to $B$, where $A$ and $B$
+are finite sets with $|A| = |B|$. Show that $f$ is one-to-one
+if and only if it is onto.
+
+\item Show that if a set $S$ has cardinality $m$, where $m$ is a
+positive integer, then there is a one-to-one correspondence
+between $S$ and the set $\{1, 2, . . . , m\}$.
+
+\item Show that if $S$ and $T$ are two sets each with $m$ elements,
+where $m$ is a positive integer, then there is a
+one-to-one correspondence between $S$ and $T$.
+\end{enumerate}
 
 
 %\nocite{*}
@@ -103,6 +140,71 @@
 %Appendix A
 \section{Answer}
 \subsection{Sets}
+\begin{enumerate}
+\item 
+\begin{enumerate}
+	\item If $S$ is a member of itself then according to the definition, $S$ doesn\textquoteright t belong to $S$, contradictrion.
+	\item If $S$ isn\textquoteright t a member of itself then according to the definition, $S$ belongs to $S$, contradictrion.
+\end{enumerate}
+
+\item Let $S = \{a_1 , a_2 , ..., a_n \}$.
+Represent each subset of $S$ with a bit string of length $n$, where
+the $i$th bit is 1 if and only if $a_i \in S$. To generate all subsets of
+$S$, list all $2^n$ bit strings of length $n$ (for instance, in increasing
+order), and write down the corresponding subsets.
+\end{enumerate}
+\subsection{Set Operations}
+\begin{enumerate}
+\item 
+\begin{align}
+	& A \oplus (B \oplus C) \\
+	= & (A \cap \overline{B \oplus C}) \cup (\overline{A} \cap (B \oplus C))\\
+	= & (A \cap (B \otimes C)) \cup (\overline{A} \cap ((B \cap \overline{C}) \cup (\overline{B} \cap C)))\\
+	= & (A \cap ((B \cap C) \cup (\overline{B} \cap \overline{C})) \cup (\overline{A} \cap B \cap \overline{C}) \cup (\overline{A} \cap \overline{B} \cap C)\\
+	= & (A \cap B \cap C) \cup (A \cap \overline{B} \cap \overline{C}) \cup (\overline{A} \cap B \cap \overline{C}) \cup (\overline{A} \cap \overline{B} \cap C)\\
+	= & (((A \cap B) \cup (\overline{A} \cap \overline{B})) \cap C) \cup (((A \cap \overline{B}) \cup (\overline{A} \cap B)) \cap \overline{C})\\
+	= & ((A \otimes B)\cap C) \cup ((A \oplus B) \cap \overline{C})\\
+	= & (\overline{A \oplus B} \cap C) \cup ((A \oplus B) \cap \overline{C})\\
+	= & (A \oplus B) \oplus C
+\end{align}
+
+\item Yes.
+\end{enumerate}
+\subsection{Functions}
+
+\begin{enumerate}
+\item 
+\begin{enumerate}
+	\item $\Rightarrow$
+		\begin{align}
+			&\text{If $f$ is not onto}\\
+			&\because f\ \text{is not onto}\\
+			&\therefore \exists b \in B, \neg \exists a \in A, f(a) = b\\
+			&\because |A| = |B|\\
+			&\therefore |f(A)| < |A| = |B|\\
+			&\therefore \exists a_1 \ne a_2 \in A, f(a_1) \ne f(a_2)\\
+			&\because f\ \text{is not one-to-one, contradiction.}\\
+		\end{align}
+	\item $\Leftarrow$
+		\begin{align}
+			&\text{If $f$ is not one-to-one}\\
+			&\because f\ \text{is not one-to-one}\\
+			&\therefore \exists a_1 \ne a_2 \in A, f(a_1) \ne f(a_2)\\
+			&\because |A| = |B|\\
+			&\therefore |f(A)| < |A| = |B|\\
+			&\therefore \exists b \in B, \neg \exists a \in A, f(a) = b\\
+			&\therefore f\ \text{is not onto, contradiction.}
+		\end{align}
+\end{enumerate}
+
+\item By definition, to say that $S$ has cardinality
+$m$ is to say that $S$ has exactly $m$ distinct elements. Therefore
+we can assign the first object to 1, the second to 2, and so on.
+This provides the one-to-one correspondence.
+
+\item By last exercise, there is a bijection $f$ from $S$ to ${1, 2, . . . , m}$ and a bijection $g$ from $T$ to $\{1, 2, . . . , m\}$. Then the composition $g^{-1} \circ f$ is
+the desired bijection from $S$ to $T$ .
+\end{enumerate}
 
 
 \end{document}
