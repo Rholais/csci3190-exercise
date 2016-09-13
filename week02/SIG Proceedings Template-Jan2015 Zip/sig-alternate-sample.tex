@@ -133,6 +133,30 @@ false.
 
 \item Suppose that $A$, $B$, and $C$ are sets such that $A \subseteq B$ and $B \subseteq C$. Show that $A \subseteq C$.
 
+\item What is the cardinality of each of these sets?
+\begin{enumerate}
+	\item $\{a\}$
+	\item $\{\{a\}\}$
+	\item $\{a, \{a\}\}$ 
+	\item $\{a, \{a\}, \{a, \{a\}\}\}$
+\end{enumerate}
+
+\item Find the power set of each of these sets, where $a$ and $b$
+are distinct elements.
+\begin{enumerate}
+	\item $\{a\}$
+	\item $\{a, b\}$
+	\item $\{\emptyset, \{\emptyset\}\}$
+\end{enumerate}
+
+\item How many elements does each of these sets have where
+$a$ and $b$ are distinct elements?
+\begin{enumerate}
+	\item $\mathcal{P}(\{a, b, \{a, b\}\})$
+	\item $\mathcal{P}(\{\emptyset, a, \{a\}, \{\{a\}\}\})$
+	\item $\mathcal{P}(\mathcal{P}(\emptyset))$
+\end{enumerate}
+
 \item This exercise presents \textbf{Russell’s paradox}. Let $S$ be the
 set that contains a set $x$ if the set $x$ does not belong to
 itself, so that $S = \{x | x \notin x\}$.
@@ -148,6 +172,16 @@ set.
 
 \section{Set Operations}
 \begin{enumerate}
+\item Let $A$ be the set of students who live within one mile
+of school and let $B$ be the set of students who walk to
+classes. Describe the students in each of these sets.
+\begin{enumerate}
+	\item $A \cap B$
+	\item $A \cup B$
+	\item $A - B$
+	\item $B - A$
+\end{enumerate}
+
 \item Determine whether the symmetric difference is associative;
 that is, if $A$, $B$, and $C$ are sets, does it follow that
 $A \oplus (B \oplus C) = (A \oplus B) \oplus C$?
@@ -234,6 +268,28 @@ $x \in A$ implies that $x \in C$, it follows that $A \subseteq C$.
 
 \item 
 \begin{enumerate}
+	\item 1
+	\item 1 
+	\item 2 
+	\item 3
+\end{enumerate}
+
+\item 
+\begin{enumerate}
+	\item $\{\emptyset, \{a\}\}$ 
+	\item $\{\emptyset, \{a\}, \{b\}, \{a, b\}\}$
+	\item $\{\emptyset, \{\emptyset\}, \{\{\emptyset\}\}, \{\emptyset, \{\emptyset\}\}\}$
+\end{enumerate}
+
+\item 
+\begin{enumerate}
+	\item 8 
+	\item 16 
+	\item 2
+\end{enumerate}
+
+\item 
+\begin{enumerate}
 	\item If $S$ is a member of itself then according to the definition, $S$ doesn\textquoteright t belong to $S$, contradictrion.
 	\item If $S$ isn\textquoteright t a member of itself then according to the definition, $S$ belongs to $S$, contradictrion.
 \end{enumerate}
@@ -246,6 +302,19 @@ order), and write down the corresponding subsets.
 \end{enumerate}
 \subsection{Set Operations}
 \begin{enumerate}
+\item 
+\begin{enumerate}
+	\item The set of students who live within one mile of school
+	and walk to classes 
+	\item The set of students who live within
+	one mile of school or walk to classes (or do both) 
+	\item The
+	set of students who live within one mile of school but
+	do not walk to classes 
+	\item The set of students who walk
+	to classes but live more than one mile away from school
+\end{enumerate}
+
 \item 
 \begin{align}
 	& A \oplus (B \oplus C) \\
