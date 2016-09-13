@@ -182,6 +182,18 @@ classes. Describe the students in each of these sets.
 	\item $B - A$
 \end{enumerate}
 
+\item Let $A$ and $B$ be sets. Prove the \textbf{Commutative Laws} by showing that
+\begin{enumerate}
+	\item $A \cup B = B \cup A$.
+	\item $A \cap B = B \cap A$.
+\end{enumerate}
+
+\item Let $A$ and $B$ be sets. Prove the \textbf{Absorption Laws} by showing that
+\begin{enumerate}
+	\item $A \cup (A \cap B) = A$.
+	\item $A \cap (A \cup B) = A$.
+\end{enumerate}
+
 \item Determine whether the symmetric difference is associative;
 that is, if $A$, $B$, and $C$ are sets, does it follow that
 $A \oplus (B \oplus C) = (A \oplus B) \oplus C$?
@@ -313,6 +325,33 @@ order), and write down the corresponding subsets.
 	do not walk to classes 
 	\item The set of students who walk
 	to classes but live more than one mile away from school
+\end{enumerate}
+
+\item 
+\begin{enumerate}
+	\item 
+	\begin{align}
+		A \cup B & = \{x \mid x \in A \vee x \in B\}\\
+		& = \{x \mid x \in B \vee x \in A\}\\
+		& = B \cup A
+	\end{align}
+	\item 
+	\begin{align}
+		A \cap B & = \{x \mid x \in A \wedge x \in B\}\\
+		& = \{x \mid x \in B \wedge x \in A\}\\
+		& = B \cap A
+	\end{align}
+\end{enumerate}
+
+\item 
+\begin{enumerate}
+	\item Suppose $x \in A \cup (A \cap B)$. Then $x \in A$ or $x \in A \cap B$ by the definition of union. Then by the definition of intersection, $x \in A \cap B \rightarrow x \in A$, we have proved that the left-hand side is a subset of the right-hand side. Conversely, let $x \in A$. Then by the definition of union, $x \in A \cup (A \cap B)$, so the right-hand side is
+	a subset of the left-hand side.
+	\item Suppose $x \in A \cap (A \cup B)$. Then $x \in A$ and
+	$x \in A \cup B$ by the definition of intersection. Because $x \in A$,	we have proved that the left-hand side is a subset of the right-hand side. Conversely, let $x \in A$. Then by the definition of
+	union, $x \in A \cup B$ as well. Therefore $x \in A \cap (A \cup B)$
+	by the definition of intersection, so the right-hand side is
+	a subset of the left-hand side.
 \end{enumerate}
 
 \item 
