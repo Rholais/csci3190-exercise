@@ -91,6 +91,27 @@
 
 \section{Sets}
 \begin{enumerate}
+\item List the members of these sets.
+\begin{enumerate}
+	\item $\{x \mid x \text{ is a real number such that } x^2 = 1\}$
+	\item $\{x \mid x \text{ is a positive integer less than 12}\}$
+	\item $\{x \mid x \text{ is the square of an integer and } x < 100\}$
+	\item $\{x \mid x \text{ is an integer such that } x^2 = 2\}$
+\end{enumerate}
+
+\item For each of these pairs of sets, determine whether the first
+is a subset of the second, the second is a subset of the first,
+or neither is a subset of the other.
+\begin{enumerate}
+	\item the set of airline flights from HK to Auckland,
+	the set of nonstop airline flights from HK to
+	Auckland
+	\item the set of people who speak English, the set of people
+	who speak Chinese
+	\item the set of flying squirrels, the set of living creatures
+	that can fly
+\end{enumerate}
+
 \item This exercise presents \textbf{Russell’s paradox}. Let $S$ be the
 set that contains a set $x$ if the set $x$ does not belong to
 itself, so that $S = \{x | x \notin x\}$.
@@ -132,6 +153,10 @@ between $S$ and the set $\{1, 2, . . . , m\}$.
 \item Show that if $S$ and $T$ are two sets each with $m$ elements,
 where $m$ is a positive integer, then there is a
 one-to-one correspondence between $S$ and $T$.
+
+\item Show that a set $S$ is infinite if and only if there is a proper
+subset $A$ of $S$ such that there is a one-to-one correspondence
+between $A$ and $S$.
 \end{enumerate}
 
 
@@ -147,6 +172,23 @@ one-to-one correspondence between $S$ and $T$.
 \section{Answer}
 \subsection{Sets}
 \begin{enumerate}
+\item 
+\begin{enumerate}
+	\item $\{-1,1\}$ 
+	\item $\{1,2,3,4,5,6,7,8,9,10,11\}$ 
+	\item $\{0,1,4, 9, 16, 25, 36, 49, 64, 81\}$ 
+	\item $\emptyset$
+\end{enumerate}
+
+\item 
+\begin{enumerate}
+	\item The first is a subset of the
+	second, but the second is not a subset of the first. 
+	\item Neither
+	is a subset of the other. 
+	\item The first is a subset of the second, but the second is not a subset of the first.
+\end{enumerate}
+
 \item 
 \begin{enumerate}
 	\item If $S$ is a member of itself then according to the definition, $S$ doesn\textquoteright t belong to $S$, contradictrion.
@@ -175,6 +217,14 @@ order), and write down the corresponding subsets.
 \end{align}
 
 \item Yes.
+
+\item 
+\begin{align}
+	&|A \cup B \cup C|\\
+	=&|A \cup B| + |C| - |(A \cup B) \cap C|\\
+	=&|A| + |B| + |C| - |A \cap B| - |(A \cap C) \cup (B \cap C)|\\
+	=&|A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|
+\end{align}
 \end{enumerate}
 \subsection{Functions}
 
@@ -210,6 +260,15 @@ This provides the one-to-one correspondence.
 
 \item By last exercise, there is a bijection $f$ from $S$ to ${1, 2, . . . , m}$ and a bijection $g$ from $T$ to $\{1, 2, . . . , m\}$. Then the composition $g^{-1} \circ f$ is
 the desired bijection from $S$ to $T$ .
+
+\item 
+\begin{enumerate}
+	\item If $S$ is finite, then $S$ is not equivalent to a proper subset since they don\textquoteright t have a same cardinality.
+	\item If $S$ is infinite, then $S$ has countably infinite subset $\{s_0, s_1, s_2, ...\}$ by the previous exercise. Show that $S$ is
+	equivalent to $A = S \backslash \{s_0\}$. Construct the bijection as follows:
+	\item Map $\{s_0, s_1, s_2, ...\}$ one-to-one onto $\{s_1, s_2, s_3, ...\}$. 
+	\item For every other element $x \in S \backslash \{s_0, s_1, s_2, ...\}$, map $x$ to $x$.
+\end{enumerate}
 \end{enumerate}
 
 
