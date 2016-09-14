@@ -79,6 +79,7 @@
 %\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
 % --- End of Author Metadata ---
 
+%\\TODO:1.tautology prove section 2. set section operation proof 3. function section basic proving onto bijection...
 \title{CSCI 3190 \\ Introduction to Discrete Mathematics and Algorithms}
 \subtitle{Extended Exercise 2}
 
@@ -88,6 +89,16 @@
 \end{abstract}
 
 \keywords{}
+\section{Tautology Proof}
+Try to prove the followings are tautologies.
+\begin{enumerate}
+\item $p\Rightarrow (p\vee q )$
+\item $\neg p \Rightarrow (p\rightarrow q)$
+\item $(p\wedge q)\Rightarrow (p\rightarrow q)$
+\item $\neg (p\rightarrow q)\Rightarrow p$
+\item $\neg (p \rightarrow q) \Rightarrow \neg q$
+
+\end{enumerate}
 
 \section{Sets}
 \begin{enumerate}
@@ -237,6 +248,62 @@ between $A$ and $S$.
 \appendix
 %Appendix A
 \section{Answer}
+\subsection{TAUTOLOGY PROOF}
+\begin{enumerate}
+	\item $p\rightarrow (p\vee q )$
+	
+	$\Leftrightarrow \neg p \vee (p \vee q)$
+	
+	$\Leftrightarrow (\neg p \vee p) \vee q$
+	
+	$\Leftrightarrow T \vee q$ 
+	
+	$\Leftrightarrow T$
+	\item 	$\neg p \rightarrow (p\rightarrow q)$
+	
+	$\Leftrightarrow p \vee (\neg p\vee q)$
+	
+	$\Leftrightarrow (p \vee \neg p) \vee q$
+	
+	$\Leftrightarrow T \vee q$
+		
+	$\Leftrightarrow T$
+	\item $(p\wedge q)\rightarrow (p\rightarrow q)$
+	
+	 $\Leftrightarrow \neg (p\wedge q)\vee (\neg p\vee q)$
+	 
+	 $\Leftrightarrow \neg p\vee \neg q\vee \neg p\vee q$
+	 
+	 $\Leftrightarrow \neg p\vee (\neg q \vee q)$
+	 
+	 $\Leftrightarrow \neg p\vee T$
+	 
+	 $\Leftrightarrow  T$
+	\item $\neg (p\rightarrow q)\rightarrow p$
+	
+	$\Leftrightarrow  (p\rightarrow q)\vee p$
+	
+		$\Leftrightarrow  (\neg p\vee q)\vee p$
+		
+		$\Leftrightarrow  (\neg p\vee p)\vee q$
+		
+		$\Leftrightarrow  T\vee p$
+		
+		$\Leftrightarrow  T$
+	\item $\neg (p \rightarrow q) \rightarrow \neg q$
+	
+	$\Leftrightarrow  (p \rightarrow q) \vee \neg q$
+	
+	$\Leftrightarrow  (\neg p \vee q) \vee \neg q$
+	
+	$\Leftrightarrow  \neg p \vee (q \vee \neg q)$
+	
+	$\Leftrightarrow  \neg p \vee T$
+	
+	$\Leftrightarrow   T$
+
+\end{enumerate}
+
 \subsection{Sets}
 \begin{enumerate}
 \item 
