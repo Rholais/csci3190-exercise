@@ -89,6 +89,18 @@
 
 \keywords{}
 
+\section{Propositional Equivalences}
+\begin{enumerate}
+\item Show that each of these conditional statements is a tautology without using truth tables.
+\begin{enumerate}
+	\item $(p \wedge q) \rightarrow p$
+	\item $p \rightarrow (p \vee q)$
+	\item $\neg p \rightarrow (p \rightarrow q)$
+	\item $(p \wedge q) \rightarrow (p \rightarrow q)$
+	\item $\neg (p \rightarrow q) \rightarrow p$
+	\item $\neg(p \rightarrow q) \rightarrow \neg q$
+\end{enumerate}
+\end{enumerate}
 \section{Sets}
 \begin{enumerate}
 \item List the members of these sets.
@@ -237,6 +249,29 @@ between $A$ and $S$.
 \appendix
 %Appendix A
 \section{Answer}
+\subsection{Propositional Equivalences}
+\begin{enumerate}
+\item In each case we will show that if the hypothesis is true,
+then the conclusion is also.
+\begin{enumerate}
+	\item If the hypothesis $p \wedge q$ is true,
+	then by the definition of conjunction, the conclusion $p$ must
+	also be true. 
+	\item If the hypothesis $p$ is true, by the definition
+	of disjunction, the conclusion $p \vee q$ is also true. 
+	\item If the
+	hypothesis $\neg p$ is true, that is, if $p$ is false, then the conclusion
+	$p \rightarrow q$ is true. 
+	\item If the hypothesis $p \wedge q$ is true, then both
+	$p$ and $q$ are true, so the conclusion $p \rightarrow q$ is also true. 
+	\item If
+	the hypothesis $\neg (p \rightarrow q)$ is true, then $p \rightarrow q$ is false, so
+	the conclusion $p$ is true (and $q$ is false). 
+	\item If the hypothesis
+	$\neg(p \rightarrow q)$ is true, then $p \rightarrow q$ is false, so $p$ is true and $q$ is
+	false. Hence, the conclusion $\neg q$ is true.
+\end{enumerate}
+\end{enumerate}
 \subsection{Sets}
 \begin{enumerate}
 \item 
