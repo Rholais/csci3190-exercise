@@ -89,6 +89,7 @@
 \end{abstract}
 
 \keywords{}
+
 \section{Tautology Proof}
 Try to prove the followings are tautologies.
 \begin{enumerate}
@@ -102,8 +103,8 @@ Try to prove the followings are tautologies.
 \item $(\neg q \wedge (p \rightarrow q))\Rightarrow \neg p$
 \item $ (p\vee q)\wedge (\neg p) \Rightarrow q$
 \item $ ((p \vee q) \wedge (\neg p \vee r)) \Rightarrow (q\vee r)$
+\item Show that $(p \wedge q) \rightarrow (p \vee q)$ is a tautology.
 \end{enumerate}
-
 
 \section{Sets}
 \begin{enumerate}
@@ -268,6 +269,7 @@ between $A$ and $S$.
 %Appendix A
 \section{Answer}
 
+
 \subsection{TAUTOLOGY PROOF}
 \begin{enumerate}
 \item $p\rightarrow (p\vee q )$
@@ -413,8 +415,15 @@ $\Leftrightarrow   (\neg p\vee p)\vee q \vee r $
 $\Leftrightarrow   T\vee q \vee r $
 
 $\Leftrightarrow   T $
+\item 
+\begin{align}
+	(p \wedge q) \rightarrow (p \vee q)  & \equiv \neg (p \wedge q) \vee (p \vee q)\\
+	& \equiv (\neg p \vee \neg q) \vee (p \vee q)\\
+	& \equiv (\neg p \vee p) \vee (\neg q \vee q)\\
+	& \equiv T \vee T\\
+	& \equiv T
+\end{align}
 \end{enumerate}
-
 \subsection{Sets}
 \begin{enumerate}
 \item 
