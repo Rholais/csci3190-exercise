@@ -290,6 +290,18 @@ then the conclusion is also.
 	$\neg(p \rightarrow q)$ is true, then $p \rightarrow q$ is false, so $p$ is true and $q$ is
 	false. Hence, the conclusion $\neg q$ is true.
 \end{enumerate}
+
+\item 
+\begin{enumerate}
+	\item 
+	\begin{align}
+		[\neg p \wedge (p \vee q)] \rightarrow q & \equiv \neg [\neg p \wedge (p \vee q)] \vee q\\
+		& \equiv \neg [(\neg p \wedge p) \vee (\neg p \wedge q)] \vee q\\
+		& \equiv \neg (\neg p \wedge q) \vee q\\
+		& \equiv p \vee \neg q \vee q\\
+		& \equiv T
+	\end{align}
+\end{enumerate}
 \end{enumerate}
 \subsection{Sets}
 \begin{enumerate}
