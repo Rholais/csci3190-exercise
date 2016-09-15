@@ -217,14 +217,25 @@ classes. Describe the students in each of these sets.
 	\item $\overline{A \cup B} =\overline{A} \cap \overline{B} $.
 \end{enumerate}
 
-\item Let A, B, and C be sets. Show that
+\item Let $A$, $B$, and $C$ be sets. Show that
 \begin{enumerate}
-	\item $(A\cup B) \subseteq (A\cup B\cup C)$
-	\item $(A\cap B\cap C) \subseteq (A\cap B)$
-	\item $(A-B)-C \subseteq A-C$
-	\item $(A-C)\cap (C-B)=\emptyset$
-	\item $(B-A)\cup (C-A) =(B\cup C) - A$
+	\item $(A\cup B) \subseteq (A\cup B\cup C)$.
+	\item $(A\cap B\cap C) \subseteq (A\cap B)$.
+	\item $(A-B)-C \subseteq A-C$.
+	\item $(A-C)\cap (C-B)=\emptyset$.
+	\item $(B-A)\cup (C-A) =(B\cup C) - A$.
 \end{enumerate}
+
+\item Show that if $A$ and $B$ are sets, then
+\begin{enumerate}
+	\item $A-B= A\cap \overline{B}$.
+	\item $(A\cap B) \cup (A\cap \overline{B})= A$.
+\end{enumerate}
+
+\item If $A$, $B$, and $C$ are sets. Prove $A\cup (B \cap C) = (A\cup B) \cap (A \cup C)$.
+
+\item Let $A$, $B$ and $C$ be sets. Show that $(A-B)-C= (A-C)-(B-C)$.
+
 \item Determine whether the symmetric difference is associative;
 that is, if $A$, $B$, and $C$ are sets, does it follow that
 $A \oplus (B \oplus C) = (A \oplus B) \oplus C$?
@@ -240,6 +251,45 @@ B \oplus C$. Must it be the case that $A = B$?
 \section{Functions}
 
 \begin{enumerate}
+\item Give an explicit formula for a function from the set of
+integers to the set of positive integers that is
+	\begin{enumerate}
+	\item one-to-one, but not onto.
+	\item onto, but not one-to-one.
+	\item one-to-one and onto.
+	\item neither one-to-one nor onto.
+	\end{enumerate}
+
+\item Determine whether each of these functions is a bijection
+from $\mathbb{R}$ to $\mathbb{R}$.
+	\begin{enumerate}
+		\item $f(x)=2x+1$
+		\item $f(x)=x^2+1$
+		\item $f(x)=x^3$
+		\item $f(x)=(x^2+1)/(x^2+2)$
+	\end{enumerate}
+
+\item 
+Suppose that $g$ is a function from $A$ to $B$ and $f$ is a
+function from $B$ to $C$.
+	\begin{enumerate}
+		\item Show that if both $f$ and $g$ are one-to-one functions,
+		then $f\circ g$ is also one-to-one.
+		
+		\item Show that if both $f$ and $g$ are onto functions, then
+		$f \circ  g$ is also onto.
+	\end{enumerate}
+	
+\item If $f$ and $f \circ g$ are onto, does it follow that $g$ is onto?
+Justify your answer.
+
+\item Show that the function $f (x) = ax + b$ from  $\mathbb{R}$ to  $\mathbb{R}$ is
+invertible, where $a$ and $b$ are constants, with $a\neq 0$, and
+find the inverse of $f$.
+
+\item Let $f$ be a function from $A$ to $B$. Let $S$ be a subset of $B$.
+Show that $f^{-1}(S)=\overline{f^{-1}(S)}$.
+
 \item Suppose that $f$ is a function from $A$ to $B$, where $A$ and $B$
 are finite sets with $|A| = |B|$. Show that $f$ is one-to-one
 if and only if it is onto.
@@ -258,7 +308,7 @@ between $A$ and $S$.
 \end{enumerate}
 
 
-%\nocite{*}
+\nocite{*}
 \bibliographystyle{abbrv}
 \bibliography{ref}  % sigproc.bib is the name of the Bibliography in this case
  
@@ -575,6 +625,85 @@ order), and write down the corresponding subsets.
 	\end{equation}
 	
 \end{enumerate}
+\item
+\begin{enumerate}
+\item $(A\cup B) \subseteq (A\cup B\cup C)$
+\begin{equation}
+\begin{aligned}
+\text{Let } x\in (A\cup B)
+\Rightarrow& x\in A \vee x \in B \\
+\Rightarrow& x \in A \vee x\in B \vee x\in C\\
+\Rightarrow& x \in (A\cup B \cup C)\\
+\end{aligned}
+\end{equation}
+\item $(A\cap B\cap C) \subseteq (A\cap B)$
+\begin{equation}
+\begin{aligned}
+\text{Let } x\in A \cap B \cap C 
+\Rightarrow& x\in A \wedge x\in B \wedge x\in C\\
+\Rightarrow& x\in A \wedge x\in B\\
+\Rightarrow& x\in A\cap B
+\end{aligned}
+\end{equation}
+\item $(A-B)-C \subseteq A-C$
+\begin{equation}
+\begin{aligned}
+\text{Let } x\in (A-B) -C \Rightarrow& x\in (A-B) \wedge x\notin C\\
+\Rightarrow& x\in A \wedge x\notin B \wedge x\notin C\\
+\Rightarrow& x\in A \wedge x\notin C   \textbf{ (simplification)}\\
+\Rightarrow& x\in A-C
+\end{aligned} 
+\end{equation}
+\item $(A-C)\cap (C-B)=\emptyset$
+\begin{equation}
+\begin{aligned}
+(A-C)\cap(C-B) =& (A\cap \overline{C}) \cap(C\cap \overline{B})\\
+=&A\cap (\overline{C}\cap C)\cap \overline{B}\\
+=& A\cap \emptyset \cap \overline{B}\\
+=& \emptyset
+\end{aligned}
+\end{equation}
+\item $(B-A)\cup (C-A) =(B\cup C) - A$
+\begin{equation}
+\begin{aligned}
+(B-A)\cup (C-A) =& (B\cap \overline{A}) \cup (C\cap \overline{A})\\
+=&(B\cup C) \cap \overline{A}\\
+=&(B\cup C) - A
+\end{aligned}
+\end{equation}
+\end{enumerate}
+
+\item
+\begin{enumerate}
+	\item Both sides equal $\{x|x\in A \wedge x\notin B\}$.
+	\item $A=A\cap U = A\cap (B \cup \overline{B}) = (A\cap B)\cup (A \cap \overline{B})$.
+\end{enumerate}
+
+\item $A\cup (B \cap C) = (A\cup B) \cap (A \cup C)$
+\begin{equation}
+\begin{aligned}
+A\cup (B \cap C) \equiv & x\in A\cup (B \cap C)\\
+\equiv& (x\in A) \vee (x\in B\cap C)\\
+\equiv& (x\in A) \vee (x\in B\wedge x\in C)\\
+\equiv&  (x\in A \vee x\in B)\wedge (x\in A \vee x\in C)\\
+\equiv& x\in (A\cup B)\cap (A\cup C)\\
+\equiv& (A\cup B) \cap (A \cup C)
+\end{aligned}
+\end{equation}
+
+\item $(A-B)-C= (A-C)-(B-C)$
+\begin{equation}
+\begin{aligned}
+(A-C)-(B-C) \equiv &( A\cap \overline{C}) - (B \cap \overline{C})\\
+\equiv &( A\cap \overline{C}) \cap \overline{(B \cap \overline{C})}\\
+\equiv &( A\cap \overline{C}) \cap (\overline{B} \cup C)\\
+\equiv &( A\cap \overline{C} \cap \overline{B}) \cup (A\cap \overline{C} \cap C)\\
+\equiv &( A\cap \overline{C} \cap \overline{B}) \cup (A\cap \emptyset)\\
+\equiv & A\cap \overline{C} \cap \overline{B}\\
+\equiv & A \cap \overline{B}\cap \overline{C}\\
+\equiv & (A -B)-C\\
+\end{aligned}
+\end{equation}
 
 
 \item 
@@ -603,6 +732,38 @@ order), and write down the corresponding subsets.
 \subsection{Functions}
 
 \begin{enumerate}
+\item
+\begin{enumerate}
+	\item The function $f (x)$ with $f (x) = 3x + 1$ when
+	$x \leq 0$ and $f (x) = −3x +2$ when $x <0$
+	\item $f (x) = |x| + 1$
+	\item The function $f (x)$ with $f (x) = 2x + 1$ when $x \leq 0$ and
+	$f (x) = -2x$ when $x < 0$
+	\item $f (x) = x^2 + 1$
+\end{enumerate}
+\item
+\begin{enumerate}
+	\item Yes.
+	\item No. not onto. The solution only contains numbers larger than or equal to $1$. not one-to-one. both $-1$ and $1$ get the same value.
+	\item Yes.
+	\item No. not onto. The solution does not contain negative value. not one-to-one. $1$ and $-1$ get the same value.
+\end{enumerate}
+\item
+\begin{enumerate}
+	\item Let $x$ and $y$ be distinct elements of $A$. Because $g$ is one-to-one,
+	 $g(x)$ and $g(y)$ are distinct elements of $B$. Because $f$ is
+	one-to-one, $f (g(x)) = (f \circ g)(x)$ and $f (g(y)) = (f \circ g)(y)$
+	are distinct elements of $C$. Hence, $f \circ g$ is one-to-one.
+	\item Let $y\in C$. Because $f$ is onto, $y = f (b)$ for some $b \in B$.
+	Now because $g$ is onto, $b = g(x)$ for some $x \in A$. Hence,
+	$y = f (b) = f (g(x)) = (f \circ g)(x)$. It follows that $f \circ g$ is onto.
+\end{enumerate}
+\item No. For example, suppose that $A = \{a\}$, $B = \{b, c\}$, and
+$C = \{d\}$. Let $g(a) = b$, $f (b) = d$, and $f (c) = d$. Then $f$ and
+$f \circ g$ are onto, but $g$ is not.
+
+\item $f^{-1}(\overline{S})=\{x\in A| f(x)\notin S\} = \overline{\{x\in A| f(x)\in S \}} = \overline{f^{-1}(S)}$
+
 \item 
 \begin{enumerate}
 	\item $\Rightarrow$
