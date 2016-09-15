@@ -97,8 +97,13 @@ Try to prove the followings are tautologies.
 \item $(p\wedge q)\Rightarrow (p\rightarrow q)$
 \item $\neg (p\rightarrow q)\Rightarrow p$
 \item $\neg (p \rightarrow q) \Rightarrow \neg q$
-
+\item $(p\wedge q)\Rightarrow p$
+\item $(p\wedge (p\rightarrow q))\Rightarrow q$
+\item $(\neg q \wedge (p \rightarrow q))\Rightarrow \neg p$
+\item $ (p\vee q)\wedge (\neg p) \Rightarrow q$
+\item $ ((p \vee q) \wedge (\neg p \vee r)) \Rightarrow (q\vee r)$
 \end{enumerate}
+
 
 \section{Sets}
 \begin{enumerate}
@@ -168,7 +173,7 @@ $a$ and $b$ are distinct elements?
 	\item $\mathcal{P}(\mathcal{P}(\emptyset))$
 \end{enumerate}
 
-\item This exercise presents \textbf{Russell’s paradox}. Let $S$ be the
+\item This exercise presents \textbf{Russell\textquoteright s paradox}. Let $S$ be the
 set that contains a set $x$ if the set $x$ does not belong to
 itself, so that $S = \{x | x \notin x\}$.
 \begin{enumerate}
@@ -205,6 +210,20 @@ classes. Describe the students in each of these sets.
 	\item $A \cap (A \cup B) = A$.
 \end{enumerate}
 
+\item Let $A$ and $B$ be sets. Prove the \textbf{De Morgan's Laws} by showing that
+\begin{enumerate}
+	\item $\overline{A \cap B} =\overline{A} \cup \overline{B} $.
+	\item $\overline{A \cup B} =\overline{A} \cap \overline{B} $.
+\end{enumerate}
+
+\item Let A, B, and C be sets. Show that
+\begin{enumerate}
+	\item $(A\cup B) \subseteq (A\cup B\cup C)$
+	\item $(A\cap B\cap C) \subseteq (A\cap B)$
+	\item $(A-B)-C \subseteq A-C$
+	\item $(A-C)\cap (C-B)=\emptyset$
+	\item $(B-A)\cup (C-A) =(B\cup C) - A$
+\end{enumerate}
 \item Determine whether the symmetric difference is associative;
 that is, if $A$, $B$, and $C$ are sets, does it follow that
 $A \oplus (B \oplus C) = (A \oplus B) \oplus C$?
@@ -248,60 +267,152 @@ between $A$ and $S$.
 \appendix
 %Appendix A
 \section{Answer}
+
 \subsection{TAUTOLOGY PROOF}
 \begin{enumerate}
-	\item $p\rightarrow (p\vee q )$
-	
-	$\Leftrightarrow \neg p \vee (p \vee q)$
-	
-	$\Leftrightarrow (\neg p \vee p) \vee q$
-	
-	$\Leftrightarrow T \vee q$ 
-	
-	$\Leftrightarrow T$
-	\item 	$\neg p \rightarrow (p\rightarrow q)$
-	
-	$\Leftrightarrow p \vee (\neg p\vee q)$
-	
-	$\Leftrightarrow (p \vee \neg p) \vee q$
-	
-	$\Leftrightarrow T \vee q$
-		
-	$\Leftrightarrow T$
-	\item $(p\wedge q)\rightarrow (p\rightarrow q)$
-	
-	 $\Leftrightarrow \neg (p\wedge q)\vee (\neg p\vee q)$
-	 
-	 $\Leftrightarrow \neg p\vee \neg q\vee \neg p\vee q$
-	 
-	 $\Leftrightarrow \neg p\vee (\neg q \vee q)$
-	 
-	 $\Leftrightarrow \neg p\vee T$
-	 
-	 $\Leftrightarrow  T$
-	\item $\neg (p\rightarrow q)\rightarrow p$
-	
-	$\Leftrightarrow  (p\rightarrow q)\vee p$
-	
-		$\Leftrightarrow  (\neg p\vee q)\vee p$
-		
-		$\Leftrightarrow  (\neg p\vee p)\vee q$
-		
-		$\Leftrightarrow  T\vee p$
-		
-		$\Leftrightarrow  T$
-	\item $\neg (p \rightarrow q) \rightarrow \neg q$
-	
-	$\Leftrightarrow  (p \rightarrow q) \vee \neg q$
-	
-	$\Leftrightarrow  (\neg p \vee q) \vee \neg q$
-	
-	$\Leftrightarrow  \neg p \vee (q \vee \neg q)$
-	
-	$\Leftrightarrow  \neg p \vee T$
-	
-	$\Leftrightarrow   T$
+\item $p\rightarrow (p\vee q )$
 
+$\Leftrightarrow \neg p \vee (p \vee q)$
+
+$\Leftrightarrow (\neg p \vee p) \vee q$
+
+$\Leftrightarrow T \vee q$ 
+
+$\Leftrightarrow T$
+\item 	$\neg p \rightarrow (p\rightarrow q)$
+
+$\Leftrightarrow p \vee (\neg p\vee q)$
+
+$\Leftrightarrow (p \vee \neg p) \vee q$
+
+$\Leftrightarrow T \vee q$
+	
+$\Leftrightarrow T$
+\item $(p\wedge q)\rightarrow (p\rightarrow q)$
+
+$\Leftrightarrow \neg (p\wedge q)\vee (\neg p\vee q)$
+
+$\Leftrightarrow \neg p\vee \neg q\vee \neg p\vee q$
+
+$\Leftrightarrow \neg p\vee (\neg q \vee q)$
+
+$\Leftrightarrow \neg p\vee T$
+
+$\Leftrightarrow  T$
+\item $\neg (p\rightarrow q)\rightarrow p$
+
+$\Leftrightarrow  (p\rightarrow q)\vee p$
+
+$\Leftrightarrow  (\neg p\vee q)\vee p$
+
+$\Leftrightarrow  (\neg p\vee p)\vee q$
+
+$\Leftrightarrow  T\vee p$
+
+$\Leftrightarrow  T$
+\item $\neg (p \rightarrow q) \rightarrow \neg q$
+
+$\Leftrightarrow  (p \rightarrow q) \vee \neg q$
+
+$\Leftrightarrow  (\neg p \vee q) \vee \neg q$
+
+$\Leftrightarrow  \neg p \vee (q \vee \neg q)$
+
+$\Leftrightarrow  \neg p \vee T$
+
+$\Leftrightarrow   T$
+	
+\item $(p\wedge q)\rightarrow p$
+
+$\Leftrightarrow \neg (p\wedge q)\vee p$
+
+$\Leftrightarrow \neg p\vee \neg q \vee p$
+
+$\Leftrightarrow (\neg p\vee p )\vee \neg q $
+
+$\Leftrightarrow T\vee \neg q $
+
+$\Leftrightarrow T $
+\item $(p\wedge (p\rightarrow q))\rightarrow q$
+
+$\Leftrightarrow \neg (p\wedge (\neg p\vee q))\vee q$
+
+$\Leftrightarrow \neg p\vee \neg(\neg p\vee q)\vee q$
+
+$\Leftrightarrow \neg p\vee (p\wedge \neg q)\vee q$
+
+$\Leftrightarrow ((\neg p\vee p)\wedge (\neg p \vee \neg q))\vee q$
+
+$\Leftrightarrow (T\wedge (\neg p \vee \neg q))\vee q$
+
+$\Leftrightarrow \neg p \vee \neg q \vee q$
+
+$\Leftrightarrow \neg p \vee (\neg q \vee q)$
+
+$\Leftrightarrow \neg p \vee T$
+
+$\Leftrightarrow T $
+\item $(\neg q \wedge (p \rightarrow q))\rightarrow \neg p$
+
+$\Leftrightarrow  \neg (\neg q \wedge (\neg p \vee q))\vee \neg p$
+
+$\Leftrightarrow   ( q \vee \neg(\neg p \vee q))\vee \neg p$
+
+$\Leftrightarrow   ( q \vee  (p \wedge \neg q))\vee \neg p$
+
+$\Leftrightarrow   (( q \vee p) \wedge (q\vee \neg q))\vee \neg p$
+
+$\Leftrightarrow   (( q \vee p) \wedge T)\vee \neg p$
+
+$\Leftrightarrow    q \vee (p\vee \neg p)$
+
+$\Leftrightarrow    q \vee T$
+
+$\Leftrightarrow     T$
+\item $ (p\vee q)\wedge (\neg p) \rightarrow q$
+
+$\Leftrightarrow \neg ((p\vee q)\wedge (\neg p)) \vee q$
+
+$\Leftrightarrow \neg(p\vee q)\vee \neg (\neg p)) \vee q$
+
+$\Leftrightarrow (\neg p\wedge \neg q )\vee p \vee q$
+
+$\Leftrightarrow ((\neg p \vee p )\wedge (\neg q \vee p)) \vee q$
+
+$\Leftrightarrow (T\wedge (\neg q \vee p)) \vee q$
+
+$\Leftrightarrow (\neg q \vee q) \vee p$
+
+$\Leftrightarrow T \vee p$
+
+$\Leftrightarrow T$
+\item $ ((p \vee q) \wedge (\neg p \vee r)) \rightarrow (q\vee r)$
+
+$\Leftrightarrow \neg  ((p \vee q) \wedge (\neg p \vee r)) \vee q\vee r$
+
+$\Leftrightarrow   (\neg(p \vee q) \vee \neg (\neg p \vee r)) \vee q \vee r$
+
+$\Leftrightarrow   (\neg p \wedge \neg q) \vee (p \wedge \neg r) \vee q\vee r$
+
+$\Leftrightarrow   ((\neg p \wedge \neg q)\vee q) \vee (p \wedge \neg r) \vee r$
+
+$\Leftrightarrow   ((\neg p\vee q) \wedge (\neg q\vee q) )\vee ( p \wedge \neg r) \vee r$
+
+$\Leftrightarrow   ((\neg p\vee q) \wedge T )\vee ( p \wedge \neg r) \vee r$
+
+$\Leftrightarrow   \neg p\vee q\vee (p \wedge \neg r) \vee r$
+
+$\Leftrightarrow   \neg p\vee q\vee ((p \vee r)\wedge (\neg r\vee r)) $
+
+$\Leftrightarrow   \neg p\vee q\vee (( p \vee r)\wedge T) $
+
+$\Leftrightarrow   \neg p\vee q\vee p \vee r $
+
+$\Leftrightarrow   (\neg p\vee p)\vee q \vee r $
+
+$\Leftrightarrow   T\vee q \vee r $
+
+$\Leftrightarrow   T $
 \end{enumerate}
 
 \subsection{Sets}
@@ -394,6 +505,13 @@ order), and write down the corresponding subsets.
 	to classes but live more than one mile away from school
 \end{enumerate}
 
+	\begin{align}
+	A \cup B & = \{x \mid x \in A \vee x \in B\}\\
+	& = \{x \mid x \in B \vee x \in A\}\\
+	& = B \cup A
+	\end{align}
+
+
 \item 
 \begin{enumerate}
 	\item 
@@ -420,6 +538,35 @@ order), and write down the corresponding subsets.
 	by the definition of intersection, so the right-hand side is
 	a subset of the left-hand side.
 \end{enumerate}
+\item
+\begin{enumerate}
+	\item \begin{equation}
+	\begin{aligned}
+	\overline{A\cap B} =& \{x| x\notin A \cap B\}\\
+	=&\{x|\neg (x\in (A\cap B))\}\\
+	=&\{x|\neg (x\in A \wedge x\in B)\}\\
+	=&\{x|\neg(x\in A) \vee \neg (x\in B)\}\\
+	=&\{x|x\notin A \vee x\notin B\}\\
+	=&\{x|x\in \overline{A} \vee x \in \overline{B}\}\\
+	=&\{x|x\in \overline{A}\cup \overline{B}\}\\
+	=&\overline{A} \cup \overline{B} 
+	\end{aligned}
+	\end{equation}
+	\item \begin{equation}
+	\begin{aligned}
+	\overline{A\cup B} =& \{x| x\notin A \cup B\}\\
+	=&\{x|\neg (x\in (A\cup B))\}\\
+	=&\{x|\neg (x\in A \vee x\in B)\}\\
+	=&\{x|\neg(x\in A) \wedge \neg (x\in B)\}\\
+	=&\{x|x\notin A \wedge x\notin B\}\\
+	=&\{x|x\in \overline{A} \wedge x \in \overline{B}\}\\
+	=&\{x|x\in \overline{A}\cap \overline{B}\}\\
+	=&\overline{A} \cap \overline{B} 
+	\end{aligned}
+	\end{equation}
+	
+\end{enumerate}
+
 
 \item 
 \begin{align}
@@ -457,7 +604,7 @@ order), and write down the corresponding subsets.
 			&\because |A| = |B|\\
 			&\therefore |f(A)| < |A| = |B|\\
 			&\therefore \exists a_1 \ne a_2 \in A, f(a_1) \ne f(a_2)\\
-			&\because f\ \text{is not one-to-one, contradiction.}\\
+			&\because f\ \text{is not one-to-one, contradiction.}
 		\end{align}
 	\item $\Leftarrow$
 		\begin{align}
