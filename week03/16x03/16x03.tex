@@ -91,6 +91,7 @@
 \keywords{}
 
 \section{Relations}
+\subsection{Relations and Their Properties}
 Let $R$ be a relation from a set $A$ to a set $B$. The \textbf{inverse relation}
 from $B$ to $A$, denoted by $R^{−1}$, is the set of ordered pairs
 $\{(b, a) \mid (a, b) \in R\}$. The \textbf{complementary relation} $\overline{R}$ is the
@@ -105,6 +106,23 @@ integers. Find
 \end{enumerate}
 \end{enumerate}
 
+\subsection{$n$-ary Relations and Their Applications}
+\subsection{Representing Relations}
+\subsection{Closures of Relations}
+\subsection{Equivalence Relations}
+\begin{enumerate}
+\item Each bead on a bracelet with three beads is either red,
+white, or blue, as illustrated in the figure shown.
+Define the relation $R$ between bracelets as: $(B_1,B_2)$,
+where $B_1$ and $B_2$ are bracelets, belongs to $R$ if and only
+if $B_2$ can be obtained from $B_1$ by rotating it or rotating it
+and then reflecting it.
+\begin{enumerate}
+	\item Show that $R$ is an equivalence relation.
+	\item What are the equivalence classes of $R$?
+\end{enumerate}
+\end{enumerate}
+
 \nocite{*}
 \bibliographystyle{abbrv}
 \bibliography{ref}  % sigproc.bib is the name of the Bibliography in this case
@@ -116,11 +134,39 @@ integers. Find
 %Appendix A
 \section{Answer}
 \subsection{Relations}
+\subsubsection{Relations and Their Properties}
 \begin{enumerate}
 \item 
 \begin{enumerate}
 	\item $R = \{(a, b) \mid a > b\}$.
 	\item $R = \{(a, b) \mid a \ge b\}$.
+\end{enumerate}
+\end{enumerate}
+
+\subsubsection{$n$-ary Relations and Their Applications}
+\subsubsection{Representing Relations}
+\subsubsection{Closures of Relations}
+\subsubsection{Equivalence Relations}
+\begin{enumerate}
+\item 
+\begin{enumerate}
+	\item $R$ is
+	reflexive because any coloring can be obtained from itself via
+	a 360-degree rotation. To see that $R$ is symmetric and transitive,
+	use the fact that each rotation is the composition of two reflections and conversely the composition of two reflections
+	is a rotation. Hence, $(B_1, B_2)$ belongs to $R$ if and only
+	if $B_2$ can be obtained from $B_1$ by a composition of reflections.
+	So if $(B_1, B_2)$ belongs to $R$, so does $(B_2, B_1)$ because
+	the inverse of the composition of reflections is also a composition
+	of reflections (in the opposite order). Hence, $R$ is
+	symmetric. To see that $R$ is transitive, suppose $(B_1, B_2)$ and
+	$(B_2, B_3)$ belong to $R$. Taking the composition of the reflections
+	in each case yields a composition of reflections, showing
+	that $(B_1,B_3)$ belongs to $R$. 
+	\item We express colorings with sequences
+	of length four, with $r$, $w$ and $b$ denoting red, white and blue,
+	respectively. We list letters denoting the colors of the upper
+	ball, right ball, and left ball, in that order. The equivalence classes are: $\{rrr\}$, $\{www\}$, $\{bbb\}$, $\{rrw, rwr, wrr\}$, $\{rrb, rbr, brr\}$, $\{wwr, wrw, rww\}$, $\{wwb, wbw, bww\}$, $\{bbr, brb, rbb\}$, $\{bbw, bwb, wbb\}$.
 \end{enumerate}
 \end{enumerate}
 
