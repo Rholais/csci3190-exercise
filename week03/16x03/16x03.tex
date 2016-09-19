@@ -81,7 +81,7 @@
 
 %\\TODO:1.tautology prove section 2. set section operation proof 3. function section basic proving onto bijection...
 \title{CSCI 3190 \\ Introduction to Discrete Mathematics and Algorithms}
-\subtitle{Extended Exercise 2}
+\subtitle{Extended Exercise 3}
 
 \maketitle
 \begin{abstract}
@@ -91,6 +91,19 @@
 \keywords{}
 
 \section{Relations}
+Let $R$ be a relation from a set $A$ to a set $B$. The inverse relation
+from $B$ to $A$, denoted by $R^{−1}$, is the set of ordered pairs
+$\{(b, a) \mid (a, b) \in R\}$. The complementary relation $\overline{R}$ is the
+set of ordered pairs $\{(a, b) \mid (a, b) \notin R\}$.
+
+\begin{enumerate}
+\item Let $R$ be the relation $R = \{(a, b) \mid a < b\}$ on the set of
+integers. Find
+\begin{enumerate}
+	\item $R^{-1}$.
+	\item $\overline{R}$.
+\end{enumerate}
+\end{enumerate}
 
 \nocite{*}
 \bibliographystyle{abbrv}
@@ -103,5 +116,12 @@
 %Appendix A
 \section{Answer}
 \subsection{Relations}
+\begin{enumerate}
+\item 
+\begin{enumerate}
+	\item $R = \{(a, b) \mid a > b\}$.
+	\item $R = \{(a, b) \mid a \ge b\}$.
+\end{enumerate}
+\end{enumerate}
 
 \end{document}
