@@ -241,6 +241,14 @@ the set of all bit strings of length three or more.
 integers such that $((a, b), (c, d)) \in R $ if and only if
 $a + d = b + c$. Show that $R$ is an equivalence relation.
 
+\item Show that the relation R on the set of all bit strings such
+that $s R t$ if and only if $s$ and $t$ contain the same number
+of $1$s is an equivalence relation.
+
+\item Find the smallest equivalence relation on the set
+$\{a, b, c, d, e\}$ containing the relation $\{(a, b), (a, c),
+	(d, e)\}$.
+
 \item Each bead on a bracelet with three beads is either red,
 white, or blue, as illustrated in the figure shown.
 Define the relation $R$ between bracelets as: $(B_1,B_2)$,
@@ -259,6 +267,10 @@ the reflexive closure of a relation?
 \item Do we necessarily get an equivalence relation when we
 form the symmetric closure of the reflexive closure of the
 transitive closure of a relation?
+
+\item Devise an algorithm to find the smallest equivalence relation
+containing a given relation.
+
 \end{enumerate}
 
 \subsection{Partial Orderings}
@@ -539,6 +551,20 @@ so $((c, d), (a, b))\in R.$ For transitivity, if $((a, b), (c, d)) \in R$
 so $a + d + c + e = b + c + d + f$ , so $a + e = b + f $,
 so $((a, b), (e, f ))\in R.$ 
 
+\item $R$ is reflexive because a bit string $s$ has the same 
+number of $1$s as itself. 
+
+$R$ is symmetric because
+$s$ and $t$ having the same number of $1$s implies that $t$ and $s$ do.
+
+$R$ is transitive because $s$ and $t$ having the same number of $1$s,
+and $t$ and $u$ having the same number of $1$s implies that $s$ and
+$u$ have the same number of $1$s.
+
+\item $\{(a, a), (a, b),
+	(a, c), (b, a), (b, b), (b, c), (c, a),\\ (c, b), (c, c), (d, d), (d, e),
+	(e, d), (e, e)\}$
+
 \item 
 \begin{enumerate}
 	\item $R$ is
@@ -563,6 +589,11 @@ so $((a, b), (e, f ))\in R.$
 \item Yes.
 
 \item Yes.
+
+\item First form the reflexive closure of $R$, then form
+the symmetric closure of the reflexive closure, and finally
+form the transitive closure of the symmetric closure of the
+reflexive closure.
 \end{enumerate}
 
 \subsubsection{Partial Orderings}
