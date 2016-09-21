@@ -92,18 +92,43 @@
 
 \section{Relations}
 \subsection{Relations and Their Properties}
+\begin{enumerate}
+\item For each of these relations on the set $\{1, 2, 3, 4\}$, decide
+whether it is reflexive, whether it is symmetric, whether
+it is antisymmetric, and whether it is transitive.
+\begin{enumerate}
+\item $\{(2, 2), (2, 3), (2, 4), (3, 2), (3, 3), (3, 4)\}$
+\item $\{(1, 1), (1, 2), (2, 1), (2, 2), (3, 3), (4, 4)\}$
+\item $\{(2, 4), (4, 2)\}$
+\item $\{(1, 2), (2, 3), (3, 4)\}$
+\item $\{(1, 1), (2, 2), (3, 3), (4, 4)\}$
+\item $\{(1, 3), (1, 4), (2, 3), (2, 4), (3, 1), (3, 4)\}$
+\end{enumerate}
+\item 
 Let $R$ be a relation from a set $A$ to a set $B$. The \textbf{inverse relation}
 from $B$ to $A$, denoted by $R^{−1}$, is the set of ordered pairs
 $\{(b, a) \mid (a, b) \in R\}$. The \textbf{complementary relation} $\overline{R}$ is the
 set of ordered pairs $\{(a, b) \mid (a, b) \notin R\}$.
 
-\begin{enumerate}
-\item Let $R$ be the relation $R = \{(a, b) \mid a < b\}$ on the set of
+Let $R$ be the relation $R = \{(a, b) \mid a < b\}$ on the set of
 integers. Find
 \begin{enumerate}
 	\item $R^{-1}$.
 	\item $\overline{R}$.
 \end{enumerate}
+\item Let $R1 = \{(1, 2), (2, 3), (3, 4)\}$ and $R2 = \{(1, 1), (1, 2),\\
+(2, 1), (2, 2), (2, 3), (3, 1), (3, 2), (3, 3), (3, 4)\}$ be relations
+from $\{1, 2, 3\}$ to $\{1, 2, 3, 4\}$. Find
+\begin{enumerate}
+\item $R1\cup R2$. 
+\item $R1 \cap R2$.
+\item $R1-R2$. 
+\item $R2-R1$.
+\end{enumerate}
+\item Suppose that R and S are reflexive relations on a set A.
+Prove or disprove: $R \cap S$ is reflexive.
+\item Let $R$ be a symmetric relation. Show that $R^n$ is symmetric for all positive integers $n$.
+
 \end{enumerate}
 
 \subsection{Representing Relations}
@@ -166,11 +191,43 @@ the others lack.
 \subsection{Relations}
 \subsubsection{Relations and Their Properties}
 \begin{enumerate}
+\item
+\begin{enumerate}
+	\item Transitive
+	\item Reflexive, symmetric, transitive
+	\item Symmetric
+	\item Antisymmetric
+	\item Reflexive, symmetric, antisymmetric, transitive
+	\item None of these properties
+\end{enumerate}
+
 \item 
 \begin{enumerate}
 	\item $R = \{(a, b) \mid a > b\}$.
 	\item $R = \{(a, b) \mid a \ge b\}$.
 \end{enumerate}
+
+\item
+\begin{enumerate}
+	\item  $\{(1,2), (2,3), (3,4), (1,1), (2,1), (2,2), (3,1), (3,2), (3,3)\}$
+	\item $\{(1,2), (2,3), (3,4)\}$
+	\item $\{\emptyset\}$
+	\item $\{(1,1), (2,1), (2,2), (3,1), (3,2), (3,3)\}$
+\end{enumerate}
+
+\item Proof: $R \cap S$ is reflexive means that $(a,a) \in R\cap S $ for every element $a$ of set $A$.
+Since $R$ and $S$ are reflexive, then $(a,a)\in R $ and $(a,a)\in S$ for every element of $A$.
+Therefore $(a,a)$ must be in their intersection.
+
+\item Proof by induction:
+
+Basis Step: $R^1= R$ is symmetric is True.
+
+Inductive Step: Assume that $R^n$ is symmetric.
+
+To Prove that $R^{n+1}$ is symmetric.
+$R^{n+1}$ is symmetric if for all $(x,y)$ in $R^{n+1}$, we have $(y,x)$ is in $R^{n+1}$ as well.
+
 \end{enumerate}
 
 \subsubsection{Representing Relations}
@@ -206,7 +263,6 @@ the others lack.
 \subsubsection{Closures of Relations}
 \subsubsection{Equivalence Relations}
 \begin{enumerate}
-\item 
 \begin{enumerate}
 	\item $R$ is
 	reflexive because any coloring can be obtained from itself via
