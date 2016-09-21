@@ -127,8 +127,11 @@ from $\{1, 2, 3\}$ to $\{1, 2, 3, 4\}$. Find
 \end{enumerate}
 \item Suppose that R and S are reflexive relations on a set A.
 Prove or disprove: $R \cap S$ is reflexive.
-\item Let $R$ be a symmetric relation. Show that $R^n$ is symmetric for all positive integers $n$.
 
+\item Let $R$ be a symmetric relation. Show that $R^n$ is symmetric for all positive integers $n$. (You can do it after you have learnt induction part.)
+
+\item Does a relation on a set $A$, which is symmetric and transitive necessarily
+have to be reflexive? Prove it or give a counterexample relation.
 \end{enumerate}
 
 \subsection{Representing Relations}
@@ -141,6 +144,14 @@ Prove or disprove: $R \cap S$ is reflexive.
 	\item $\{(1, 3), (3, 1)\}$
 \end{enumerate}
 
+\item Draw the directed graphs representing each of the relations.
+\begin{enumerate}
+	\item $\{(1, 2), (1, 3), (1, 4), (2, 3), (2, 4), (3, 4)\}$
+	\item $\{(1, 1), (1, 4), (2, 2), (3, 3), (4, 1)\}$
+	\item $\{(1, 2), (1, 3), (1, 4), (2, 1), (2, 3), (2, 4),\\ (3, 1), (3, 2),
+		(3, 4), (4, 1), (4, 2), (4, 3)\}$
+	\item $\{(2, 4), (3, 1), (3, 2), (3, 4)\}$
+\end{enumerate}
 \end{enumerate}
 \subsection{Closures of Relations}
 \subsection{Equivalence Relations}
@@ -226,7 +237,31 @@ Basis Step: $R^1= R$ is symmetric is True.
 Inductive Step: Assume that $R^n$ is symmetric.
 
 To Prove that $R^{n+1}$ is symmetric.
+
 $R^{n+1}$ is symmetric if for all $(x,y)$ in $R^{n+1}$, we have $(y,x)$ is in $R^{n+1}$ as well.
+
+Assume that $(x,y)$ is in $R^{n+1}$.
+
+Now, $R^{n+1}=R^n\circ R=R\circ R^n$.
+
+We know that if $(x,y)\in R\circ R^n$, then by the definition of composition there
+exists a $z$ in $A$ such that $xRz$ and $z(R^n)y$ i.e $(x,z)$ is in $R$ and $(z,y)$ is in $R
+^n$ And we also know that $R$ and $R^n$ are symmetric, which implies that $(z,x)$ is
+in $R$ and also $(y,z)$ is in $R^n$.
+
+Therefore, by definition of composition, $(y,x)\in R\circ R^n$; i.e. $(y,x)\in R
+^{n+1}$.
+
+\item Counter Example Relation:
+
+Let $A=\{a, b, c\}$
+
+Let $R$ be a relation on set $A$
+
+$R =\{(a, a), (b, b), (a, b), (b, a)\}$
+
+This relation is symmetric and transitive but not reflexive since it does not
+contain $(c,c)$.
 
 \end{enumerate}
 
@@ -259,6 +294,8 @@ $R^{n+1}$ is symmetric if for all $(x,y)$ in $R^{n+1}$, we have $(y,x)$ is in $R
 	1 & 0 & 0
 	\end{bmatrix}$
 \end{enumerate}
+\item
+	\includegraphics[width=0.5\textwidth]{figs/122.pdf}
 \end{enumerate}
 \subsubsection{Closures of Relations}
 \subsubsection{Equivalence Relations}
