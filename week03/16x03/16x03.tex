@@ -97,6 +97,13 @@
 
 \item Show that $\Sigma^n_{j = 1}(a_j - a_{j - 1}) = a_n - a_0$, where
 $a_0$, $a_1$, ..., $a_n$ is a sequence of real numbers. This type of sum is called \textbf{telescoping}.
+
+\item Sum both sides of the identity $k^2 - (k - 1)^2 = 2k - 1$ from $k = 1$ to $k = n$ and use last exercise find:
+\begin{enumerate}
+	\item a formula for $\Sigma^n_{k = 1}(2k - 1)$ (the sum of the first $n$ odd natural numbers).
+	\item a formula for $\Sigma^n_{k = 1} k$.
+\end{enumerate}
+
 \end{enumerate}
 \subsection{Cardinality of Sets}
 \section{Relations}
@@ -233,6 +240,21 @@ the others lack.
 	= & a_n + \Sigma^{n - 1}_{j = 1}a_j - \Sigma^{n - 1}_{j = 1}a_j + a_0\\
 	= & a_n - a_0
 \end{align}
+
+\item 
+\begin{enumerate}
+	\item 
+	\begin{equation}
+		\Sigma^n_{k = 1}(2k - 1) = n^2
+	\end{equation}
+	
+	\item 
+	\begin{align}
+		& \Sigma^n_{k = 1} k\\
+		= & \frac{\Sigma^n_{k = 1}(2k - 1) + \Sigma^n_{k = 1} 1}{2}\\
+		= & \frac{n^2 + n}{2}
+	\end{align}
+\end{enumerate}
 \end{enumerate}
 \subsubsection{Cardinality of Sets}
 \subsection{Relations}
