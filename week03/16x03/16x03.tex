@@ -180,6 +180,9 @@ have to be reflexive? Prove it or give a counterexample relation.
 		\item reflexive closure of $R$.
 		\item symmetric closure of $R$.
 	\end{enumerate}
+
+\item Let $R$ be the relation $\{(a, b) | \text{a divides b}\}$ on the set of
+integers. What is the symmetric closure of $R$?
 	
 \item Find the transitive closures of these relations on $\{1, 2, 3, 4\}$.
 	\begin{enumerate}
@@ -208,6 +211,36 @@ $\{0, 1, 2\}$ does not exist if P is the property
 \end{enumerate}
 \subsection{Equivalence Relations}
 \begin{enumerate}
+\item Which of these relations on ${0, 1, 2, 3}$ are equivalence
+relations? Determine the properties of an equivalence relation
+that the others lack.
+	\begin{enumerate}
+		\item $\{(0, 0), (1, 1), (2, 2), (3, 3)\}$
+		\item $\{(0, 0), (0, 2), (2, 0), (2, 2), (2, 3), (3, 2), (3, 3)\}$
+		\item $\{(0, 0), (0, 2), (2, 0), (2, 2), (2, 3), (3, 2), (3, 3)\}$
+		\item $\{(0, 0), (1, 1), (1, 3), (2, 2), (2, 3), (3, 1), (3, 2),
+			(3, 3)\}$
+		\item $\{(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0),\\
+			(2, 2), (3, 3)\}$
+	\end{enumerate}
+	
+\item Suppose that $A$ is a nonempty set, and $f$ is a function that
+has $A$ as its domain. Let $R$ be the relation on $A$ consisting
+of all ordered pairs $(x, y)$ such that $f (x) = f (y)$.
+	\begin{enumerate}
+		\item Show that R is an equivalence relation on A.
+		\item What are the equivalence classes of R?
+	\end{enumerate}
+	
+\item Show that the relation $R$ consisting of all pairs $(x, y)$ such
+that $x$ and $y$ are bit strings of length three or more that
+agree in their first three bits is an equivalence relation on
+the set of all bit strings of length three or more.
+
+\item Let R be the relation on the set of ordered pairs of positive
+integers such that $((a, b), (c, d)) \in R $ if and only if
+$a + d = b + c$. Show that $R$ is an equivalence relation.
+
 \item Each bead on a bracelet with three beads is either red,
 white, or blue, as illustrated in the figure shown.
 Define the relation $R$ between bracelets as: $(B_1,B_2)$,
@@ -407,6 +440,9 @@ contain $(c,c)$.
 	\end{enumerate}
 
 \item
+$\{(a, b) | \text{a divides b or b divides a}\}$	
+
+\item
 	\begin{enumerate}
 		\item 
 		$\begin{bmatrix}
@@ -460,6 +496,50 @@ contain $(c,c)$.
 \end{enumerate}
 \subsubsection{Equivalence Relations}
 \begin{enumerate}
+\item
+	\begin{enumerate}
+		\item Equivalence relation \item Not reflexive, not transitive
+		\item Equivalence relation \item Not transitive \item Not symmetric,
+		not transitive
+	\end{enumerate}
+\item
+	\begin{enumerate}
+		\item  $(x, x) \in R $ because $f (x) = f (x)$. Hence, $R$ is reflexive.
+		
+		$(x, y) \in R$ if and only if $f (x) = f (y)$, which holds if and
+		only if $f (y) = f (x)$ if and only if $(y, x) \in R.$ Hence, R is
+		symmetric. 
+		
+		If $(x, y) \in R$ and $(y, z) \in R,$ then $f (x) = f (y)$
+		and $f (y) = f (z)$. Hence, $f (x) = f (z)$. Thus,$ (x, z) \in R$.
+		It follows that $R$ is transitive. 
+		\item   The sets $f^−1(b)$ for $b$ in the range of $f$.
+	\end{enumerate}
+
+\item 
+Let $x$ be a bit string of length 3 or more.
+
+Because $x$ agrees with itself in the first three bits, $(x, x)\in R.$
+Hence, $R$ is reflexive. 
+
+Suppose that $(x, y) \in R.$ Then $x$ and $y$ agree in the first three bits. 
+Hence, $y$ and $x$ agree in the first three bits. Thus, $(y, x)\in R$. $R$ is symmetric.
+
+If $(x, y)$ and $(y, z)$ are in $R$, then
+$x$ and $y$ agree in the first three bits, as do $y$ and $z$. Hence, $x$
+and $z$ agree in the first three bits. Hence, $(x, z) \in R.$ It follows
+that $R$ is transitive.
+
+\item
+For reflexivity,
+$((a, b), (a, b))\in R$ because $a +b = b +a$. For symmetry, if
+$((a, b), (c, d))\in R,$ then $a + d = b + c$, so $c + b = d + a$,
+so $((c, d), (a, b))\in R.$ For transitivity, if $((a, b), (c, d)) \in R$
+ and $((c, d), (e, f )) \in R,$ then $a+d = b+c$ and $c+e = d+f$ ,
+so $a + d + c + e = b + c + d + f$ , so $a + e = b + f $,
+so $((a, b), (e, f ))\in R.$ 
+
+\item 
 \begin{enumerate}
 	\item $R$ is
 	reflexive because any coloring can be obtained from itself via
