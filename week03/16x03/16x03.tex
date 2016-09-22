@@ -308,6 +308,26 @@ the others lack.
 		\item $\{(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 2), (3, 3)\}$
 	\end{enumerate}
 
+\item Draw the graph representation for the following poset.
+	\begin{enumerate}
+		\item "less than or equal to" relation on $\{0, 2, 5, 10, 11, 15\}.$
+		\item divisibility on the set $\{1, 2, 3, 6, 12, 24, 36, 48\}$.
+	\end{enumerate}
+
+\item Show that lexicographic order is a partial ordering on the
+Cartesian product of two posets.
+
+\item 
+	\begin{enumerate}
+		\item Show that there is exactly one greatest element of a
+		poset, if such an element exists.
+		\item Show that there is exactly one least element of a poset,
+		if such an element exists.
+		\item Show that there is exactly one maximal element in a
+		poset with a greatest element.
+		\item Show that there is exactly one minimal element in a
+		poset with a least element.
+	\end{enumerate}
 \end{enumerate}
 
 \nocite{*}
@@ -651,5 +671,60 @@ reflexive closure.
 	\item Is a partial ordering 
 	\item Not antisymmetric, not transitive
 \end{enumerate}
+
+\item 
+	\includegraphics[width=0.4\textwidth]{figs/252.pdf}
+	
+\item 
+Because $(a, b)\preceq (a, b)$, $\preceq$ is reflexive. 
+
+If$(a1, a2)\preceq (b1, b2)$ and $(a1, a2)\neq (b1, b2)$, either $a1\prec b1$, or
+$a1 = b1$ and $a2 \prec b2$. In either case, $(b1, b2)$ is not less than or
+equal to $(a1, a2)$. Hence, $\preceq$ is antisymmetric. 
+
+Suppose that
+$(a1, a2)\prec (b1, b2) \prec (c1, c2)$. Then if $a1\prec b1$ or $b1\prec c1$,
+we have $a1 \prec c1$, so $(a1, a2) \prec (c1, c2)$, but if $a1 = b1 = c1$,
+then $a2 \prec b2 \prec c2$, which implies that $(a1, a2) \prec (c1, c2)$.
+Hence, $\preceq$ is transitive.
+
+\item
+	\begin{enumerate}
+		\item Suppose that there are two different elements $x$ and $y$ that are greatest.
+		
+		So $\forall a \in S$ and $a\preceq x$. 
+		
+		Also, $\forall a \in S$ and $a\preceq y$. 
+		
+		Since $x \in S$ and $y\in S$, we have $x\preceq y$ and also $y \preceq x$. 
+		
+		So $x=y$ because relation $\preceq$ is antisymmetric.
+		
+		Which is a contradiction because we started out with $x$ and $y$ being different
+		elements. So there canot be two different elements that are greatest. So if
+		exists then there is only a unique element that is greatest.
+
+		\item Suppose that there are two different elements $x$ and $y$ that are least.
+		
+		So $\forall a \in S$ and $x\preceq a$. 
+		
+		Also, $\forall a \in S$ and $y\preceq a$. 
+		
+		Since $x \in S$ and $y\in S$, we have $x\preceq y$ and also $y \preceq x$. 
+		
+		So $x=y$ because relation $\preceq$ is antisymmetric.
+		
+		Which is a contradiction because we started out with $x$ and $y$ being different
+		elements. So there canot be two different elements that are least. So if
+		exists then there is only a unique element that is least.
+		
+		\item Suppose that $x$ is maximal and that $y$ is the largest
+		element. Then $x \preceq y$. Because $x$ is not less than $y$, it follows
+		that $x = y$. By (a) $y$ is unique. Hence, $x$ is
+		unique.
+		\item Suppose that $x$ is minimal and that $y$ is the smallest
+		element. Then $x \preceq y$. Because $x$ is not greater than $y$, it follows
+		 that $x = y$. By (b) $y$ is unique. Hence, $x$ is unique.
+	\end{enumerate}
 \end{enumerate}
 \end{document}
