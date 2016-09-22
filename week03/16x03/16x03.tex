@@ -213,6 +213,12 @@ integers. What is the symmetric closure of $R$?
 		\item $\{(1, 1), (1,4), (2,1), (2,3), (3,1), (3, 2), (3,4), (4, 2)\}$
 	\end{enumerate}
 	
+\item Suppose that the relation $R$ on the finite set $A$ is represented by the matrix $M_R$. Show that the matrix that represents the symmetric closure of $R$ is $M_R \vee M^T_R$.
+
+\item When is it possible to define the \textquotedblleft irreflexive closure\textquotedblright\ of a relation $R$, that is, a relation that contains $R$, is irreflexive,
+and is contained in every irreflexive relation
+that contains $R$?
+	
 \item Find the smallest relation containing the relation
 	
 	${(1, 2), (1, 4), (3, 3), (4, 1)}$ that is
@@ -572,6 +578,10 @@ $\{(a, b) | \text{a divides b or b divides a}\}$
 		1 & 1 & 1 & 1
 		\end{bmatrix}$		
 	\end{enumerate}
+	
+\item The symmetric closure of $R$ is $R \cup R^{-1}$. $M_{R \cup R^{-1}} = M_R \vee M_{R^{-1}} = M_R \vee M_R^T$.
+
+\item Only when $R$ is irreflexive, in which case it is its own closure.
 
 \item
 	\begin{enumerate}
