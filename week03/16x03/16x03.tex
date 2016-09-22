@@ -90,47 +90,7 @@
 
 \keywords{}
 
-\section{Basic Structures}
-\subsection{Sequences and Summations}
-\begin{enumerate}
-\item Let $a_n$ be the $n$-th term of the sequence 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6,..., constructed by including the integer $k$ exactly $k$ times. Showthat $a_n = \lfloor \sqrt{2n}+ \frac{1}{2n} \rfloor$.
-
-\item Show that $\Sigma^n_{j = 1}(a_j - a_{j - 1}) = a_n - a_0$, where
-$a_0$, $a_1$, ..., $a_n$ is a sequence of real numbers. This type of sum is called \textbf{telescoping}.
-
-\item Sum both sides of the identity $k^2 - (k - 1)^2 = 2k - 1$ from $k = 1$ to $k = n$ and use last exercise find:
-\begin{enumerate}
-	\item a formula for $\Sigma^n_{k = 1}(2k - 1)$ (the sum of the first $n$ odd natural numbers).
-	\item a formula for $\Sigma^n_{k = 1} k$.
-\end{enumerate}
-
-\item Use the technique given in last Exercise, to derive the formula for $\Sigma^n_{k = 1} k^2$
-
-\end{enumerate}
-\subsection{Cardinality of Sets}
-\begin{enumerate}
-\item Show that a finite group of guests arriving at Hilbert \textquoteright s
-fully occupied Grand Hotel can be given rooms without
-evicting any current guest.
-\item Suppose that Hilbert \textquoteright s Grand Hotel is fully occupied, but
-the hotel closes all the even numbered rooms for maintenance.
-Show that all guests can remain in the hotel.
-\item Suppose that Hilbert \textquoteright s Grand Hotel is fully occupied on
-the day the hotel expands to a second building which also
-contains a countably infinite number of rooms. Show that
-the current guests can be spread out to fill every room of
-the two buildings of the hotel.
-\item Show that a countably infinite number of guests arriving
-at Hilbert \textquoteright s fully occupied Grand Hotel can be given
-rooms without evicting any current guest.
-\item Suppose that a countably infinite number of buses, each
-containing a countably infinite number of guests, arrive
-at Hilbert \textquoteright s fully occupied Grand Hotel. Show that all the
-arriving guests can be accommodated without evicting
-any current guest.
-\end{enumerate}
-\section{Relations}
-\subsection{Relations and Their Properties}
+\section{Relations and Their Properties}
 \begin{enumerate}
 \item For each of these relations on the set $\{1, 2, 3, 4\}$, decide
 whether it is reflexive, whether it is symmetric, whether
@@ -173,7 +133,7 @@ Prove or disprove: $R \cap S$ is reflexive.
 have to be reflexive? Prove it or give a counterexample relation.
 \end{enumerate}
 
-\subsection{Representing Relations}
+\section{Representing Relations}
 \begin{enumerate}
 \item Represent each of these relationson $\{1, 2, 3\}$ with a matrix (with the elements of this set listed in increasing order).
 \begin{enumerate}
@@ -196,7 +156,7 @@ have to be reflexive? Prove it or give a counterexample relation.
 
 	\includegraphics[width=0.4\textwidth]{figs/123.pdf}
 \end{enumerate}
-\subsection{Closures of Relations}
+\section{Closures of Relations}
 \begin{enumerate}
 \item Let $R$ be the relation on the set $\{0, 1, 2, 3\}$ containing the ordered pairs $(0, 1), (1, 1), (1, 2), (2, 0), (2, 2)$, and $(3, 0)$. Find the
 	\begin{enumerate}
@@ -232,7 +192,7 @@ $\{0, 1, 2\}$ does not exist if P is the property
 		\item has an odd number of elements.
 	\end{enumerate}
 \end{enumerate}
-\subsection{Equivalence Relations}
+\section{Equivalence Relations}
 \begin{enumerate}
 \item Which of these relations on ${0, 1, 2, 3}$ are equivalence
 relations? Determine the properties of an equivalence relation
@@ -296,7 +256,7 @@ containing a given relation.
 
 \end{enumerate}
 
-\subsection{Partial Orderings}
+\section{Partial Orderings}
 \begin{enumerate}
 \item Which of these relations on $\{0, 1, 2, 3\}$ are partial orderings? Determine the properties of a partial ordering that
 the others lack.
@@ -381,67 +341,8 @@ Cartesian product of two posets.
 \appendix
 %Appendix A
 \section{Answer}
-\subsection{Basic Structures}
-\subsubsection{Sequences and Summations}
-\begin{enumerate}
-\item Assume $a_n = k$, so that:
-\begin{align}
-	\frac{(k - 1)k}{2} + 1 \le n & \le \frac{k(k + 1)}{2}\\
-	k^2 - k + 2 \le 2n & \le k^2 + k\\
-	(k - \frac{1}{2})^2 < (k - \frac{1}{2})^2 + \frac{7}{4} \le 2n & \le (k + \frac{1}{2})^2 - \frac{1}{4} < (k + \frac{1}{2})^2\\
-	k - \frac{1}{2} < \sqrt{2n} & < k + \frac{1}{2}\\
-	\sqrt{2n} - \frac{1}{2} < k & < \sqrt{2n} + \frac{1}{2}\\
-	k & = \lfloor \sqrt{2n} + \frac{1}{2} \rfloor
-\end{align}
 
-\item 
-\begin{align}
-	& \Sigma^n_{j = 1}(a_j - a_{j - 1})\\
-	= & \Sigma^n_{j = 1}a_j - \Sigma^n_{j = 1}a_{j - 1}\\
-	= & a_n + \Sigma^{n - 1}_{j = 1}a_j - \Sigma^{n - 1}_{j = 1}a_j + a_0\\
-	= & a_n - a_0
-\end{align}
-
-\item 
-\begin{enumerate}
-	\item 
-	\begin{equation}
-		\Sigma^n_{k = 1}(2k - 1) = n^2
-	\end{equation}
-	
-	\item 
-	\begin{align}
-		& \Sigma^n_{k = 1} k\\
-		= & \frac{\Sigma^n_{k = 1}(2k - 1) + \Sigma^n_{k = 1} 1}{2}\\
-		= & \frac{n^2 + n}{2}
-	\end{align}
-\end{enumerate}
-
-\item Since $k^3 - (k - 1)^3 = 3k^2 - 3k + 1$:
-\begin{align}
-	& \Sigma_{k = 1}^n k^2\\
-	= & \frac{n^3 + 3\Sigma_{k = 1}^n k - \Sigma_{k = 1}^n 1}{3}\\
-	= & \frac{2n^3 + 3n^2 + 3n - 2n}{6}\\
-	= & \frac{2n^3 + 3n^2 + n}{6}
-\end{align}
-\end{enumerate}
-\subsubsection{Cardinality of Sets}
-\begin{enumerate}
-\item Suppose $m$
-new guests arrive at the fully occupied hotel. Move the guest
-in Room $n$ to Room $m + n$ for $n = 1, 2, 3, ...$; then the new
-guests can occupy rooms 1 to $m$.
-\item Move the guest
-in Room $n$ to Room $2n$ for $n = 1, 2, 3, ...$.
-\item For $n = 1, 2, 3, ...$, put the guest currently in Room $2n$ into Room $n$, and the guest
-currently in Room $2n - 1$ into Room $n$ of the new building.
-\item Move the guest
-in Room $n$ to Room $2n - 1$ for $n = 1, 2, 3, ...$; then the $m$-th new guests can occupy room $2m$.
-\item Move the guess currently Room $i$ to Room $2i + 1$ for $i = 1, 2, 3, ...$. Put the $j$ th guest from the $k$-th bus into
-Room $2^k(2j + 1)$.
-\end{enumerate}
-\subsection{Relations}
-\subsubsection{Relations and Their Properties}
+\subsection{Relations and Their Properties}
 \begin{enumerate}
 \item
 \begin{enumerate}
@@ -506,7 +407,7 @@ contain $(c,c)$.
 
 \end{enumerate}
 
-\subsubsection{Representing Relations}
+\subsection{Representing Relations}
 \begin{enumerate}
 \item 
 \begin{enumerate}
@@ -548,7 +449,7 @@ contain $(c,c)$.
 \end{enumerate}
 
 \end{enumerate}
-\subsubsection{Closures of Relations}
+\subsection{Closures of Relations}
 \begin{enumerate}
 \item 
 	\begin{enumerate}
@@ -612,7 +513,7 @@ $\{(a, b) | \text{a divides b or b divides a}\}$
 		neither is a subset of the other.
 	\end{enumerate}
 \end{enumerate}
-\subsubsection{Equivalence Relations}
+\subsection{Equivalence Relations}
 \begin{enumerate}
 \item
 	\begin{enumerate}
@@ -702,7 +603,7 @@ form the transitive closure of the symmetric closure of the
 reflexive closure.
 \end{enumerate}
 
-\subsubsection{Partial Orderings}
+\subsection{Partial Orderings}
 \begin{enumerate}
 \item 
 \begin{enumerate}
