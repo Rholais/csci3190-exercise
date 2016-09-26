@@ -338,18 +338,25 @@ Room $2^k(2j + 1)$.
 			\end{cases}
 		\end{equation}
 		
-		\item \begin{equation}
-			\begin{cases}
-			A(x) = \frac{1 - 4x + 2x^2}{1 - 6x + 8x^2},\\
-			B(x) = \frac{x}{1 - 4x},\\
-			C(x) = \frac{x}{1 - 4x}.
-			\end{cases}
-		\end{equation}
-		
 		\item \begin{align}
+			A(x) & = \frac{1 - 4x + 2x^2}{1 - 6x + 8x^2}.\\
+			B(x) & = \frac{x}{1 - 4x}.\\
+			C(x) & = \frac{x}{1 - 4x}.\\
 			a_n & = \begin{cases}
 				1, & n = 0,\\
-				4^{n-1} + 2^{n - 1}, & \text{otherwise}
+				4^{n-1} + 2^{n - 1}, & \text{otherwise}.
+			\end{cases}\\
+			b_n & = \begin{cases}
+				0, & n = 0,\\
+				4^{n - 1}, & \text{otherwise}.
+			\end{cases}\\
+			c_n & = \begin{cases}
+				0, & n = 0,\\
+				4^{n - 1}, & \text{otherwise}.
+			\end{cases}\\
+			d_n & = \begin{cases}
+				0, & n = 0,\\
+				4^{n - 1} - 2^{n - 1}, & \text{otherwise}.
 			\end{cases}
 		\end{align}
 	\end{enumerate}
