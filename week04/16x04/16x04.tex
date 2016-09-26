@@ -47,6 +47,7 @@
 
 \documentclass{sig-alternate-05-2015}
 \usepackage{booktabs}
+\usepackage{textcomp}
 
 
 \begin{document}
@@ -144,6 +145,16 @@ any current guest.
 		\item $\frac{1 + x^3}{(1 + x)^3}$
 		\item $\frac{x}{1 + x + x^2}$
 		\item $e^{3x^2} - 1$
+	\end{enumerate}
+	
+	\item A coding system encodes messages using strings of
+	base 4 digits (that is, digits from the set $\{0, 1, 2, 3\}$). A codeword is valid if and only if it contains an even
+	number of $0$s and an even number of $1$s. Let an equal the number of valid codewords of length $n$. Furthermore, let $b_n$, $c_n$, and $d_n$ equal the number of strings of base 4 digits of length $n$ with an even number of $0$s and an odd number of $1$s, with an odd number of $0$s and an even number of $1$s, and with an odd number of $0$s and an odd number of $1$s, respectively. \begin{enumerate}
+		\item Show that $d_n = 4^n - a_n - b_n - c_n$. Use this to show that $a_{n+1} = 2a_n + b_n + c_n$, $b_{n+1} = b_n - c_n + 4^n$, and $c_{n+1} = c_n - b_n + 4^n$.
+		\item What are $a_1$, $b_1$, $c_1$, and $d_1$?
+		\item Use parts (a) and (b) to find $a_3$, $b_3$, $c_3$, and $d_3$.
+		\item Use the recurrence relations in part (a), together with the initial conditions in part (b), to set up three equations relating the generating functions $A(x)$, $B(x)$, and $C(x)$ for the sequences $\{a_n\}$, $\{b_n\}$, and $\{c_n\}$, respectively.
+		\item Solve the system of equations from part (d) to get explicit formula for $A(x)$, $B(x)$, and $C(x)$ and use these to get explicit formula for $a_n$, $b_n$, $c_n$, and $d_n$.
 	\end{enumerate}
 \end{enumerate}
 
@@ -279,6 +290,59 @@ Room $2^k(2j + 1)$.
 			a_n = \begin{cases}
 				\frac{3^{\frac{n}{2}}}{(\frac{n}{2})!}, & n \ge 2, n \equiv 0 \pmod{2},\\
 				0, & \text{otherwise}.
+			\end{cases}
+		\end{equation}
+	\end{enumerate}
+	\item \begin{enumerate}
+		\item Obviously, $a_n$, $b_n$, $c_n$, $d_n$ cover all situation of strings of base 4 digits, so that $a_n + b_n + c_n + d_n = 4^n$ and $d_n = 4^n - a_n - b_n - c_n$.
+		
+		Recursively, $a_{n + 1}$ can be succeeded from $a_n$ by appending either 2 or 3, from $b_n$ by appending a 1 and from $c_n$ by appending a 0.
+		
+		$b_{n + 1}$ can be succeeded from $b_n$ by appending either 2 or 3, from $a_n$ by appending a 1 and from $d_n$ by appending a 0.
+		
+		$c_{n + 1}$ can be succeeded from $c_n$ by appending either 2 or 3, from $d_n$ by appending a 1 and from $a_n$ by appending a 0, so that:
+		
+		\begin{equation}
+			\begin{cases}
+			a_{n+1} & = 2a_n + b_n + c_n,\\
+			b_{n+1} & = 2b_n + a_n + d_n\\
+			& = b_n - c_n + 4^n,\\
+			c_{n+1} & = 2c_n + d_n + a_n\\
+			& = c_n - b_n + 4^n.
+			\end{cases}
+		\end{equation}
+		
+		\item \begin{equation}
+			\begin{cases}
+			a_1 = 2,\\
+			b_1 = 1,\\
+			c_1 = 1,\\
+			d_1 = 0.
+			\end{cases}
+		\end{equation}
+		
+		\item \begin{equation}
+			\begin{cases}
+			a_3 = 20,\\
+			b_3 = 16,\\
+			c_3 = 16,\\
+			d_3 = 12.
+			\end{cases}
+		\end{equation}
+		
+		\item \begin{equation}
+			\begin{cases}
+			(1 - 2x)A(x) - x B(x) - x C(x) & = 1,\\
+			(1 - x) B(x) + x C(x) & = \frac{x}{1 - 4x},\\
+			x B(x) + (1 - x) C(x) & = \frac{x}{1 - 4x}.
+			\end{cases}
+		\end{equation}
+		
+		\item \begin{equation}
+			\begin{cases}
+			A(x) = \frac{1 - 4x + 2x^2}{1 - 6x + 8x^2},\\
+			B(x) = \frac{x}{1 - 4x},\\
+			C(x) = \frac{x}{1 - 4x}.
 			\end{cases}
 		\end{equation}
 	\end{enumerate}
