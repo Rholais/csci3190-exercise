@@ -46,8 +46,8 @@
 % For tracking purposes - this is V2.0 - May 2012
 
 \documentclass{sig-alternate-05-2015}
-
 \usepackage{booktabs}
+
 
 \begin{document}
 
@@ -90,7 +90,6 @@
 \keywords{}
 
 \section{Propositional Logic}
-
 \begin{enumerate}
 \item Which of these sentences are propositions? What are the
 truth values of those that are propositions?
@@ -103,7 +102,7 @@ truth values of those that are propositions?
 
 \item What is the negation of each of these propositions?
 \begin{enumerate}
-	\item Mei has an MP3 player.
+	\item Sharon has an MP3 player.
 	\item There is no pollution in New Jersey.
 	\item $2 + 1 = 3$
 	\item The summer in HK is hot and sunny.
@@ -143,7 +142,7 @@ propositions as an English sentence.
 	\item $\neg p \wedge (p \vee \neg q)$
 \end{enumerate}
 
-\item Let $p$, $q$, and $r$ be the propositions
+\item Let $p$, $q$, and $r$ be the propositions.
 
 $p$ : Grizzly bears have been seen in the area.
 
@@ -172,7 +171,7 @@ have been seen in the area and berries are ripe along
 the trail.
 \end{enumerate}
 
-\item Let $p$, $q$, and $r$ be the propositions
+\item Let $p$, $q$, and $r$ be the propositions.
 
 $p$ :You have the flu.
 
@@ -181,6 +180,7 @@ $q$ :You miss the final examination.
 $r$ :You pass the course.
 
 Express each of these propositions as an English sentence.
+
 \begin{enumerate}
 	\item $p\rightarrow q$
 	\item $\neg q \leftrightarrow r$
@@ -211,7 +211,7 @@ $n$ of the statements in this list are false.\textquotedblright
 
 \begin{enumerate}
 \item Each inhabitant of a remote village always tells the truth
-or always lies.A villager will give only a \textquotedblleft Yes\textquotedblright or a \textquotedblleft No\textquotedblright
+or always lies. A villager will give only a \textquotedblleft Yes\textquotedblright or a \textquotedblleft No\textquotedblright
 response to a question a tourist asks. Suppose you are a
 tourist visiting this area and come to a fork in the road.
 One branch leads to the ruins you want to visit; the other
@@ -221,9 +221,9 @@ villager to determine which branch to take?
 
 \item To use the wireless network in the airport you must pay
 the daily fee unless you are a subscriber to the service.
-Express your answer in terms of $w$: "You can use the wireless
-network in the airport," $d$: "You pay the daily fee,"
-and $s$: "You are a subscriber to the service."
+Express your answer in terms of $w$: \textquotedblleft You can use the wireless
+network in the airport,\textquotedblright\ $d$: \textquotedblleft You pay the daily fee,\textquotedblright\ 
+and $s$: \textquotedblleft You are a subscriber to the service.\textquotedblright
 \newline\newline
 Exercises $3 - 7$ relate to inhabitants of the island of knights
 and knaves created by Smullyan, where knights always tell
@@ -232,12 +232,12 @@ A and B. Determine, if possible, what A and B are if they
 address you in the ways described. If you cannot determine
 what these two people are, can you draw any conclusions?
 
-\item A says "At least one of us is a knave" and B says nothing.
-\item A says "The two of us are both knights" and B says "A
-is a knave."
-\item A says "I am a knave or B is a knight" and B says nothing.
-\item Both A and B say "I am a knight."
-\item A says "We are both knaves" and B says nothing.
+\item A says \textquotedblleft At least one of us is a knave\textquotedblright\ and B says nothing.
+\item A says \textquotedblleft The two of us are both knights\textquotedblright\ and B says \textquotedblleft A
+is a knave.\textquotedblright
+\item A says \textquotedblleft I am a knave or B is a knight\textquotedblright\ and B says nothing.
+\item Both A and B say \textquotedblleft I am a knight.\textquotedblright 
+\item A says \textquotedblleft We are both knaves\textquotedblright\ and B says nothing.
 
 \end{enumerate}
 
@@ -259,11 +259,19 @@ by using truth tables.
 
 \item Show that $(p \rightarrow q) \vee (p \rightarrow r) \equiv p \rightarrow (q\vee r)$.
 
-\item Show that $(s \rightarrow r) \vee (q \rightarrow r) \equiv s\vee q \rightarrow  r$.
+\item Show that $(s \rightarrow r) \wedge (q \rightarrow r) \equiv s\wedge q \rightarrow  r$.
 
 \item Show that $\neg p \rightarrow (q \rightarrow \neg r)\equiv r \rightarrow (q \rightarrow p)$.
 
 \item Show that $(\neg p \vee q) \wedge (r \vee \neg q) \wedge (p \vee q) \equiv q\wedge r$.
+
+\item Show that $(\neg p \wedge (p \vee q))\rightarrow q$ is a tautology.
+
+\item Show that $((p\rightarrow q)\wedge (q\rightarrow r)) \rightarrow (p\rightarrow r)$ is a  tautology.
+
+\item Show that $(p\wedge (p \rightarrow q))\rightarrow q$ is a tautology.
+
+\item Show that $((p\vee q)\wedge (p \rightarrow r) \wedge (q\rightarrow r))\rightarrow r$ is a  tautology.
 \end{enumerate}
 
 \section{Predicates and Quantifiers}
@@ -417,6 +425,10 @@ the same nonempty domain.
 nonempty domain.
 \end{enumerate}
 
+\nocite{*}
+\bibliographystyle{abbrv}
+\bibliography{ref}  % sigproc.bib is the name of the Bibliography in this case
+ 
 \newpage
 %APPENDICES are optional
 %\balancecolumns
@@ -549,8 +561,43 @@ say, \textquotedblleft I am a knight\textquotedblright.
 
 \item It is a tautology.
 
+$(\neg q \wedge (p \rightarrow q)) \rightarrow \neg p$
+
+$\equiv \neg (\neg q \wedge (p \rightarrow q)) \vee \neg p$
+
+$\equiv q \vee \neg (\neg p \vee q)) \vee \neg p$
+
+$\equiv q \vee ( p \wedge \neg q) \vee \neg p$
+
+$\equiv ((q \vee p) \wedge (q \vee \neg q) ) \vee \neg p$
+
+$\equiv ((q \vee p) \wedge T ) \vee \neg p$
+
+$\equiv q \vee p \vee \neg p$
+$\equiv T$
+
 \item If both $q$ and $r$ are false, $(p \vee q)$ and $(\neg p \vee r)$ is opposite, then $(\neg q \wedge \neg r) \rightarrow \neg (p \vee q) \vee \neg (\neg p \vee r)$ is tautology, so $\neg(q \vee r) \rightarrow \neg ((p \vee q) \wedge (\neg p \vee r))$ is tautology, and $(p \vee q) \wedge (\neg p \vee r) \rightarrow (q \vee r)$ is tautology.
 
+Or:
+
+$(p\vee q) \wedge (\neg p \vee r)\rightarrow (q \vee r)$
+
+$\equiv \neg (p\vee q) \vee \neg (\neg p \vee r)\vee  (q \vee r)$
+
+$\equiv (\neg p\wedge \neg q) \vee (p \wedge \neg r)\vee  (q \vee r)$
+
+$\equiv (\neg p\wedge \neg q) \vee q \vee (p \wedge \neg r) \vee r$
+
+$\equiv ((\neg p\vee q)\wedge (\neg q\vee q) ) \vee (p \wedge \neg r) \vee r$
+
+$\equiv ((\neg p\vee q)\wedge T) \vee ((p \vee r) \wedge (\neg r \vee r)) $
+
+$\equiv (\neg p\vee q) \vee ((p \vee r) \wedge T) $
+
+$\equiv \neg p\vee q \vee p \vee r $
+
+$\equiv (\neg p \vee p)\vee q \vee r $
+$\equiv T $
 \item  $(\neg(p \vee F) \wedge (\neg q \wedge T)) \vee p$
 
 $\equiv (\neg p \wedge \neg q)\vee p$
@@ -629,6 +676,50 @@ $\equiv (q \wedge r )\vee( q \wedge \neg q)$
 
 $\equiv (q\wedge r)\vee F$
 $\equiv q\wedge r$
+
+\item $(\neg p \wedge (p \vee q))\rightarrow q$
+
+$\equiv \neg (\neg p \wedge (p \vee q))\vee q$
+
+$\equiv  ( p \vee (\neg p \wedge \neg q))\vee q$
+
+$\equiv  ( (p \vee \neg p) \wedge (p \vee \neg q))\vee q$
+
+$\equiv   p \vee \neg q \vee q$ $\equiv  T$
+\item $((p\rightarrow q)\wedge (q\rightarrow r)) \rightarrow (p\rightarrow r)$
+
+$\equiv \neg ((\neg p\vee q)\wedge (\neg q\vee r)) \vee(\neg p\vee r)$
+
+$\equiv (( p\wedge \neg q)\vee (q\wedge \neg r)) \vee(\neg p\vee r)$
+
+$\equiv (( p\vee \neg p)\wedge (\neg q \vee \neg p))\vee (q\wedge \neg r)) \vee r$
+
+$\equiv  (\neg q \vee \neg p)\vee ((q\vee r)\wedge (\neg r\vee r))$
+
+$\equiv  \neg q \vee \neg p\vee q\vee r$ $\equiv T$
+\item $(p\wedge (p \rightarrow q))\rightarrow q$
+
+$\equiv \neg (p\wedge (\neg p \vee q))\vee q$
+
+$\equiv \neg p\vee ( p \wedge \neg q)\vee q$
+
+$\equiv ((\neg p\vee p) \wedge (\neg p \vee \neg q)\vee q$
+
+$\equiv \neg p \vee \neg q\vee q$ $\equiv T$
+
+\item $((p\vee q)\wedge (p \rightarrow r) \wedge (q\rightarrow r))\rightarrow r$
+
+$\equiv \neg((p\vee q)\wedge (\neg p \vee r) \wedge (\neg q\vee r))\vee r$
+
+$\equiv (\neg p\wedge \neg q)\vee (p \wedge \neg r) \vee (q\wedge \neg r)\vee r$
+
+$\equiv (\neg p\wedge \neg q)\vee (p \wedge \neg r) \vee ((q\vee r) \wedge (\neg r\vee r))$
+
+$\equiv (\neg p\wedge \neg q)\vee (p \wedge \neg r) \vee q\vee r$
+
+$\equiv ((\neg p\vee q )\wedge (\neg q\vee q)) \vee ((p \vee r)\wedge (\neg r\vee r))$
+
+$\equiv \neg p\vee q  \vee p \vee r$ $\equiv T$
 \end{enumerate}
 
 \subsection{Predicates and Quantifiers}
@@ -778,6 +869,5 @@ some $x$, and for this $x$ there must be a $y$ such that $P(x) \vee Q(y)$
 is true. Hence, $Q(y)$ must be true, so $\exists y Q(y)$ is true. It follows
 that the first proposition must hold.
 \end{enumerate}
-
 
 \end{document}
