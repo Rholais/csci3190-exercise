@@ -253,6 +253,22 @@ Room $2^k(2j + 1)$.
 	\binom{n}{k} = \frac{n(n - 1)(n - 2) \cdots (n - k + 1)}{k(k - 1)(k - 2) \cdots 2} \le \frac{n \cdot n \cdot \cdots \cdot n}{2 \cdot 2 \cdot \cdots \cdot 2} = \frac{n^k}{2^{k - 1}}
 	\end{equation}
 	
+	\item \begin{enumerate}
+		\item We show that each side counts the number of ways
+		to choose from a set with n elements a subset with $k$ elements
+		and a distinguished element of that set. For the lefthand
+		side, first choose the $k$-set (this can be done in $\binom{n}{k}$ ways)
+		and then choose one of the $k$ elements in this subset to be
+		the distinguished element (this can be done in $k$ ways). For
+		the right-hand side, first choose the distinguished element out
+		of the entire $n$-set (this can be done in $n$ ways), and then
+		choose the remaining $k - 1$ elements of the subset from the
+		remaining $n - 1$ elements of the set (this can be done in $\binom{n - 1}{k - 1}$ ways).
+		\item \begin{equation}
+			k \binom{n}{k} = k \cdot \frac{n!}{k!(n - k)!} = \frac{n \cdot (n - 1)!}{(k - 1)!(n - k)!} = n \binom{n - 1}{k - 1}.
+		\end{equation}
+	\end{enumerate}
+	
 \end{enumerate}
 
 \subsection{Advanced Counting Techniques}
