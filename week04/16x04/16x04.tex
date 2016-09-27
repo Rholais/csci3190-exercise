@@ -139,6 +139,11 @@ any current guest.
 
 \begin{enumerate}
 	\item Show that if $n$ and $k$ are integers with $1 \le k \le n$, then $\binom{n}{c} \le \frac{n^k}{2^{k - 1}}$.
+	
+	\item Prove that if $n$ and $k$ are integers with $1 \le k \le n$, then $k \binom{n}{k} = n \binom{n - 1}{k - 1}$,\begin{enumerate}
+		\item using a combinatorial proof. [\textit{Hint:} Show that the two sides of the identity count the number of ways to select a subset with $k$ elements from a set with $n$ elements and then an element of this subset.]
+		\item using an algebraic proof based on the formula for $\binom{n}{r}$.
+	\end{enumerate}
 \end{enumerate}
 
 \section{Advanced Counting Techniques}
@@ -247,6 +252,7 @@ Room $2^k(2j + 1)$.
 	\item \begin{equation}
 	\binom{n}{k} = \frac{n(n - 1)(n - 2) \cdots (n - k + 1)}{k(k - 1)(k - 2) \cdots 2} \le \frac{n \cdot n \cdot \cdots \cdot n}{2 \cdot 2 \cdot \cdots \cdot 2} = \frac{n^k}{2^{k - 1}}
 	\end{equation}
+	
 \end{enumerate}
 
 \subsection{Advanced Counting Techniques}
