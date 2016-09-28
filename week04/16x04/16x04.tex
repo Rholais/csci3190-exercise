@@ -156,6 +156,8 @@ any current guest.
 \subsection{Binomial Coefficients and Identities}
 
 \begin{enumerate}
+	\item Find the coefficient of $x^{11}$ in the expansion of $(x^2-\dfrac{3}{x})^{10}$.
+	
 	\item Show that if $n$ and $k$ are integers with $1 \le k \le n$, then $\binom{n}{c} \le \frac{n^k}{2^{k - 1}}$.
 
 	\item Prove that if $n$ and $k$ are integers with $1 \le k \le n$, then $k \binom{n}{k} = n \binom{n - 1}{k - 1}$,\begin{enumerate}
@@ -321,6 +323,10 @@ Room $2^k(2j + 1)$.
 \subsubsection{Permutations and Combinations}
 \subsubsection{Binomial Coefficients and Identities}
 \begin{enumerate}
+	\item By the binomial theorem 	$(x^2-\frac{3}{x})^{10}\\=\sum_{n=0}^{10}\binom{10}{n}(x^2)^{10-n}(-\frac{3}{x})^n
+	\\=\sum_{n=0}^{10}\binom{10}{n}x^{20-2n}(-3)^nx^n=\sum_{n=0}^{10}(-3)^n\binom{10}{n} x^{20-3n}$
+	
+	So the term $x^{11}$ occurs when $20-3n=11$; i.e. when $n=3$. So the coefficient of $x^{11}$ is $(-3)^3\binom{10}{3}=-27\times 120 = -3240$
 	\item \begin{equation}
 	\binom{n}{k} = \frac{n(n - 1)(n - 2) \cdots (n - k + 1)}{k(k - 1)(k - 2) \cdots 2} \le \frac{n \cdot n \cdot \cdots \cdot n}{2 \cdot 2 \cdot \cdots \cdot 2} = \frac{n^k}{2^{k - 1}}
 	\end{equation}
