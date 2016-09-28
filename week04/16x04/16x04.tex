@@ -136,8 +136,18 @@ any current guest.
 \begin{enumerate}
 	\item How many bit strings of length $10$ contain either five consecutive
 	$0$s or five consecutive $1$s?
+	
+	\item Use the product rule to show that there are $2^{2^n}$
+	different truth tables for propositions in $n$ variables.
+
 \end{enumerate}
 \subsection{The Pigeonhole Principle}
+\begin{enumerate}
+	\item Let $(x_i, y_i), i = 1, 2, 3, 4, 5$, be a set offive distinct points with integer coordinates in the $xy$ plane. Show that the
+	midpoint of the line joining at least one pair of these points has integer coordinates.
+	
+	\item Show that whenever 25 girls and 25 boys are seated around a circular table there is always a person both of whose neighbors are boys.
+\end{enumerate}
 \subsection{Permutations and Combinations}
 \subsection{Binomial Coefficients and Identities}
 
@@ -264,8 +274,27 @@ Room $2^k(2j + 1)$.
 		In total, for five consecutive $0$'s, there are $64+28+12+5+2+1=112$.
 		
 		Now for five consecutive $1$'s we also have $112$ such bit string. However, in order to answer our problem, we cannot simply add these two together since we would be double counting two situations $00000111111$ and $1111100000$. Thus the answer to our problem is $112+112-2=222$.
+
+	\item There are $2^n$ values in $n$ variable truth table and each of them can be either $T$ or $F$ so that there are $2^{2^n}$ tables.
 \end{enumerate}
 \subsubsection{The Pigeonhole Principle}
+\begin{enumerate}
+	\item \textbf{Proof}. The middle point of $(x_i, y_i)$ and $(x_j, y_j)$ is $(\frac{x_i + x_j}{2}, \frac{y_i + y_j}{2})$. The middle point has integer coordinates if and only if $(x_i, y_i)$ has the same parity of $(x_j, y_j)$.  There are only
+	four possibilities for the parity of a pair of integers, namely, (even, even), (even, odd),
+	(odd, even), and (odd, odd). For five distinct integers, by Pigeonhole Principle, there
+	are at least two points with the same parity. The middle point of these two has integer
+	coordinates.
+	
+	\item \textbf{Proof}. Number the seats around the table
+	from 1 to 50, and think of seat 50 as being adjacent to seat 1.
+	There are 25 seats with odd numbers and 25 seats with even
+	numbers. If no more than 12 boys occupied the odd-numbered seats, then at least 13 boys would occupy the even-numbered
+	seats, and vice versa. Without loss of generality, assume that
+	at least 13 boys occupy the 25 odd-numbered seats. Then at
+	least two of those boys must be in consecutive odd-numbered
+	seats, and the person sitting between them will have boys as
+	both of his or her neighbors.
+\end{enumerate}
 \subsubsection{Permutations and Combinations}
 \subsubsection{Binomial Coefficients and Identities}
 \begin{enumerate}
