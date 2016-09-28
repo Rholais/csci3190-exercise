@@ -149,6 +149,8 @@ any current guest.
 	\item Show that whenever 25 girls and 25 boys are seated around a circular table there is always a person both of whose neighbors are boys.
 	
 	\item Suppose that 21 girls and 21 boys enter a mathemat- ics competition. Furthermore, suppose that each entrant solves at most six questions, and for every boy-girl pair, there is at least one question that they both solved. Show that there is a question that was solved by at least three girls and at least three boys.
+	
+	\item An arm wrestler is the champion for a period of 75 hours. (Here, by an hour, we mean a period starting from an exact hour, such as 1 p.m., until the next hour.) The arm wrestler had at least one match an hour, but no more than 125 total matches. Show that there is a period of consecutive hours during which the arm wrestler had exactly 24 matches.
 \end{enumerate}
 \subsection{Permutations and Combinations}
 \subsection{Binomial Coefficients and Identities}
@@ -304,6 +306,15 @@ Room $2^k(2j + 1)$.
 	whenever it shares such a question with girl $j$, we put a red ball in the cell $(i, j)$. So, there are at least 11 red balls in any row of the grid.
 	
 	We know that the total number of balls is at least $2 \times 21 \times 11$. This is greater than the total number of cells which is $21 \times 21$. So, by the Pigeonhole principle, there is a cell that contains both blue and red ball. But then this means that the question that is shared in this cell is solved by at least 3 boys and at least 3 girls.
+	
+	\item Let $a_i$ be the number of matches completed by
+	hour $i$. Then $1 \le a_1 < a_2 < \cdots < a_{75} \le 125$. Also
+	$25 \le a_1 + 24 < a_2 + 24 < \cdots < a75 + 24 \le 149$. There
+	are 150 numbers $a_1, \cdots , a_{75}, a_1 + 24, \cdots , a_{75} + 24$. By the
+	pigeonhole principle, at least two are equal. Because all the
+	$a_i$ s are distinct and all the $(a_i + 24)$s are distinct, it follows
+	that $a_i = a_j + 24$ for some $i > j$. Thus, in the period from
+	the $(j + 1)$st to the $i$th hour, there are exactly 24 matches.
 \end{enumerate}
 \subsubsection{Permutations and Combinations}
 \subsubsection{Binomial Coefficients and Identities}
