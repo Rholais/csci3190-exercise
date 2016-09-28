@@ -139,7 +139,7 @@ any current guest.
 
 	\item Use the principle of inclusion-exclusion to find the number
 	of positive integers less than $1,000,000$ that are not
-	divisible by either $4$, $5$ or by $6$.
+	divisible by either $4$ or by $6$.
 	
 	\item Use the product rul{\tiny }e to show that there are $2^{2^n}$
 	different truth tables for propositions in $n$ variables.
@@ -279,25 +279,8 @@ Room $2^k(2j + 1)$.
 		
 		Now for five consecutive $1$'s we also have $112$ such bit string. However, in order to answer our problem, we cannot simply add these two together since we would be double counting two situations $00000111111$ and $1111100000$. Thus the answer to our problem is $112+112-2=222$.
 
-	\item Note that a number is divisible by $4$ and $5$ if and only if it
-	is divisible by $20$ (since ($4$, $5$) = $1$). A number is divisible by $4$ and $6$
-	if and only if it is divisible by $12$ (since the l.c.m of $4$ and $6$ is $12$), and a number is divisible by $5$ and $6$ if and
-	only if it is divisible by $30$. A number is divisible by $4$, $5$ and $6$ if and
-	only it is divisible by $60$.
-	
-	Let $A_k$ be the set of numbers less than $10, 000$ ( i.e. less than or equal
-	to $9999$ ) which are divisible by k. Then $|A_k| = \lfloor 9999/k \rfloor$ (since if
-	$\lfloor 9999/k \rfloor =m$ then $mk \leq 9999 < (m + 1)k$.
-	
-	By the principle of inclusion-exclusion and the preceding observations,
-	the number of positive integers less than $10000$ which are divisible
-	by $4$, $5$ or $6$ is
-	
-	$|A_4\cup A_5 \cup A_6|=|A_4|+|A_5|+|A_6|-|A_{20}|-|A_{21}|-|A_{30}|+|A_{60}|
-	=\lfloor \frac{9999}{4} \rfloor+ \lfloor \frac{9999}{5} \rfloor+\lfloor \frac{9999}{6} \rfloor-\lfloor \frac{9999}{20} \rfloor-\lfloor \frac{9999}{12} \rfloor-\lfloor \frac{9999}{30} \rfloor+\lfloor \frac{9999}{60} \rfloor=2499+1999+1666-499-833-333+166=4665$.
-	
-	The answer is therefore $10000-4666=5335$.
-	
+	\item $666,667$.
+
 	\item There are $2^n$ values in $n$ variable truth table and each of them can be either $T$ or $F$ so that there are $2^{2^n}$ tables.
 \end{enumerate}
 \subsubsection{The Pigeonhole Principle}
