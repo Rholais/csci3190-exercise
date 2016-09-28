@@ -134,9 +134,14 @@ any current guest.
 \section{Counting}
 \subsection{The Basics of Counting}
 \begin{enumerate}
-	\item Howmany bit strings of length 10 contain either five consecutive $0$s or five consecutive $1$s?
+	\item Use the product rule to show that there are $2^{2^n}$
+	different truth tables for propositions in $n$ variables.
 \end{enumerate}
 \subsection{The Pigeonhole Principle}
+\begin{enumerate}
+	\item Let $(x_i, y_i), i = 1, 2, 3, 4, 5$, be a set offive distinct points with integer coordinates in the $xy$ plane. Show that the
+	midpoint of the line joining at least one pair of these points has integer coordinates.
+\end{enumerate}
 \subsection{Permutations and Combinations}
 \subsection{Binomial Coefficients and Identities}
 
@@ -249,11 +254,16 @@ Room $2^k(2j + 1)$.
 \subsection{Counting}
 \subsubsection{The Basics of Counting}
 \begin{enumerate}
-	\item \begin{equation}
-		2 \times 2^5 - 2 = 62.
-	\end{equation}
+	\item There are $2^n$ values in $n$ variable truth table and each of them can be either $T$ or $F$ so that there are $2^{2^n}$ tables.
 \end{enumerate}
 \subsubsection{The Pigeonhole Principle}
+\begin{enumerate}
+	\item \textbf{Proof}. The middle point of $(x_i, y_i)$ and $(x_j, y_j)$ is $(\frac{x_i + x_j}{2}, \frac{y_i + y_j}{2})$. The middle point has integer coordinates if and only if $(x_i, y_i)$ has the same parity of $(x_j, y_j)$.  There are only
+	four possibilities for the parity of a pair of integers, namely, (even, even), (even, odd),
+	(odd, even), and (odd, odd). For five distinct integers, by Pigeonhole Principle, there
+	are at least two points with the same parity. The middle point of these two has integer
+	coordinates.
+\end{enumerate}
 \subsubsection{Permutations and Combinations}
 \subsubsection{Binomial Coefficients and Identities}
 \begin{enumerate}
