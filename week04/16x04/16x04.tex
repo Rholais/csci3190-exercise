@@ -141,6 +141,8 @@ any current guest.
 \begin{enumerate}
 	\item Let $(x_i, y_i), i = 1, 2, 3, 4, 5$, be a set offive distinct points with integer coordinates in the $xy$ plane. Show that the
 	midpoint of the line joining at least one pair of these points has integer coordinates.
+	
+	\item Show that whenever 25 girls and 25 boys are seated around a circular table there is always a person both of whose neighbors are boys.
 \end{enumerate}
 \subsection{Permutations and Combinations}
 \subsection{Binomial Coefficients and Identities}
@@ -263,6 +265,16 @@ Room $2^k(2j + 1)$.
 	(odd, even), and (odd, odd). For five distinct integers, by Pigeonhole Principle, there
 	are at least two points with the same parity. The middle point of these two has integer
 	coordinates.
+	
+	\item \textbf{Proof}. Number the seats around the table
+	from 1 to 50, and think of seat 50 as being adjacent to seat 1.
+	There are 25 seats with odd numbers and 25 seats with even
+	numbers. If no more than 12 boys occupied the odd-numbered seats, then at least 13 boys would occupy the even-numbered
+	seats, and vice versa. Without loss of generality, assume that
+	at least 13 boys occupy the 25 odd-numbered seats. Then at
+	least two of those boys must be in consecutive odd-numbered
+	seats, and the person sitting between them will have boys as
+	both of his or her neighbors.
 \end{enumerate}
 \subsubsection{Permutations and Combinations}
 \subsubsection{Binomial Coefficients and Identities}
