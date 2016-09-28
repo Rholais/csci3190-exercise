@@ -143,6 +143,8 @@ any current guest.
 	midpoint of the line joining at least one pair of these points has integer coordinates.
 	
 	\item Show that whenever 25 girls and 25 boys are seated around a circular table there is always a person both of whose neighbors are boys.
+	
+	\item Suppose that 21 girls and 21 boys enter a mathemat- ics competition. Furthermore, suppose that each entrant solves at most six questions, and for every boy-girl pair, there is at least one question that they both solved. Show that there is a question that was solved by at least three girls and at least three boys.
 \end{enumerate}
 \subsection{Permutations and Combinations}
 \subsection{Binomial Coefficients and Identities}
@@ -275,6 +277,14 @@ Room $2^k(2j + 1)$.
 	least two of those boys must be in consecutive odd-numbered
 	seats, and the person sitting between them will have boys as
 	both of his or her neighbors.
+	
+	\item \textbf{Proof}. Consider a $21 \times 21$ grid. The rows corresponding to the boys and the columns corresponding to the girls. For all$(i, j)$, if the	$i$th boy shares a question $q$ with the $j$th girl	such that there are at least two more girls who solved $q$, then we put a red ball into the	cell $(i, j)$. If $i$th boy shares a question $q$ with the $j$th girl such that there are at least two more boys who solved	$q$, then we put a blue ball into the cell $(i, j)$.  We now claim that each row contains at least 11 red balls and each column contains at least 11 blue balls:
+
+	We will just prove for the rows and the statement about columns follows by a symmetric argument. For any $i$, we will argue that out of the questions that the $i$th	boy	solves, there are at most 5 distinct questions such that for any such question there are at most 2 girls who solved it. This follows by the Pigeonhole principle. Since otherwise the $i$th boy solves more than 6 distinct questions. This set of at most 5 questions, covers only
+	$2 \times 5 = 10$ girls with whom boy $i$ shares a question.  This means that with the remaining 11 girls, this boy shares a problem that is solved by at least two other girls. Note that
+	whenever it shares such a question with girl $j$, we put a red ball in the cell $(i, j)$. So, there are at least 11 red balls in any row of the grid.
+	
+	We know that the total number of balls is at least $2 \times 21 \times 11$. This is greater than the total number of cells which is $21 \times 21$. So, by the Pigeonhole principle, there is a cell that contains both blue and red ball. But then this means that the question that is shared in this cell is solved by at least 3 boys and at least 3 girls.
 \end{enumerate}
 \subsubsection{Permutations and Combinations}
 \subsubsection{Binomial Coefficients and Identities}
