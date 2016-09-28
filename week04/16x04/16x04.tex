@@ -134,8 +134,12 @@ any current guest.
 \section{Counting}
 \subsection{The Basics of Counting}
 \begin{enumerate}
+	\item How many bit strings of length $10$ contain either five consecutive
+	$0$s or five consecutive $1$s?
+	
 	\item Use the product rule to show that there are $2^{2^n}$
 	different truth tables for propositions in $n$ variables.
+
 \end{enumerate}
 \subsection{The Pigeonhole Principle}
 \begin{enumerate}
@@ -258,6 +262,21 @@ Room $2^k(2j + 1)$.
 \subsection{Counting}
 \subsubsection{The Basics of Counting}
 \begin{enumerate}
+	\item First of all notice that if we count the number of bit strings containing five consecutive 0's then this number will also be the same as if it ontained five consecutive 1's.
+		Containing five consecutive $0$'s: The difficulty with this exercise is that we must beware of double counting things.
+		\begin{itemize}
+			\item exactly five $0$'s: If the $00000$ start the string, then we will have $000001$, $-$, $-$, $-$, $-$, so $2^4=16$ choices; if the $00000$ are in the middle (not on the end), we have something that looks like $-$, $1000001$,$-$, $-$, so $2^4=16$ choices; if the $00000$ are in the middle (not on the end), we have something that looks like $-$, $1000001$, $-$, $-$,so $2^3=8$ choices, and if the $00000$ is on the end, then the scenario wil look like $-$, $-$, $-$, $-$, $-$,$100000$ and so $16$ choices again. In total $16+8+8+8+8+16=64$ choices.
+			\item exactly six $0$'s: Use the same reasoning to get that in this case there are $(8+4+4+4+8)=28$ choices.
+			\item exactly seven $0$'s: $4+2+2+4=12$ choices.
+			\item exactly eight $0$'s: $2+1+2=5$ choices.
+			\item exactly nine $0$'s: $1+1=2$ choices.
+			\item exactly ten $0$'s: 1 choice.
+		\end{itemize}
+		
+		In total, for five consecutive $0$'s, there are $64+28+12+5+2+1=112$.
+		
+		Now for five consecutive $1$'s we also have $112$ such bit string. However, in order to answer our problem, we cannot simply add these two together since we would be double counting two situations $00000111111$ and $1111100000$. Thus the answer to our problem is $112+112-2=222$.
+
 	\item There are $2^n$ values in $n$ variable truth table and each of them can be either $T$ or $F$ so that there are $2^{2^n}$ tables.
 \end{enumerate}
 \subsubsection{The Pigeonhole Principle}
