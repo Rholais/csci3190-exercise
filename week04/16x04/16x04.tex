@@ -147,10 +147,16 @@ any current guest.
 \end{enumerate}
 \subsection{The Pigeonhole Principle}
 \begin{enumerate}
-	\item Let $(x_i, y_i), i = 1, 2, 3, 4, 5$, be a set offive distinct points with integer coordinates in the $xy$ plane. Show that the
+	\item Let $(x_i, y_i), i = 1, 2, 3, 4, 5$, be a set of five distinct points with integer coordinates in the $xy$ plane. Show that the
 	midpoint of the line joining at least one pair of these points has integer coordinates.
 	
 	\item Show that whenever 25 girls and 25 boys are seated around a circular table there is always a person both of whose neighbors are boys.
+	
+	\item Suppose that 21 girls and 21 boys enter a mathematics competition. Furthermore, suppose that each entrant solves at most six questions, and for every boy-girl pair, there is at least one question that they both solved. Show that there is a question that was solved by at least three girls and at least three boys.
+	
+	\item An arm wrestler is the champion for a period of 75 hours. (Here, by an hour, we mean a period starting from an exact hour, such as 1 p.m., until the next hour.) The arm wrestler had at least one match an hour, but no more than 125 total matches. Show that there is a period of consecutive hours during which the arm wrestler had exactly 24 matches.
+	
+	\item Let $x$ be an irrational number. Show that for some positive integer $j$ not exceeding the positive integer $n$, the absolute value of the difference between $jx$ and the nearest integer to $jx$ is less than $\frac{1}{n}$.
 \end{enumerate}
 \subsection{Permutations and Combinations}
 \subsection{Binomial Coefficients and Identities}
@@ -319,6 +325,35 @@ Room $2^k(2j + 1)$.
 	least two of those boys must be in consecutive odd-numbered
 	seats, and the person sitting between them will have boys as
 	both of his or her neighbors.
+	
+	\item \textbf{Proof}. Consider a $21 \times 21$ grid. The rows corresponding to the boys and the columns corresponding to the girls. For all$(i, j)$, if the	$i$th boy shares a question $q$ with the $j$th girl	such that there are at least two more girls who solved $q$, then we put a red ball into the	cell $(i, j)$. If $i$th boy shares a question $q$ with the $j$th girl such that there are at least two more boys who solved	$q$, then we put a blue ball into the cell $(i, j)$.  We now claim that each row contains at least 11 red balls and each column contains at least 11 blue balls:
+
+	We will just prove for the rows and the statement about columns follows by a symmetric argument. For any $i$, we will argue that out of the questions that the $i$th	boy	solves, there are at most 5 distinct questions such that for any such question there are at most 2 girls who solved it. This follows by the Pigeonhole principle. Since otherwise the $i$th boy solves more than 6 distinct questions. This set of at most 5 questions, covers only
+	$2 \times 5 = 10$ girls with whom boy $i$ shares a question.  This means that with the remaining 11 girls, this boy shares a problem that is solved by at least two other girls. Note that
+	whenever it shares such a question with girl $j$, we put a red ball in the cell $(i, j)$. So, there are at least 11 red balls in any row of the grid.
+	
+	We know that the total number of balls is at least $2 \times 21 \times 11$. This is greater than the total number of cells which is $21 \times 21$. So, by the Pigeonhole principle, there is a cell that contains both blue and red ball. But then this means that the question that is shared in this cell is solved by at least 3 boys and at least 3 girls.
+	
+	\item \textbf{Proof}. Let $a_i$ be the number of matches completed by
+	hour $i$. Then $1 \le a_1 < a_2 < \cdots < a_{75} \le 125$. Also
+	$25 \le a_1 + 24 < a_2 + 24 < \cdots < a75 + 24 \le 149$. There
+	are 150 numbers $a_1, \cdots , a_{75}, a_1 + 24, \cdots , a_{75} + 24$. By the
+	pigeonhole principle, at least two are equal. Because all the
+	$a_i$ s are distinct and all the $(a_i + 24)$s are distinct, it follows
+	that $a_i = a_j + 24$ for some $i > j$. Thus, in the period from
+	the $(j + 1)$st to the $i$th hour, there are exactly 24 matches.
+	
+	\item \textbf{Proof}. Let $d_j$ be $jx − N(jx)$, where $N(jx)$ is the integer
+	closest to $jx$ for $1 \le j \le n$. Each $d_j$ is an irrational number
+	between $\-\frac{1}{2}$ and $\frac{1}{2}$. 
+	
+	When $n$ is even, consider the $n$ intervals $\{x \mid \frac{j}{n} < x < \frac{j + 1}{n}\}$, $\{x \mid -\frac{j + 1}{n} < x < -\frac{j}{n}\}$ for $j = 0, 1, . . . , \frac{n}{2} - 1$. If $d_j$ belongs to the interval $\{x \mid 0 < x < \frac{1}{n}\}$ or to the interval $\{x \mid -\frac{1}{n} < x < 0\}$ for some $j$ , we are done. If not, because there are $n - 2$ intervals
+	and $n$ numbers $d_j$ , the pigeonhole principle tells us
+	that there is an interval $\{x \mid \frac{k}{n} < x < \frac{k + 1}{n}\}$ containing
+	$d_r$ and $d_s$ with $r < s$. The proof can be finished by
+	showing that $(s - r)x$ is within $\frac{1}{n}$ of its nearest integer.
+	
+	When $n$ is odd, consider the $n + 1$ intervals $\{x \mid \frac{j}{n} < x < \frac{j + 1}{n}\}$, $\{x \mid -\frac{j + 1}{n} < x < -\frac{j}{n}\}$ for $j = 0, 1, . . . , \frac{n}{2} + 1$. If $d_j$ belongs to the interval $\{x \mid 0 < x < \frac{1}{n}\}$ or to the interval $\{x \mid -\frac{1}{n} < x < 0\}$ for some $j$ , we are done. If not, because there are $n - 1$ intervals	and $n$ numbers $d_j$ , the pigeonhole principle tells us that there is an interval $\{x \mid \frac{k}{n} < x < \frac{k + 1}{n}\}$ containing $d_r$ and $d_s$ with $r < s$. The proof can be finished by showing that $(s - r)x$ is within $\frac{1}{n}$ of its nearest integer.
 \end{enumerate}
 \subsubsection{Permutations and Combinations}
 \subsubsection{Binomial Coefficients and Identities}
