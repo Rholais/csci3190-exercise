@@ -159,6 +159,10 @@ any current guest.
 	\item Let $x$ be an irrational number. Show that for some positive integer $j$ not exceeding the positive integer $n$, the absolute value of the difference between $jx$ and the nearest integer to $jx$ is less than $\frac{1}{n}$.
 \end{enumerate}
 \subsection{Permutations and Combinations}
+\begin{enumerate}
+	\item There are six runners in the 100-yard dash. How many ways are there for three medals to be awarded if ties are possible? (The runner or runners who finish with the fastest time receive gold medals, the runner or runners who finish with exactly one runner ahead receive silver
+	medals, and the runner or runners who finish with exactly two runners ahead receive bronze medals.)
+\end{enumerate}
 \subsection{Binomial Coefficients and Identities}
 
 \begin{enumerate}
@@ -356,6 +360,13 @@ Room $2^k(2j + 1)$.
 	When $n$ is odd, consider the $n + 1$ intervals $\{x \mid \frac{j}{n} < x < \frac{j + 1}{n}\}$, $\{x \mid -\frac{j + 1}{n} < x < -\frac{j}{n}\}$ for $j = 0, 1, . . . , \frac{n}{2} + 1$. If $d_j$ belongs to the interval $\{x \mid 0 < x < \frac{1}{n}\}$ or to the interval $\{x \mid -\frac{1}{n} < x < 0\}$ for some $j$ , we are done. If not, because there are $n - 1$ intervals	and $n$ numbers $d_j$ , the pigeonhole principle tells us that there is an interval $\{x \mid \frac{k}{n} < x < \frac{k + 1}{n}\}$ containing $d_r$ and $d_s$ with $r < s$. The proof can be finished by showing that $(s - r)x$ is within $\frac{1}{n}$ of its nearest integer.
 \end{enumerate}
 \subsubsection{Permutations and Combinations}
+\begin{enumerate}
+	\item \begin{multline}
+		{}_6 C_1 \times ({}_5 C_1 \times ({}_4 C_1 + {}_4 C_2 + {}_4 C_3 + {}_4 C_4) + {}_5 C_2 + {}_5 C_3 + {}_5 C_4 + {}_5 C_5)\\
+		+ {}_6 C_2 \times ({}_4 C_1 + {}_4 C_2 + {}_4 C_3 + {}_4 C_4) + {}_6 C_3 + {}_6 C_4 + {}_6 C_5 + {}_6 C_6\\
+		= 873.
+	\end{multline}
+\end{enumerate}
 \subsubsection{Binomial Coefficients and Identities}
 \begin{enumerate}
 	\item By the binomial theorem 	$(x^2-\frac{3}{x})^{10}\\=\sum_{n=0}^{10}\binom{10}{n}(x^2)^{10-n}(-\frac{3}{x})^n
