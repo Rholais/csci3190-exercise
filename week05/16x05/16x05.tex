@@ -92,6 +92,10 @@
 \keywords{}
 
 \section{Induction and Recursion}
+\subsection{Mathematical Induction}
+\begin{enumerate}
+\item Prove \textbf{Bernoulli’s inequality}: if $h > -1$, then $1+nh \le (1+h)n$ for all non-negative integers $n$.
+\end{enumerate}
 
 \nocite{*}
 \bibliographystyle{abbrv}
@@ -104,5 +108,12 @@
 %Appendix A
 \section{Answer}
 \subsection{Induction and Recursion}
+\subsubsection{Mathematical Induction}
+\begin{enumerate}
+	\item Let $P(n)$ be \textquotedblleft $1 + nh \le (1 + h)^n, h > -1$\textquotedblright.
+	Basis step: $P(0)$ is true because $1 + 0 \cdot h = 1 \le 1 = (1 + h)^0$.
+	Inductive step: Assume $1 + kh \le (1 + h)^k$. Then because
+	$(1+h) > 0$, $(1 + h)^{k + 1} = (1 + h)(1 + h)^k \ge (1 + h)(1 + k^h) = 1 + (k + 1)^h + kh^2 \ge 1 + (k + 1)h$.
+\end{enumerate}
 
 \end{document}
