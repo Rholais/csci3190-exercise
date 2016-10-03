@@ -102,6 +102,8 @@ Prove that if $n$ is a positive integer, then $a^n - b^n \le na^{n - 1}(a - b)$.
 \item Prove that for every positive integer n, \begin{equation}
 	\Sigma_{i = 1}^n \frac{1}{\sqrt{i}} > 2(\sqrt{n + 1} - 1).
 \end{equation}
+
+\item Prove that $n^2 - 1$ is divisible by 8 whenever $n$ is an odd positive integer.
 \end{enumerate}
 
 \nocite{*}
@@ -131,6 +133,13 @@ $(1+h) > 0$, $(1 + h)^{k + 1} = (1 + h)(1 + h)^k \ge (1 + h)(1 + k^h) = 1 + (k +
 \end{align}
 
 \item Let $P(n)$ be \textquotedblleft $\Sigma_{i = 1}^n \frac{1}{\sqrt{i}} > 2(\sqrt{n + 1} - 1)$ \textquotedblright. \textit{Basis step:} $P(1)$ is true because $1 > 2(\sqrt{2} - 1)$. \textit{Inductive step:} Assume that $P(k)$ is true. Then $\Sigma_{i = 1}^{k + 1} \frac{1}{\sqrt{i}} > 2(\sqrt{k + 1} - 1) + \frac{1}{\sqrt{k + 1}}$. We claim that $2(\sqrt{k + 1} - 1) + \frac{1}{\sqrt{k + 1}} > 2(\sqrt{k + 2} - 1)$ which is equivalent to $2(\sqrt{k + 2} - \sqrt{k + 1}) (\sqrt{k + 2} + \sqrt{k + 1}) < \frac{\sqrt{k + 1}}{\sqrt{k + 1}} + \frac{\sqrt{k + 2}}{\sqrt{k + 1}}$. This is clearly true since $2 < 1 + \frac{\sqrt{k + 2}}{\sqrt{k + 1}}$.
+
+\item Let $P(n)$ be the proposition that $(2n - 1)^2 - 1$ is divisible by
+8. The basis case $P(1)$ is true because $8 \mid 0$. Now assume
+that $P(k)$ is true. Because $[(2(k + 1) - 1]^2 − 1 =
+[(2k - 1)^2 - 1] + 8k$, $P(k + 1)$ is true because both terms on
+the right-hand side are divisible by 8. This shows that $P(n)$ is true for all positive integers $n$, so $m^2 − 1$ is divisible by
+8 whenever $m$ is an odd positive integer.
 \end{enumerate}
 
 \end{document}
