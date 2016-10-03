@@ -98,6 +98,10 @@
 
 \item Suppose that $a$ and $b$ are real numbers with $0 < b < a$.
 Prove that if $n$ is a positive integer, then $a^n - b^n \le na^{n - 1}(a - b)$.
+
+\item Prove that for every positive integer n, \begin{equation}
+	\Sigma_{i = 1}^n \frac{1}{\sqrt{i}} > 2(\sqrt{n + 1} - 1).
+\end{equation}
 \end{enumerate}
 
 \nocite{*}
@@ -114,17 +118,19 @@ Prove that if $n$ is a positive integer, then $a^n - b^n \le na^{n - 1}(a - b)$.
 \subsubsection{Mathematical Induction}
 \begin{enumerate}
 \item Let $P(n)$ be \textquotedblleft $1 + nh \le (1 + h)^n, h > -1$\textquotedblright.
-Basis step: $P(0)$ is true because $1 + 0 \cdot h = 1 \le 1 = (1 + h)^0$.
-Inductive step: Assume $1 + kh \le (1 + h)^k$. Then because
+\textit{Basis step:} $P(0)$ is true because $1 + 0 \cdot h = 1 \le 1 = (1 + h)^0$.
+\textit{Inductive step:} Assume $1 + kh \le (1 + h)^k$. Then because
 $(1+h) > 0$, $(1 + h)^{k + 1} = (1 + h)(1 + h)^k \ge (1 + h)(1 + k^h) = 1 + (k + 1)^h + kh^2 \ge 1 + (k + 1)h$.
 	
-\item Let $P(n)$ be \textquotedblleft $a^n - b^n \le na^{n - 1}(a - b)$\textquotedblright. Basis step: $P(1)$ is true because $a^1 - b^1 = a - b \le 1 \cdot a^0 (a - b)$. Inductive step: Assume $a^k - b^k \le k a^{k - 1}(a - b)$. Then because $0 < b < a$: \begin{align}
+\item Let $P(n)$ be \textquotedblleft $a^n - b^n \le na^{n - 1}(a - b)$\textquotedblright. \textit{Basis step:} $P(1)$ is true because $a^1 - b^1 = a - b \le 1 \cdot a^0 (a - b)$. \textit{Inductive step:} Assume $a^k - b^k \le k a^{k - 1}(a - b)$. Then because $0 < b < a$: \begin{align}
 	a^{k + 1} - b^{k + 1} = & (a - b)\Sigma_{i = 0}^k a^i b^{k - i}\\
 	= & a^k(a - b) + b(a - b) \Sigma_{i = 0}^{k - 1} a^i b^{k - 1 - i}\\
 	= & a^k(a - b) + b(a^k - b^k)\\
 	\le & a^k(a - b) + k a^{k - 1} b(a - b)\\
 	\le & (k + 1) a^k (a - b).
 \end{align}
+
+\item Let $P(n)$ be \textquotedblleft $\Sigma_{i = 1}^n \frac{1}{\sqrt{i}} > 2(\sqrt{n + 1} - 1)$ \textquotedblright. \textit{Basis step:} $P(1)$ is true because $1 > 2(\sqrt{2} - 1)$. \textit{Inductive step:} Assume that $P(k)$ is true. Then $\Sigma_{i = 1}^{k + 1} \frac{1}{\sqrt{i}} > 2(\sqrt{k + 1} - 1) + \frac{1}{\sqrt{k + 1}}$. We claim that $2(\sqrt{k + 1} - 1) + \frac{1}{\sqrt{k + 1}} > 2(\sqrt{k + 2} - 1)$ which is equivalent to $2(\sqrt{k + 2} - \sqrt{k + 1}) (\sqrt{k + 2} + \sqrt{k + 1}) < \frac{\sqrt{k + 1}}{\sqrt{k + 1}} + \frac{\sqrt{k + 2}}{\sqrt{k + 1}}$. This is clearly true since $2 < 1 + \frac{\sqrt{k + 2}}{\sqrt{k + 1}}$.
 \end{enumerate}
 
 \end{document}
