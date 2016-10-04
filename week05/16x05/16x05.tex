@@ -104,6 +104,8 @@ Prove that if $n$ is a positive integer, then $a^n - b^n \le na^{n - 1}(a - b)$.
 \end{equation}
 
 \item Prove that $n^2 - 1$ is divisible by 8 whenever $n$ is an odd positive integer.
+
+\item Prove that 21 divides $4^{n + 1} + 5^{2n - 1}$ whenever $n$ is a positive integer.
 \end{enumerate}
 
 \nocite{*}
@@ -140,6 +142,12 @@ that $P(k)$ is true. Because $[(2(k + 1) - 1]^2 − 1 =
 [(2k - 1)^2 - 1] + 8k$, $P(k + 1)$ is true because both terms on
 the right-hand side are divisible by 8. This shows that $P(n)$ is true for all positive integers $n$, so $m^2 − 1$ is divisible by
 8 whenever $m$ is an odd positive integer.
+
+\item Let $P(n)$ be the proposition that $4^{n + 1} + 5^{2n - 1}$ is divisible by
+21. The basis case $P(1)$ is true because $21 \mid 21$. Now assume
+that $P(k)$ is true. Because $4^{k + 2} + 5^{2n + 1} = 4 \times [4^{k + 1} + 5^{2k - 1}] + 21 \times 5^{2k - 1}$, $P(k + 1)$ is true because both terms on
+the right-hand side are divisible by 21. This shows that $P(n)$ is true for all positive integers $n$, so $4^{n + 1} + 5^{2n - 1}$ is divisible by
+8 whenever $m$ is an positive integer.
 \end{enumerate}
 
 \end{document}
