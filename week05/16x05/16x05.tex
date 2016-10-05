@@ -94,7 +94,7 @@
 \section{Induction and Recursion}
 \subsection{Mathematical Induction}
 \begin{enumerate}
-\item Prove \textbf{Bernoulli’s inequality}: if $h > -1$, then $1+nh \le (1+h)n$ for all non-negative integers $n$.
+\item Prove \textbf{Bernoulli’s inequality}: if $h > -1$, then $1+nh \le (1+h)^n$ for all non-negative integers $n$.
 
 \item Suppose that $a$ and $b$ are real numbers with $0 < b < a$.
 Prove that if $n$ is a positive integer, then $a^n - b^n \le na^{n - 1}(a - b)$.
@@ -106,6 +106,11 @@ Prove that if $n$ is a positive integer, then $a^n - b^n \le na^{n - 1}(a - b)$.
 \item Prove that $n^2 - 1$ is divisible by 8 whenever $n$ is an odd positive integer.
 
 \item Prove that 21 divides $4^{n + 1} + 5^{2n - 1}$ whenever $n$ is a positive integer.
+
+\item Show that \begin{equation}
+	[(p_1 \rightarrow p_2) \wedge (p_2 \rightarrow p_3) \wedge \cdots \wedge (p_{n - 1} \rightarrow p_n)] \rightarrow [(p_1 \wedge p_2 \wedge \cdots \wedge p_{n - 1}) \rightarrow p_n]
+\end{equation}
+is a tautology whenever $p_1$, $p_2$,... ,$p_n$ are propositions, where $n \ge 2$.
 \end{enumerate}
 
 \nocite{*}
@@ -148,6 +153,13 @@ the right-hand side are divisible by 8. This shows that $P(n)$ is true for all p
 that $P(k)$ is true. Because $4^{k + 2} + 5^{2n + 1} = 4 \times [4^{k + 1} + 5^{2k - 1}] + 21 \times 5^{2k - 1}$, $P(k + 1)$ is true because both terms on
 the right-hand side are divisible by 21. This shows that $P(n)$ is true for all positive integers $n$, so $4^{n + 1} + 5^{2n - 1}$ is divisible by
 8 whenever $m$ is an positive integer.
+
+\item Let $P(n)$ be \textquotedblleft $[(p_1 \rightarrow p_2) \wedge (p_2 \rightarrow p_3) \wedge \cdots \wedge (p_{n - 1} \rightarrow p_n)] \rightarrow [(p_1 \wedge p_2 \wedge \cdots \wedge p_{n - 1}) \rightarrow p_n]$\textquotedblright . \textit{Basis step:} $P(2)$ is true because $(p_1 \rightarrow p_2) \rightarrow (p_1 \rightarrow p_2)$ is a tautology. \textit{Inductive step:} Assume $P(k)$ is true. To show $[(p_1 \rightarrow p_2) \wedge (p_2 \rightarrow p_3) \wedge \cdots \wedge (p_{k - 1} \rightarrow p_k) \wedge (p_k \rightarrow p_{k + 1})] \rightarrow [(p_1 \wedge p_2 \wedge \cdots \wedge p_{k - 1} \wedge p_k) \rightarrow p_{k + 1}]$ is a tautology, assume that the hypothesis of this conditional
+statement is true. Because both the hypothesis and $P(k)$ are
+true, it follows that $(p_1 \wedge p_2 \wedge \cdots \wedge p_{k - 1}) \rightarrow p_k$ is true. Because
+this is true, and because $p_k \rightarrow p{k + 1}$ is true (it is part
+of the assumption) it follows by hypothetical syllogism that
+$(p_1 \wedge p_2 \wedge \cdots \wedge p_{k - 1}) \rightarrow p_{k + 1}$ is true. The weaker statement $(p_1 \wedge p_2 \wedge \cdots \wedge p_{k - 1} \wedge p_k) \rightarrow p_{k + 1}$ follows from this.
 \end{enumerate}
 
 \end{document}
