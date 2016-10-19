@@ -1,0 +1,229 @@
+% This is "sig-alternate.tex" V2.1 April 2013
+% This file should be compiled with V2.5 of "sig-alternate.cls" May 2012
+%
+% This example file demonstrates the use of the 'sig-alternate.cls'
+% V2.5 LaTeX2e document class file. It is for those submitting
+% articles to ACM Conference Proceedings WHO DO NOT WISH TO
+% STRICTLY ADHERE TO THE SIGS (PUBS-BOARD-ENDORSED) STYLE.
+% The 'sig-alternate.cls' file will produce a similar-looking,
+% albeit, 'tighter' paper resulting in, invariably, fewer pages.
+%
+% ----------------------------------------------------------------------------------------------------------------
+% This .tex file (and associated .cls V2.5) produces:
+%       1) The Permission Statement
+%       2) The Conference (location) Info information
+%       3) The Copyright Line with ACM data
+%       4) NO page numbers
+%
+% as against the acm_proc_article-sp.cls file which
+% DOES NOT produce 1) thru' 3) above.
+%
+% Using 'sig-alternate.cls' you have control, however, from within
+% the source .tex file, over both the CopyrightYear
+% (defaulted to 200X) and the ACM Copyright Data
+% (defaulted to X-XXXXX-XX-X/XX/XX).
+% e.g.
+% \CopyrightYear{2007} will cause 2007 to appear in the copyright line.
+% \crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
+%
+% ---------------------------------------------------------------------------------------------------------------
+% This .tex source is an example which *does* use
+% the .bib file (from which the .bbl file % is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission, you *NEED* to 'insert'
+% your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+% ================= IF YOU HAVE QUESTIONS =======================
+% Questions regarding the SIGS styles, SIGS policies and
+% procedures, Conferences etc. should be sent to
+% Adrienne Griscti (griscti@acm.org)
+%
+% Technical questions _only_ to
+% Gerald Murray (murray@hq.acm.org)
+% ===============================================================
+%
+% For tracking purposes - this is V2.0 - May 2012
+
+\documentclass{sig-alternate-05-2015}
+\usepackage{booktabs}
+\usepackage{textcomp}
+
+
+\begin{document}
+
+% Copyright
+%\setcopyright{acmcopyright}
+%\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
+
+
+% DOI
+%\doi{10.475/123_4}
+
+% ISBN
+%\isbn{123-4567-24-567/08/06}
+
+%Conference
+%\conferenceinfo{PLDI '13}{June 16--19, 2013, Seattle, WA, USA}
+
+%\acmPrice{\$15.00}
+
+%
+% --- Author Metadata here ---
+%\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
+%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+% --- End of Author Metadata ---
+
+%\\TODO:1.tautology prove section 2. set section operation proof 3. function section basic proving onto bijection...
+\title{CSCI 3190 \\ Introduction to Discrete Mathematics and Algorithms}
+\subtitle{Answer of Quiz 1}
+
+\maketitle
+
+\section{Test1}
+\subsection{Tautology}
+\begin{align}
+	& (\neg (q \rightarrow r) \rightarrow (q \vee r))\\
+	= & (q \rightarrow r) \vee q \vee r\\
+	= & \neg q \vee r \vee q\\
+	= & T
+\end{align}
+
+\subsection{Equivalence Relation}
+\begin{enumerate}
+	\item Find Reflexsive Closure: $\{(a, a), (a, b), (b, b), (b, c), \\(c, c), (d, c), (d, d), (e, e)\}$.
+	\item Find Symmetric Closure: $\{(a, a), (a, b), (b, a), (b, b), \\(b, c), (c, b), (c, c), (c, d), (d, c), (d, d), (e, e)\}$.
+	\item Find Transitive Closure: $\{(a, a), (a, b), (a, c), (a, d), \\(b, a), (b, b), (b, c), (b, d), (c, a), (c, b), (c, c), (c, d), (d, a), \\(d, b), (d, c), (d, d), (e, e)\}$
+\end{enumerate}
+
+\subsection{Permutation}
+\textquotedblleft plan\textquotedblright\ occurs $22! \times 23 = 23!$ times.
+
+\textquotedblleft than\textquotedblright\ occurs $22! \times 23 = 23!$ times.
+
+\textquotedblleft both\textquotedblright\ occurs $22! \times 23 = 23!$ times.
+
+\textquotedblleft plan\textquotedblright\ and \textquotedblleft than\textquotedblright\ occurs $0$ times.
+
+\textquotedblleft plan\textquotedblright\ and \textquotedblleft both\textquotedblright\ occurs $18! \times 19 \times 20$ times.
+
+\textquotedblleft than\textquotedblright\ and \textquotedblleft both\textquotedblright\ occurs $20! \times 21$ times.
+
+\textquotedblleft plan\textquotedblright\ , \textquotedblleft than\textquotedblright\ and \textquotedblleft both\textquotedblright\ occurs $0$ times.
+
+So the answer is $26! - 23! \times 3 + 21! + 20!$.
+
+\newpage
+
+\subsection{Function}
+\begin{enumerate}
+	\item $5^7$.
+	\item $0$, because $|A| > |B|$.
+	\item There are 2 kinds of situations, 1 of them is that 1 of $B$ matches 3 of $A$ and others match 1 of $A$ for each, the other 1 is that 2 of $B$ match 2 of $A$ for each and others match 1 of $A$ for each. We will discuss these 2 situations separately.
+	
+	For the first situation, we select 1 of 5 in $B$ and then for each of other 4 items in $B$ select 1 different item in $A$ so that there are ${}_5 C_1 \times {}_7 P_4$ functions in the first situation.
+	
+	For the second situation, we select 2 of 5 in $B$, for each of other 3 items in $B$ select 1 different item in $A$ and then from the rest 4 items in $A$ select 2 of them to match 1 of 2 rest item in $B$ so that there are ${}_5 C_2 \times {}_7 P_3 \times {}_4 C_2$ functions in the section situation.
+	
+	Totally, there are ${}_5 C_1 \times {}_7 P_4 + {}_5 C_2 \times {}_7 P_3 \times {}_4 C_2 = 16800$ functions.
+	
+	One of the functions is: 
+	
+	$\{(1, a), (2, b), (3, c), (4, d), (5, e), (6, a), (7, b)\}$.
+\end{enumerate}
+
+\subsection{Generating Function}
+Number of newborns is \begin{align}
+	n_r = & \begin{cases}
+	4 \times 3^r, & r \ge 0\\
+	0, & \text{otherwise}.
+	\end{cases}\\
+	\leftrightarrow & \frac{4}{1 - 3x}
+\end{align} so that number of racoons is \begin{align}
+	b_r = & \Sigma_{i = r - 5}^{r} n_i\\
+	\leftrightarrow & \frac{4(1 - x^6)}{(1 - 3x)(1 - x)}
+\end{align}
+
+\clearpage
+
+\section{Test2}
+\subsection{Tautology}
+\begin{align}
+	& (\neg (q \rightarrow \neg r) \rightarrow (q \vee r))\\
+	= & (q \rightarrow \neg r) \vee q \vee r\\
+	= & \neg q \vee \neg r \vee q\\
+	= & T
+\end{align}
+
+\subsection{Equivalence Relation}
+\begin{enumerate}
+	\item Find Reflexsive Closure: $\{(a, a), (a, b), (b, b), (b, d), \\(c, c), (d, c), (d, d), (e, e)\}$.
+	\item Find Symmetric Closure: $\{(a, a), (a, b), (b, a), (b, b), \\(b, d), (c, c), (c, d), (d, b), (d, c), (d, d), (e, e)\}$.
+	\item Find Transitive Closure: $\{(a, a), (a, b), (a, c), (a, d), \\(b, a), (b, b), (b, c), (b, d), (c, a), (c, b), (c, c), (c, d), (d, a), \\(d, b), (d, c), (d, d), (e, e)\}$
+\end{enumerate}
+
+\subsection{Permutation}
+\textquotedblleft game\textquotedblright\ occurs $22! \times 23 = 23!$ times.
+
+\textquotedblleft meal\textquotedblright\ occurs $22! \times 23 = 23!$ times.
+
+\textquotedblleft also\textquotedblright\ occurs $22! \times 23 = 23!$ times.
+
+\textquotedblleft game\textquotedblright\ and \textquotedblleft meal\textquotedblright\ occurs $0$ times.
+
+\textquotedblleft game\textquotedblright\ and \textquotedblleft also\textquotedblright\ occurs $0$ times.
+
+\textquotedblleft meal\textquotedblright\ and \textquotedblleft also\textquotedblright\ occurs $20! \times 21$ times.
+
+\textquotedblleft game\textquotedblright\ , \textquotedblleft meal\textquotedblright\ and \textquotedblleft also\textquotedblright\ occurs $0$ times.
+
+So the answer is $26! - 23! \times 3 + 21!$.
+
+\newpage
+
+\subsection{Function}
+\begin{enumerate}
+	\item $4^6$.
+	\item $0$, because $|A| > |B|$.
+	\item There are 2 kinds of situations, 1 of them is that 1 of $B$ matches 3 of $A$ and others match 1 of $A$ for each, the other 1 is that 2 of $B$ match 2 of $A$ for each and others match 1 of $A$ for each. We will discuss these 2 situations separately.
+	
+	For the first situation, we select 1 of 4 in $B$ and then for each of other 3 items in $B$ select 1 different item in $A$ so that there are ${}_4 C_1 \times {}_6 P_3$ functions in the first situation.
+	
+	For the second situation, we select 2 of 4 in $B$, for each of other 2 items in $B$ select 1 different item in $A$ and then from the rest 4 items in $A$ select 2 of them to match 1 of 2 rest item in $B$ so that there are ${}_4 C_2 \times {}_6 P_2 \times {}_4 C_2$ functions in the section situation.
+	
+	Totally, there are ${}_4 C_1 \times {}_6 P_3 + {}_4 C_2 \times {}_6 P_2 \times {}_4 C_2 = 1560$ functions.
+	
+	One of the functions is: 
+	
+	$\{(a, 1), (b, 2), (c, 3), (d, 4), (e, 1), (f, 2)\}$.
+\end{enumerate}
+
+\subsection{Generating Function}
+Number of newborns is \begin{align}
+	n_r = & \begin{cases}
+		4 \times 3^r, & r \ge 0\\
+		0, & \text{otherwise}.
+	\end{cases}\\
+	\leftrightarrow & \frac{4}{1 - 3x}
+\end{align} so that number of racoons is \begin{align}
+	b_r = & \Sigma_{i = r - 5}^{r} n_i\\
+	\leftrightarrow & \frac{4(1 - x^6)}{(1 - 3x)(1 - x)}
+\end{align}
+
+\nocite{*}
+\bibliographystyle{abbrv}
+\bibliography{ref}  % sigproc.bib is the name of the Bibliography in this case
+ 
+\clearpage
+%APPENDICES are optional
+%\balancecolumns
+%\appendix
+%Appendix A
+
+\end{document}
