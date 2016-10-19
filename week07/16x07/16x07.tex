@@ -46,7 +46,12 @@
 % For tracking purposes - this is V2.0 - May 2012
 
 \documentclass{../../cls/sig-alternate-05-2015}
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
 \usepackage{booktabs}
+\usepackage{mathtools}
 \usepackage{textcomp}
 
 
@@ -82,7 +87,7 @@
 
 %\\TODO:1.tautology prove section 2. set section operation proof 3. function section basic proving onto bijection...
 \title{CSCI 3190 \\ Introduction to Discrete Mathematics and Algorithms}
-\subtitle{Extended Exercise 5}
+\subtitle{Extended Exercise 7}
 
 \maketitle
 \begin{abstract}
@@ -90,6 +95,55 @@
 \end{abstract}
 
 \keywords{}
+
+\section{Algorithms}
+\subsection{The Growth of Functions}
+\begin{enumerate}
+\item Show that $n \log n$ is $O(\log n!)$.
+\end{enumerate}
+
+\subsection{Complexity of Algorithms}
+\begin{enumerate}
+\item Give a big-$O$ estimate for the number of operations (where an operation is an addition or a multiplication) used in Algorithm \ref{a-3-3-1}. \begin{algorithm}
+	\caption{}
+	\label{a-3-3-1}
+	\begin{algorithmic}
+		\STATE $t \coloneqq 0$
+		\FOR{$i \coloneqq 1, 2, 3$}
+		\FOR{$j \coloneqq 1, 2, 3, 4$}
+		\STATE $t \coloneqq t + ij$
+		\ENDFOR
+		\ENDFOR
+	\end{algorithmic}
+\end{algorithm}
+
+\item Give a big-$O$ estimate for the number of operations (where an operation is an addition or a multiplication) used in Algorithm \ref{a-3-3-2}. \begin{algorithm}
+	\caption{}
+	\label{a-3-3-2}
+	\begin{algorithmic}
+		\STATE $t \coloneqq 0$
+		\FOR{$i \coloneqq 1, 2, \cdots, n$}
+		\FOR{$j \coloneqq 1, 2, \cdots, n$}
+		\STATE $t \coloneqq t + i + j$
+		\ENDFOR
+		\ENDFOR
+	\end{algorithmic}
+\end{algorithm}
+
+\item Give a big-$O$ estimate for the number of operations, where an operation is a comparison or a multiplication, used in Algorithm \ref{a-3-3-3} (ignoring compar- isons used to test the conditions in the \textbf{for} loops, where $a_1, a_2, \cdots, a_n$ are positive real numbers). \begin{algorithm}
+	\caption{}
+	\label{a-3-3-3}
+	\begin{algorithmic}
+		\STATE $t \coloneqq 0$
+		\FOR{$i \coloneqq 1, 2, \cdots, n$}
+		\FOR{$j \coloneqq i + 1, i + 2, \cdots, n$}
+		\STATE $t \coloneqq \max(t, a_i a_j)$
+		\ENDFOR
+		\ENDFOR
+	\end{algorithmic}
+\end{algorithm}
+
+\end{enumerate}
 
 \section{Induction and Recursion}
 \subsection{Mathematical Induction}
@@ -123,6 +177,22 @@ is a tautology whenever $p_1$, $p_2$,... ,$p_n$ are propositions, where $n \ge 2
 \appendix
 %Appendix A
 \section{Answer}
+\subsection{Algorithms}
+\subsubsection{The Growth of Functions}
+\begin{enumerate}
+\item We
+can easily show that $(n - i)(i + 1) \ge n$ for $i = 0, 1, \cdots, n - 1$.
+Hence, $(n!)^2 = (n \cdot 1)((n - 1) \cdot 2) \cdot ((n - 2) \cdot 3) \cdots (2 \cdot (n -
+1)) \cdot (1 \cdot n) \ge n^n$. Therefore, $2 log n! \ge n log n$.
+\end{enumerate}
+
+\subsubsection{Complexity of Algorithms}
+\begin{enumerate}
+\item $O(1)$.
+\item $O(n^2)$.
+\item $O(n^2)$.
+\end{enumerate}
+
 \subsection{Induction and Recursion}
 \subsubsection{Mathematical Induction}
 \begin{enumerate}
