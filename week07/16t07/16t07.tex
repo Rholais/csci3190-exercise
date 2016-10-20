@@ -10,6 +10,8 @@
 
 \usemintedstyle{trac}
 
+\usepackage{multicol}
+
 \title{CSCI 3190 Tutorial of Week 7}
 \subtitle{Quiz 1}
 \author{LI Haocheng}
@@ -21,11 +23,31 @@
 
 \begin{frame}[fragile]
 \frametitle{Quiz 1}
-Prove following expressions are tautology.
+\onslide<1->Prove following expressions are tautology.
 \begin{enumerate}
 	\item $\neg (q \rightarrow r) \rightarrow (q \vee r)$
 	\item $\neg (q \rightarrow \neg r) \rightarrow (q \vee r)$
 \end{enumerate}
+\onslide<2>\textbf{Solution}
+\begin{multicols}{2}
+\begin{enumerate}
+	\item \begin{align}
+	& (\neg (q \rightarrow r) \rightarrow (q \vee r))\\
+	= & (q \rightarrow r) \vee q \vee r\\
+	= & \neg q \vee r \vee q\\
+	= & T
+	\end{align}
+	
+	\columnbreak
+	
+	\item \begin{align}
+	& (\neg (q \rightarrow \neg r) \rightarrow (q \vee r))\\
+	= & (q \rightarrow \neg r) \vee q \vee r\\
+	= & \neg q \vee \neg r \vee q \vee r\\
+	= & T
+	\end{align}
+\end{enumerate}
+\end{multicols}
 \end{frame}
 
 \plain{Questions?}
