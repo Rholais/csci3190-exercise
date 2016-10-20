@@ -48,7 +48,7 @@
 \documentclass{../../cls/sig-alternate-05-2015}
 
 \usepackage{algorithm}
-\usepackage{algorithmic}
+\usepackage{algpseudocode}
 
 \usepackage{booktabs}
 \usepackage{mathtools}
@@ -104,42 +104,42 @@
 
 \subsection{Complexity of Algorithms}
 \begin{enumerate}
-\item Give a big-$O$ estimate for the number of operations (where an operation is an addition or a multiplication) used in Algorithm \ref{a-3-3-1}. \begin{algorithm}
+\item Give a big-$O$ estimate for the number of operations (where an operation is an addition or a multiplication) used in Algorithm \ref{a-3-3-1}. \begin{algorithm}[H]
 	\caption{}
 	\label{a-3-3-1}
 	\begin{algorithmic}
-		\STATE $t \coloneqq 0$
-		\FOR{$i \coloneqq 1, 2, 3$}
-		\FOR{$j \coloneqq 1, 2, 3, 4$}
-		\STATE $t \coloneqq t + ij$
-		\ENDFOR
-		\ENDFOR
+		\State $t \coloneqq 0$
+		\For{$i \coloneqq 1, 2, 3$}
+		\For{$j \coloneqq 1, 2, 3, 4$}
+		\State $t \coloneqq t + ij$
+		\EndFor
+		\EndFor
 	\end{algorithmic}
 \end{algorithm}
 
-\item Give a big-$O$ estimate for the number of operations (where an operation is an addition or a multiplication) used in Algorithm \ref{a-3-3-2}. \begin{algorithm}
+\item Give a big-$O$ estimate for the number of operations (where an operation is an addition or a multiplication) used in Algorithm \ref{a-3-3-2}. \begin{algorithm}[H]
 	\caption{}
 	\label{a-3-3-2}
 	\begin{algorithmic}
-		\STATE $t \coloneqq 0$
-		\FOR{$i \coloneqq 1, 2, \cdots, n$}
-		\FOR{$j \coloneqq 1, 2, \cdots, n$}
-		\STATE $t \coloneqq t + i + j$
-		\ENDFOR
-		\ENDFOR
+		\State $t \coloneqq 0$
+		\For{$i \coloneqq 1, 2, \cdots, n$}
+		\For{$j \coloneqq 1, 2, \cdots, n$}
+		\State $t \coloneqq t + i + j$
+		\EndFor
+		\EndFor
 	\end{algorithmic}
 \end{algorithm}
 
-\item Give a big-$O$ estimate for the number of operations, where an operation is a comparison or a multiplication, used in Algorithm \ref{a-3-3-3} (ignoring compar- isons used to test the conditions in the \textbf{for} loops, where $a_1, a_2, \cdots, a_n$ are positive real numbers). \begin{algorithm}
+\item Give a big-$O$ estimate for the number of operations, where an operation is a comparison or a multiplication, used in Algorithm \ref{a-3-3-3} (ignoring compar- isons used to test the conditions in the \textbf{for} loops, where $a_1, a_2, \cdots, a_n$ are positive real numbers). \begin{algorithm}[H]
 	\caption{}
 	\label{a-3-3-3}
 	\begin{algorithmic}
-		\STATE $t \coloneqq 0$
-		\FOR{$i \coloneqq 1, 2, \cdots, n$}
-		\FOR{$j \coloneqq i + 1, i + 2, \cdots, n$}
-		\STATE $t \coloneqq \max(t, a_i a_j)$
-		\ENDFOR
-		\ENDFOR
+		\State $t \coloneqq 0$
+		\For{$i \coloneqq 1, 2, \cdots, n$}
+		\For{$j \coloneqq i + 1, i + 2, \cdots, n$}
+		\State $t \coloneqq \max(t, a_i a_j)$
+		\EndFor
+		\EndFor
 	\end{algorithmic}
 \end{algorithm}
 
@@ -165,6 +165,45 @@ Prove that if $n$ is a positive integer, then $a^n - b^n \le na^{n - 1}(a - b)$.
 	[(p_1 \rightarrow p_2) \wedge (p_2 \rightarrow p_3) \wedge \cdots \wedge (p_{n - 1} \rightarrow p_n)] \rightarrow [(p_1 \wedge p_2 \wedge \cdots \wedge p_{n - 1}) \rightarrow p_n]
 \end{equation}
 is a tautology whenever $p_1$, $p_2$,... ,$p_n$ are propositions, where $n \ge 2$.
+\end{enumerate}
+
+\subsection{Recursive Algorithms}
+\begin{enumerate}
+\item How many additions are used by the recursive and iterative algorithms given in Algorithms \ref{a-5-4-a7} and \ref{a-5-4-a8}, respectively, to find the Fibonacci number $f_7$? \begin{algorithm}[H]
+	\caption{A Recursive Algorithm for Fibonacci}
+	\label{a-5-4-a7}
+	\begin{algorithmic}
+		\Procedure{Fibonacci}{$n$}
+		\If{$n = 0$}
+		\State \Return $0$
+		\ElsIf{$n = 1$}
+		\State \Return $1$
+		\Else
+		\State \Return \Call{Fibonacci}{$n - 1$} + \Call{Fibonacci}{$n - 2$}
+		\EndIf
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
+\begin{algorithm}[H]
+	\caption{A Iterative Algorithm for Fibonacci}
+	\label{a-5-4-a8}
+	\begin{algorithmic}
+		\Procedure{IterativeFibonacci}{$n$}
+		\If{$n = 0$}
+		\State \Return $0$
+		\Else
+		\State $x \coloneqq 0$
+		\State $y \coloneqq 1$
+		\For{$i \coloneqq 1, 2, \cdots, n - 1$}
+		\State $z \coloneqq x + y$
+		\State $x \coloneqq y$
+		\State $y \coloneqq z$
+		\EndFor
+		\State \Return $y$
+		\EndIf
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
 \end{enumerate}
 
 \nocite{*}
@@ -230,6 +269,29 @@ true, it follows that $(p_1 \wedge p_2 \wedge \cdots \wedge p_{k - 1}) \rightarr
 this is true, and because $p_k \rightarrow p{k + 1}$ is true (it is part
 of the assumption) it follows by hypothetical syllogism that
 $(p_1 \wedge p_2 \wedge \cdots \wedge p_{k - 1}) \rightarrow p_{k + 1}$ is true. The weaker statement $(p_1 \wedge p_2 \wedge \cdots \wedge p_{k - 1} \wedge p_k) \rightarrow p_{k + 1}$ follows from this.
+\end{enumerate}
+
+\subsubsection{Recursive Algorithms}
+\begin{enumerate}
+\item \begin{enumerate}
+	\item The number of additions follows the recursive expression:\begin{equation}
+		a_n = \begin{cases}
+		0 & \text{If } n = 0,\\
+		0 & \text{If } n = 1,\\
+		a_{n - 1} + a_{n - 2} + 1 & \text{Otherwise.}
+		\end{cases}
+	\end{equation} So that: \begin{equation}
+		\begin{cases}
+		a_2 & = 1,\\
+		a_3 & = 2,\\
+		a_4 & = 4,\\
+		a_5 & = 7,\\
+		a_6 & = 12,\\
+		a_7 & = 20.
+		\end{cases}
+	\end{equation}
+	\item $a_n = n - 1$.
+\end{enumerate}
 \end{enumerate}
 
 \end{document}
