@@ -52,17 +52,43 @@
 
 \begin{frame}[fragile]
 \frametitle{Equivalence Relation}
-Find minimum equivalence relation of following relations.
+\onslide<1->Find minimum equivalence relation of following relations.
 \begin{enumerate}
 	\item $\{(a, b), (b, c), (d, c)\} \subseteq \{a, b, c, d, e\}^2$.
 	\item $\{(a, b), (b, d), (d, c)\} \subseteq \{a, b, c, d, e\}^2$.
 \end{enumerate}
-\textbf{Solution}
+\onslide<2>\textbf{Solution}
 \begin{enumerate}
 	\item Find Reflexsive Closure: $\{(a, a), (a, b), (b, b), (b, c), (c, c), (d, c), (d, d), (e, e)\}$.
 	\item Find Symmetric Closure: $\{(a, a), (a, b), (b, a), (b, b), (b, c), (c, b), (c, c), (c, d), (d, c), (d, d), (e, e)\}$.
 	\item Find Transitive Closure: $\{(a, a), (a, b), (a, c), (a, d), (b, a), (b, b), (b, c), (b, d), (c, a), (c, b), (c, c)$, $(c, d), (d, a), (d, b), (d, c), (d, d), (e, e)\}$
 \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Permutation}
+\onslide<1->\begin{enumerate}
+	\item Permutations of 26 letters don\textquoteright t exist \texttt{plan}, \texttt{than} or \texttt{both}?
+	\item Permutations of 26 letters don\textquoteright t exist \texttt{game}, \texttt{meal} or \texttt{also}?
+\end{enumerate}
+\onslide<2>\textbf{Solution}
+
+\texttt{plan} occurs $22! \times 23 = 23!$ times.
+
+\texttt{than} occurs $22! \times 23 = 23!$ times.
+
+\texttt{both} occurs $22! \times 23 = 23!$ times.
+
+\texttt{plan} and \texttt{than} occurs $0$ times.
+
+\texttt{plan} and \texttt{both} occurs $18! \times 19 \times 20$ times.
+
+\texttt{than} and \texttt{both} occurs $20! \times 21$ times.
+
+\texttt{plan}, \texttt{than} and \texttt{both} occurs $0$ times.
+
+So the answer is $26! - 23! \times 3 + 21! + 20!$.
+
 \end{frame}
 
 \plain{Questions?}
