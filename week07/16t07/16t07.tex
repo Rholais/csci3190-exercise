@@ -116,7 +116,18 @@ Consider functions $f \colon A \rightarrow B$, where $A = \{1, 2, 3, 4, 5, 6, 7\
 
 \begin{frame}[fragile]
 \frametitle{Generating Function}
+\onslide<1->Consider a bare island. Suppose there are 4 new-born raccoons in the 0th year. Number of new-born raccoons each year are 3 times of last year. Assume all raccoons can live for 6 years. Determine the generating function of number of raccoons on the island.
 
+\onslide<2>\textbf{Solution} Number of newborns is \begin{align}
+n_r = & \begin{cases}
+4 \times 3^r, & r \ge 0\\
+0, & \text{otherwise}.
+\end{cases}\\
+\leftrightarrow & \frac{4}{1 - 3x}
+\end{align} so that number of racoons is \begin{align}
+b_r = & \Sigma_{i = r - 5}^{r} n_i\\
+\leftrightarrow & \frac{4(1 - x^6)}{(1 - 3x)(1 - x)}
+\end{align}
 \end{frame}
 
 \plain{Questions?}
