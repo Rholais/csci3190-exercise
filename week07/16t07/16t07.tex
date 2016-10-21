@@ -140,6 +140,18 @@ Hence, $(n!)^2 = (n \cdot 1)((n - 1) \cdot 2) \cdot ((n - 2) \cdot 3) \cdots (2 
 1)) \cdot (1 \cdot n) \ge n^n$. Therefore, $2 log n! \ge n log n$.
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Big-Theta}
+\onslide<1->Determine whether $\log n!$ is $\Theta(n \log n)$.
+
+\onslide<2->\textbf{Solution} We have known that $n \log n = O(\log n!)$.
+
+\onslide<3->\textbf{Claim} $\log n! = O(n \log n)$ so that $n \log n = \Omega(\log n!)$. Hence, $\log n! = \Theta(n \log n)$.
+
+\onslide<4>\textbf{Proof} $\exists c = 1, \exists N = 1$, such that $\forall n \ge N, n! \le n^n$, so that $\log n! \le c n\log n$.
+
+\end{frame}
+
 \plain{Questions?}
 
 \end{document}
