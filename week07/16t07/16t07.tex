@@ -130,6 +130,16 @@ b_r = & \Sigma_{i = r - 5}^{r} n_i\\
 \end{align}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{$n \log n$}
+\onslide<1->Show that $n \log n$ is $O(\log n!)$.
+
+\onslide<2>\textbf{Solution} We
+can easily show that $(n - i)(i + 1) \ge n$ for $i = 0, 1, \cdots, n - 1$.
+Hence, $(n!)^2 = (n \cdot 1)((n - 1) \cdot 2) \cdot ((n - 2) \cdot 3) \cdots (2 \cdot (n -
+1)) \cdot (1 \cdot n) \ge n^n$. Therefore, $2 log n! \ge n log n$.
+\end{frame}
+
 \plain{Questions?}
 
 \end{document}
