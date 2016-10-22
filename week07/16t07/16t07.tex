@@ -26,7 +26,7 @@
 
 \begin{frame}[fragile]
 \frametitle{Tautology}
-\onslide<1->Prove following expressions are tautology.
+\onslide<1->Prove that following expressions are tautology.
 \begin{enumerate}
 	\item $\neg (q \rightarrow r) \rightarrow (q \vee r)$
 	\item $\neg (q \rightarrow \neg r) \rightarrow (q \vee r)$
@@ -55,10 +55,10 @@
 
 \begin{frame}[fragile]
 \frametitle{Equivalence Relation}
-\onslide<1->Find minimum equivalence relation of following relations.
+\onslide<1->Find smallest equivalence relation on set $\{a, b, c, d, e\}$ containing following relations.
 \begin{enumerate}
-	\item $\{(a, b), (b, c), (d, c)\} \subseteq \{a, b, c, d, e\}^2$.
-	\item $\{(a, b), (b, d), (d, c)\} \subseteq \{a, b, c, d, e\}^2$.
+	\item $\{(a, b), (b, c), (d, c)\}$.
+	\item $\{(a, b), (b, d), (d, c)\}$.
 \end{enumerate}
 \onslide<2>\textbf{Solution}
 \begin{enumerate}
@@ -96,11 +96,10 @@ So the answer is $26! - 23! \times 3 + 21! + 20!$.
 
 \begin{frame}[allowframebreaks]
 \frametitle{Function}
-Consider functions $f \colon A \rightarrow B$, where $A = \{1, 2, 3, 4, 5, 6, 7\}$, $B = \{a, b, c, d, e\}$.\begin{enumerate}
-	\item How many different functions?
-	\item How many of them are one-to-one?
-	\item How many of them are onto?
-	\item Name one of onto functions.
+Consider the set $X$ of all functions $f \colon A \rightarrow B$, where $A = \{1, 2, 3, 4, 5, 6, 7\}$, $B = \{a, b, c, d, e\}$.\begin{enumerate}
+	\item How many functions are there in $X$?
+	\item How many functions in $X$ are one-to-one? Give one example if there is at least one.
+	\item How many functions in $X$ are onto? Give one example if there is at least one.
 \end{enumerate}
 \textbf{Solution} \begin{enumerate}
 	\item $5^7$.
@@ -119,18 +118,16 @@ Consider functions $f \colon A \rightarrow B$, where $A = \{1, 2, 3, 4, 5, 6, 7\
 
 \begin{frame}[fragile]
 \frametitle{Generating Function}
-\onslide<1->Consider a bare island. Suppose there are 4 new-born raccoons in the 0th year. Number of new-born raccoons each year are 3 times of last year. Assume all raccoons can live for 6 years. Determine the generating function of number of raccoons on the island.
+\onslide<1->Let the lifespan of a raccoon be exactly 6 years. Suppose there are 4 new-born raccoons at the 0th year and the number of new-born raccoons in each year is 3 times that in the previous year. Let $b_r$ be the number of raccoons on year $r$ where $r \ge 0$. Give a closed form generating function for $b_r$.
 
-\onslide<2>\textbf{Solution} Number of newborns is \begin{align}
-n_r = & \begin{cases}
+\onslide<2>\textbf{Solution} Number of newborns is \begin{equation}
+n_r = \begin{cases}
 4 \times 3^r, & r \ge 0\\
 0, & \text{otherwise}.
-\end{cases}\\
-\leftrightarrow & \frac{4}{1 - 3x}
-\end{align} so that number of racoons is \begin{align}
-b_r = & \Sigma_{i = r - 5}^{r} n_i\\
-\leftrightarrow & \frac{4(1 - x^6)}{(1 - 3x)(1 - x)}
-\end{align}
+\end{cases} \leftrightarrow \frac{4}{1 - 3x},
+\end{equation} so that number of racoons is \begin{equation}
+b_r = \Sigma_{i = r - 5}^{r} n_i \leftrightarrow \frac{4(1 - x^6)}{(1 - 3x)(1 - x)}.
+\end{equation}
 \end{frame}
 
 \begin{frame}[fragile]
