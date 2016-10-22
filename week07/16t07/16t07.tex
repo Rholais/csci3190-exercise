@@ -168,11 +168,26 @@ Hence, $(n!)^2 = (n \cdot 1)((n - 1) \cdot 2) \cdot ((n - 2) \cdot 3) \cdots (2 
 
 \begin{frame}[fragile]
 \frametitle{Number of Comparisons}
-\begin{crl}
+\onslide<1->\begin{crl}\label{c-11-2-1}
 	The number of comparisons used by a sorting algorithm to sort $n$ elements based on binary comparisons is $\Omega(n \log n)$.
 \end{crl}
-\begin{proof}
+\onslide<2->\begin{proof}
 	We can use Theorem \ref{t-11-2-1} to provide a big-Omega estimate for the number of comparisons used by a sorting algorithm based on binary comparison. We need only note that $\lceil \log n! \rceil$ is $\Theta(n \log n)$.
+\end{proof}
+
+\onslide<3>A consequence of Corollary \ref{c-11-2-1} is that a sorting algorithm based on binary comparisons that
+uses $\Theta(n \log n)$ comparisons, in the worst case, to sort $n$ elements is optimal, in the sense that no other such algorithm has better worst-case complexity. Note that we see that the merge sort algorithm is optimal in this sense.
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Average Number of Comparisons}
+\onslide<1->\begin{theorem}
+	The average number of comparisons used by a sorting algorithm to sort $n$ elements based on binary comparisons is $\Omega(n \log n)$.
+\end{theorem}
+\onslide<2>\begin{proof}
+	The average number of comparisons used by a sorting algorithm based on binary comparisons is the average depth of a leaf in the decision tree representing the sorting algorithm. We know that the average depth of a leaf in a binary tree with $N$ vertices
+	is $\Omega(\log N)$. We obtain the following estimate when we let $N = n!$ and note that a function that is $\Omega(\log n!)$ is also $\Omega(n \log n)$ because $\log n!$ is $\Omega (n \log n)$.
 \end{proof}
 \end{frame}
 
