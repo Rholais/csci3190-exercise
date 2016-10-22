@@ -1,5 +1,5 @@
 %!TEX program = xelatex
-\documentclass[10pt, compress, handout]{beamer}
+\documentclass[10pt, compress]{beamer}
 \usetheme[titleprogressbar]{m}
 
 \usepackage{booktabs}
@@ -43,7 +43,10 @@
 	\item $\neg (q \rightarrow r) \rightarrow (q \vee r)$
 	\item $\neg (q \rightarrow \neg r) \rightarrow (q \vee r)$
 \end{enumerate}
-\onslide<2>\textbf{Solution}
+\onslide<2->\begin{example}
+	Show that $p \rightarrow q$ and $\neg p \vee q$ are logically equivalent.
+\end{example}
+\onslide<3>\textbf{Solution}
 \begin{multicols}{2}
 \begin{enumerate}
 	\item \begin{align}
