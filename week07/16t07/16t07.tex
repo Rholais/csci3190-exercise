@@ -1,5 +1,5 @@
 %!TEX program = xelatex
-\documentclass[10pt, compress]{beamer}
+\documentclass[10pt, compress, handout]{beamer}
 \usetheme[titleprogressbar]{m}
 
 \usepackage{booktabs}
@@ -37,35 +37,133 @@
 \maketitle
 
 \begin{frame}[fragile]
-\frametitle{Tautology}
-\onslide<1->Prove that following expressions are tautology.
-\begin{enumerate}
-	\item $\neg (q \rightarrow r) \rightarrow (q \vee r)$
-	\item $\neg (q \rightarrow \neg r) \rightarrow (q \vee r)$
-\end{enumerate}
-\onslide<2->\begin{example}
-	Show that $p \rightarrow q$ and $\neg p \vee q$ are logically equivalent.
+\frametitle{Propositional Logic}
+\onslide<1->Explain, without using a truth table, why $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p)$ is true when $p$, $q$, and $r$ have the same truth value and it is false otherwise.
+
+\onslide<2>\textbf{Proof} If all of them are true, it is clear to see that all disjunctions are true so that the conjunction is true. Similarly, if all of them are false, all disjunctions are true so that the conjunction is true. Otherwise, if at least one of them is false and at least one of them is true, without loss of generality, assume $p = False$, $q = True$. Then $p \vee \neg q = False$ so that the conjunction is false.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Propositional Logic}
+\onslide<1->Explain, without using a truth table, why $(p \vee q \vee r) \wedge
+(\neg p \vee \neg q \vee \neg r)$ is true when at least one of $p$, $q$, and $r$
+is true and at least one is false, but is false when all three
+variables have the same truth value.
+
+\onslide<2>\textbf{Proof} The first clause is true if and only if at least one of $p$, $q$, and
+$r$ is true. The second clause is true if and only if at least one of
+the three variables is false. Therefore the entire statement is
+true if and only if there is at least one T and one F among the
+truth values of the variables, in other words, that they don\textquoteright t all
+have the same truth value.
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+\frametitle{Propositional Satisfiability}
+\begin{definition}
+	A compound proposition is \textbf{satisfiable} if there is an assignment of truth values to its variables that makes it true. When no such assignments exists, that is, when the compound proposition is false for all assignments of truth values to its variables, the compound proposition is \textbf{unsatisfiable}.
+\end{definition}
+\begin{example}
+	Determine whether each of the compound propositions $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p)$, $(p \vee q \vee r) \wedge (\neg p \vee \neg q \vee \neg r)$ and $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p) \wedge (p \vee q \vee r) \wedge	(\neg p \vee \neg q \vee \neg r)$ is satisfiable.
 \end{example}
-\onslide<3>\textbf{Solution}
-\begin{multicols}{2}
-\begin{enumerate}
-	\item \begin{align}
-	& (\neg (q \rightarrow r) \rightarrow (q \vee r))\\
-	= & (q \rightarrow r) \vee q \vee r\\
-	= & \neg q \vee r \vee q\\
-	= & T
-	\end{align}
+\textbf{Solution} Instead of using truth table to solve this problem, we will reason about truth values. Note that $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p)$ is true when the three variable $p$, $q$, and $r$ have the same truth value. Hence, it is satisfiable as there is at least one assignment of truth values for $p$, $q$, and $r$ that makes it true. 
+
+Similarly, note that
+$(p \vee q \vee r) \wedge (\neg p \vee \neg q \vee \neg r)$ is true when at least one of $p$, $q$, and $r$ is true and at least one is false. Hence, $(p \vee q \vee r) \wedge (\neg p \vee \neg q \vee \neg r)$ is satisfiable, as there is at least one assignment of truth values for $p$, $q$, and $r$ that makes it true.
+\newpage
+Finally, note that for $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p) \wedge (p \vee q \vee r) \wedge	(\neg p \vee \neg q \vee \neg r)$	to be true, $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p)$ and $(p \vee q \vee r) \wedge (\neg p \vee \neg q \vee \neg r)$ must both be true. For the first to be true, the three variables must have the same truth values, and
+for the second to be true, at least one of three variables must be true and at least one must be false. However, these conditions are contradictory. From these observations we conclude
+that no assignment of truth values to $p$, $q$, and $r$ makes $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p) \wedge (p \vee q \vee r) \wedge	(\neg p \vee \neg q \vee \neg r)$ true. Hence, it is unsatisfiable.
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Tautology}
+	\onslide<1->Prove that following expressions are tautology.
+	\begin{enumerate}
+		\item $\neg (q \rightarrow r) \rightarrow (q \vee r)$
+		\item $\neg (q \rightarrow \neg r) \rightarrow (q \vee r)$
+	\end{enumerate}
+	\onslide<2->\begin{example}
+		Show that $p \rightarrow q$ and $\neg p \vee q$ are logically equivalent.
+	\end{example}
+	\onslide<3>\textbf{Solution}
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item \begin{align}
+			& (\neg (q \rightarrow r) \rightarrow (q \vee r))\\
+			= & (q \rightarrow r) \vee q \vee r\\
+			= & \neg q \vee r \vee q\\
+			= & T
+			\end{align}
+			
+			\columnbreak
+			
+			\item \begin{align}
+			& (\neg (q \rightarrow \neg r) \rightarrow (q \vee r))\\
+			= & (q \rightarrow \neg r) \vee q \vee r\\
+			= & \neg q \vee \neg r \vee q \vee r\\
+			= & T
+			\end{align}
+		\end{enumerate}
+	\end{multicols}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{$n \log n$}
+	\onslide<1->Show that $n \log n$ is $O(\log n!)$.
 	
-	\columnbreak
+	\onslide<2>\textbf{Solution} We
+	can easily show that $(n - i)(i + 1) \ge n$ for $i = 0, 1, \cdots, n - 1$.
+	Hence, $(n!)^2 = (n \cdot 1)((n - 1) \cdot 2) \cdot ((n - 2) \cdot 3) \cdots (2 \cdot (n -
+	1)) \cdot (1 \cdot n) \ge n^n$. Therefore, $2 log n! \ge n log n$.
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Big-Theta}
+	\onslide<1->Determine whether $\log n!$ is $\Theta(n \log n)$.
 	
-	\item \begin{align}
-	& (\neg (q \rightarrow \neg r) \rightarrow (q \vee r))\\
-	= & (q \rightarrow \neg r) \vee q \vee r\\
-	= & \neg q \vee \neg r \vee q \vee r\\
-	= & T
-	\end{align}
-\end{enumerate}
-\end{multicols}
+	\onslide<2->\textbf{Solution} We have known that $n \log n = O(\log n!)$.
+	
+	\onslide<3->\textbf{Claim} $\log n! = O(n \log n)$ so that $n \log n = \Omega(\log n!)$. Hence, $\log n! = \Theta(n \log n)$.
+	
+	\onslide<4>\textbf{Proof} $\exists c = 1, \exists N = 1$, such that $\forall n \ge N, n! \le n^n$, so that $\log n! \le c n\log n$.
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Sorting Algorithm}
+	\onslide<1->\begin{theorem} \label{t-11-2-1}
+		A sorting algorithm based on binary comparisons requires at least $\lceil \log n! \rceil$ comparisons.
+	\end{theorem}
+	\onslide<2>\begin{proof}
+		The complexity of a sort based on binary comparisons is measured in terms of the number	of such comparisons used. The largest number of binary comparisons ever needed to sort a list with $n$ elements gives the worst-case performance of the algorithm. The most comparisons used equals the longest path length in the decision tree representing the sorting procedure. In other words, the largest number of comparisons ever needed is equal to the height of the decision
+		tree. Because the height of a binary tree with $n!$ leaves is at least $\lceil \log n! \rceil$, at least $\lceil \log n! \rceil$ comparisons are needed.
+	\end{proof}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Number of Comparisons}
+	\onslide<1->\begin{crl}\label{c-11-2-1}
+		The number of comparisons used by a sorting algorithm to sort $n$ elements based on binary comparisons is $\Omega(n \log n)$.
+	\end{crl}
+	\onslide<2->\begin{proof}
+		We can use Theorem \ref{t-11-2-1} to provide a big-Omega estimate for the number of comparisons used by a sorting algorithm based on binary comparison. We need only note that $\lceil \log n! \rceil$ is $\Theta(n \log n)$.
+	\end{proof}
+	
+	\onslide<3>A consequence of Corollary \ref{c-11-2-1} is that a sorting algorithm based on binary comparisons that
+	uses $\Theta(n \log n)$ comparisons, in the worst case, to sort $n$ elements is optimal, in the sense that no other such algorithm has better worst-case complexity. Note that we see that the merge sort algorithm is optimal in this sense.
+	
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Average Number of Comparisons}
+	\onslide<1->\begin{theorem}
+		The average number of comparisons used by a sorting algorithm to sort $n$ elements based on binary comparisons is $\Omega(n \log n)$.
+	\end{theorem}
+	\onslide<2>\begin{proof}
+		The average number of comparisons used by a sorting algorithm based on binary comparisons is the average depth of a leaf in the decision tree representing the sorting algorithm. We know that the average depth of a leaf in a binary tree with $N$ vertices
+		is $\Omega(\log N)$. We obtain the following estimate when we let $N = n!$ and note that a function that is $\Omega(\log n!)$ is also $\Omega(n \log n)$ because $\log n!$ is $\Omega (n \log n)$.
+	\end{proof}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -143,64 +241,6 @@ n_r = \begin{cases}
 \end{equation} so that number of racoons is \begin{equation}
 b_r = \Sigma_{i = r - 5}^{r} n_i \leftrightarrow \frac{4(1 - x^6)}{(1 - 3x)(1 - x)}.
 \end{equation}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{$n \log n$}
-\onslide<1->Show that $n \log n$ is $O(\log n!)$.
-
-\onslide<2>\textbf{Solution} We
-can easily show that $(n - i)(i + 1) \ge n$ for $i = 0, 1, \cdots, n - 1$.
-Hence, $(n!)^2 = (n \cdot 1)((n - 1) \cdot 2) \cdot ((n - 2) \cdot 3) \cdots (2 \cdot (n -
-1)) \cdot (1 \cdot n) \ge n^n$. Therefore, $2 log n! \ge n log n$.
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Big-Theta}
-\onslide<1->Determine whether $\log n!$ is $\Theta(n \log n)$.
-
-\onslide<2->\textbf{Solution} We have known that $n \log n = O(\log n!)$.
-
-\onslide<3->\textbf{Claim} $\log n! = O(n \log n)$ so that $n \log n = \Omega(\log n!)$. Hence, $\log n! = \Theta(n \log n)$.
-
-\onslide<4>\textbf{Proof} $\exists c = 1, \exists N = 1$, such that $\forall n \ge N, n! \le n^n$, so that $\log n! \le c n\log n$.
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Sorting Algorithm}
-\onslide<1->\begin{theorem} \label{t-11-2-1}
-	A sorting algorithm based on binary comparisons requires at least $\lceil \log n! \rceil$ comparisons.
-\end{theorem}
-\onslide<2>\begin{proof}
-	The complexity of a sort based on binary comparisons is measured in terms of the number	of such comparisons used. The largest number of binary comparisons ever needed to sort a list with $n$ elements gives the worst-case performance of the algorithm. The most comparisons used equals the longest path length in the decision tree representing the sorting procedure. In other words, the largest number of comparisons ever needed is equal to the height of the decision
-	tree. Because the height of a binary tree with $n!$ leaves is at least $\lceil \log n! \rceil$, at least $\lceil \log n! \rceil$ comparisons are needed.
-\end{proof}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Number of Comparisons}
-\onslide<1->\begin{crl}\label{c-11-2-1}
-	The number of comparisons used by a sorting algorithm to sort $n$ elements based on binary comparisons is $\Omega(n \log n)$.
-\end{crl}
-\onslide<2->\begin{proof}
-	We can use Theorem \ref{t-11-2-1} to provide a big-Omega estimate for the number of comparisons used by a sorting algorithm based on binary comparison. We need only note that $\lceil \log n! \rceil$ is $\Theta(n \log n)$.
-\end{proof}
-
-\onslide<3>A consequence of Corollary \ref{c-11-2-1} is that a sorting algorithm based on binary comparisons that
-uses $\Theta(n \log n)$ comparisons, in the worst case, to sort $n$ elements is optimal, in the sense that no other such algorithm has better worst-case complexity. Note that we see that the merge sort algorithm is optimal in this sense.
-
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Average Number of Comparisons}
-\onslide<1->\begin{theorem}
-	The average number of comparisons used by a sorting algorithm to sort $n$ elements based on binary comparisons is $\Omega(n \log n)$.
-\end{theorem}
-\onslide<2>\begin{proof}
-	The average number of comparisons used by a sorting algorithm based on binary comparisons is the average depth of a leaf in the decision tree representing the sorting algorithm. We know that the average depth of a leaf in a binary tree with $N$ vertices
-	is $\Omega(\log N)$. We obtain the following estimate when we let $N = n!$ and note that a function that is $\Omega(\log n!)$ is also $\Omega(n \log n)$ because $\log n!$ is $\Omega (n \log n)$.
-\end{proof}
 \end{frame}
 
 \plain{Questions?}
