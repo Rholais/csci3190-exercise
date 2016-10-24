@@ -1,5 +1,5 @@
 %!TEX program = xelatex
-\documentclass[10pt, compress]{beamer}
+\documentclass[10pt, compress, handout]{beamer}
 \usetheme[titleprogressbar]{m}
 
 \usepackage{booktabs}
@@ -38,7 +38,9 @@
 
 \begin{frame}[fragile]
 \frametitle{Propositional Logic}
-Explain, without using a truth table, why $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p)$ is true when $p$, $q$, and $r$ have the same truth value and it is false otherwise.
+\onslide<1->Explain, without using a truth table, why $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p)$ is true when $p$, $q$, and $r$ have the same truth value and it is false otherwise.
+
+\onslide<2>\textbf{Solution} It is easy to evaluate that the expression is true when all variables have the same truth value. Suppose at least one is true and at least one is false. There are 2 combinations of 2 variables which have different truth value. These 2 combinations can form 2 disjunction expression with false value and one of them is in the conjunction expression so that the whole expression is false.
 \end{frame}
 
 \begin{frame}[fragile]
