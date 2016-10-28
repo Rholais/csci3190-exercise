@@ -1,0 +1,76 @@
+%!TEX program = xelatex
+\documentclass[10pt, compress, handout]{beamer}
+\usetheme[titleprogressbar]{m}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{minted}
+
+\usepgfplotslibrary{dateplot}
+
+\usemintedstyle{trac}
+
+\setbeamertemplate{theorems}[numbered]
+\newtheorem{crl}{Corollary}[theorem]
+
+\usepackage{multicol}
+
+\makeatletter
+\def\old@comma{,}
+\catcode`\,=13
+\def,{%
+	\ifmmode%
+	\old@comma\discretionary{}{}{}%
+	\else%
+	\old@comma%
+	\fi%
+}
+\makeatother
+
+\title{CSCI 3190 Tutorial of Week 8}
+\subtitle{Trees}
+\author{LI Haocheng}
+\institute{Department of Computer Science and Engineering}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}[fragile]
+	\frametitle{$n \log n$}
+	\onslide<1->Show that $n \log n$ is $O(\log n!)$.
+	
+	\onslide<2>\textbf{Solution} We
+	can easily show that $(n - i)(i + 1) \ge n$ for $i = 0, 1, \cdots, n - 1$.
+	Hence, $(n!)^2 = (n \cdot 1)((n - 1) \cdot 2) \cdot ((n - 2) \cdot 3) \cdots (2 \cdot (n -
+	1)) \cdot (1 \cdot n) \ge n^n$. Therefore, $2 log n! \ge n log n$.
+\end{frame}
+
+\begin{frame}
+	\frametitle{Sorting Algorithm}
+	\onslide<1->\begin{theorem} \label{t-11-2-1}
+		A sorting algorithm based on binary comparisons requires at least $\lceil \log n! \rceil$ comparisons.
+	\end{theorem}
+	\onslide<2>\begin{proof}
+		The complexity of a sort based on binary comparisons is measured in terms of the number	of such comparisons used. The largest number of binary comparisons ever needed to sort a list with $n$ elements gives the worst-case performance of the algorithm. The most comparisons used equals the longest path length in the decision tree representing the sorting procedure. In other words, the largest number of comparisons ever needed is equal to the height of the decision
+		tree. Because the height of a binary tree with $n!$ leaves is at least $\lceil \log n! \rceil$, at least $\lceil \log n! \rceil$ comparisons are needed.
+	\end{proof}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Generating Function}
+\onslide<1->Let the lifespan of a raccoon be exactly 6 years. Suppose there are 4 new-born raccoons at the 0th year and the number of new-born raccoons in each year is 3 times that in the previous year. Let $b_r$ be the number of raccoons on year $r$ where $r \ge 0$. Give a closed form generating function for $b_r$.
+
+\onslide<2>\textbf{Solution} Number of newborns is \begin{equation}
+n_r = \begin{cases}
+4 \times 3^r, & r \ge 0\\
+0, & \text{otherwise}.
+\end{cases} \leftrightarrow \frac{4}{1 - 3x},
+\end{equation} so that number of racoons is \begin{equation}
+b_r = \Sigma_{i = r - 5}^{r} n_i \leftrightarrow \frac{4(1 - x^6)}{(1 - 3x)(1 - x)}.
+\end{equation}
+\end{frame}
+
+\plain{Questions?}
+
+\end{document}
