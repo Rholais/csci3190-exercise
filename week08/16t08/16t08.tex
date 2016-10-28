@@ -83,6 +83,21 @@
 	\onslide<2>\textbf{Solution} $|A - A_1| = 6$ so that $|A| = 11$.
 \end{frame}
 
+\begin{frame}[fragile]
+	\frametitle{Distributive Property}
+	\begin{example}
+		For any $A, B, C \subseteq U$, prove that $(A - B) - C = (A - C) - (B - C)$ where the notation $X - Y$ where $X$ and $Y$ are sets denotes the set of all elements that are in $X$ but not in $Y$.
+	\end{example}
+	\begin{proof}
+		\begin{align}
+			(A - C) - (B - C) & = A \cap \overline{C} \cap \overline{B \cap \overline{C}}\\
+			& = A \cap \overline{C} \cap (\overline{B} \cup C)\\
+			& = A \cap \overline{B} \cap \overline{C}\\
+			& = (A - B) - C
+		\end{align}
+	\end{proof}
+\end{frame}
+
 \plain{Questions?}
 
 \end{document}
