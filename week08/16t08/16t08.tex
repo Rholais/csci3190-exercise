@@ -1,5 +1,5 @@
 %!TEX program = xelatex
-\documentclass[10pt, compress]{beamer}
+\documentclass[10pt, compress, handout]{beamer}
 \usetheme[titleprogressbar]{m}
 
 \usepackage{booktabs}
@@ -64,51 +64,6 @@
 		We can easily show that $(n - i)(i + 1) = n + (n - i - 1) i \ge n$ for $0 \le i \le n - 1$. Hence, $(n!)^2 = (n \cdot 1)((n - 1) \cdot 2) \cdot ((n - 2) \cdot 3) \cdots (2 \cdot (n -
 		1)) \cdot (1 \cdot n) \ge n^n$. Therefore, $2 log n! \ge n log n$.
 	\end{proof}
-\end{frame}
-
-\begin{frame}[fragile]
-	\frametitle{Subset}
-	\onslide<1->\begin{example}
-		Let $S$ be a set of seven positive integers the maximum of which is at most 24. Prove that the sums of the elements in all the nonempty subsets of $S$ cannot be distinct.
-	\end{example}
-	
-	\onslide<2>\begin{proof}
-		Consider subset of size at most 5. Their total sum is at most $20 + 21 + \cdots + 24 = 110$. There are $128 - 1 - 1 - 7 = 119$ non-empty subsets with at most 5 elements so at least 2 of them have equal sum.
-	\end{proof}
-\end{frame}
-
-\begin{frame}[fragile]
-	\frametitle{Function}
-	\onslide<1->\begin{example}
-		Let $A_1$, $A$ and $B$ be sets such that $\{1, 2, 3, 4, 5\} = A_1 \subset A$, $B = \{s, t, u, v, w, x\}$ and $f$ is a function from $A_1$ to $B$. If $f$ can be extended to $A$ (by defining the mapping for those in $A - A_1$) in 216 ways, what is $|A|$?
-	\end{example}
-	\onslide<2>\textbf{Solution} $|A - A_1| = 6$ so that $|A| = 11$.
-\end{frame}
-
-\begin{frame}[fragile]
-	\frametitle{Distributive Property}
-	\onslide<1->\begin{example}
-		For any $A, B, C \subseteq U$, prove that $(A - B) - C = (A - C) - (B - C)$ where the notation $X - Y$ where $X$ and $Y$ are sets denotes the set of all elements that are in $X$ but not in $Y$.
-	\end{example}
-	\onslide<2>\begin{proof}
-		\begin{align}
-			(A - C) - (B - C) & = A \cap \overline{C} \cap \overline{B \cap \overline{C}}\\
-			& = A \cap \overline{C} \cap (\overline{B} \cup C)\\
-			& = A \cap \overline{B} \cap \overline{C}\\
-			& = (A - B) - C
-		\end{align}
-	\end{proof}
-\end{frame}
-
-\begin{frame}[fragile]
-	\frametitle{Relation}
-	\onslide<1->\begin{example}
-		Let $n \in \mathbb{Z}^n$, let $U = \{1, 2, \cdots, n\}$. Define the relation $R$ on the power set of $U$ by $(A, B) \in R$ if and only if $A \not\subset B$ and $B \not\subset A$. Is $R$ an equivalence relation? What is $|R|$? (Note that the power set of $U$ is set of all subset of $U$.)
-	\end{example}
-	\onslide<2>\textbf{Solution} \begin{enumerate}
-		\item $R$ is not an equivalence relation. Let $n = 3, A = \{1\}, B = \{2\}$, $C = \{1, 3\}$ so that $(A, B) \in R, (B, C) \in R, (A, C) \notin R$.
-		\item $|R| = 2^{2n} - 2(3^n - 2^n)$.
-	\end{enumerate}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -177,6 +132,75 @@
 			\end{figure}
 		\end{column}
 	\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{$m$-ary Tree}
+	\onslide<1->\begin{theorem}\label{t-11-1-3}
+		A full $m$-ary tree with $i$ internal vertices contains $n = m i + 1$ vertices.
+	\end{theorem}
+	\onslide<2>\begin{proof}
+		Every vertex, except the root, is the child of an internal vertex. Because each of the $i$ internal vertices has $m$ children, there are $m i$ vertices in the tree other than the root. Therefore, the tree contains $n = m i + 1$ vertices
+	\end{proof}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+	\frametitle{Full $m$-ary Tree}
+	\begin{theorem}
+		A full $m$-ary tree with \begin{enumerate}
+			\item $n$ vertices has $i = \frac{n - 1}{m}$ internal vertices and $l =\frac{(m - 1)n + 1}{m}$ leaves,
+			\item $i$ internal vertices has $n = mi + 1$ vertices and $l = (m - 1) i + 1$ leaves,
+			\item $l$ leaves has $n = \frac{m l - 1}{m - 1}$ vertices and $i = \frac{l - 1}{m - 1}$ internal vertices.
+		\end{enumerate}
+	\end{theorem}
+	\textbf{Proof.} The three parts of the theorem can all be proved using the equality given in Theorem \ref{t-11-1-3}, that is, $n = m i + 1$, together with the equality $n = l + i$, which is true because each vertex is either a leaf or an internal vertex. 
+		
+	For example, solving for $i$ in $n = m i + 1$ gives $i = \frac{n - 1}{m}$. Then inserting this expression for $i$ into the equation $n = l + i$ shows that $l = n - i = n - \frac{n - 1}{m} = \frac{(m - 1)n + 1}{m}$.
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Subset}
+	\onslide<1->\begin{example}
+		Let $S$ be a set of seven positive integers the maximum of which is at most 24. Prove that the sums of the elements in all the nonempty subsets of $S$ cannot be distinct.
+	\end{example}
+	
+	\onslide<2>\begin{proof}
+		Consider subset of size at most 5. Their total sum is at most $20 + 21 + \cdots + 24 = 110$. There are $128 - 1 - 1 - 7 = 119$ non-empty subsets with at most 5 elements so at least 2 of them have equal sum.
+	\end{proof}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Function}
+	\onslide<1->\begin{example}
+		Let $A_1$, $A$ and $B$ be sets such that $\{1, 2, 3, 4, 5\} = A_1 \subset A$, $B = \{s, t, u, v, w, x\}$ and $f$ is a function from $A_1$ to $B$. If $f$ can be extended to $A$ (by defining the mapping for those in $A - A_1$) in 216 ways, what is $|A|$?
+	\end{example}
+	\onslide<2>\textbf{Solution} $|A - A_1| = 6$ so that $|A| = 11$.
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Distributive Property}
+	\onslide<1->\begin{example}
+		For any $A, B, C \subseteq U$, prove that $(A - B) - C = (A - C) - (B - C)$ where the notation $X - Y$ where $X$ and $Y$ are sets denotes the set of all elements that are in $X$ but not in $Y$.
+	\end{example}
+	\onslide<2>\begin{proof}
+		\begin{align}
+		(A - C) - (B - C) & = A \cap \overline{C} \cap \overline{B \cap \overline{C}}\\
+		& = A \cap \overline{C} \cap (\overline{B} \cup C)\\
+		& = A \cap \overline{B} \cap \overline{C}\\
+		& = (A - B) - C
+		\end{align}
+	\end{proof}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Relation}
+	\onslide<1->\begin{example}
+		Let $n \in \mathbb{Z}^n$, let $U = \{1, 2, \cdots, n\}$. Define the relation $R$ on the power set of $U$ by $(A, B) \in R$ if and only if $A \not\subset B$ and $B \not\subset A$. Is $R$ an equivalence relation? What is $|R|$? (Note that the power set of $U$ is set of all subset of $U$.)
+	\end{example}
+	\onslide<2>\textbf{Solution} \begin{enumerate}
+		\item $R$ is not an equivalence relation. Let $n = 3, A = \{1\}, B = \{2\}$, $C = \{1, 3\}$ so that $(A, B) \in R, (B, C) \in R, (A, C) \notin R$.
+		\item $|R| = 2^{2n} - 2(3^n - 2^n)$.
+	\end{enumerate}
 \end{frame}
 
 \plain{Questions?}
