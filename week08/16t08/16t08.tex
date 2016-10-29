@@ -10,10 +10,12 @@
 
 \usemintedstyle{trac}
 
+\setbeamertemplate{caption}[numbered]
 \setbeamertemplate{theorems}[numbered]
 \newtheorem{crl}{Corollary}[theorem]
 
 \usepackage{multicol}
+\usepackage{qtree}
 
 \makeatletter
 \def\old@comma{,}
@@ -133,6 +135,28 @@
 	This implies that there is a circuit in $T$. Hence, there is a unique path without cycle between any two vertices of a tree. 
 	
 	Now assume that there is a unique path without cycle between any two vertices of a graph $T$. Then $T$ is connected, because there is a path between any two of its vertices. Furthermore, $T$ can have no circuits. To see that this is true, suppose $T$ had a circuit that contained the vertices $x$ and $y$. Then there would be two simple paths between $x$ and $y$, because the circuit is made up of a path from $x$ to $y$ and a second path from $y$ to $x$. Hence, a graph with a unique simple path between any two vertices is a tree.
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Terminology}
+	\begin{columns}
+		\begin{column}{.6\linewidth}
+			\onslide<1->\begin{example}
+				In the rooted tree $T$ (with root $a$) shown in Figure \ref{f-11-1-5}, find the parent of $c$, the children of $g$, the
+				siblings of $h$, all ancestors of $e$, all descendants of $b$, all internal vertices, and all leaves. What
+				is the subtree rooted at $g$?
+			\end{example}
+			\onslide<2>\textbf{Solution} The parent of $c$ is $b$. The children of $g$ are $h$, $i$, and $j$. The siblings of $h$ are $i$ and $j$. The ancestors of $e$ are $c$, $b$, and $a$. The descendants of $b$ are $c$, $d$, and $e$. The internal vertices are $a$, $b$, $c$, $g$, $h$, and $j$. The leaves are $d$, $e$, $f$, $i$, $k$, $l$, and $m$.
+		\end{column}
+		\onslide<1->\begin{column}{.4\linewidth}
+			\begin{figure}
+				\centering
+				$\Tree [.a [.b [.c d e ] ] f [.g [.h k ] i [.j l m ]]]$
+				\caption{A Rooted Tree $T$}
+				\label{f-11-1-5}
+			\end{figure}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \plain{Questions?}
