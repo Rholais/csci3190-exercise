@@ -146,16 +146,25 @@
 
 \begin{frame}[allowframebreaks]
 	\frametitle{Full $m$-ary Tree}
-	\begin{theorem}
+	\onslide<1->\begin{theorem}\label{t-11-1-4}
 		A full $m$-ary tree with \begin{enumerate}
 			\item $n$ vertices has $i = \frac{n - 1}{m}$ internal vertices and $l =\frac{(m - 1)n + 1}{m}$ leaves,
 			\item $i$ internal vertices has $n = mi + 1$ vertices and $l = (m - 1) i + 1$ leaves,
 			\item $l$ leaves has $n = \frac{m l - 1}{m - 1}$ vertices and $i = \frac{l - 1}{m - 1}$ internal vertices.
 		\end{enumerate}
 	\end{theorem}
-	\textbf{Proof.} The three parts of the theorem can all be proved using the equality given in Theorem \ref{t-11-1-3}, that is, $n = m i + 1$, together with the equality $n = l + i$, which is true because each vertex is either a leaf or an internal vertex. 
+	\onslide<2>\textbf{Proof.} The three parts of the theorem can all be proved using the equality given in Theorem \ref{t-11-1-3}, that is, $n = m i + 1$, together with the equality $n = l + i$, which is true because each vertex is either a leaf or an internal vertex. 
 		
 	For example, solving for $i$ in $n = m i + 1$ gives $i = \frac{n - 1}{m}$. Then inserting this expression for $i$ into the equation $n = l + i$ shows that $l = n - i = n - \frac{n - 1}{m} = \frac{(m - 1)n + 1}{m}$.
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Chain Letter}
+	\begin{example}
+		Suppose that someone starts a chain letter. Each person who receives the letter is asked to send it on to four other people. Some people do this, but others do not send any letters. How many people have seen the letter, including the first person, if no one receives more than one letter and if the chain letter ends after there have been 100 people who read it but did not send it out? How many people sent out the letter?
+	\end{example}
+	\textbf{Solution} The chain letter can be represented using a 4-ary tree. The internal vertices correspond to people who sent out the letter, and the leaves correspond to people who did not send it out. Because 100 people did not send out the letter, the number of leaves in this rooted tree is
+	$l = 100$. Hence, Theorem \ref{t-11-1-4} shows that the number of people who have seen the letter is $n = \frac{4 \times 100 - 1}{4 - 1} = 133$. Also, the number of internal vertices is $133 - 100 = 33$, so 33 people sent out the letter.
 \end{frame}
 
 \begin{frame}[fragile]
