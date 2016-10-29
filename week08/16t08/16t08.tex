@@ -161,9 +161,22 @@
 
 \begin{frame}[fragile]
 	\frametitle{Left Child}
-	\begin{example}
-		What are the left and right children of $d$ in the binary tree $T$ shown in Figure 8(a) (where the order is that implied by the drawing)? What are the left and right subtrees of $c$?
-	\end{example}
+	\begin{columns}
+		\begin{column}{.6\linewidth}
+			\onslide<1->\begin{example}
+				What are the left and right children of $d$ in the binary tree $T$ shown in Figure \ref{f-11-1-8} (where the order is that implied by the drawing)? What are the left and right subtrees of $c$?
+			\end{example}
+			\onslide<2>\textbf{Solution} The left child of $d$ is $f$ and the right child is $g$.
+		\end{column}
+		\onslide<1->\begin{column}{.4\linewidth}
+			\begin{figure}
+				\centering
+				$\Tree [.a [.b [.d f g ] e ] [.c [.h j ] [.i k [.l m ]]]]$
+				\caption{A Binary Tree $T$}
+				\label{f-11-1-8}
+			\end{figure}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \plain{Questions?}
