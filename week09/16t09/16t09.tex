@@ -38,15 +38,19 @@
 
 \maketitle
 
-\begin{frame}[fragile]
+\begin{frame}[allowframebreaks]
 	\frametitle{Subset}
-	\onslide<1->\begin{example}
+	\begin{example}
 		Let $S$ be a set of seven positive integers the maximum of which is at most 24. Prove that the sums of the elements in all the nonempty subsets of $S$ cannot be distinct.
 	\end{example}
 	
-	\onslide<2>\begin{proof}
-		Consider subset of size at most 5. Their total sum is at most $20 + 21 + \cdots + 24 = 110$. There are $128 - 1 - 1 - 7 = 119$ non-empty subsets with at most 5 elements so at least 2 of them have equal sum.
-	\end{proof}
+	\textbf{Proof.}	Consider all nonempty subsets. Their total sum is at most $18 + 19 + \cdots + 24 = 147$. There are $128 - 1 = 127$ nonempty subsets. There are more holes than pigeons.
+	
+	\newpage
+		
+	Consider nonempty subsets of size at most 6. Their total sum is at most $19 + 20 + \cdots + 24 = 129$. There are $127 - 1 = 126$ nonempty subsets of size at most 6 elements. There are still more holes than pigeons.
+		
+	Consider nonempty subsets of size at most 5. Their total sum is at most $20 + 21 + \cdots + 24 = 110$. There are $126 - 7 = 119$ nonempty subsets with at most 5 elements so at least 2 of them have equal sum.
 \end{frame}
 
 \begin{frame}[fragile]
@@ -62,10 +66,14 @@
 
 \begin{frame}[fragile]
 	\frametitle{Equivalence Class}
-	\begin{definition}
+	\onslide<1->\begin{definition}
 		Let $R$ be an equivalence relation on a set $A$. The set of all elements that are related to an element $a$ of $A$ is called the equivalence class of $a$. The equivalence class of a with respect
 		to $R$ is denoted by $[a]_R$. When only one relation is under consideration, we can delete the subscript $R$ and write $[a]$ for this equivalence class.
 	\end{definition}
+	\onslide<2->\begin{example}
+		Let $R$ be the relation on the set of integers such that $aRb$ if and only if $a = b$ or $a =-b$. What is the equivalence class of an integer?
+	\end{example}
+	\onslide<3>\textbf{Solution} Because an integer is equivalent to itself and its negative in this equivalence relation, it follows that $[a]=\{-a, a\}$. This set contains two distinct integers unless $a = 0$. For instance, $[7]=\{-7, 7\}$, $[-5]=\{-5, 5\}$, and $[0]=\{0\}$.
 \end{frame}
 
 \plain{Questions?}
