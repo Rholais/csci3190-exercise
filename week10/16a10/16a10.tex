@@ -98,7 +98,7 @@
 \keywords{}
 
 \section{Mathematical Induction}
-\textbf{Solution}\begin{enumerate}[label=(\alph*)]
+\textbf{Proof}\begin{enumerate}[label=(\alph*)]
 	\item \begin{description}
 		\item[Base Step] Let $n = 0$, $3 \mid 2^1 + 1 = 3$.
 		\item[Induction Step] Suppose $3 \mid 2^{2n - 1} + 1$, $2^{2n + 1} = 3 * 2^{2n - 1} + 2^{2n - 1} + 1 \equiv 0 \pmod{3}$.
@@ -107,6 +107,14 @@
 		\item[Base Step] Let $n = 0$, $9 \mid 1^3 + 2^3$.
 		\item[Induction Step] Suppose $9 \mid (n - 1)^3 + n^3 + (n + 1)^3$, $n^3 + (n + 1)^3 + (n + 2)^3 = (n - 1)^3 + n^3 + (n + 1)^3 + 3((n - 1)^2 + (n - 1)(n + 1) + (n + 1)^2) \equiv 0 \pmod{3}$.
 	\end{description}
+\end{enumerate}
+
+\section{Complexity}
+\textbf{Proof}\begin{enumerate}[label=(\alph*)]
+	\item $\exists c = 4, \exists N = 6$, such that $\forall n > N, 3n^2 + 5n + 10 < 4n^2$.
+	\item Since $100 = O(1)$ and $\log_2 n = O(n)$, $100\log_2 n = O(n)$.
+	\item $n! = \Pi_{i = 1}^n i \le \Pi_{i = 1}^n n = n^n$.
+	\item $\exists c = 2, \exists N = 1$, such that $\forall n > N, 2^n = \Pi_{i = 1}^n 2 = 2 \Pi_{i = 2}^n 2 \le 2 \Pi_{i = 2}^n i = 2(n!)$.
 \end{enumerate}
 
 \end{document}
