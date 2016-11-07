@@ -176,7 +176,7 @@
 	
 	\item \begin{algorithm}[H]
 		\caption{A Iterative Algorithm for Fibonacci}
-		\label{a-5-4-a8}
+		\label{a-4-2}
 		\begin{algorithmic}
 			\Procedure{IterativeFibonacci}{$n$}
 			\If{$n = 0$}
@@ -199,5 +199,29 @@
 \end{enumerate}
 
 \section{Longest Common Subsequence}
+\begin{algorithm}[H]
+	\caption{Print Out ALL the LCSes}
+	\label{a-5}
+	\begin{algorithmic}
+		\Procedure{All}{$T$, $A$, $B$, $i$, $j$}
+		\If{$i \cdot j = 0$}
+		\State \Return $\{``"\}$
+		\ElsIf{$A[i] = B[j]$}
+		\State \Return $\{C + A[i] \colon Z \in \Call{All}{T, A, B, i - 1, j - 1}\}$
+		\Else
+		\State $R \coloneqq \{\}$
+		\If{$T[i, j - 1] \ge T[i - 1, j]$}
+		\State $R \coloneqq R \cup \Call{All}{T, A, B, i, j - 1}$
+		\EndIf
+		\If{$T[i - 1, j] \ge T[i, j - 1]$}
+		\State $R \coloneqq R \cup \Call{All}{T, A, B, i - 1, j}$
+		\EndIf
+		\State \Return $R$
+		\EndIf
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
+
+\section{LCS between 3 Sequences}
 
 \end{document}
