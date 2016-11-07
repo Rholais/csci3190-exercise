@@ -150,5 +150,54 @@
 \end{enumerate}
 
 \section{Fibonacci}
+\begin{enumerate}[label=(\alph*)]
+	\item \begin{algorithm}[H]
+		\caption{A Recursive Algorithm for Fibonacci}
+		\label{a-4-1}
+		\begin{algorithmic}
+			\Procedure{Fibonacci}{$n$}
+			\If{$n = 0$}
+			\State \Return $0$
+			\ElsIf{$n = 1$}
+			\State \Return $1$
+			\Else
+			\State \Return \Call{Fibonacci}{$n - 1$} + \Call{Fibonacci}{$n - 2$}
+			\EndIf
+			\EndProcedure
+		\end{algorithmic}
+	\end{algorithm}
+	The number of additions follows the recursive expression:\begin{equation}
+	a_n = \begin{cases}
+	0 & \text{If } n = 0,\\
+	0 & \text{If } n = 1,\\
+	a_{n - 1} + a_{n - 2} + 1 & \text{Otherwise.}
+	\end{cases}
+	\end{equation} So that $O(a_n) = 2^n$.
+	
+	\item \begin{algorithm}[H]
+		\caption{A Iterative Algorithm for Fibonacci}
+		\label{a-5-4-a8}
+		\begin{algorithmic}
+			\Procedure{IterativeFibonacci}{$n$}
+			\If{$n = 0$}
+			\State \Return $0$
+			\Else
+			\State $x \coloneqq 0$
+			\State $y \coloneqq 1$
+			\For{$i \coloneqq 1, 2, \cdots, n - 1$}
+			\State $z \coloneqq x + y$
+			\State $x \coloneqq y$
+			\State $y \coloneqq z$
+			\EndFor
+			\State \Return $y$
+			\EndIf
+			\EndProcedure
+		\end{algorithmic}
+	\end{algorithm}
+
+	The number of additions follows the expression $b_n = n - 1$ so that $O(b_n) = n$.
+\end{enumerate}
+
+\section{Longest Common Subsequence}
 
 \end{document}
