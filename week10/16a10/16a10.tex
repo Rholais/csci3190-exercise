@@ -117,4 +117,38 @@
 	\item $\exists c = 2, \exists N = 1$, such that $\forall n > N, 2^n = \Pi_{i = 1}^n 2 = 2 \Pi_{i = 2}^n 2 \le 2 \Pi_{i = 2}^n i = 2(n!)$.
 \end{enumerate}
 
+\section{Double Tower of Hanoi}
+\textbf{Solution}\begin{enumerate}[label=(\alph*)]
+	\item \begin{algorithm}[H]
+		\caption{Double Tower of Hanoi}
+		\label{a-3}
+		\begin{algorithmic}
+			\Procedure{Hanoi}{$height$, $begin$, $end$}
+			\If{$height$ = 0}
+			\State \Return
+			\ElsIf{$height$ = 2}
+			\State \Call{Move}{$begin$, $end$}
+			\State \Call{Move}{$begin$, $end$}
+			\Else
+			\State $mid \coloneqq$ \Call{OtherPeg}{$begin$, $end$}
+			\State \Call{Hanoi}{$height - 2$, $begin$, $mid$}
+			\State \Call{Hanoi}{2, $begin$, $end$}
+			\State \Call{Hanoi}{$height - 2$, $mid$, $end$}
+			\EndIf
+			\EndProcedure
+		\end{algorithmic}
+	\end{algorithm}
+
+	\item $H_{2n} = 2H_{2n - 2} + 2$.
+	\item \begin{align}
+		H_{2n} & = 2(H_{2n - 4} + 2) + 2\\
+		& = 2H_{2n - 4} + 4 + 2\\
+		& \cdots\\
+		& = 2^{n + 1} - 2.\\
+		O(H_{2n}) & = 2^n.
+	\end{align}
+\end{enumerate}
+
+\section{Fibonacci}
+
 \end{document}
