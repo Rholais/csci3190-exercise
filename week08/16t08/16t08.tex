@@ -167,15 +167,19 @@
 	$l = 100$. Hence, Theorem \ref{t-11-1-4} shows that the number of people who have seen the letter is $n = \frac{4 \times 100 - 1}{4 - 1} = 133$. Also, the number of internal vertices is $133 - 100 = 33$, so 33 people sent out the letter.
 \end{frame}
 
-\begin{frame}[fragile]
-	\frametitle{Subset}
-	\onslide<1->\begin{example}
-		Let $S$ be a set of seven positive integers the maximum of which is at most 24. Prove that the sums of the elements in all the nonempty subsets of $S$ cannot be distinct.
+\begin{frame}[allowframebreaks]
+	\frametitle{Pigeonhole Principle}
+	\begin{example}
+		Let $S$ be a set of 7 positive integers the maximum of which is at most 24. Prove that the sums of the elements in all the nonempty subsets of $S$ cannot be distinct.
 	\end{example}
 	
-	\onslide<2>\begin{proof}
-		Consider subset of size at most 5. Their total sum is at most $20 + 21 + \cdots + 24 = 110$. There are $128 - 1 - 1 - 7 = 119$ non-empty subsets with at most 5 elements so at least 2 of them have equal sum.
-	\end{proof}
+	\textbf{Proof.}	Consider all nonempty subsets. Their maximum sum is at most $18 + 19 + \cdots + 24 = 147$. There are $128 - 1 = 127$ nonempty subsets. There are more holes than pigeons.
+	
+	\newpage
+	
+	Consider nonempty subsets of size at most 6. Their maximum sum is at most $19 + 20 + \cdots + 24 = 129$. There are $127 - 1 = 126$ nonempty subsets of size at most 6 elements. There are still more holes than pigeons.
+	
+	Consider nonempty subsets of size at most 5. Their maximum sum is at most $20 + 21 + \cdots + 24 = 110$. There are $126 - 7 = 119$ nonempty subsets with at most 5 elements so at least 2 of them have equal sum.
 \end{frame}
 
 \begin{frame}[fragile]
@@ -204,7 +208,7 @@
 \begin{frame}[fragile]
 	\frametitle{Relation}
 	\onslide<1->\begin{example}
-		Let $n \in \mathbb{Z}^n$, let $U = \{1, 2, \cdots, n\}$. Define the relation $R$ on the power set of $U$ by $(A, B) \in R$ if and only if $A \not\subset B$ and $B \not\subset A$. Is $R$ an equivalence relation? What is $|R|$? (Note that the power set of $U$ is set of all subset of $U$.)
+		Let $n \in \mathbb{Z}^+$, let $U = \{1, 2, \cdots, n\}$. Define the relation $R$ on the power set of $U$ by $(A, B) \in R$ if and only if $A \not\subset B$ and $B \not\subset A$. Is $R$ an equivalence relation? What is $|R|$? (Note that the power set of $U$ is set of all subset of $U$.)
 	\end{example}
 	\onslide<2>\textbf{Solution} \begin{enumerate}
 		\item $R$ is not an equivalence relation. Let $n = 3, A = \{1\}, B = \{2\}$, $C = \{1, 3\}$ so that $(A, B) \in R, (B, C) \in R, (A, C) \notin R$.
