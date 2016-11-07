@@ -45,7 +45,7 @@
 %
 % For tracking purposes - this is V2.0 - May 2012
 
-\documentclass{../../cls/sig-alternate-05-2015}
+\documentclass{../../cls/sig-alternate-05-2015-single}
 
 \usepackage{algorithm}
 \usepackage{algpseudocode}
@@ -204,17 +204,17 @@
 	\label{a-5}
 	\begin{algorithmic}
 		\Procedure{All}{$T$, $A$, $B$, $i$, $j$}
-		\If{$i \cdot j = 0$}
+		\If{$j \cdot k = 0$}
 		\State \Return $\{``"\}$
-		\ElsIf{$A[i] = B[j]$}
-		\State \Return $\{C + A[i] \colon Z \in \Call{All}{T, A, B, i - 1, j - 1}\}$
+		\ElsIf{$A[j] = B[k]$}
+		\State \Return $\{C + A[j] \colon Z \in \Call{All}{T, A, B, j - 1, k - 1}\}$
 		\Else
 		\State $R \coloneqq \{\}$
-		\If{$T[i, j - 1] \ge T[i - 1, j]$}
-		\State $R \coloneqq R \cup \Call{All}{T, A, B, i, j - 1}$
+		\If{$T[j, k - 1] \ge T[j - 1, k]$}
+		\State $R \coloneqq R \cup \Call{All}{T, A, B, j, k - 1}$
 		\EndIf
-		\If{$T[i - 1, j] \ge T[i, j - 1]$}
-		\State $R \coloneqq R \cup \Call{All}{T, A, B, i - 1, j}$
+		\If{$T[j - 1, k] \ge T[j, k - 1]$}
+		\State $R \coloneqq R \cup \Call{All}{T, A, B, j - 1, k}$
 		\EndIf
 		\State \Return $R$
 		\EndIf
@@ -223,5 +223,37 @@
 \end{algorithm}
 
 \section{LCS between 3 Sequences}
+\begin{algorithm}[H]
+	\caption{Compute the Longest Common Subsequence among
+		3 Sequences}
+	\label{a-5}
+	\begin{algorithmic}
+		\Procedure{Three}{$A$, $B$, $C$}
+		\State $T \coloneqq \Call{Zeros}{0 \cdots m, 0 \cdots n, 0 \cdots p}$
+		\For{$j \coloneqq 1 \cdots m$}
+		\State $T[j, 0, 0] \coloneqq 0$
+		\EndFor
+		\For{$k \coloneqq 1 \cdots n$}
+		\State $T[0, k, 0] \coloneqq 0$
+		\EndFor
+		\For{$l \coloneqq 1 \cdots p$}
+		\State $T[0, 0, l] \coloneqq 0$
+		\EndFor
+		\For{$j \coloneqq 1 \cdots m$}
+		\For{$k \coloneqq 1 \cdots n$}
+		\For{$l \coloneqq 1 \cdots l$}
+		\If{$A[j] = B[k] = C[l]$}
+		\State $T[j, k, l] \coloneqq T[j - 1, k - 1, l - 1]$
+		\Else
+		\State $T[j, k, l] = \Call{Max}{T[j - 1, k, l], T[j, k - 1, l], T[j, k - 1, l]}$
+		\EndIf
+		\EndFor
+		\EndFor
+		\EndFor
+		\State \Return $T[m, n, l]$
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
+
 
 \end{document}
