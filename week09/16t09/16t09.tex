@@ -30,7 +30,7 @@
 \makeatother
 
 \title{CSCI 3190 Tutorial of Week 9}
-\subtitle{Trees}
+\subtitle{Bipartite Graph}
 \author{LI Haocheng}
 \institute{Department of Computer Science and Engineering}
 
@@ -122,8 +122,10 @@
 	To prove the if part of the theorem, the more difficult part, we need to show that if $|N(A)|\ge|A|$ for all $A \subseteq V_1$, then there is a complete matching $M$ from $V_1$ to $V_2$. We will use strong induction on $|V_1|$ to prove this.
 		
 	\textit{Basis step:} If $|V_1| = 1$, then $V_1$ contains a single vertex $v_0$. Because $|N(\{v_0\})| \ge |\{v_0\}| = 1$, there is at least one edge connecting $v_0$ and a vertex $w_0 \in V_2$. Any such edge forms a complete matching from $V_1$ to $V_2$.
-		
+	
 	\textit{Inductive step:} We first state the inductive hypothesis.
+	
+	\newpage
 		
 	\textit{Inductive hypothesis:} Let k be a positive integer. If $G = (V,E)$ is a bipartite graph with bipartition $(V_1, V_2)$, and $|V_1| = j \le k$, then there is a complete matching $M$ from $V_1$ to $V_2$ whenever the condition that $|N(A)|\ge|A|$ for all $A \subseteq V_1$ is met. 
 		
@@ -131,9 +133,13 @@
 	
 	\textit{Case (i):} Suppose that for all integers $j$ with $1 \le j \le k$, the vertices in every subset of $j$ elements from $W_1$ are adjacent to at least $j + 1$ elements of $W_2$. Then, we select a vertex $v \in W_1$ and an element $w \in N(\{v\})$, which must exist by our assumption that $|N(\{v\}|\ge|\{v\}| = 1$. We delete $v$ and $w$ and all edges incident to them from $H$. This produces a bipartite graph $H^\prime$ with bipartition $(W_1 - \{v\}, W_2 - \{w\})$. Because $|W_1 - \{v\}| = k$, the inductive hypothesis tells us there is a complete matching from $W_1 - \{v\}$ to $W_2 - \{w\}$. Adding the edge from $v$ to $w$ to this complete matching produces a complete matching from $W_1$ to $W_2$.
 	
+	\newpage
+	
 	\textit{Case (ii):} Suppose that for some $j$ with $1 \le j \le k$, there is a subset $W_1$ of $j$ vertices such that there are exactly $j$ neighbors of these vertices in $W_2$. Let $W_2^\prime$ be the set of these neighbors. Then, by the inductive hypothesis there is a complete matching from $W_1^\prime$ to $W_2^\prime$. Remove these $2j$ vertices from $W_1$ and $W_2$ and all incident edges to produce a bipartite graph $K$ with bipartition $(W_1 - W_1^\prime, W_2 - W_2^\prime)$. 
 	
 	We will show that the graph $K$ satisfies the condition $|N(A)|\ge|A|$ for all subsets $A$ of	$W_1 - W_1^\prime$. If not, there would be a subset of $t$ vertices of $W_1 - W_1^\prime$ where $1 \le t \le k + 1 - j$ such that the vertices in this subset have fewer than $t$ vertices of $W_2 - W_2^\prime$ as neighbors. Then, the set of $j + t$ vertices of $W_1$ consisting of these $t$ vertices together with the $j$ vertices we removed from $W_1$ has fewer than $j + t$ neighbors in $W_2$, contradicting the hypothesis that $|N(A)|\le|A|$ for all $A \subseteq W_1$.
+	
+	\newpage
 	
 	Hence, by the inductive hypothesis, the graph $K$ has a complete matching. Combining this complete matching with the complete matching from $W_1^\prime$ to $W_2^\prime$, we obtain a complete matching from $W_1$ to $W_2$.
 	
