@@ -224,8 +224,7 @@
 
 \section{LCS between 3 Sequences}
 \textbf{Solution}\begin{algorithm}[H]
-	\caption{Compute the Longest Common Subsequence among
-		3 Sequences}
+	\caption{Compute the LCS among 3 Sequences}
 	\label{a-5}
 	\begin{algorithmic}
 		\Procedure{Three}{$A$, $B$, $C$}
@@ -260,6 +259,47 @@ Consider the longest common subsequence problem between sequence $A[1\cdots m]$ 
 the symbols in $A$ are all unique. Give a $O(n \log m)$ algorithm that can find the longest common subsequence
 between $A[1\cdots m]$ and $B[1\cdots n]$. 
 
-\textbf{Solution}
+\textbf{Solution} \begin{algorithm}[H]
+	\caption{Compute the LCS with Unique Symbols}
+	\label{a-5}
+	\begin{algorithmic}
+		\Procedure{Unique}{$A$, $B$}
+		\State $D \coloneqq \Call{Zeros}{{}}$
+		\For{$j \coloneqq 1 \cdots m$}
+		\State $D[A[j]] \coloneqq j$
+		\EndFor
+		\For{$k \coloneqq 1 \cdots n$}
+		\State $C[k] = D[B[k]]$
+		\EndFor
+		\State $P \coloneqq \Call{Zeros}{n}$
+		\State $M \coloneqq \Call{Ones}{n + 1}$
+		\State $l \coloneqq 0$
+		\For{$k \coloneqq 1 \cdots n$}
+		\State $lo \coloneqq 1$
+		\State $hi \coloneqq l$
+		\While{$lo \le hi$}
+		\State $mid \coloneqq \Call{Ceil}{\frac{lo + hi}{2}}$
+		\If{$C[M[mid + 1]] < C[k]$}
+		\State $lo \coloneqq mid + 1$
+		\Else
+		\State $hi \coloneqq mid - 1$
+		\EndIf
+		\EndWhile
+		\State $P[k] = M[lo]$
+		\State $M[lo + 1] = k$
+		\If{$lo > l$}
+		\State $l = lo$
+		\EndIf
+		\EndFor
+		\State $S \coloneqq \Call{Zeros}{l}$
+		\State $k = M[l + 1]$
+		\For{$i \coloneqq l \cdots 1$}
+		\State $S[i]=A[C[k]]$
+		\State $k = P[k]$
+		\EndFor
+		\State \Return $S$
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
 
 \end{document}
