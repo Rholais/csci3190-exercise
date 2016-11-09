@@ -111,29 +111,39 @@
 
 \section{Complexity}
 \textbf{Proof}\begin{enumerate}[label=(\alph*)]
-	\item $\exists c = 4, \exists N = 6$, such that $\forall n > N, 3n^2 + 5n + 10 < 4n^2$.
-	\item Since $100 = O(1)$ and $\log_2 n = O(n)$, $100\log_2 n = O(n)$.
+	\item \begin{description}
+		\item[Method 1] $\exists c = 4, \exists N = 6$, such that $\forall n > N, 3n^2 + 5n + 10 < 4n^2$.
+		\item[Method 2] Since $3 + \frac{5}{n} + \frac{10}{n^2} = O(1)$ and $n^2 = O(n^2)$, $3n^2 + 5n + 10 = O(n^2)$.
+	\end{description}
+	\item \begin{description}
+		\item[Method 1] Since $100 = O(1)$ and $\log_2 n = O(n)$, $100\log_2 n = O(n)$.
+		\item[Method 2] \begin{align}
+			& \lim\limits_{n \rightarrow \infty} \frac{100\log_2 n}{n}\\
+			= & \frac{100}{\ln 2} \lim\limits_{n \rightarrow \infty} \frac{1}{n}\\
+			= & 0
+		\end{align}
+	\end{description}
 	\item $n! = \Pi_{i = 1}^n i \le \Pi_{i = 1}^n n = n^n$.
 	\item $\exists c = 2, \exists N = 1$, such that $\forall n > N, 2^n = \Pi_{i = 1}^n 2 = 2 \Pi_{i = 2}^n 2 \le 2 \Pi_{i = 2}^n i = 2(n!)$.
 \end{enumerate}
 
 \section{Double Tower of Hanoi}
 \textbf{Solution}\begin{enumerate}[label=(\alph*)]
-	\item \begin{algorithm}[H]
+	\item See Algorithm \ref{a-3}.
+	\begin{algorithm}
 		\caption{Double Tower of Hanoi}
 		\label{a-3}
 		\begin{algorithmic}
-			\Procedure{Hanoi}{$height$, $begin$, $end$}
+			\Procedure{Hanoi}{$height$, $begin$, $end$, $mid$}
 			\If{$height$ = 0}
 			\State \Return
 			\ElsIf{$height$ = 2}
 			\State \Call{Move}{$begin$, $end$}
 			\State \Call{Move}{$begin$, $end$}
 			\Else
-			\State $mid \coloneqq$ \Call{OtherPeg}{$begin$, $end$}
-			\State \Call{Hanoi}{$height - 2$, $begin$, $mid$}
+			\State \Call{Hanoi}{$height - 2$, $begin$, $mid$, $end$}
 			\State \Call{Hanoi}{2, $begin$, $end$}
-			\State \Call{Hanoi}{$height - 2$, $mid$, $end$}
+			\State \Call{Hanoi}{$height - 2$, $mid$, $end$, $begin$}
 			\EndIf
 			\EndProcedure
 		\end{algorithmic}
@@ -151,7 +161,8 @@
 
 \section{Fibonacci}
 \textbf{Solution}\begin{enumerate}[label=(\alph*)]
-	\item \begin{algorithm}[H]
+	\item See Algorithm \ref{a-4-1}.
+	\begin{algorithm}
 		\caption{A Recursive Algorithm for Fibonacci}
 		\label{a-4-1}
 		\begin{algorithmic}
@@ -174,7 +185,8 @@
 	\end{cases}
 	\end{equation} So that $O(a_n) = 2^n$.
 	
-	\item \begin{algorithm}[H]
+	\item See Algorithm \ref{a-4-2}.
+	\begin{algorithm}[H]
 		\caption{A Iterative Algorithm for Fibonacci}
 		\label{a-4-2}
 		\begin{algorithmic}
@@ -199,7 +211,8 @@
 \end{enumerate}
 
 \section{Longest Common Subsequence}
-\textbf{Solution}\begin{algorithm}[H]
+\textbf{Solution} See Algorithm \ref{a-5}.
+\begin{algorithm}
 	\caption{Print Out ALL the LCSes}
 	\label{a-5}
 	\begin{algorithmic}
@@ -223,9 +236,10 @@
 \end{algorithm}
 
 \section{LCS between 3 Sequences}
-\textbf{Solution}\begin{algorithm}[H]
+\textbf{Solution} See Algorithm \ref{a-6}.
+\begin{algorithm}
 	\caption{Compute the LCS among 3 Sequences}
-	\label{a-5}
+	\label{a-6}
 	\begin{algorithmic}
 		\Procedure{Three}{$A$, $B$, $C$}
 		\State $T \coloneqq \Call{Zeros}{0 \cdots m, 0 \cdots n, 0 \cdots p}$
@@ -259,9 +273,10 @@ Consider the longest common subsequence problem between sequence $A[1\cdots m]$ 
 the symbols in $A$ are all unique. Give a $O(n \log m)$ algorithm that can find the longest common subsequence
 between $A[1\cdots m]$ and $B[1\cdots n]$. 
 
-\textbf{Solution} \begin{algorithm}[H]
+\textbf{Solution} See Algorithm \ref{a-7}.
+\begin{algorithm}
 	\caption{Compute the LCS with Unique Symbols}
-	\label{a-5}
+	\label{a-7}
 	\begin{algorithmic}
 		\Procedure{Unique}{$A$, $B$}
 		\State $D \coloneqq \Call{Zeros}{{}}$
@@ -301,5 +316,26 @@ between $A[1\cdots m]$ and $B[1\cdots n]$.
 		\EndProcedure
 	\end{algorithmic}
 \end{algorithm}
+
+\section{Tree}
+\textbf{Proof}\begin{enumerate}[label=(\alph*)]
+	\item A $n$-vertex tree has $n-1$ edges so that the total degree is $2n - 2$.
+	\item \begin{description}
+		\item[Base Step] For $n = 1$, this is trivial.
+		\item[Induction Step] Suppose $\forall$ positive $d_i$ such that $\Sigma_{i = 1}^{n - 1} d_i = 2n - 4$, $\exists$ a tree $T^\prime$ whose vertices have degrees $d_1, d_2, \cdots, d_{n - 1}$. Then $\forall$ positive $d_i$ such that $\Sigma_{i = 1}^{n} d_i = 2n - 2$, since $d_i$ cannot be all greater than 1 or less than 2, without loss of generality, let $d_{n - 1} > 1, d_n = 1$. Hence we can remove $d_n$ and subtract $d_{n - 1}$ by 1 so that $\Sigma_{i = 1}^{n - 1} d_i = 2n - 4$ and we can find a tree $T^\prime$. After that we can add vertex $d_n$ as a leaf of $d_{n - 1}$ to build the final tree $T$.
+	\end{description}
+\end{enumerate}
+
+\section{Traversal}
+\textbf{Solution}\begin{enumerate}[label=(\alph*)]
+	\item \begin{description}
+		\item[DFS] B, A, C, F, D, E
+		\item[BFS] B, A, C, D, E, F
+	\end{description}
+	\item \begin{description}
+		\item[DFS] B, A, D, E, C
+		\item[BFS] B, A, C, D, E
+	\end{description}
+\end{enumerate}
 
 \end{document}
