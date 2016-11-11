@@ -1,5 +1,5 @@
 %!TEX program = xelatex
-\documentclass[10pt, compress, handout]{beamer}
+\documentclass[10pt, compress]{beamer}
 \usetheme[titleprogressbar]{m}
 
 \usepackage{booktabs}
@@ -37,6 +37,26 @@
 \begin{document}
 
 \maketitle
+
+\begin{frame}[fragile]
+	\frametitle{Mathematical Induction}
+	\onslide<1->\begin{example}
+		For positive integer $n$, prove each of the following by mathematical induction:\begin{enumerate}[(a)]
+			\item $3 \mid 2^{2n + 1} + 1$
+			\item $9 \mid n^3 + (n + 1)^3 + (n + 2)^3$
+		\end{enumerate}
+	\end{example}
+	\onslide<2>\textbf{Proof.}\begin{enumerate}[(a)]
+			\item \begin{enumerate}[(i)]
+				\item Let $n = 0$, $3 \mid 2^1 + 1 = 3$.
+				\item Suppose $3 \mid 2^{2n - 1} + 1$, $2^{2n + 1} = 3 * 2^{2n - 1} + 2^{2n - 1} + 1 \equiv 0 \pmod{3}$.
+			\end{enumerate}
+			\item \begin{enumerate}[(i)]
+				\item Let $n = 0$, $9 \mid 1^3 + 2^3$.
+				\item Suppose $9 \mid (n - 1)^3 + n^3 + (n + 1)^3$, $n^3 + (n + 1)^3 + (n + 2)^3 = (n - 1)^3 + n^3 + (n + 1)^3 + 3((n - 1)^2 + (n - 1)(n + 2) + (n + 2)^2) = (n - 1)^3 + n^3 + (n + 1)^3 + 9(n^2 + n + 1) \equiv 0 \pmod{9}$.
+			\end{enumerate}
+		\end{enumerate}
+\end{frame}
 
 \begin{frame}[fragile]
 	\frametitle{Preorder}
