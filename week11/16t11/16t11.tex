@@ -183,6 +183,41 @@
 	\end{solution*}
 \end{frame}
 
+\begin{frame}[allowframebreaks]
+	\frametitle{LCS between 3 Sequences}
+	\begin{example}
+		Consider the longest common subsequence problem between three sequences $A[1\cdots m]$, $B[1\cdots n]$ and $C[1\cdots p]$.
+		Give a $O(mnp)$ dynamic programming based method to compute the longest common subsequence among
+		these 3 sequences. 
+	\end{example}
+
+	\begin{algorithm}[H]
+		\caption{Compute the LCS among 3 Sequences}
+		\label{a-6}
+		\begin{algorithmic}
+			\Procedure{Three}{$A$, $B$, $C$}
+			\State $T \coloneqq \Call{Zeros}{0 \cdots m, 0 \cdots n, 0 \cdots p}$
+			\For{$j \coloneqq 1 \cdots m$} $T[j, 0, 0] \coloneqq 0$
+			\EndFor
+			\For{$k \coloneqq 1 \cdots n$} $T[0, k, 0] \coloneqq 0$
+			\EndFor
+			\For{$l \coloneqq 1 \cdots p$} $T[0, 0, l] \coloneqq 0$
+			\EndFor
+			\For{$j \coloneqq 1 \cdots m$}
+			\For{$k \coloneqq 1 \cdots n$}
+			\For{$l \coloneqq 1 \cdots l$}
+			\If{$A[j] = B[k] = C[l]$} $T[j, k, l] \coloneqq T[j - 1, k - 1, l - 1]$
+			\Else\ $T[j, k, l] = \Call{Max}{T[j - 1, k, l], T[j, k - 1, l], T[j, k - 1, l]}$
+			\EndIf
+			\EndFor
+			\EndFor
+			\EndFor
+			\State \Return $T[m, n, l]$
+			\EndProcedure
+		\end{algorithmic}
+	\end{algorithm}
+\end{frame}
+
 \plain{Questions?}
 
 \end{document}
