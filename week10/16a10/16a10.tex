@@ -322,7 +322,7 @@ between $A[1\cdots m]$ and $B[1\cdots n]$.
 \textbf{Proof}\begin{enumerate}[label=(\alph*)]
 	\item A $n$-vertex tree has $n-1$ edges so that the total degree is $2n - 2$.
 	\item \begin{description}
-		\item[Base Step] For $n = 1$, this is trivial.
+		\item[Base Step] For $n = 2$, this is trivial.
 		\item[Induction Step] Suppose $\forall$ positive $d_i$ such that $\Sigma_{i = 1}^{n - 1} d_i = 2n - 4$, $\exists$ a tree $T^\prime$ whose vertices have degrees $d_1, d_2, \cdots, d_{n - 1}$. Then $\forall$ positive $d_i$ such that $\Sigma_{i = 1}^{n} d_i = 2n - 2$, since $d_i$ cannot be all greater than 1 or less than 2, without loss of generality, let $d_{n - 1} > 1, d_n = 1$. Hence we can remove $d_n$ and subtract $d_{n - 1}$ by 1 so that $\Sigma_{i = 1}^{n - 1} d_i = 2n - 4$ and we can find a tree $T^\prime$. After that we can add vertex $d_n$ as a leaf of $d_{n - 1}$ to build the final tree $T$.
 	\end{description}
 \end{enumerate}
