@@ -279,6 +279,7 @@ between $A[1\cdots m]$ and $B[1\cdots n]$.
 	\label{a-7}
 	\begin{algorithmic}
 		\Procedure{Unique}{$A$, $B$}
+		\State $C \coloneqq \Call{Zeros}{n}$
 		\State $D \coloneqq \Call{Zeros}{{}}$
 		\For{$j \coloneqq 1 \cdots m$}
 		\State $D[A[j]] \coloneqq j$
@@ -287,7 +288,7 @@ between $A[1\cdots m]$ and $B[1\cdots n]$.
 		\State $C[k] = D[B[k]]$
 		\EndFor
 		\State $P \coloneqq \Call{Zeros}{n}$
-		\State $M \coloneqq \Call{Ones}{n + 1}$
+		\State $M \coloneqq \Call{Zeros}{n + 1}$
 		\State $l \coloneqq 0$
 		\For{$k \coloneqq 1 \cdots n$}
 		\State $lo \coloneqq 1$
