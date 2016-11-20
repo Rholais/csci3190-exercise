@@ -1,0 +1,188 @@
+%!TEX program = xelatex
+\documentclass[10pt, compress]{beamer}
+\usetheme[titleprogressbar]{m}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{minted}
+
+\usepgfplotslibrary{dateplot}
+
+\usemintedstyle{trac}
+
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{theorems}[numbered]
+\newtheorem{crl}{Corollary}[theorem]
+\newtheorem*{solution*}{Solution}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\usepackage{version}
+%\excludeversion{proof}
+%\excludeversion{solution*}
+
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{qtree}
+
+\makeatletter
+\def\old@comma{,}
+\catcode`\,=13
+\def,{%
+	\ifmmode%
+	\old@comma\discretionary{}{}{}%
+	\else%
+	\old@comma%
+	\fi%
+}
+\makeatother
+
+\title{CSCI 3190 Tutorial of Week 10}
+\subtitle{Traversal}
+\author{LI Haocheng}
+\institute{Department of Computer Science and Engineering}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}[allowframebreaks]
+	\frametitle{Double Tower of Hanoi}
+	\begin{example}
+		A Double Tower of Hanoi contains $2n$ disks of $n$ different sizes, two of each size. As usual, we can move
+		only one disk at a time, without putting a larger one over a smaller one. Assume that disks of equal size are
+		indistinguishable from each other:\begin{enumerate}[(a)]
+			\item Write a pseudo-code to solve the above problem recursively.
+			\item Set up a recurrence equation to count the number of steps to move $2n$ disks. 
+			\item Solve the recurrence equation and give the complexity of your algorithm.
+		\end{enumerate}
+	\end{example}
+	\begin{solution*}
+		\begin{columns}
+			\begin{column}{.5\linewidth}
+				\begin{enumerate}[(a)]
+					\item See Algorithm \ref{a-3}.		
+					\item $H_{2n} = 2H_{2n - 2} + 2$.
+					\item \begin{align}
+					H_{2n} & = 2(2H_{2n - 4} + 2) + 2\\
+					& = 4H_{2n - 4} + 4 + 2\\
+					& \cdots\\
+					& = 2^{n + 1} - 2.\\
+					O(H_{2n}) & = 2^n.
+					\end{align}
+				\end{enumerate}
+			\end{column}
+			\begin{column}{.5\linewidth}
+				\begin{algorithm}[H]
+					\caption{Double Tower of Hanoi}
+					\label{a-3}
+					\begin{algorithmic}
+						\Procedure{Hanoi}{$h$, $b$, $e$, $m$}
+						\If{$h$ = 0}
+						\State \Return
+						\ElsIf{$h$ = 2}
+						\State \Call{Move}{$b$, $e$}
+						\State \Call{Move}{$b$, $e$}
+						\Else
+						\State \Call{Hanoi}{$h - 2$, $b$, $m$, $e$}
+						\State \Call{Hanoi}{2, $b$, $e$}
+						\State \Call{Hanoi}{$h - 2$, $m$, $e$, $b$}
+						\EndIf
+						\EndProcedure
+					\end{algorithmic}
+				\end{algorithm}
+			\end{column}
+		\end{columns}
+	\end{solution*}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+	\frametitle{Fibonacci}
+	\begin{example}
+		Consider the computation of the $n$-th Fibonacci number:\begin{enumerate}[(a)]
+			\item Give the pseudo code of a recursive algorithm to compute the nth Fibonacci number. What is the
+			complexity of your algorithm? Explain your answer.
+			\item Give the pseudo code of an iterative algorithm to compute the nth Fibonacci number. What is the
+			complexity of your algorithm? Explain your answer. 
+		\end{enumerate}
+	\end{example}
+
+	\newpage
+
+	\begin{solution*}
+		\begin{enumerate}[(a)]
+			\item See Algorithm \ref{a-4-1}.
+			\begin{algorithm}[H]
+				\caption{A Recursive Algorithm for Fibonacci}
+				\label{a-4-1}
+				\begin{algorithmic}
+					\Procedure{Fibonacci}{$n$}
+					\If{$n = 0$} \Return $0$
+					\ElsIf{$n = 1$} \Return $1$
+					\Else\ \Return \Call{Fibonacci}{$n - 1$} + \Call{Fibonacci}{$n - 2$}
+					\EndIf
+					\EndProcedure
+				\end{algorithmic}
+			\end{algorithm}
+			
+			$O(a_n) = 2^n$.
+		\end{enumerate}
+	\end{solution*}
+
+	\textbf{Solution} \begin{enumerate}[(a)]
+		\setcounter{enumi}{1}
+		\item See Algorithm \ref{a-4-2}.
+		\begin{algorithm}[H]
+			\caption{A Iterative Algorithm for Fibonacci}
+			\label{a-4-2}
+			\begin{algorithmic}
+				\Procedure{IterativeFibonacci}{$n$}
+				\If{$n = 0$} \Return $0$
+				\Else
+				\State $x \coloneqq 0, y \coloneqq 1$
+				\For{$i \coloneqq 1, 2, \cdots, n - 1$} $z \coloneqq x + y, x \coloneqq y, y \coloneqq z$
+				\EndFor
+				\State \Return $y$
+				\EndIf
+				\EndProcedure
+			\end{algorithmic}
+		\end{algorithm}
+		
+		$O(b_n) = n$.
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+	\frametitle{Longest Common Subsequence}
+	\begin{example}
+		Consider the longest common subsequence problem between sequence $A[1\cdots m]$ and sequence $B[1\cdots n]$. Give a
+		recursive algorithm to print out ALL the longest common subsequences assuming that you already build the
+		table $T[1\cdots m, 1\cdots n]$ where the entry $T[j, k]$ represents the length of the longest common subsequence between $A[1\cdots j]$ and $B[1\cdots k]$.
+	\end{example}
+	\begin{solution*}
+		See Algorithm \ref{a-5}.
+		\begin{algorithm}[H]
+			\caption{Print Out ALL the LCSes}
+			\label{a-5}
+			\begin{algorithmic}
+				\Procedure{All}{$T$, $A$, $B$, $j$, $k$}
+				\If{$j \cdot k = 0$} \Return $\{``"\}$
+				\ElsIf{$A[j] = B[k]$} \Return $\{C + A[j] \colon Z \in \Call{All}{T, A, B, j - 1, k - 1}\}$
+				\Else
+				\State $R \coloneqq \{\}$
+				\If{$T[j, k - 1] \ge T[j - 1, k]$} $R \coloneqq R \cup \Call{All}{T, A, B, j, k - 1}$
+				\EndIf
+				\If{$T[j - 1, k] \ge T[j, k - 1]$} $R \coloneqq R \cup \Call{All}{T, A, B, j - 1, k}$
+				\EndIf
+				\State \Return $R$
+				\EndIf
+				\EndProcedure
+			\end{algorithmic}
+		\end{algorithm}
+	\end{solution*}
+\end{frame}
+
+\plain{Questions?}
+
+\end{document}
