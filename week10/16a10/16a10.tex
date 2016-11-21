@@ -191,18 +191,14 @@
 		\label{a-4-2}
 		\begin{algorithmic}
 			\Procedure{IterativeFibonacci}{$n$}
-			\If{$n = 0$}
-			\State \Return $0$
-			\Else
 			\State $x \coloneqq 0$
 			\State $y \coloneqq 1$
-			\For{$i \coloneqq 1, 2, \cdots, n - 1$}
+			\For{$i \coloneqq 0, 1, 2, \cdots, n - 1$} 
 			\State $z \coloneqq x + y$
 			\State $x \coloneqq y$
 			\State $y \coloneqq z$
 			\EndFor
-			\State \Return $y$
-			\EndIf
+			\State \Return $x$
 			\EndProcedure
 		\end{algorithmic}
 	\end{algorithm}

@@ -110,46 +110,58 @@
 
 	\newpage
 
-	\begin{solution*}
-		\begin{enumerate}[(a)]
-			\item See Algorithm \ref{a-4-1}.
-			\begin{algorithm}[H]
-				\caption{A Recursive Algorithm for Fibonacci}
-				\label{a-4-1}
-				\begin{algorithmic}
-					\Procedure{Fibonacci}{$n$}
-					\If{$n = 0$} \Return $0$
-					\ElsIf{$n = 1$} \Return $1$
-					\Else\ \Return \Call{Fibonacci}{$n - 1$} + \Call{Fibonacci}{$n - 2$}
-					\EndIf
-					\EndProcedure
-				\end{algorithmic}
-			\end{algorithm}
-			
-			$O(a_n) = 2^n$.
-		\end{enumerate}
-	\end{solution*}
-
-	\textbf{Solution} \begin{enumerate}[(a)]
+	\begin{enumerate}[(a)]
+		\item \begin{solution*}
+			\begin{columns}
+				\begin{column}{.4\linewidth}
+					See Algorithm \ref{a-4-1}.
+					
+					$O(a_n) = 2^n$.
+				\end{column}
+				\begin{column}{.6\linewidth}
+					\begin{algorithm}[H]
+						\caption{Recursive Algorithm}
+						\label{a-4-1}
+						\begin{algorithmic}
+							\Procedure{RF}{$n$}
+							\If{$n = 0$} \Return $0$
+							\ElsIf{$n = 1$} \Return $1$
+							\Else\ \Return \Call{RF}{$n - 1$} + \Call{RF}{$n - 2$}
+							\EndIf
+							\EndProcedure
+						\end{algorithmic}
+					\end{algorithm}
+				\end{column}
+			\end{columns}
+		\end{solution*}
+	\end{enumerate}
+	\newpage
+	\begin{enumerate}[(a)]
 		\setcounter{enumi}{1}
-		\item See Algorithm \ref{a-4-2}.
-		\begin{algorithm}[H]
-			\caption{A Iterative Algorithm for Fibonacci}
-			\label{a-4-2}
-			\begin{algorithmic}
-				\Procedure{IterativeFibonacci}{$n$}
-				\If{$n = 0$} \Return $0$
-				\Else
-				\State $x \coloneqq 0, y \coloneqq 1$
-				\For{$i \coloneqq 1, 2, \cdots, n - 1$} $z \coloneqq x + y, x \coloneqq y, y \coloneqq z$
-				\EndFor
-				\State \Return $y$
-				\EndIf
-				\EndProcedure
-			\end{algorithmic}
-		\end{algorithm}
-		
-		$O(b_n) = n$.
+		\item \begin{solution*}
+			\begin{columns}
+				\begin{column}{.4\linewidth}
+					See Algorithm \ref{a-4-2}.
+					
+					$O(b_n) = n$.
+				\end{column}
+				\begin{column}{.6\linewidth}
+					\begin{algorithm}[H]
+						\caption{Iterative Algorithm}
+						\label{a-4-2}
+						\begin{algorithmic}
+							\Procedure{IF}{$n$}
+							\State $x \coloneqq 0, y \coloneqq 1$
+							\For{$i \coloneqq 0, 1, 2, \cdots, n - 1$} 
+							\State $z \coloneqq x + y, x \coloneqq y, y \coloneqq z$
+							\EndFor
+							\State \Return $x$
+							\EndProcedure
+						\end{algorithmic}
+					\end{algorithm}
+				\end{column}
+			\end{columns}
+		\end{solution*}
 	\end{enumerate}
 \end{frame}
 

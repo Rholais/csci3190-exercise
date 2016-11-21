@@ -189,18 +189,14 @@ is a tautology whenever $p_1$, $p_2$,... ,$p_n$ are propositions, where $n \ge 2
 	\label{a-5-4-a8}
 	\begin{algorithmic}
 		\Procedure{IterativeFibonacci}{$n$}
-		\If{$n = 0$}
-		\State \Return $0$
-		\Else
 		\State $x \coloneqq 0$
 		\State $y \coloneqq 1$
-		\For{$i \coloneqq 1, 2, \cdots, n - 1$}
+		\For{$i \coloneqq 0, 1, 2, \cdots, n - 1$} 
 		\State $z \coloneqq x + y$
 		\State $x \coloneqq y$
 		\State $y \coloneqq z$
 		\EndFor
-		\State \Return $y$
-		\EndIf
+		\State \Return $x$
 		\EndProcedure
 	\end{algorithmic}
 \end{algorithm}
