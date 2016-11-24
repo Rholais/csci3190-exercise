@@ -1,5 +1,5 @@
 %!TEX program = xelatex
-\documentclass[10pt, compress, handout]{beamer}
+\documentclass[10pt, compress]{beamer}
 \usetheme[titleprogressbar]{m}
 
 \usepackage{booktabs}
@@ -25,6 +25,8 @@
 \usepackage{mathtools}
 \usepackage{multicol}
 \usepackage{qtree}
+
+\usepackage{tikz}
 
 \makeatletter
 \def\old@comma{,}
@@ -135,6 +137,115 @@
 			\end{figure}
 		\end{column}
 	\end{columns}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+	\frametitle{Traversal}
+	\begin{example}
+		\begin{enumerate}[(a)]
+			\item Construct a binary tree with 7 vertices of which the preorder traversal is the same as its inorder traversal. Give its postprder traversal and preorder traversal.
+			\item Construct a binary tree with 8 vertices of which the postorder traversal is the same as its inorder traversal. Give its postprder traversal and preorder traversal.
+			\item Construct a binary tree of which th preorder travelsal is the same as its postorder travelsal.
+		\end{enumerate}
+	\end{example}
+	\begin{solution*}
+		\begin{columns}
+			\begin{column}{.4\linewidth}
+				\begin{enumerate}
+					\item See Figure \ref{f-4-1}.
+					\begin{description}
+						\item[Postorder] 7654321
+						\item[Preorder] 1234567
+					\end{description}
+					\item See Figure \ref{f-4-2}.
+					\begin{description}
+						\item[Postorder] 87654321
+						\item[Preorder] 12345678
+					\end{description}
+					\item See Figure \ref{f-4-3}.
+					\begin{figure}
+						\centering
+						\begin{tikzpicture}
+						\node[draw](z){1};
+						\end{tikzpicture}
+						\caption{A Tree $T$}
+						\label{f-4-3}
+					\end{figure}
+				\end{enumerate}
+			\end{column}
+			\begin{column}{.3\linewidth}
+				\begin{figure}
+					\centering
+					\begin{tikzpicture}
+					\node[draw](z){1}
+					[sibling distance=7mm] 
+					[level distance=7mm]
+					child[missing]
+					child{
+						node[draw]{2} 
+						child[missing] 
+						child{
+							node[draw]{3} 
+							child[missing] 
+							child{
+								node[draw]{4} 
+								child[missing] 
+								child{
+									node[draw]{5} 
+									child[missing] 
+									child{
+										node[draw]{6} 
+										child[missing] 
+										child{
+											node[draw]{7}}}}}}};
+					\end{tikzpicture}
+					\caption{A Tree $T$}
+					\label{f-4-1}
+				\end{figure}
+			\end{column}
+			\begin{column}{.3\linewidth}
+				\begin{figure}
+					\centering
+					\begin{tikzpicture}
+					\node[draw](z){1}
+					[sibling distance=7mm] 
+					[level distance=7mm]
+					child{
+						node[draw]{2} 
+						child{
+							node[draw]{3} 
+							child{
+								node[draw]{4} 
+								child{
+									node[draw]{5} 
+									child{
+										node[draw]{6} 
+										child{
+											node[draw]{7}
+											child{
+												node[draw]{8}
+												child[missing] 
+											}
+											child[missing] 
+										}
+										child[missing] 
+									}
+									child[missing] 
+								}
+								child[missing] 
+							}
+							child[missing] 
+						}
+						child[missing] 
+					}
+					child[missing];
+					\end{tikzpicture}
+					\caption{A Tree $T$}
+					\label{f-4-2}
+				\end{figure}
+			\end{column}
+		\end{columns}
+	\end{solution*}
 \end{frame}
 
 \plain{Questions?}
