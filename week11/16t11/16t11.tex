@@ -218,7 +218,7 @@
 			\For{$j \coloneqq 1 \cdots m$}
 			\For{$k \coloneqq 1 \cdots n$}
 			\For{$l \coloneqq 1 \cdots l$}
-			\If{$A[j] = B[k] = C[l]$} $T[j, k, l] \coloneqq T[j - 1, k - 1, l - 1]$
+			\If{$A[j] = B[k] = C[l]$} $T[j, k, l] \coloneqq T[j - 1, k - 1, l - 1] + 1$
 			\Else\ $T[j, k, l] = \Call{Max}{T[j - 1, k, l], T[j, k - 1, l], T[j, k - 1, l]}$
 			\EndIf
 			\EndFor
