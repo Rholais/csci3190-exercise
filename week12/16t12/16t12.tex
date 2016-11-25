@@ -264,6 +264,31 @@
 	\end{solution*}
 \end{frame}
 
+\begin{frame}[allowframebreaks]
+	\frametitle{Longest Common Subsequence}
+	\begin{example}
+		\begin{enumerate}[(a)]
+			\item Find the longest common subsequence between $\alpha = \mathtt{abcbdaccdb}$ and $\beta = \mathtt{bbcad}$ by constructing a table $len$ where $len[i, j]$ is the length of the longest common subsequence between $\alpha[1]\alpha[2]\cdots\alpha[i]$ and $\beta[1]\beta[2]\cdots\beta[j]$ where $i = 1\cdots 10$ and $j = 1\cdots 5$.
+			\item From the table $len$, find all the longest common subsequences between $\alpha$ and $\beta$. For each of the longest common subsequences, show how it can be found from the table.
+		\end{enumerate}
+	\end{example}
+	\newpage
+	\begin{solution*}
+		\begin{tabular}{c|ccccccccccc}
+			\toprule 
+			& 0 & a & b & c & b & d & a & c & c & d & b \\ 
+			\midrule 
+			0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 
+			b & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ 
+			b & 0 & 0 & 1 & 1 & 2 & 2 & 2 & 2 & 2 & 2 & 2 \\ 
+			c & 0 & 0 & 1 & 2 & 2 & 2 & 2 & 3 & 3 & 3 & 3 \\ 
+			a & 0 & 1 & 1 & 2 & 2 & 2 & 3 & 3 & 3 & 3 & 3 \\ 
+			d & 0 & 1 & 1 & 2 & 2 & 3 & 3 & 3 & 3 & 4 & 4 \\ 
+			\bottomrule 
+		\end{tabular} 
+	\end{solution*}
+\end{frame}
+
 \plain{Questions?}
 
 \end{document}
