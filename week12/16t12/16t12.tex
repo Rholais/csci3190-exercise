@@ -248,6 +248,22 @@
 	\end{solution*}
 \end{frame}
 
+\begin{frame}[fragile]
+	\frametitle{Complexity}
+	\onslide<1->\begin{example}
+		\begin{enumerate}
+			\item Show that $f(n) = 3^n = O(n!)$.
+			\item Show that $f(n) = 4^n = O(n!)$.
+		\end{enumerate}
+	\end{example}
+	\onslide<2>\begin{solution*}
+		\begin{enumerate}
+			\item $\exists N = 0, \exists C = 5, \forall n \ge N, 3^n < C(n!)$.
+			\item $\exists N = 0, \exists C = 11, \forall n \ge N, 4^n < C(n!)$.
+		\end{enumerate}
+	\end{solution*}
+\end{frame}
+
 \plain{Questions?}
 
 \end{document}
