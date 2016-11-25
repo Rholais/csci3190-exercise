@@ -49,6 +49,17 @@
 \usepackage{booktabs}
 \usepackage{textcomp}
 
+\makeatletter
+\def\old@comma{,}
+\catcode`\,=13
+\def,{%
+	\ifmmode%
+	\old@comma\discretionary{}{}{}%
+	\else%
+	\old@comma%
+	\fi%
+}
+\makeatother
 
 \begin{document}
 
@@ -97,9 +108,9 @@
 
 \subsection{Equivalence Relation}
 \begin{enumerate}
-	\item Find Reflexsive Closure: $\{(a, a), (a, b), (b, b), (b, c), \\(c, c), (d, c), (d, d), (e, e)\}$.
-	\item Find Symmetric Closure: $\{(a, a), (a, b), (b, a), (b, b), \\(b, c), (c, b), (c, c), (c, d), (d, c), (d, d), (e, e)\}$.
-	\item Find Transitive Closure: $\{(a, a), (a, b), (a, c), (a, d), \\(b, a), (b, b), (b, c), (b, d), (c, a), (c, b), (c, c), (c, d), (d, a), \\(d, b), (d, c), (d, d), (e, e)\}$
+	\item Find Reflexsive Closure: $\{(a, a), (a, b), (b, b), (b, c), (c, c), (d, c), (d, d), (e, e)\}$.
+	\item Find Symmetric Closure: $\{(a, a), (a, b), (b, a), (b, b), (b, c), (c, b), (c, c), (c, d), (d, c), (d, d), (e, e)\}$.
+	\item Find Transitive Closure: $\{(a, a), (a, b), (a, c), (a, d), (b, a), (b, b), (b, c), (b, d), (c, a), (c, b), (c, c), (c, d), (d, a), (d, b), (d, c), (d, d), (e, e)\}$
 \end{enumerate}
 
 \subsection{Permutation}
@@ -163,9 +174,9 @@ Number of newborns is \begin{align}
 
 \subsection{Equivalence Relation}
 \begin{enumerate}
-	\item Find Reflexsive Closure: $\{(a, a), (a, b), (b, b), (b, d), \\(c, c), (d, c), (d, d), (e, e)\}$.
-	\item Find Symmetric Closure: $\{(a, a), (a, b), (b, a), (b, b), \\(b, d), (c, c), (c, d), (d, b), (d, c), (d, d), (e, e)\}$.
-	\item Find Transitive Closure: $\{(a, a), (a, b), (a, c), (a, d), \\(b, a), (b, b), (b, c), (b, d), (c, a), (c, b), (c, c), (c, d), (d, a), \\(d, b), (d, c), (d, d), (e, e)\}$
+	\item Find Reflexsive Closure: $\{(a, a), (a, b), (b, b), (b, d), (c, c), (d, c), (d, d), (e, e)\}$.
+	\item Find Symmetric Closure: $\{(a, a), (a, b), (b, a), (b, b), (b, d), (c, c), (c, d), (d, b), (d, c), (d, d), (e, e)\}$.
+	\item Find Transitive Closure: $\{(a, a), (a, b), (a, c), (a, d), (b, a), (b, b), (b, c), (b, d), (c, a), (c, b), (c, c), (c, d), (d, a), (d, b), (d, c), (d, d), (e, e)\}$
 \end{enumerate}
 
 \subsection{Permutation}
