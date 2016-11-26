@@ -274,18 +274,23 @@
 	\end{example}
 	\newpage
 	\begin{solution*}
-		\begin{tabular}{c|ccccccccccc}
-			\toprule 
-			& 0 & a & b & c & b & d & a & c & c & d & b \\ 
-			\midrule 
-			0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 
-			b & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ 
-			b & 0 & 0 & 1 & 1 & 2 & 2 & 2 & 2 & 2 & 2 & 2 \\ 
-			c & 0 & 0 & 1 & 2 & 2 & 2 & 2 & 3 & 3 & 3 & 3 \\ 
-			a & 0 & 1 & 1 & 2 & 2 & 2 & 3 & 3 & 3 & 3 & 3 \\ 
-			d & 0 & 1 & 1 & 2 & 2 & 3 & 3 & 3 & 3 & 4 & 4 \\ 
-			\bottomrule 
-		\end{tabular} 
+		\begin{table}
+			\centering
+			\caption{The Table $len$}
+			\label{t-6}
+			\begin{tabular}{c|ccccccccccc}
+				\toprule 
+				& 0 & a & b & c & b & d & a & c & c & d & b \\ 
+				\midrule 
+				0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 
+				b & 0 & 0 & \alert{1} & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ 
+				b & 0 & 0 & 1 & 1 & \alert{2} & 2 & 2 & 2 & 2 & 2 & 2 \\ 
+				c & 0 & 0 & 1 & \alert{2} & 2 & 2 & 2 & \alert{3} & 3 & 3 & 3 \\ 
+				a & 0 & 1 & 1 & 2 & 2 & 2 & \alert{3} & 3 & 3 & 3 & 3 \\ 
+				d & 0 & 1 & 1 & 2 & 2 & 3 & 3 & 3 & 3 & \alert{4} & 4 \\ 
+				\bottomrule 
+			\end{tabular}
+		\end{table}
 	\end{solution*}
 \end{frame}
 
