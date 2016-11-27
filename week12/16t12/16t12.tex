@@ -296,9 +296,26 @@
 
 \begin{frame}[fragile]
 	\frametitle{Hamilton Circuit}
-	\begin{example}
-		Which of the simple graphs in Figure have a Hamilton circuit or, if not, a Hamilton path?
-	\end{example}
+	\begin{columns}
+		\begin{column}{.5\linewidth}
+			\onslide<1->\begin{example}
+				Which of the simple graphs in Figure have a Hamilton circuit or, if not, a Hamilton path?
+			\end{example}
+		\end{column}
+		\onslide<1->\begin{column}{.5\linewidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\linewidth]{f-10-5-10}
+		\end{figure}
+		\end{column}
+	\end{columns}
+	\begin{solution*}
+		G1 has a Hamilton circuit: a, b, c, d, e, a. There is no Hamilton circuit in G2 (this can
+		be seen by noting that any circuit containing every vertex must contain the edge {a, b} twice),
+		but G2 does have a Hamilton path, namely, a, b, c, d. G3 has neither a Hamilton circuit nor a
+		Hamilton path, because any path containing all vertices must contain one of the edges {a, b},
+		{e, f }, and {c, d} more than once.
+	\end{solution*}
 \end{frame}
 
 \plain{Questions?}
