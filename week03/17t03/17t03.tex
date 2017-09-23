@@ -195,22 +195,15 @@
 \end{frame}
 
 \begin{frame}[fragile]
-	\frametitle{Euler Circuit}
-	\onslide<1->\begin{columns}
-		\begin{column}{.5\linewidth}
-			\begin{example}
-				Determine whether the given graph has an
-				Euler circuit. Construct such a circuit when one exists. If
-				no Euler circuit exists, determine whether the graph has an
-				Euler path and construct such a path if one exists.
-			\end{example}
-		\end{column}
-		\begin{column}{.5\linewidth}
-			
-		\end{column}
-	\end{columns}
-	\onslide<2>\begin{solution*}
-		$a, b, c, f, e, b, d, e, h, f, i, h, g, d, a.$
+	\frametitle{Equivalence Relation}
+	\begin{definition}
+		A relation on a set $A$ is called an \textbf{equivalence relation} if it is reflexive, symmetric, and transitive.
+	\end{definition}
+	\begin{example}
+		Let $R$ be the relation on the set of real numbers such that $(a, b) \in R$ if and only if $a - b$ is an integer. Is $R$ an equivalence relation?
+	\end{example}
+	\begin{solution*}
+		Because $a - a = 0$ is an integer for all real numbers $a$, $\forall a \in \mathbb{R}, (a, a) \in R$. Hence, $R$ is reflexive. Now suppose that $(a, b) \in R$. Then $a - b$ is an integer, so $b - a$ is also an integer. Hence, $(b, a) \in R$. It follows that $R$ is symmetric. If $(a, b), (b, c) \in R$, then $a - b$ and $b - c$ are integers. Therefore, $a - c = (a - b) + (b - c)$ is also an integer. Hence, $(a, c) \in R$. Thus, $R$ is transitive. Consequently, $R$ is an equivalence relation.
 	\end{solution*}
 \end{frame}
 
@@ -261,10 +254,7 @@
 			\end{example}
 		\end{column}
 		\begin{column}{.5\linewidth}
-			\begin{figure}
-				\centering
-				\includegraphics[width=\linewidth]{f-10-6-e-2}
-			\end{figure}
+
 		\end{column}
 	\end{columns}
 	\onslide<2>\begin{solution*}
