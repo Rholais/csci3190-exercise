@@ -124,11 +124,11 @@
 			\begin{theorem}
 				Given a relation $R$ on a set $A$, the reflexive closure of $R$ equals $R \cup \Delta$.
 			\end{theorem}
-			\begin{proof}
+			\onslide<2>\begin{proof}
 				\begin{enumerate}
 					\item $R \cup \Delta \supseteq R$.
 					\item $R \cup \Delta \supseteq \Delta$.
-					\item If exists reflexive set $S$.
+					\item If there exists a reflexive set $S \supset \Delta$, $r \in R \cup \Delta$, $r \notin S$. Therefore $r \notin \Delta$, $r \in R$ so that $S \nsupseteq R$ which forms a contradictory.
 				\end{enumerate}
 			\end{proof}
 		\end{column}
@@ -136,18 +136,18 @@
 \end{frame}
 
 \begin{frame}[fragile]
-	\frametitle{Complexity}
+	\frametitle{Reflexive Closure}
 	\onslide<1->\begin{example}
-		\begin{enumerate}
-			\item Show that $f(n) = 3^n = O(n!)$.
-			\item Show that $f(n) = 4^n = O(n!)$.
-		\end{enumerate}
+		What is the reflexive closure of the relation $R = \{(a, b) \mid a < b\}$ on the set of integers?
 	\end{example}
 	\onslide<2>\begin{solution*}
-		\begin{enumerate}
-			\item $\exists N = 0, \exists C = 5, \forall n \ge N, 3^n < C(n!)$.
-			\item $\exists N = 0, \exists C = 11, \forall n \ge N, 4^n < C(n!)$.
-		\end{enumerate}
+		\begin{align}
+			\begin{aligned}
+			& R \cup \Delta \\
+			= & \{(a, b) \mid a < b \} \cup \{(a, a) \mid a \in \mathbb{Z}\} \\
+			= & \{(a, b) \mid a \le b\}.
+			\end{aligned}
+		\end{align}
 	\end{solution*}
 \end{frame}
 
@@ -213,10 +213,7 @@
 			\end{example}
 		\end{column}
 		\begin{column}{.5\linewidth}
-			\begin{figure}
-				\centering
-				\includegraphics[width=.8\linewidth]{f-10-5-e-2}
-			\end{figure}
+			
 		\end{column}
 	\end{columns}
 	\onslide<2>\begin{solution*}
