@@ -151,34 +151,31 @@
 	\end{solution*}
 \end{frame}
 
-\begin{frame}[allowframebreaks]
-	\frametitle{Longest Common Subsequence}
-	\begin{example}
-		\begin{enumerate}[(a)]
-			\item Find the longest common subsequence between $\alpha = \mathtt{abcbdaccdb}$ and $\beta = \mathtt{bbcad}$ by constructing a table $len$ where $len[i, j]$ is the length of the longest common subsequence between $\alpha[1]\alpha[2]\cdots\alpha[i]$ and $\beta[1]\beta[2]\cdots\beta[j]$ where $i = 1\cdots 10$ and $j = 1\cdots 5$.
-			\item From the table $len$, find all the longest common subsequences between $\alpha$ and $\beta$. For each of the longest common subsequences, show how it can be found from the table.
-		\end{enumerate}
-	\end{example}
-	\newpage
-	\begin{solution*}
-		\begin{table}
-			\centering
-			\caption{The Table $len$}
-			\label{t-6}
-			\begin{tabular}{c|ccccccccccc}
-				\toprule 
-				& 0 & a & b & c & b & d & a & c & c & d & b \\ 
-				\midrule 
-				0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 
-				b & 0 & 0 & \alert{1} & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ 
-				b & 0 & 0 & 1 & 1 & \alert{2} & 2 & 2 & 2 & 2 & 2 & 2 \\ 
-				c & 0 & 0 & 1 & \alert{2} & 2 & 2 & 2 & \alert{3} & 3 & 3 & 3 \\ 
-				a & 0 & 1 & 1 & 2 & 2 & 2 & \alert{3} & 3 & 3 & 3 & 3 \\ 
-				d & 0 & 1 & 1 & 2 & 2 & 3 & 3 & 3 & 3 & \alert{4} & 4 \\ 
-				\bottomrule 
-			\end{tabular}
-		\end{table}
-	\end{solution*}
+\begin{frame}[fragile]
+	\frametitle{Symmetric Closure}
+	\begin{columns}
+		\begin{column}{.4\linewidth}
+			\begin{definition}
+				A \textbf{symmetric closure} of $R$\begin{enumerate}
+					\item contains $R$,
+					\item is symmetric,
+					\item is contained within every reflexive relation that contains $R$.
+				\end{enumerate}
+			\end{definition}
+		\end{column}
+		\begin{column}{.6\linewidth}
+			\begin{theorem}
+				Given a relation $R$ on a set $A$, the reflexive closure of $R$ equals $R \cup R^{-1}$.
+			\end{theorem}
+			\onslide<2>\begin{proof}
+				\begin{enumerate}
+					\item $R \cup R^{-1} \supseteq R$.
+					\item $(R \cup R^{-1})^{-1} = R^{-1} \cup {R^{-1}}^{-1} = R \cup R^{-1}$.
+					\item If there exists a set $S \supseteq R$, $r \in R \cup R^{-1}$, $r \notin S$. Therefore $r \notin R$, $r \in R^{-1}$ so that $S \neq S^{-1}$ which forms a contradictory.
+				\end{enumerate}
+			\end{proof}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -230,10 +227,7 @@
 			\end{example}
 		\end{column}
 		\begin{column}{.5\linewidth}
-			\begin{figure}
-				\centering
-				\includegraphics[width=\linewidth]{f-10-5-10}
-			\end{figure}
+
 		\end{column}
 	\end{columns}
 	\onslide<2>\begin{solution*}
