@@ -1,5 +1,5 @@
 %!TEX program = xelatex
-\documentclass[10pt, compress]{beamer}
+\documentclass[10pt, compress, handout]{beamer}
 \usetheme[titleprogressbar]{m}
 
 \usepackage{booktabs}
@@ -202,90 +202,22 @@
 	\begin{example}
 		Let $R$ be the relation on the set of real numbers such that $(a, b) \in R$ if and only if $a - b$ is an integer. Is $R$ an equivalence relation?
 	\end{example}
-	\begin{solution*}
+	\onslide<2>\begin{solution*}
 		Because $a - a = 0$ is an integer for all real numbers $a$, $\forall a \in \mathbb{R}, (a, a) \in R$. Hence, $R$ is reflexive. Now suppose that $(a, b) \in R$. Then $a - b$ is an integer, so $b - a$ is also an integer. Hence, $(b, a) \in R$. It follows that $R$ is symmetric. If $(a, b), (b, c) \in R$, then $a - b$ and $b - c$ are integers. Therefore, $a - c = (a - b) + (b - c)$ is also an integer. Hence, $(a, c) \in R$. Thus, $R$ is transitive. Consequently, $R$ is an equivalence relation.
 	\end{solution*}
 \end{frame}
 
 \begin{frame}[fragile]
-	\frametitle{Hamilton Path}
-	\onslide<1->\begin{columns}
-		\begin{column}{.5\linewidth}
-			\begin{example}
-				Which of the simple graphs in Figure have a Hamilton circuit or, if not, a Hamilton path?
-			\end{example}
-		\end{column}
-		\begin{column}{.5\linewidth}
-
-		\end{column}
-	\end{columns}
+	\frametitle{Example of Equivalence Relation}
+	\begin{example}
+		Show the smallest equivalence relation contains $\{(a, b), (c, b), (d, c)\}$ on set $\{a, b, c, d, e\}$.
+	\end{example}
 	\onslide<2>\begin{solution*}
-		$G_1$ has a Hamilton circuit: $a, b, c, d, e, a$. There is no Hamilton circuit in $G_2$ (this can
-		be seen by noting that any circuit containing every vertex must contain the edge $\{a, b\}$ twice),
-		but $G_2$ does have a Hamilton path, namely, $a, b, c, d$. $G_3$ has neither a Hamilton circuit nor a
-		Hamilton path, because any path containing all vertices must contain one of the edges $\{a, b\}, \{e, f\}$, and $\{c, d\}$ more than once.
-	\end{solution*}
-\end{frame}
-
-\begin{frame}[fragile]
-	\frametitle{Hamilton Circuit}
-	\onslide<1->\begin{columns}
-		\begin{column}{.5\linewidth}
-			\begin{example}
-				Show that neither graph displayed in Figure has a Hamilton circuit.
-			\end{example}
-		\end{column}
-		\begin{column}{.5\linewidth}
-
-		\end{column}
-	\end{columns}
-	\onslide<2>\begin{solution*}
-		There is no Hamilton circuit in $G$ because $G$ has a vertex of degree one, namely, $e$. Now consider $H$. Because the degrees of the vertices $a, b, d$, and $e$ are all two, every edge incident with these vertices must be part of any Hamilton circuit. It is now easy to see that no Hamilton circuit can exist in $H$, for any Hamilton circuit would have to contain four edges incident with c, which is impossible.
-	\end{solution*}
-\end{frame}
-
-\begin{frame}[fragile]
-	\frametitle{Shortest Path}
-	\onslide<1->\begin{columns}
-		\begin{column}{.5\linewidth}
-			\begin{example}
-				Find the length of a shortest path between $a$
-				and $z$ in the given weighted graph.
-			\end{example}
-		\end{column}
-		\begin{column}{.5\linewidth}
-
-		\end{column}
-	\end{columns}
-	\onslide<2>\begin{solution*}
-		\begin{equation}
-			2 + 2 + 1 + 2 = 7.
-		\end{equation}
-	\end{solution*}
-\end{frame}
-
-\begin{frame}[fragile]
-	\frametitle{Newark}
-	\onslide<1->\begin{columns}
-		\begin{column}{.5\linewidth}
-			\begin{example}
-				Find a shortest route in distance between Newark and
-				Camden, and between Newark and Cape May, using
-				these roads.
-			\end{example}
-		\end{column}
-		\begin{column}{.5\linewidth}
-			\begin{figure}
-				\centering
-				\includegraphics[width=\linewidth]{f-10-6-e-17-a}
-			\end{figure}
-		\end{column}
-	\end{columns}
-	\onslide<2>\begin{solution*}
-		\begin{description}
-			\item[Camden] 80
-			\item[Cape May] 165
-		\end{description}
+		\begin{enumerate}
+			\item Find Reflexsive Closure: $\{(a, a), (a, b), (b, b), (b, c), (c, c), (d, c), (d, d), (e, e)\}$.
+			\item Find Symmetric Closure: $\{(a, a), (a, b), (b, a), (b, b), (b, c), (c, b), (c, c), (c, d), (d, c), (d, d), (e, e)\}$.
+			\item Find Transitive Closure: $\{(a, a), (a, b), (a, c), (a, d), (b, a), (b, b), (b, c), (b, d), (c, a), (c, b), (c, c), (c, d), (d, a), (d, b), (d, c), (d, d), (e, e)\}$
+		\end{enumerate}
 	\end{solution*}
 \end{frame}
 
