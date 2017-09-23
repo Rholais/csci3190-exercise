@@ -171,7 +171,7 @@
 				\begin{enumerate}
 					\item $R \cup R^{-1} \supseteq R$.
 					\item $(R \cup R^{-1})^{-1} = R^{-1} \cup {R^{-1}}^{-1} = R \cup R^{-1}$.
-					\item If there exists a set $S \supseteq R$, $r \in R \cup R^{-1}$, $r \notin S$. Therefore $r \notin R$, $r \in R^{-1}$ so that $S \neq S^{-1}$ which forms a contradictory.
+					\item If there exists a set $S \supseteq R$, $r \in R \cup R^{-1}$, $r \notin S$. Therefore $r \notin R$, $r \in R^{-1}$ so that $S \ne S^{-1}$ which forms a contradictory.
 				\end{enumerate}
 			\end{proof}
 		\end{column}
@@ -179,22 +179,18 @@
 \end{frame}
 
 \begin{frame}[fragile]
-	\frametitle{Euler Path}
-	\onslide<1->\begin{columns}
-		\begin{column}{.5\linewidth}
-			\begin{example}
-				Determine whether the given graph has an
-				Euler circuit. Construct such a circuit when one exists. If
-				no Euler circuit exists, determine whether the graph has an
-				Euler path and construct such a path if one exists.
-			\end{example}
-		\end{column}
-		\begin{column}{.5\linewidth}
-
-		\end{column}
-	\end{columns}
+	\frametitle{Example of Symmetric Closure}
+	\begin{example}
+		What is the symmetric closure of the relation $R =\{(a, b) \mid a > b\}$ on the set of positive integers?
+	\end{example}
 	\onslide<2>\begin{solution*}
-		Neither.
+		\begin{align}
+		\begin{aligned}
+		& R \cup R^{-1} \\
+		= & \{(a, b) \mid a > b \} \cup \{(a, a) \mid a < b\} \\
+		= & \{(a, b) \mid a \ne b\}.
+		\end{aligned}
+		\end{align}
 	\end{solution*}
 \end{frame}
 
@@ -247,10 +243,7 @@
 			\end{example}
 		\end{column}
 		\begin{column}{.5\linewidth}
-			\begin{figure}
-				\centering
-				\includegraphics[width=\linewidth]{f-10-5-11}
-			\end{figure}
+
 		\end{column}
 	\end{columns}
 	\onslide<2>\begin{solution*}
