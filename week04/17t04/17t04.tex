@@ -1,5 +1,5 @@
 %!TEX program = xelatex
-\documentclass[10pt, compress, handout]{beamer}
+\documentclass[10pt, compress]{beamer}
 \usetheme[titleprogressbar]{m}
 
 \usepackage{booktabs}
@@ -40,8 +40,8 @@
 }
 \makeatother
 
-\title{CSCI 3190 Tutorial of Week 03}
-\subtitle{Relations}
+\title{CSCI 3190 Tutorial of Week 04}
+\subtitle{Counting}
 \author{LI Haocheng}
 \institute{Department of Computer Science and Engineering}
 
@@ -50,48 +50,25 @@
 \maketitle
 
 \begin{frame}[fragile]
-	\frametitle{Inverse Relation}
-	\begin{columns}
-		\begin{column}{.6\linewidth}
-			Let $R$ be a relation from a set $A$ to a set $B$.
-			\begin{definition}
-				The \textbf{inverse relation} from $B$ to $A$, denoted by $R^{-1}$, is the set of ordered pairs $\{(b, a) \mid (a, b) \in R \}$.
-			\end{definition}
-			\begin{definition}
-				The \textbf{complementary relation} $\bar{R}$ is the set of ordered pairs $\{(a, b) \mid (a, b) \notin R \}$.
-			\end{definition}
-		\end{column}
-		\begin{column}{.4\linewidth}
-			\begin{example}
-				Let $R$ be the relation $R = \{(a, b) \mid a < b\}$ on the set of integers. Find \begin{enumerate}
-					\onslide<1->\item $R^{-1}$ \onslide<2>$= \{(a, b) \mid a > b\}$
-					\onslide<1->\item $\bar{R}$ \onslide<2>$= \{(a, b) \mid a \ge b\}$
-				\end{enumerate}
-			\end{example}
-		\end{column}
-	\end{columns}
+	\frametitle{Binomial Coefficients}
+	\begin{example}
+		Show that if $n$ and $k$ are integers with $1 \le k \le n$, then $\binom{n}{k} \le \frac{n^k}{2^{k - 1}}$.
+	\end{example}
+	\begin{solution*}
+		\begin{align}
+		\begin{aligned}
+		&\binom{n}{k}\\
+		= & \frac{n(n - 1)(n - 2) \cdots (n - k + 1)}{k(k - 1)(k - 2) \cdots 2}\\
+		\le & \frac{n \cdot n \cdot \cdots \cdot n}{2 \cdot 2 \cdot \cdots \cdot 2}\\
+		= & \frac{n^k}{2^{k - 1}}.
+		\end{aligned}
+		\end{align}
+	\end{solution*}
 \end{frame}
 
 \begin{frame}[fragile]
 	\frametitle{Division}
-	\begin{columns}
-		\onslide<1->\begin{column}{.5\linewidth}
-			\begin{example}
-				Let $R$ be the relation $R = \{(a, b) \mid a \text{ divides } b\}$ on the set of integers. Find \begin{enumerate}
-					\onslide<1->\item $R^{-1}$ \onslide<2->$= \{(a, b) \mid b \text{ divides } a\}$
-					\onslide<1->\item $\bar{R}$ \onslide<2->$= \{(a, b) \mid a \text{ doesn't divide } b\}$
-				\end{enumerate}
-			\end{example}
-		\end{column}
-		\onslide<1->\begin{column}{.5\linewidth}
-			\begin{example}
-				Let $R$ be the relation on the set of all districts in Hong Kong consisting of pairs $(a, b)$ where district $a$ borders district $b$. Find \begin{enumerate}
-					\onslide<1->\item $R^{-1}$ \onslide<3>$= \{(a, b) \mid a \text{ borders } b\}$
-					\onslide<1->\item $\bar{R}$ \onslide<3>$= \{(a, b) \mid a \text{ doesn't border } b\}$
-				\end{enumerate}
-			\end{example}
-		\end{column}
-	\end{columns}
+
 \end{frame}
 
 \begin{frame}[fragile]

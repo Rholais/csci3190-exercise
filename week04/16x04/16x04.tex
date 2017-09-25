@@ -251,7 +251,7 @@ any current guest.
 	\item Give a formula for the coefficient of $x^k$ in the expansion
 	of $(x^2 - 1/x)^{100}$, where $k$ is an integer.
 	
-	\item Show that if $n$ and $k$ are integers with $1 \le k \le n$, then $\binom{n}{c} \le \frac{n^k}{2^{k - 1}}$.
+	\item Show that if $n$ and $k$ are integers with $1 \le k \le n$, then $\binom{n}{k} \le \frac{n^k}{2^{k - 1}}$.
 
 	\item Prove that if $n$ and $k$ are integers with $1 \le k \le n$, then $k \binom{n}{k} = n \binom{n - 1}{k - 1}$,\begin{enumerate}
 		\item using a combinatorial proof. [\textit{Hint:} Show that the two sides of the identity count the number of ways to select a subset with $k$ elements from a set with $n$ elements and then an element of this subset.]
@@ -597,13 +597,14 @@ OR
 	\\=\sum_{n=0}^{10}\binom{10}{n}x^{20-2n}(-3)^nx^n=\sum_{n=0}^{10}(-3)^n\binom{10}{n} x^{20-3n}$
 	
 	So the term $x^{11}$ occurs when $20-3n=11$; i.e. when $n=3$. So the coefficient of $x^{11}$ is $(-3)^3\binom{10}{3}=-27\times 120 = -3240$
-	\item \begin{equation}
-	\binom{n}{k} = \frac{n(n - 1)(n - 2) \cdots (n - k + 1)}{k(k - 1)(k - 2) \cdots 2} \le \frac{n \cdot n \cdot \cdots \cdot n}{2 \cdot 2 \cdot \cdots \cdot 2} = \frac{n^k}{2^{k - 1}}
-	\end{equation}
 	
 	\item $(-1)^{(200-k)/3} \binom{100}
 	{(200-k)/3}$ if $k \equiv 2$ (mod $3$) and $-100 \leq
 	k \leq 200$; $0$ otherwise
+	
+	\item \begin{equation}
+	\binom{n}{k} = \frac{n(n - 1)(n - 2) \cdots (n - k + 1)}{k(k - 1)(k - 2) \cdots 2} \le \frac{n \cdot n \cdot \cdots \cdot n}{2 \cdot 2 \cdot \cdots \cdot 2} = \frac{n^k}{2^{k - 1}}
+	\end{equation}
 	
 	\item \begin{enumerate}
 		\item We show that each side counts the number of ways
