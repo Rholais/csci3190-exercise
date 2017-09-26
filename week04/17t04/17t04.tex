@@ -54,7 +54,7 @@
 \begin{example}
 	Assume that in a group of six people, each pair of individuals consists of two friends or two enemies. Show that there are either three mutual friends or three mutual enemies in the group.
 \end{example}
-\begin{solution*}
+\onslide<2>\begin{solution*}
 	Let A be one of the six people. Following from the generalized pigeonhole principle, of the five other people in the group, there are either three or more who are friends or enemies of A.
 	
 	Without loss of generality, suppose that B, C, and D are friends of A. If any two of these three individuals are friends, then these two and A form a group of three mutual friends. Otherwise, B, C, and D form a set of three mutual enemies.
@@ -62,10 +62,12 @@
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ramsey number}
+
+\frametitle{Ramsey Number}
 \begin{definition}
-	The \textbf{Ramsey number} $R(m, n)$, where $m$ and $n$ are positive integers greater than or equal
-	to 2, denotes the minimum number of people at a party such that there are either $m$ mutual friends or $n$ mutual enemies, assuming that every pair of people at the party are friends or enemies.
+	The \textbf{Ramsey number} $R(m, n)$, where $m$ and $n$ are positive integers greater than or equal	to 2,
+	denotes the minimum number of people at a party such that there are either $m$ mutual friends or $n$ mutual enemies,
+	assuming that every pair of people at the party are friends or enemies.
 \end{definition}
 \begin{example}
 	Show that in a group of five people (where any two people are either friends or enemies), there are not necessarily three mutual friends or three mutual enemies.
@@ -73,11 +75,33 @@
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{$R(2, n)$}
+\begin{example}
+	Show that if $n$ is an integer with $n \ge 2$, then the Ramsey number $R(2,n)$ equals $n$.
+\end{example}
+\onslide<2>\begin{solution*}
+	We need to show two
+	things: that if we have a group of $n$ people, then among them
+	we must find either a pair of friends or a subset of $n$ of them
+	all of whom are mutual enemies; and that there exists a group
+	of $n - 1$ people for which this is not possible.
+	
+	For the first
+	statement, if there is any pair of friends, then the condition is
+	satisfied, and if not, then every pair of people are enemies, so
+	the second condition is satisfied. For the second statement, if
+	we have a group of $n - 1$ people all of whom are enemies of
+	each other, then there is neither a pair of friends nor a subset
+	of $n$ of them all of whom are mutual enemies.
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
 	\frametitle{Binomial Coefficients}
 	\begin{example}
 		Show that if $n$ and $k$ are integers with $1 \le k \le n$, then $\binom{n}{k} \le \frac{n^k}{2^{k - 1}}$.
 	\end{example}
-	\begin{solution*}
+	\onslide<2>\begin{solution*}
 		\begin{align}
 		\begin{aligned}
 		&\binom{n}{k}\\
@@ -90,49 +114,8 @@
 \end{frame}
 
 \begin{frame}[fragile]
-	\frametitle{Closures}
-	\begin{columns}
-		\begin{column}{.5\linewidth}
-			\begin{definition}
-				A \textbf{reflexive closure} of $R$\begin{enumerate}
-					\item contains $R$,
-					\item is reflexive,
-					\item is contained within every reflexive relation that contains $R$.
-				\end{enumerate}
-			\end{definition}
-			\begin{definition}
-				A \textbf{diagonal relation} $\Delta$ on $A$ is $\{(a, a) \mid a \in A \}$.
-			\end{definition}
-		\end{column}
-		\begin{column}{.5\linewidth}
-			\begin{theorem}
-				Given a relation $R$ on a set $A$, the reflexive closure of $R$ equals $R \cup \Delta$.
-			\end{theorem}
-			\onslide<2>\begin{proof}
-				\begin{enumerate}
-					\item $R \cup \Delta \supseteq R$.
-					\item $R \cup \Delta \supseteq \Delta$.
-					\item If there exists a reflexive set $S \supset \Delta$, $r \in R \cup \Delta$, $r \notin S$. Therefore $r \notin \Delta$, $r \in R$ so that $S \nsupseteq R$ which forms a contradictory.
-				\end{enumerate}
-			\end{proof}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-\begin{frame}[fragile]
 	\frametitle{Reflexive Closure}
-	\onslide<1->\begin{example}
-		What is the reflexive closure of the relation $R = \{(a, b) \mid a < b\}$ on the set of integers?
-	\end{example}
-	\onslide<2>\begin{solution*}
-		\begin{align}
-			\begin{aligned}
-			& R \cup \Delta \\
-			= & \{(a, b) \mid a < b \} \cup \{(a, a) \mid a \in \mathbb{Z}\} \\
-			= & \{(a, b) \mid a \le b\}.
-			\end{aligned}
-		\end{align}
-	\end{solution*}
+	
 \end{frame}
 
 \begin{frame}[fragile]
