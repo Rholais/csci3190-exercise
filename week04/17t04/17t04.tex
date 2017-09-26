@@ -97,6 +97,99 @@
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Permutation}
+\begin{columns}
+	\begin{column}{.6\linewidth}
+		\begin{definition}
+			A \textbf{permutation} of a set of distinct objects is an ordered arrangement of these objects.
+		\end{definition}
+		\begin{definition}
+			An ordered arrangement of $r$ elements of a set is called an \textbf{$r$-permutation}.
+		\end{definition}
+		\begin{theorem}
+			\label{thm:p}
+			If $n$ is a positive integer and $r$ is an integer with $1 \le r \le n$, then there are $P(n, r) = n(n - 1)(n - 2) \cdots (n - r + 1)$
+			$r$-permutations of a set with $n$ distinct elements.
+		\end{theorem}
+	\end{column}
+	\begin{column}{.5\linewidth}
+		\onslide<2>\begin{proof}
+			The first element of the
+		permutation can be chosen in $n$ ways. There are $n - 1$ ways to choose the second element of the permutation. Similarly, there are $n - 2$ ways to choose the third element, and so on, until there are exactly $n - (r - 1) = n - r + 1$ ways to choose the $r$th element. Consequently, by the product rule, there are
+		$n(n - 1)(n - 2) \cdots (n - r + 1)$
+		$r$-permutations of the set.
+		\end{proof}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Factorial Expression}
+\begin{columns}
+	\begin{column}{.4\linewidth}
+		\begin{crl}
+			If $n$ and $r$ are integers with $0 \le r \le n$, then $P(n, r) = \frac{n!}{(n - r)!}$.
+		\end{crl}
+		\onslide<2->\begin{proof}
+			When $n$ and $r$ are integers with $1 \le r \le n$, we have it by Theorem~\ref{thm:p}. Because $\frac{n!}{(n - 0)!} = 1$ whenever $n \ge 0$, we have it when $r - 0$.
+		\end{proof}
+	\end{column}
+	\begin{column}{.6\linewidth}
+		\onslide<1->\begin{example}
+			How many ways are there to select a first-prize winner, a second-prize winner, and a third-prize winner from 100 different people who have entered a contest?
+		\end{example}
+		\onslide<3>\begin{solution*}
+			The number is the number of 3-permutations of a set of 100 elements. Consequently, the answer is $P(100, 3) = 100 \times 99 \times 98 = 970200$.
+		\end{solution*}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Combination}
+\begin{columns}
+	\begin{column}{.4\linewidth}
+		\begin{example}
+			How many different committees of 3 students can be formed from a group of 4 students?
+		\end{example}
+		\onslide<2->\begin{solution*}
+			4. 
+		\end{solution*}
+		\onslide<1->\begin{definition}
+			An \textbf{$r$-combination} of elements of a set is an unordered selection of $r$ elements from the set.
+		\end{definition}
+	\end{column}
+	\begin{column}{.6\linewidth}
+		\begin{theorem}
+			The number of $r$-combinations of a set with $n$ elements, where $0 \le r \le n$, equals $C(n, r) = \frac{n!}{r!(n - r)!}$.
+		\end{theorem}
+		\onslide<3>\begin{proof}
+			By the product rule, $P(n, r) = C(n, r) \cdot P(r, r)$, which implies that\begin{equation}
+				C(n, r) = \frac{P(n, r)}{P(r, r)} = \frac{\frac{n!}{(n - r)!}}{\frac{r!}{(r - r)!}} = \frac{n!}{r!(n - r)!}.
+			\end{equation}
+		\end{proof}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Combinatorial Proof}
+\begin{columns}
+	\begin{column}{.6\linewidth}
+		\begin{crl}
+			Let $0 \le r \le n$. Then $C(n, r) = C(n, n - r)$.
+		\end{crl}
+		\begin{definition}
+			A \textbf{combinatorial proof} of an identity is a proof that uses counting arguments to prove that both sides of the identity count the same objects but in different ways or a proof that is based on showing that there is a bijection between the sets of objects counted by the two sides of the identity. These two types of proofs are called \textbf{double counting proofs} and \textbf{bijective proofs}, respectively.
+		\end{definition}
+	\end{column}
+	\begin{column}{.4\linewidth}
+		Suppose that $S$ is a set with $n$ elements. The function that maps a subset $A$ of $S$ to $\bar{A}$ is a bijection between subsets of $S$ with $r$ elements and subsets with $n - r$ elements (as the reader should verify). The identity $C(n, r) = C(n, n - r)$ follows because when there is a bijection between two finite sets, the two sets must have the same number of elements.
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
 	\frametitle{Binomial Coefficients}
 	\begin{example}
 		Show that if $n$ and $k$ are integers with $1 \le k \le n$, then $\binom{n}{k} \le \frac{n^k}{2^{k - 1}}$.
@@ -114,78 +207,8 @@
 \end{frame}
 
 \begin{frame}[fragile]
-	\frametitle{Reflexive Closure}
-	
-\end{frame}
-
-\begin{frame}[fragile]
-	\frametitle{Symmetric Closure}
-	\begin{columns}
-		\begin{column}{.4\linewidth}
-			\begin{definition}
-				A \textbf{symmetric closure} of $R$\begin{enumerate}
-					\item contains $R$,
-					\item is symmetric,
-					\item is contained within every reflexive relation that contains $R$.
-				\end{enumerate}
-			\end{definition}
-		\end{column}
-		\begin{column}{.6\linewidth}
-			\begin{theorem}
-				Given a relation $R$ on a set $A$, the reflexive closure of $R$ equals $R \cup R^{-1}$.
-			\end{theorem}
-			\onslide<2>\begin{proof}
-				\begin{enumerate}
-					\item $R \cup R^{-1} \supseteq R$.
-					\item $(R \cup R^{-1})^{-1} = R^{-1} \cup {R^{-1}}^{-1} = R \cup R^{-1}$.
-					\item If there exists a set $S \supseteq R$, $r \in R \cup R^{-1}$, $r \notin S$. Therefore $r \notin R$, $r \in R^{-1}$ so that $S \ne S^{-1}$ which forms a contradictory.
-				\end{enumerate}
-			\end{proof}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-\begin{frame}[fragile]
-	\frametitle{Example of Symmetric Closure}
-	\begin{example}
-		What is the symmetric closure of the relation $R =\{(a, b) \mid a > b\}$ on the set of positive integers?
-	\end{example}
-	\onslide<2>\begin{solution*}
-		\begin{align}
-		\begin{aligned}
-		& R \cup R^{-1} \\
-		= & \{(a, b) \mid a > b \} \cup \{(a, a) \mid a < b\} \\
-		= & \{(a, b) \mid a \ne b\}.
-		\end{aligned}
-		\end{align}
-	\end{solution*}
-\end{frame}
-
-\begin{frame}[fragile]
-	\frametitle{Equivalence Relation}
-	\begin{definition}
-		A relation on a set $A$ is called an \textbf{equivalence relation} if it is reflexive, symmetric, and transitive.
-	\end{definition}
-	\begin{example}
-		Let $R$ be the relation on the set of real numbers such that $(a, b) \in R$ if and only if $a - b$ is an integer. Is $R$ an equivalence relation?
-	\end{example}
-	\onslide<2>\begin{solution*}
-		Because $a - a = 0$ is an integer for all real numbers $a$, $\forall a \in \mathbb{R}, (a, a) \in R$. Hence, $R$ is reflexive. Now suppose that $(a, b) \in R$. Then $a - b$ is an integer, so $b - a$ is also an integer. Hence, $(b, a) \in R$. It follows that $R$ is symmetric. If $(a, b), (b, c) \in R$, then $a - b$ and $b - c$ are integers. Therefore, $a - c = (a - b) + (b - c)$ is also an integer. Hence, $(a, c) \in R$. Thus, $R$ is transitive. Consequently, $R$ is an equivalence relation.
-	\end{solution*}
-\end{frame}
-
-\begin{frame}[fragile]
 	\frametitle{Example of Equivalence Relation}
-	\begin{example}
-		Show the smallest equivalence relation contains $\{(a, b), (c, b), (d, c)\}$ on set $\{a, b, c, d, e\}$.
-	\end{example}
-	\onslide<2>\begin{solution*}
-		\begin{enumerate}
-			\item Find Reflexsive Closure: $\{(a, a), (a, b), (b, b), (c, b), (c, c), (d, c), (d, d), (e, e)\}$.
-			\item Find Symmetric Closure: $\{(a, a), (a, b), (b, a), (b, b), (b, c), (c, b), (c, c), (c, d), (d, c), (d, d), (e, e)\}$.
-			\item Find Transitive Closure: $\{(a, a), (a, b), (a, c), (a, d), (b, a), (b, b), (b, c), (b, d), (c, a), (c, b), (c, c), (c, d), (d, a), (d, b), (d, c), (d, d), (e, e)\}$
-		\end{enumerate}
-	\end{solution*}
+
 \end{frame}
 
 \plain{Questions?}
