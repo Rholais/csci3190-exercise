@@ -146,6 +146,30 @@
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Example of Permutation}
+\begin{example}
+	How many times does \texttt{plan}, \texttt{than} and \texttt{both} NOT occur in permutations of the 26 letters?
+\end{example}
+\onslide<2>\begin{solution*}
+	\texttt{plan} occurs $22! \times 23 = 23!$ times.
+	
+	\texttt{than} occurs $22! \times 23 = 23!$ times.
+	
+	\texttt{both} occurs $22! \times 23 = 23!$ times.
+	
+	\texttt{plan} and \texttt{than} occurs $0$ times.
+	
+	\texttt{plan} and \texttt{both} occurs $18! \times 19 \times 20 = 20!$ times.
+	
+	\texttt{than} and \texttt{both} occurs $20! \times 21 = 21!$ times.
+	
+	\texttt{plan}, \texttt{than} and \texttt{both} occurs $0$ times.
+	
+	So the answer is $26! - 23! \times 3 + 21! + 20!$.
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Combination}
 \begin{columns}
 	\begin{column}{.4\linewidth}
@@ -184,7 +208,9 @@
 		\end{definition}
 	\end{column}
 	\begin{column}{.4\linewidth}
-		Suppose that $S$ is a set with $n$ elements. The function that maps a subset $A$ of $S$ to $\bar{A}$ is a bijection between subsets of $S$ with $r$ elements and subsets with $n - r$ elements (as the reader should verify). The identity $C(n, r) = C(n, n - r)$ follows because when there is a bijection between two finite sets, the two sets must have the same number of elements.
+		\begin{proof}
+			Suppose that $|S| = n$. The function that maps a subset $A$ of $S$ to $\bar{A}$ is a bijection between subsets of $S$ with $r$ elements and subsets with $n - r$ elements. The identity $C(n, r) = C(n, n - r)$ follows because when there is a bijection between two finite sets, the two sets must have the same number of elements.
+		\end{proof}
 	\end{column}
 \end{columns}
 \end{frame}
@@ -204,11 +230,6 @@
 		\end{aligned}
 		\end{align}
 	\end{solution*}
-\end{frame}
-
-\begin{frame}[fragile]
-	\frametitle{Example of Equivalence Relation}
-
 \end{frame}
 
 \plain{Questions?}
