@@ -88,6 +88,68 @@
 	\item No. Let $A \ne B, C = \emptyset$, then $A \cap C = B \cap C$.
 \end{enumerate}
 
+\section{Function}
+\begin{enumerate}
+	\item $6^5 = 7776$.
+	\item $C(6, 2) \times P(5, 5) = 1800$.
+\end{enumerate}
+
+\section{Closures}
+\subsection{Reflexive Closure of the Symmetric Closure}
+\begin{description}
+	\item[Symmetric Closure] $\{(1, 3), (1, 4), (2, 4), (3, 1), (4, 1), (4, 2)\}$.
+	\item[Reflexive Closure] $\{(1, 1), (1, 3), (1, 4), (2, 2), (2, 4), (3, 1), (3, 3), (4, 1), (4, 2), (4, 4)\}$.
+\end{description}
+
+\subsection{Transitive Closure of the Reflexive closure}
+\begin{description}
+	\item[Reflexive Closure] $\{(1, 1), (1, 3), (1, 4), (2, 2), (3, 3), (4, 2), (4, 4)\}$.
+	\item[Transitive Closure] $\{(1, 1), (1, 3), (1, 4), (2, 2), (3, 3), (4, 2), (4, 4)\}$.
+\end{description}
+
+\section{Relation}
+\subsection{Equivalence Relation}
+Yes. \begin{enumerate}
+	\item $\forall a \in \mathbb{I}^+, |a - a| = 0$.
+	\item $|b - a| = |a - b|$.
+	\item $|a - c| \equiv a - c \equiv (a - b) + (b - c) \equiv |a - b| + |b - c| \pmod{2}$.
+\end{enumerate}
+
+\subsection{Equivalence Classes}
+\begin{enumerate}
+	\item 2.
+	\item $[1] = \{a \mid a \equiv 1 \pmod{2}\}$, $[2] = \{a \mid a \equiv 0 \pmod{2}\}$.
+\end{enumerate}
+
+\section{Equivalence Relation}
+\begin{enumerate}
+	\item \begin{description}
+		\item[$\Rightarrow$] Let $c \in [a]$, then $(c, a) \in R$. Since $(a, b) \in R$, $(c, b) \in R$. Therefore, $c \in [b]$, so that $[a] \subseteq [b]$. Similarly, we can prove $[b] \subseteq [a]$. Thus $[a] = [b]$.
+		\item[$\Leftarrow$] $[a] = [b] \Rightarrow b \in [a] \Rightarrow (a, b) \in R$.
+	\end{description}
+	\item \begin{description}
+		\item[$\Rightarrow$] $[a] \cap [b] \ne \emptyset \Rightarrow \exists c \in [a] \cap [b] \Rightarrow (a, c) \in R \land (c, b) \in R \Rightarrow (a, b) \in R$.
+		\item[$\Leftarrow$] $(a, b) \in R \Rightarrow b \in [a] \Rightarrow b \in [a] \cap [b] \ne \emptyset$.
+	\end{description}
+\end{enumerate}
+
+\section{Oranges}
+$\frac{13 \times 14}{2} - 3 = 88$.
+
+\section{Strings}
+\begin{enumerate}
+	\item $26^6 - 25^6 = 64775151$.
+	\item $26^6 - 25^6 \times 2 + 24^6 = 11737502$.
+	\item $P(24, 4) \times 5 = 1275120$.
+	\item $P(24, 4) \times \frac{5 \times 6}{2} = 3825360$.
+\end{enumerate}
+
+\section{Solutions}
+\begin{enumerate}
+	\item $\frac{29 \times 30 \times 31}{3 \times 2} = 4495$.
+	\item 
+\end{enumerate}
+
 \bibliographystyle{ACM-Reference-Format}
 %\bibliography{sample-bibliography} 
 
