@@ -28,7 +28,7 @@
 
 
 %\acmArticle{4}
-\acmPrice{15.00}
+%\acmPrice{15.00}
 
 % These commands are optional
 %\acmBooktitle{Transactions of the ACM Woodstock conference}
@@ -101,7 +101,7 @@
 
 \section{Function}
 \begin{enumerate}
-	\item $6^5 = 7776$.
+	\item $5^6 = 15625$.
 	\item $C(6, 2) \times P(5, 5) = 1800$.
 \end{enumerate}
 
@@ -145,7 +145,12 @@ Yes. \begin{enumerate}
 \end{enumerate}
 
 \section{Oranges}
-$C(14, 2) - 3 = 88$.
+
+Since there are enough oranges from Taiwan and U.S.A., only oranges from Mainland are under constraint. We will first calculated the number of ways without constraints and then exclude the ways require additional oranges from Mainland.
+
+It's easy to see that the number of ways require 11 or 12 oranges from Mainland is 2 or 1 respectively. Therefore, the number of ways need to be excluded is 3.
+
+To calculate the number of ways without constraints, suppose there are 14 positions in a line and we need to place 2 separators in 2 positions which separate the remaining to 3 parts for oranges from Mainland, Taiwan and U.S.A. respectively. The number of ways to place separators is $C(14, 2)$ so that the number of ways $C(14, 2) - 3 = 88$.
 
 \section{Strings}
 \begin{enumerate}
