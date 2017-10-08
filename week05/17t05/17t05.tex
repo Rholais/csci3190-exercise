@@ -1,5 +1,5 @@
 %!TEX program = xelatex
-\documentclass[10pt, compress]{beamer}
+\documentclass[10pt, compress, handout]{beamer}
 \usepackage[titleprogressbar]{../../cls/beamerthemem}
 
 \usepackage{booktabs}
@@ -136,7 +136,7 @@
 			If $n$ and $r$ are integers with $0 \le r \le n$, then $P(n, r) = \frac{n!}{(n - r)!}$.
 		\end{crl}
 		\onslide<2->\begin{proof}
-			When $n$ and $r$ are integers with $1 \le r \le n$, we have it by Theorem~\ref{thm:p}. Because $\frac{n!}{(n - 0)!} = 1$ whenever $n \ge 0$, we have it when $r - 0$.
+			When $n$ and $r$ are integers with $1 \le r \le n$, we have it by Theorem~\ref{thm:p}. Because $\frac{n!}{(n - 0)!} = 1$ whenever $n \ge 0$, we have it when $r = 0$.
 		\end{proof}
 	\end{column}
 	\begin{column}{.6\linewidth}
