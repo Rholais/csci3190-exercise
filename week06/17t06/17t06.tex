@@ -1,0 +1,242 @@
+%!TEX program = xelatex
+\documentclass[10pt, compress, handout]{beamer}
+\usepackage[titleprogressbar]{../../cls/beamerthemem}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{minted}
+
+\usepgfplotslibrary{dateplot}
+
+\usemintedstyle{trac}
+
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{theorems}[numbered]
+\newtheorem{crl}{Corollary}[theorem]
+\newtheorem*{solution*}{Solution}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\usepackage{version}
+%\excludeversion{proof}
+%\excludeversion{solution*}
+
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{qtree}
+
+\usepackage{tikz}
+
+\makeatletter
+\def\old@comma{,}
+\catcode`\,=13
+\def,{%
+	\ifmmode%
+	\old@comma\discretionary{}{}{}%
+	\else%
+	\old@comma%
+	\fi%
+}
+\makeatother
+
+\title{CSCI 3190 Tutorial of Week 06}
+\subtitle{Counting}
+\author{LI Haocheng}
+\institute{Department of Computer Science and Engineering}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}[fragile]
+\frametitle{The Pigeonhole Principle}
+\begin{example}
+	Assume that in a group of six people, each pair of individuals consists of two friends or two enemies.
+	Show that there are either three mutual friends or three mutual enemies in the group.
+\end{example}
+\onslide<2>\begin{solution*}
+	Let A be one of the six people.
+	Following from the generalized pigeonhole principle, of the five other people in the group,
+	there are either three or more who are friends or enemies of A.
+	
+	Without loss of generality, suppose that B, C, and D are friends of A.
+	If any two of these three individuals are friends, then these two and A form a group of three mutual friends.
+	Otherwise, B, C, and D form a set of three mutual enemies.
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+
+\frametitle{Ramsey Number}
+\begin{definition}
+	The \textbf{Ramsey number} $R(m, n)$, where $m$ and $n$ are positive integers greater than or equal to 2,
+	denotes the minimum number of people at a party such that there are either $m$ mutual friends or $n$ mutual enemies,
+	assuming that every pair of people at the party are friends or enemies.
+\end{definition}
+\begin{example}
+	Show that in a group of five people (where any two people are either friends or enemies), there are not necessarily three mutual friends or three mutual enemies.
+\end{example}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{$R(2, n)$}
+\begin{example}
+	Show that if $n$ is an integer with $n \ge 2$, then the Ramsey number $R(2,n)$ equals $n$.
+\end{example}
+\onslide<2>\begin{solution*}
+	We need to show two
+	things: that if we have a group of $n$ people, then among them
+	we must find either a pair of friends or a subset of $n$ of them
+	all of whom are mutual enemies; and that there exists a group
+	of $n - 1$ people for which this is not possible.
+	
+	For the first
+	statement, if there is any pair of friends, then the condition is
+	satisfied, and if not, then every pair of people are enemies, so
+	the second condition is satisfied. For the second statement, if
+	we have a group of $n - 1$ people all of whom are enemies of
+	each other, then there is neither a pair of friends nor a subset
+	of $n$ of them all of whom are mutual enemies.
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Permutation}
+\begin{columns}
+	\begin{column}{.6\linewidth}
+		\begin{definition}
+			A \textbf{permutation} of a set of distinct objects is an ordered arrangement of these objects.
+		\end{definition}
+		\begin{definition}
+			An ordered arrangement of $r$ elements of a set is called an \textbf{$r$-permutation}.
+		\end{definition}
+		\begin{theorem}
+			\label{thm:p}
+			If $n$ is a positive integer and $r$ is an integer with $1 \le r \le n$, then there are $P(n, r) = n(n - 1)(n - 2) \cdots (n - r + 1)$
+			$r$-permutations of a set with $n$ distinct elements.
+		\end{theorem}
+	\end{column}
+	\begin{column}{.5\linewidth}
+		\onslide<2>\begin{proof}
+			The first element of the
+		permutation can be chosen in $n$ ways. There are $n - 1$ ways to choose the second element of the permutation. Similarly, there are $n - 2$ ways to choose the third element, and so on, until there are exactly $n - (r - 1) = n - r + 1$ ways to choose the $r$th element. Consequently, by the product rule, there are
+		$n(n - 1)(n - 2) \cdots (n - r + 1)$
+		$r$-permutations of the set.
+		\end{proof}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Factorial Expression}
+\begin{columns}
+	\begin{column}{.4\linewidth}
+		\begin{crl}
+			If $n$ and $r$ are integers with $0 \le r \le n$, then $P(n, r) = \frac{n!}{(n - r)!}$.
+		\end{crl}
+		\onslide<2->\begin{proof}
+			When $n$ and $r$ are integers with $1 \le r \le n$, we have it by Theorem~\ref{thm:p}. Because $\frac{n!}{(n - 0)!} = 1$ whenever $n \ge 0$, we have it when $r = 0$.
+		\end{proof}
+	\end{column}
+	\begin{column}{.6\linewidth}
+		\onslide<1->\begin{example}
+			How many ways are there to select a first-prize winner, a second-prize winner, and a third-prize winner from 100 different people who have entered a contest?
+		\end{example}
+		\onslide<3>\begin{solution*}
+			The number is the number of 3-permutations of a set of 100 elements. Consequently, the answer is $P(100, 3) = 100 \times 99 \times 98 = 970200$.
+		\end{solution*}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Example of Permutation}
+\begin{example}
+	How many times does \texttt{plan}, \texttt{than} and \texttt{both} NOT occur in permutations of the 26 letters?
+\end{example}
+\onslide<2>\begin{solution*}
+	\texttt{plan} occurs $22! \times 23 = 23!$ times.
+	
+	\texttt{than} occurs $22! \times 23 = 23!$ times.
+	
+	\texttt{both} occurs $22! \times 23 = 23!$ times.
+	
+	\texttt{plan} and \texttt{than} occurs $0$ times.
+	
+	\texttt{plan} and \texttt{both} occurs $18! \times 19 \times 20 = 20!$ times.
+	
+	\texttt{than} and \texttt{both} occurs $20! \times 21 = 21!$ times.
+	
+	\texttt{plan}, \texttt{than} and \texttt{both} occurs $0$ times.
+	
+	So the answer is $26! - 23! \times 3 + 21! + 20!$.
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Combination}
+\begin{columns}
+	\begin{column}{.4\linewidth}
+		\begin{example}
+			How many different committees of 3 students can be formed from a group of 4 students?
+		\end{example}
+		\onslide<2->\begin{solution*}
+			4. 
+		\end{solution*}
+		\onslide<1->\begin{definition}
+			An \textbf{$r$-combination} of elements of a set is an unordered selection of $r$ elements from the set.
+		\end{definition}
+	\end{column}
+	\begin{column}{.6\linewidth}
+		\begin{theorem}
+			The number of $r$-combinations of a set with $n$ elements, where $0 \le r \le n$, equals $C(n, r) = \frac{n!}{r!(n - r)!}$.
+		\end{theorem}
+		\onslide<3>\begin{proof}
+			By the product rule, $P(n, r) = C(n, r) \cdot P(r, r)$, which implies that\begin{equation}
+				C(n, r) = \frac{P(n, r)}{P(r, r)} = \frac{\frac{n!}{(n - r)!}}{\frac{r!}{(r - r)!}} = \frac{n!}{r!(n - r)!}.
+			\end{equation}
+		\end{proof}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Combinatorial Proof}
+\begin{columns}
+	\begin{column}{.6\linewidth}
+		\begin{crl}
+			Let $0 \le r \le n$. Then $C(n, r) = C(n, n - r)$.
+		\end{crl}
+		\begin{definition}
+			A \textbf{combinatorial proof} of an identity is a proof that uses counting arguments to prove that both sides of the identity count the same objects but in different ways or a proof that is based on showing that there is a bijection between the sets of objects counted by the two sides of the identity. These two types of proofs are called \textbf{double counting proofs} and \textbf{bijective proofs}, respectively.
+		\end{definition}
+	\end{column}
+	\begin{column}{.4\linewidth}
+		\begin{proof}
+			Suppose that $|S| = n$. The function that maps a subset $A$ of $S$ to $\bar{A}$ is a bijection between subsets of $S$ with $r$ elements and subsets with $n - r$ elements. The identity $C(n, r) = C(n, n - r)$ follows because when there is a bijection between two finite sets, the two sets must have the same number of elements.
+		\end{proof}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Binomial Coefficients}
+	\begin{example}
+		Show that if $n$ and $k$ are integers with $1 \le k \le n$, then $\binom{n}{k} \le \frac{n^k}{2^{k - 1}}$.
+	\end{example}
+	\onslide<2>\begin{solution*}
+		\begin{align}
+		\begin{aligned}
+		&\binom{n}{k}\\
+		= & \frac{n(n - 1)(n - 2) \cdots (n - k + 1)}{k(k - 1)(k - 2) \cdots 2}\\
+		\le & \frac{n \cdot n \cdot \cdots \cdot n}{2 \cdot 2 \cdot \cdots \cdot 2}\\
+		= & \frac{n^k}{2^{k - 1}}.
+		\end{aligned}
+		\end{align}
+	\end{solution*}
+\end{frame}
+
+\plain{Questions?}
+
+\end{document}
