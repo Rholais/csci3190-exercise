@@ -72,7 +72,7 @@
 \section{Tautologies}
 \begin{enumerate}
 	\item $\neg (p \to \neg q) \equiv \neg (\neg p \lor \neg q) \equiv (p \land q)$.
-	\item $((p \land q) \to r) \equiv (\neg (p \land q) \lor r) \equiv ((\neg p \lor \neg q) \lor r) \equiv ((\neg p \lor r) \lor (\neg q \lor r)) \equiv ((p \to r) \lor (q \to r))$.
+	\item $((p \land q) \to r) \equiv (\neg (p \land q) \lor r) \equiv ((\neg p \lor \neg q) \lor (r \lor r)) \equiv ((\neg p \lor r) \lor (\neg q \lor r)) \equiv ((p \to r) \lor (q \to r))$.
 	\item $\neg (p \leftrightarrow q) \equiv \neg ((p \lor \neg q) \land (\neg p \lor q)) \equiv ((p \land \neg q) \lor (\neg p \land q)) \equiv ((p \lor q) \land (\neg p \lor \neg q)) \equiv (p \leftrightarrow \neg q)$.
 	\item Let $p = 1, q = 0, r = 0$, then $lhs = 1, rhs = 0$.
 \end{enumerate}
