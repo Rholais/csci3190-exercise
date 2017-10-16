@@ -62,8 +62,12 @@
 \begin{proof}
 	\begin{enumerate}
 		\item<2-> $\neg (p \to \neg q) \equiv \neg (\neg p \lor \neg q) \equiv (p \land q)$.
-		\item<3-> $((p \land q) \to r) \equiv (\neg (p \land q) \lor r) \equiv ((\neg p \lor \neg q) \lor (r \lor r)) \equiv ((\neg p \lor r) \lor (\neg q \lor r)) \equiv ((p \to r) \lor (q \to r))$.
-		\item<4-> $\neg (p \leftrightarrow q) \equiv \neg ((p \lor \neg q) \land (\neg p \lor q)) \equiv ((p \land \neg q) \lor (\neg p \land q)) \equiv ((p \lor q) \land (\neg p \lor \neg q)) \equiv (p \leftrightarrow \neg q)$.
+		\item<3-> $((p \land q) \to r) \equiv (\neg (p \land q) \lor r)$
+		$\equiv ((\neg p \lor \neg q) \lor (r \lor r)) \equiv ((\neg p \lor r) \lor (\neg q \lor r))$
+		$\equiv ((p \to r) \lor (q \to r))$.
+		\item<4-> $\neg (p \leftrightarrow q) \equiv \neg ((p \lor \neg q) \land (\neg p \lor q))$
+		$\equiv ((p \land \neg q) \lor (\neg p \land q)) \equiv ((p \lor q) \land (\neg p \lor \neg q))$
+		$\equiv (p \leftrightarrow \neg q)$.
 		\item<5-> Let $p = 1, q = 0, r = 0$, then $lhs = 1, rhs = 0$.
 	\end{enumerate}
 \end{proof}
@@ -72,11 +76,17 @@
 \begin{frame}[fragile]
 \frametitle{Propositional Logic}
 \begin{example}
-	Explain, without using a truth table, why $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p)$ is true when $p$, $q$, and $r$ have the same truth value and it is false otherwise.
+	Explain, without using a truth table,
+	why $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p)$ is true
+	when $p, q, r$ have the same truth value and it is false otherwise.
 \end{example}
 
 \onslide<2>\begin{proof}
-It is easy to evaluate that the expression is true when all variables have the same truth value. Suppose at least one is true and at least one is false. There are 2 combinations of 2 variables which have different truth value. These 2 combinations can form 2 disjunction expression with false value and one of them is in the conjunction expression so that the whole expression is false.
+	It is easy to evaluate that the expression is true when all variables have the same truth value.
+	Suppose at least one is true and at least one is false.
+	There are 2 combinations of 2 variables which have different truth value.
+	These 2 combinations can form 2 disjunction expression with false value
+	and one of them is in the conjunction expression so that the whole expression is false.
 \end{proof}
 \end{frame}
 
@@ -95,9 +105,12 @@ It is easy to evaluate that the expression is true when all variables have the s
 		\begin{proof}
 			\begin{enumerate}
 				\item<2-> $(\neg p \lor (p \lor q)) \equiv (1 \lor q) \equiv 1$.
-				\item<3-> $(\neg(p \land q) \lor (\neg p \lor q)) \equiv (\neg p \lor \neg q \lor q) \equiv (\neg p \lor 1) \equiv 1$.
-				\item<4-> $\neg (p \to q) \equiv \neg (\neg p \lor q) \equiv (p \land \neg q) \Rightarrow p$.
-				\item<5-> $((p \lor q) \land \neg p) \equiv (0 \lor (\neg p \land q)) \equiv (\neg p \land q) \Rightarrow q$.
+				\item<3-> $(\neg(p \land q) \lor (\neg p \lor q)) \equiv (\neg p \lor \neg q \lor q)$
+				$\equiv (\neg p \lor 1) \equiv 1$.
+				\item<4-> $\neg (p \to q) \equiv \neg (\neg p \lor q) \equiv (p \land \neg q)$
+				$\Rightarrow p$.
+				\item<5-> $((p \lor q) \land \neg p) \equiv (0 \lor (\neg p \land q))$
+				$\equiv (\neg p \land q) \Rightarrow q$.
 			\end{enumerate}
 		\end{proof}
 	\end{column}
@@ -122,95 +135,77 @@ that no assignment of truth values to $p$, $q$, and $r$ makes $(p \vee \neg q) \
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Factorial Expression}
-
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Example of Permutation}
-\begin{example}
-	How many times does \texttt{plan}, \texttt{than} and \texttt{both} NOT occur in permutations of the 26 letters?
-\end{example}
-\onslide<2>\begin{solution*}
-	\texttt{plan} occurs $22! \times 23 = 23!$ times.
-	
-	\texttt{than} occurs $22! \times 23 = 23!$ times.
-	
-	\texttt{both} occurs $22! \times 23 = 23!$ times.
-	
-	\texttt{plan} and \texttt{than} occurs $0$ times.
-	
-	\texttt{plan} and \texttt{both} occurs $18! \times 19 \times 20 = 20!$ times.
-	
-	\texttt{than} and \texttt{both} occurs $20! \times 21 = 21!$ times.
-	
-	\texttt{plan}, \texttt{than} and \texttt{both} occurs $0$ times.
-	
-	So the answer is $26! - 23! \times 3 + 21! + 20!$.
-\end{solution*}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Combination}
+\frametitle{Quantifiers}
 \begin{columns}
+	\begin{column}{.7\linewidth}
+		\begin{example}
+			Determine the truth value of the followings, where $x, y \in \mathbb{Z}^+$.
+			\begin{enumerate}
+				\item $\forall x \forall y (2x^2 < y + 1)$
+				\item $\forall x \exists y (2x^2 < y + 1)$
+				\item $\exists x \forall y (2x^2 < y + 1)$
+				\item $\exists x \exists y (2x^2 < y + 1)$
+			\end{enumerate}
+		\end{example}
+		\begin{solution*}
+			\begin{enumerate}
+				\item<2-> False. Let $x = 1, y = 1$, then $2x^2 = y + 1$.
+				\item<3-> True. $\forall x \exists y = 2x^2$ s.t. $2x^2 < y + 1$.
+				\item<4-> False. Let $y = 1, 2x^2 < y + 1$, then $x < 1$.
+				\item<5-> True. Let $x = 1, y = 2$, then $2x^2 < y + 1$.
+			\end{enumerate}
+		\end{solution*}
+	\end{column}
 	\begin{column}{.4\linewidth}
 		\begin{example}
-			How many different committees of 3 students can be formed from a group of 4 students?
+			Can you conclude that $A = B$ if $A, B$ and $C$ are sets such that: \begin{enumerate}
+				\item $A \cup C = B \cup C$;
+				\item $A \cap C = B \cap C$.
+			\end{enumerate}
 		\end{example}
-		\onslide<2->\begin{solution*}
-			4. 
+		\begin{solution*}
+			\begin{enumerate}
+				\item<6-> No. Let $A = \emptyset, B = C \supset A$, then $A \cup C = B \cup C$.
+				\item<7-> No. Let $A \ne B, C = \emptyset$, then $A \cap C = B \cap C$.
+			\end{enumerate}
 		\end{solution*}
-		\onslide<1->\begin{definition}
-			An \textbf{$r$-combination} of elements of a set is an unordered selection of $r$ elements from the set.
-		\end{definition}
-	\end{column}
-	\begin{column}{.6\linewidth}
-		\begin{theorem}
-			The number of $r$-combinations of a set with $n$ elements, where $0 \le r \le n$, equals $C(n, r) = \frac{n!}{r!(n - r)!}$.
-		\end{theorem}
-		\onslide<3>\begin{proof}
-			By the product rule, $P(n, r) = C(n, r) \cdot P(r, r)$, which implies that\begin{equation}
-				C(n, r) = \frac{P(n, r)}{P(r, r)} = \frac{\frac{n!}{(n - r)!}}{\frac{r!}{(r - r)!}} = \frac{n!}{r!(n - r)!}.
-			\end{equation}
-		\end{proof}
 	\end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Combinatorial Proof}
+\frametitle{Big-Theta}
 \begin{columns}
-	\begin{column}{.6\linewidth}
-		\begin{crl}
-			Let $0 \le r \le n$. Then $C(n, r) = C(n, n - r)$.
-		\end{crl}
-		\begin{definition}
-			A \textbf{combinatorial proof} of an identity is a proof that uses counting arguments to prove that both sides of the identity count the same objects but in different ways or a proof that is based on showing that there is a bijection between the sets of objects counted by the two sides of the identity. These two types of proofs are called \textbf{double counting proofs} and \textbf{bijective proofs}, respectively.
-		\end{definition}
-	\end{column}
-	\begin{column}{.4\linewidth}
-		\begin{proof}
-			Suppose that $|S| = n$. The function that maps a subset $A$ of $S$ to $\bar{A}$ is a bijection between subsets of $S$ with $r$ elements and subsets with $n - r$ elements. The identity $C(n, r) = C(n, n - r)$ follows because when there is a bijection between two finite sets, the two sets must have the same number of elements.
+	\begin{column}{.5\linewidth}
+		\begin{example}
+			Show that $n \log n$ is $O(\log n!)$.
+		\end{example}
+		
+		\onslide<2->\begin{proof}
+			We can easily show that $(n - i)(i + 1) \ge n$ for $i = 0, 1, \cdots, n - 1$.
+			Hence, $(n!)^2 = (n \cdot 1)((n - 1) \cdot 2) \cdot ((n - 2) \cdot 3) \cdots (2 \cdot (n -
+			1)) \cdot (1 \cdot n) \ge n^n$. Therefore, $2 log n! \ge n log n$.
 		\end{proof}
+	\end{column}
+	\begin{column}{.6\linewidth}
+		\onslide<1->\begin{example}
+			Determine whether $\log n!$ is $\Theta(n \log n)$.
+		\end{example}
+		
+		\onslide<3->\begin{solution*}
+			We have known that $n \log n = O(\log n!)$.
+			
+			\textbf{Claim} $\log n! = O(n \log n)$ so that $n \log n = \Omega(\log n!)$. Hence, $\log n! = \Theta(n \log n)$.
+			
+			\textbf{Proof} $\exists c = 1, \exists N = 1$, such that $\forall n \ge N, n! \le n^n$, so that $\log n! \le c n\log n$.
+		\end{solution*}
 	\end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
 	\frametitle{Binomial Coefficients}
-	\begin{example}
-		Show that if $n$ and $k$ are integers with $1 \le k \le n$, then $\binom{n}{k} \le \frac{n^k}{2^{k - 1}}$.
-	\end{example}
-	\onslide<2>\begin{solution*}
-		\begin{align}
-		\begin{aligned}
-		&\binom{n}{k}\\
-		= & \frac{n(n - 1)(n - 2) \cdots (n - k + 1)}{k(k - 1)(k - 2) \cdots 2}\\
-		\le & \frac{n \cdot n \cdot \cdots \cdot n}{2 \cdot 2 \cdot \cdots \cdot 2}\\
-		= & \frac{n^k}{2^{k - 1}}.
-		\end{aligned}
-		\end{align}
-	\end{solution*}
+
 \end{frame}
 
 \plain{Questions?}
