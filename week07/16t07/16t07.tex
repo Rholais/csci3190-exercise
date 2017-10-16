@@ -1,6 +1,6 @@
 %!TEX program = xelatex
 \documentclass[10pt, compress, handout]{beamer}
-\usetheme[titleprogressbar]{m}
+\usepackage[titleprogressbar]{../../cls/beamerthemem}
 
 \usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
@@ -35,46 +35,6 @@
 \begin{document}
 
 \maketitle
-
-\begin{frame}[fragile]
-\frametitle{Propositional Logic}
-\onslide<1->Explain, without using a truth table, why $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p)$ is true when $p$, $q$, and $r$ have the same truth value and it is false otherwise.
-
-\onslide<2>\textbf{Proof} It is easy to evaluate that the expression is true when all variables have the same truth value. Suppose at least one is true and at least one is false. There are 2 combinations of 2 variables which have different truth value. These 2 combinations can form 2 disjunction expression with false value and one of them is in the conjunction expression so that the whole expression is false.
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Propositional Logic}
-\onslide<1->Explain, without using a truth table, why $(p \vee q \vee r) \wedge
-(\neg p \vee \neg q \vee \neg r)$ is true when at least one of $p$, $q$, and $r$
-is true and at least one is false, but is false when all three
-variables have the same truth value.
-
-\onslide<2>\textbf{Proof} The first clause is true if and only if at least one of $p$, $q$, and
-$r$ is true. The second clause is true if and only if at least one of
-the three variables is false. Therefore the entire statement is
-true if and only if there is at least one T and one F among the
-truth values of the variables, in other words, that they don\textquoteright t all
-have the same truth value.
-\end{frame}
-
-\begin{frame}[allowframebreaks]
-\frametitle{Propositional Satisfiability}
-\begin{definition}
-	A compound proposition is \textbf{satisfiable} if there is an assignment of truth values to its variables that makes it true. When no such assignments exists, that is, when the compound proposition is false for all assignments of truth values to its variables, the compound proposition is \textbf{unsatisfiable}.
-\end{definition}
-\begin{example}
-	Determine whether each of the compound propositions $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p)$, $(p \vee q \vee r) \wedge (\neg p \vee \neg q \vee \neg r)$ and $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p) \wedge (p \vee q \vee r) \wedge	(\neg p \vee \neg q \vee \neg r)$ is satisfiable.
-\end{example}
-\textbf{Solution} Instead of using truth table to solve this problem, we will reason about truth values. Note that $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p)$ is true when the three variable $p$, $q$, and $r$ have the same truth value. Hence, it is satisfiable as there is at least one assignment of truth values for $p$, $q$, and $r$ that makes it true. 
-
-Similarly, note that
-$(p \vee q \vee r) \wedge (\neg p \vee \neg q \vee \neg r)$ is true when at least one of $p$, $q$, and $r$ is true and at least one is false. Hence, $(p \vee q \vee r) \wedge (\neg p \vee \neg q \vee \neg r)$ is satisfiable, as there is at least one assignment of truth values for $p$, $q$, and $r$ that makes it true.
-\newpage
-Finally, note that for $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p) \wedge (p \vee q \vee r) \wedge	(\neg p \vee \neg q \vee \neg r)$	to be true, $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p)$ and $(p \vee q \vee r) \wedge (\neg p \vee \neg q \vee \neg r)$ must both be true. For the first to be true, the three variables must have the same truth values, and
-for the second to be true, at least one of three variables must be true and at least one must be false. However, these conditions are contradictory. From these observations we conclude
-that no assignment of truth values to $p$, $q$, and $r$ makes $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p) \wedge (p \vee q \vee r) \wedge	(\neg p \vee \neg q \vee \neg r)$ true. Hence, it is unsatisfiable.
-\end{frame}
 
 \begin{frame}[fragile]
 	\frametitle{Tautology}
@@ -164,47 +124,6 @@ that no assignment of truth values to $p$, $q$, and $r$ makes $(p \vee \neg q) \
 		The average number of comparisons used by a sorting algorithm based on binary comparisons is the average depth of a leaf in the decision tree representing the sorting algorithm. We know that the average depth of a leaf in a binary tree with $N$ vertices
 		is $\Omega(\log N)$. We obtain the following estimate when we let $N = n!$ and note that a function that is $\Omega(\log n!)$ is also $\Omega(n \log n)$ because $\log n!$ is $\Omega (n \log n)$.
 	\end{proof}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Equivalence Relation}
-\onslide<1->Find smallest equivalence relation on set $\{a, b, c, d, e\}$ containing following relations.
-\begin{enumerate}
-	\item $\{(a, b), (b, c), (d, c)\}$.
-	\item $\{(a, b), (b, d), (d, c)\}$.
-\end{enumerate}
-\onslide<2>\textbf{Solution}
-\begin{enumerate}[(i)]
-	\item Find Reflexsive Closure: $\{(a, a), (a, b), (b, b), (b, c), (c, c), (d, c), (d, d), (e, e)\}$.
-	\item Find Symmetric Closure: $\{(a, a), (a, b), (b, a), (b, b), (b, c), (c, b), (c, c), (c, d), (d, c), (d, d), (e, e)\}$.
-	\item Find Transitive Closure: $\{(a, a), (a, b), (a, c), (a, d), (b, a), (b, b), (b, c), (b, d), (c, a), (c, b), (c, c), (c, d), (d, a), (d, b), (d, c), (d, d), (e, e)\}$
-\end{enumerate}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Permutation}
-\onslide<1->\begin{enumerate}
-	\item Permutations of 26 letters don\textquoteright t exist \texttt{plan}, \texttt{than} or \texttt{both}?
-	\item Permutations of 26 letters don\textquoteright t exist \texttt{game}, \texttt{meal} or \texttt{also}?
-\end{enumerate}
-\onslide<2>\textbf{Solution}
-
-\texttt{plan} occurs $22! \times 23 = 23!$ times.
-
-\texttt{than} occurs $22! \times 23 = 23!$ times.
-
-\texttt{both} occurs $22! \times 23 = 23!$ times.
-
-\texttt{plan} and \texttt{than} occurs $0$ times.
-
-\texttt{plan} and \texttt{both} occurs $18! \times 19 \times 20$ times.
-
-\texttt{than} and \texttt{both} occurs $20! \times 21$ times.
-
-\texttt{plan}, \texttt{than} and \texttt{both} occurs $0$ times.
-
-So the answer is $26! - 23! \times 3 + 21! + 20!$.
-
 \end{frame}
 
 \begin{frame}[allowframebreaks]

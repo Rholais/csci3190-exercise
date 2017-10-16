@@ -1,5 +1,5 @@
 %!TEX program = xelatex
-\documentclass[10pt, compress, handout]{beamer}
+\documentclass[10pt, compress]{beamer}
 \usepackage[titleprogressbar]{../../cls/beamerthemem}
 
 \usepackage{booktabs}
@@ -40,8 +40,8 @@
 }
 \makeatother
 
-\title{CSCI 3190 Tutorial of Week 06}
-\subtitle{Counting}
+\title{CSCI 3190 Tutorial of Week 07}
+\subtitle{Assignment 1}
 \author{LI Haocheng}
 \institute{Department of Computer Science and Engineering}
 
@@ -50,108 +50,80 @@
 \maketitle
 
 \begin{frame}[fragile]
-\frametitle{The Pigeonhole Principle}
+\frametitle{Tautologies}
 \begin{example}
-	Assume that in a group of six people, each pair of individuals consists of two friends or two enemies.
-	Show that there are either three mutual friends or three mutual enemies in the group.
+	\begin{enumerate}
+		\item $(p \land q) \equiv \neg (p \to \neg q)$
+		\item $((p \land q) \to r) \equiv ((p \to r) \lor (q \to r))$
+		\item $\neg (p \leftrightarrow q) \equiv (p \leftrightarrow \neg q)$
+		\item $((p \land q) \to r) \not\equiv ((p \to r) \land (q \to r))$
+	\end{enumerate}
 \end{example}
-\onslide<2>\begin{solution*}
-	Let $A$ be one of the six individuals.
-	Following from the generalized pigeonhole principle, of the five other people in the group,
-	there are either three or more who are friends or enemies of $A$.
-	
-	Without loss of generality, suppose that $B$, $C$, and $D$ are friends of $A$.
-	If any two of these three people are friends,
-	then these two and $A$ form a group of three mutual friends.
-	Otherwise, $B$, $C$, and $D$ form a set of three mutual enemies.
-\end{solution*}
+\begin{proof}
+	\begin{enumerate}
+		\item<2-> $\neg (p \to \neg q) \equiv \neg (\neg p \lor \neg q) \equiv (p \land q)$.
+		\item<3-> $((p \land q) \to r) \equiv (\neg (p \land q) \lor r) \equiv ((\neg p \lor \neg q) \lor (r \lor r)) \equiv ((\neg p \lor r) \lor (\neg q \lor r)) \equiv ((p \to r) \lor (q \to r))$.
+		\item<4-> $\neg (p \leftrightarrow q) \equiv \neg ((p \lor \neg q) \land (\neg p \lor q)) \equiv ((p \land \neg q) \lor (\neg p \land q)) \equiv ((p \lor q) \land (\neg p \lor \neg q)) \equiv (p \leftrightarrow \neg q)$.
+		\item<5-> Let $p = 1, q = 0, r = 0$, then $lhs = 1, rhs = 0$.
+	\end{enumerate}
+\end{proof}
 \end{frame}
 
 \begin{frame}[fragile]
-
-\frametitle{Ramsey Number}
-\begin{definition}
-	The \textbf{Ramsey number} $R(m, n)$,
-	where $m$ and $n$ are positive integers greater than or equal to 2,
-	denotes the minimum number of people at a party
-	such that there are either $m$ mutual friends or $n$ mutual enemies,
-	assuming that every pair of people at the party are friends or enemies.
-\end{definition}
+\frametitle{Propositional Logic}
 \begin{example}
-	Show that in a group of five people (where any two people are either friends or enemies),
-	there are not necessarily three mutual friends or three mutual enemies.
+	Explain, without using a truth table, why $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p)$ is true when $p$, $q$, and $r$ have the same truth value and it is false otherwise.
 \end{example}
+
+\onslide<2>\begin{proof}
+It is easy to evaluate that the expression is true when all variables have the same truth value. Suppose at least one is true and at least one is false. There are 2 combinations of 2 variables which have different truth value. These 2 combinations can form 2 disjunction expression with false value and one of them is in the conjunction expression so that the whole expression is false.
+\end{proof}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{$R(2, n)$}
-\begin{example}
-	Show that $R(2,n) = n, n \in \mathbb{Z^+} \cap [2, \infty)$.
-\end{example}
-\onslide<2>\begin{solution*}
-	We need to show two
-	things: that if we have a group of $n$ people, then among them
-	we must find either a pair of friends or a subset of $n$ of them
-	all of whom are mutual enemies; and that there exists a group
-	of $n - 1$ people for which this is not possible.
-	
-	For the first
-	statement, if there is any pair of friends, then the condition is
-	satisfied, and if not, then every pair of people are enemies, so
-	the second condition is satisfied. For the second statement, if
-	we have a group of $n - 1$ people all of whom are enemies of
-	each other, then there is neither a pair of friends nor a subset
-	of $n$ of them all of whom are mutual enemies.
-\end{solution*}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Permutation}
+\frametitle{Tautological Implications}
 \begin{columns}
-	\begin{column}{.6\linewidth}
-		\begin{definition}
-			A \textbf{permutation} of a set of distinct objects is an ordered arrangement of these objects.
-		\end{definition}
-		\begin{definition}
-			An ordered arrangement of $r$ elements of a set is called an \textbf{$r$-permutation}.
-		\end{definition}
-		\begin{theorem}
-			\label{thm:p}
-			If $n$ is a positive integer and $r$ is an integer with $1 \le r \le n$, then there are $P(n, r) = n(n - 1)(n - 2) \cdots (n - r + 1)$
-			$r$-permutations of a set with $n$ distinct elements.
-		\end{theorem}
-	\end{column}
-	\begin{column}{.5\linewidth}
-		\onslide<2>\begin{proof}
-			The first element of the
-		permutation can be chosen in $n$ ways. There are $n - 1$ ways to choose the second element of the permutation. Similarly, there are $n - 2$ ways to choose the third element, and so on, until there are exactly $n - (r - 1) = n - r + 1$ ways to choose the $r$th element. Consequently, by the product rule, there are
-		$n(n - 1)(n - 2) \cdots (n - r + 1)$
-		$r$-permutations of the set.
+	\begin{column}{.7\linewidth}
+		\begin{example}
+			\begin{enumerate}
+				\item $p \Rightarrow (p \lor q)$
+				\item $(p \land q) \Rightarrow (p \to q)$
+				\item $\neg (p \to q) \Rightarrow p$
+				\item $((p \lor q) \land \neg p) \Rightarrow q$
+			\end{enumerate}
+		\end{example}
+		\begin{proof}
+			\begin{enumerate}
+				\item<2-> $(\neg p \lor (p \lor q)) \equiv (1 \lor q) \equiv 1$.
+				\item<3-> $(\neg(p \land q) \lor (\neg p \lor q)) \equiv (\neg p \lor \neg q \lor q) \equiv (\neg p \lor 1) \equiv 1$.
+				\item<4-> $\neg (p \to q) \equiv \neg (\neg p \lor q) \equiv (p \land \neg q) \Rightarrow p$.
+				\item<5-> $((p \lor q) \land \neg p) \equiv (0 \lor (\neg p \land q)) \equiv (\neg p \land q) \Rightarrow q$.
+			\end{enumerate}
 		\end{proof}
 	\end{column}
+	\begin{column}{.4\linewidth}
+		\begin{definition}
+			A compound proposition is \textbf{satisfiable} if there is an assignment of truth values to its variables that makes it true. When no such assignments exists, that is, when the compound proposition is false for all assignments of truth values to its variables, the compound proposition is \textbf{unsatisfiable}.
+		\end{definition}
+	\end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Propositional Satisfiability}
+\begin{example}
+	Determine whether each of the compound propositions $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p) \wedge (p \vee q \vee r) \wedge	(\neg p \vee \neg q \vee \neg r)$ is satisfiable.
+\end{example}
+\onslide<2>\begin{solution*}
+	Note that for $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p) \wedge (p \vee q \vee r) \wedge	(\neg p \vee \neg q \vee \neg r)$	to be true, $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p)$ and $(p \vee q \vee r) \wedge (\neg p \vee \neg q \vee \neg r)$ must both be true. For the first to be true, the three variables must have the same truth values, and
+for the second to be true, at least one of three variables must be true and at least one must be false. However, these conditions are contradictory. From these observations we conclude
+that no assignment of truth values to $p$, $q$, and $r$ makes $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p) \wedge (p \vee q \vee r) \wedge	(\neg p \vee \neg q \vee \neg r)$ true. Hence, it is unsatisfiable.
+\end{solution*}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Factorial Expression}
-\begin{columns}
-	\begin{column}{.4\linewidth}
-		\begin{crl}
-			If $n$ and $r$ are integers with $0 \le r \le n$, then $P(n, r) = \frac{n!}{(n - r)!}$.
-		\end{crl}
-		\onslide<2->\begin{proof}
-			When $n$ and $r$ are integers with $1 \le r \le n$, we have it by Theorem~\ref{thm:p}. Because $\frac{n!}{(n - 0)!} = 1$ whenever $n \ge 0$, we have it when $r = 0$.
-		\end{proof}
-	\end{column}
-	\begin{column}{.6\linewidth}
-		\onslide<1->\begin{example}
-			How many ways are there to select a first-prize winner, a second-prize winner, and a third-prize winner from 100 different people who have entered a contest?
-		\end{example}
-		\onslide<3>\begin{solution*}
-			The number is the number of 3-permutations of a set of 100 elements. Consequently, the answer is $P(100, 3) = 100 \times 99 \times 98 = 970200$.
-		\end{solution*}
-	\end{column}
-\end{columns}
+
 \end{frame}
 
 \begin{frame}[fragile]
