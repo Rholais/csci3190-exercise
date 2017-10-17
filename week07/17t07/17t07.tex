@@ -174,6 +174,40 @@ that no assignment of truth values to $p$, $q$, and $r$ makes $(p \vee \neg q) \
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Functions}
+\begin{columns}
+	\begin{column}{.3\linewidth}
+		\begin{example}
+			If $|A| = 6$ and $|B| = 5$, how many function $f: A \to B$ can be formed? How many of them are onto functions?
+		\end{example}
+		\begin{solution*}
+			\begin{enumerate}
+				\item<2-> $5^6 = 15625$.
+				\item<3-> $C(6, 2) \times P(5, 5) = 1800$.
+			\end{enumerate}
+		\end{solution*}
+	\end{column}
+	\begin{column}{.8\linewidth}
+		\begin{example}
+			Consider the relation $R = \{(4, 2), (1, 3), (1, 4)\}$ over the set $A = \{1, 2, 3, 4\}$:
+			\begin{enumerate}
+				\item What is the reflexive closure of the symmetric closure of $R$?
+				\item What is the transitive closure of the reflexive closure of $R$?
+			\end{enumerate}
+			
+		\end{example}
+		\begin{solution*}
+			\begin{enumerate}
+				\item<4-> Symmetric Closure: $\{(1, 3), (1, 4), (2, 4), (3, 1), (4, 1), (4, 2)\}$.
+				\item<5-> Reflexive Closure: $\{(1, 1), (1, 3), (1, 4), (2, 2), (2, 4), (3, 1), (3, 3), (4, 1), (4, 2), (4, 4)\}$.
+			\end{enumerate}
+		\end{solution*}
+	\end{column}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Big-Theta}
 \begin{columns}
 	\begin{column}{.5\linewidth}
@@ -203,9 +237,15 @@ that no assignment of truth values to $p$, $q$, and $r$ makes $(p \vee \neg q) \
 \end{columns}
 \end{frame}
 
-\begin{frame}[fragile]
-	\frametitle{Binomial Coefficients}
-
+\begin{frame}
+	\frametitle{Sorting Algorithm}
+	\begin{theorem} \label{t-11-2-1}
+		A sorting algorithm based on binary comparisons requires at least $\lceil \log n! \rceil$ comparisons.
+	\end{theorem}
+	\onslide<2>\begin{proof}
+		The complexity of a sort based on binary comparisons is measured in terms of the number	of such comparisons used. The largest number of binary comparisons ever needed to sort a list with $n$ elements gives the worst-case performance of the algorithm. The most comparisons used equals the longest path length in the decision tree representing the sorting procedure. In other words, the largest number of comparisons ever needed is equal to the height of the decision
+		tree. Because the height of a binary tree with $n!$ leaves is at least $\lceil \log n! \rceil$, at least $\lceil \log n! \rceil$ comparisons are needed.
+	\end{proof}
 \end{frame}
 
 \plain{Questions?}
