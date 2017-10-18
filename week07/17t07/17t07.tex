@@ -77,7 +77,7 @@
 \frametitle{Propositional Logic}
 \begin{example}
 	Explain, without using a truth table,
-	why $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p)$ is true
+	why $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p)$ is true
 	when $p, q, r$ have the same truth value and it is false otherwise.
 \end{example}
 
@@ -125,12 +125,13 @@
 \begin{frame}[fragile]
 \frametitle{Propositional Satisfiability}
 \begin{example}
-	Determine whether each of the compound propositions $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p) \wedge (p \vee q \vee r) \wedge	(\neg p \vee \neg q \vee \neg r)$ is satisfiable.
+	Determine whether each of the compound propositions
+	$(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r) \land	(\neg p \lor \neg q \lor \neg r)$ is satisfiable.
 \end{example}
 \onslide<2>\begin{solution*}
-	Note that for $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p) \wedge (p \vee q \vee r) \wedge	(\neg p \vee \neg q \vee \neg r)$	to be true, $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p)$ and $(p \vee q \vee r) \wedge (\neg p \vee \neg q \vee \neg r)$ must both be true. For the first to be true, the three variables must have the same truth values, and
+	Note that for $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r) \land	(\neg p \lor \neg q \lor \neg r)$	to be true, $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p)$ and $(p \lor q \lor r) \land (\neg p \lor \neg q \lor \neg r)$ must both be true. For the first to be true, the three variables must have the same truth values, and
 for the second to be true, at least one of three variables must be true and at least one must be false. However, these conditions are contradictory. From these observations we conclude
-that no assignment of truth values to $p$, $q$, and $r$ makes $(p \vee \neg q) \wedge (q \vee \neg r) \wedge (r \vee \neg p) \wedge (p \vee q \vee r) \wedge	(\neg p \vee \neg q \vee \neg r)$ true. Hence, it is unsatisfiable.
+that no assignment of truth values to $p$, $q$, and $r$ makes $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r) \land	(\neg p \lor \neg q \lor \neg r)$ true. Hence, it is unsatisfiable.
 \end{solution*}
 \end{frame}
 
