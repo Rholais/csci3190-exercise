@@ -116,7 +116,11 @@
 	\end{column}
 	\begin{column}{.4\linewidth}
 		\begin{definition}
-			A compound proposition is \textbf{satisfiable} if there is an assignment of truth values to its variables that makes it true. When no such assignments exists, that is, when the compound proposition is false for all assignments of truth values to its variables, the compound proposition is \textbf{unsatisfiable}.
+			A compound proposition is \textbf{satisfiable}
+			if there is an assignment of truth values to its variables that makes it true.
+			When no such assignments exists, that is,
+			when the compound proposition is false for all assignments of truth values to its variables,
+			the compound proposition is \textbf{unsatisfiable}.
 		\end{definition}
 	\end{column}
 \end{columns}
@@ -126,12 +130,23 @@
 \frametitle{Propositional Satisfiability}
 \begin{example}
 	Determine whether each of the compound propositions
-	$(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r) \land	(\neg p \lor \neg q \lor \neg r)$ is satisfiable.
+	$(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r)$
+	$\land (\neg p \lor \neg q \lor \neg r)$ is satisfiable.
 \end{example}
 \onslide<2>\begin{solution*}
-	Note that for $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r) \land	(\neg p \lor \neg q \lor \neg r)$	to be true, $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p)$ and $(p \lor q \lor r) \land (\neg p \lor \neg q \lor \neg r)$ must both be true. For the first to be true, the three variables must have the same truth values, and
-for the second to be true, at least one of three variables must be true and at least one must be false. However, these conditions are contradictory. From these observations we conclude
-that no assignment of truth values to $p$, $q$, and $r$ makes $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r) \land	(\neg p \lor \neg q \lor \neg r)$ true. Hence, it is unsatisfiable.
+	Note that for
+	$(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r)$
+	$\land (\neg p \lor \neg q \lor \neg r)$ to be true,
+	$(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p)$ and
+	$(p \lor q \lor r) \land (\neg p \lor \neg q \lor \neg r)$ must both be true.
+	For the first to be true, the three variables must have the same truth values,
+	and for the second to be true,
+	at least one of three variables must be true and at least one must be false.
+	However, these conditions are contradictory.
+	From these observations we conclude that no assignment of truth values to $p$, $q$,
+	and $r$ makes
+	$(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r)$
+	$\land (\neg p \lor \neg q \lor \neg r)$ true. Hence, it is unsatisfiable.
 \end{solution*}
 \end{frame}
 
@@ -140,7 +155,7 @@ that no assignment of truth values to $p$, $q$, and $r$ makes $(p \lor \neg q) \
 \begin{columns}
 	\begin{column}{.7\linewidth}
 		\begin{example}
-			Determine the truth value of the followings, where $x, y \in \mathbb{Z}^+$.
+			Determine the truth value of the followings, where $x, y \in \mathbb{I}^+$.
 			\begin{enumerate}
 				\item $\forall x \forall y (2x^2 < y + 1)$
 				\item $\forall x \exists y (2x^2 < y + 1)$
@@ -175,7 +190,7 @@ that no assignment of truth values to $p$, $q$, and $r$ makes $(p \lor \neg q) \
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Functions}
+\frametitle{Function}
 \begin{columns}
 	\begin{column}{.3\linewidth}
 		\begin{example}
@@ -195,7 +210,6 @@ that no assignment of truth values to $p$, $q$, and $r$ makes $(p \lor \neg q) \
 				\item What is the reflexive closure of the symmetric closure of $R$?
 				\item What is the transitive closure of the reflexive closure of $R$?
 			\end{enumerate}
-			
 		\end{example}
 		\begin{solution*}
 			\begin{enumerate}
@@ -205,7 +219,31 @@ that no assignment of truth values to $p$, $q$, and $r$ makes $(p \lor \neg q) \
 		\end{solution*}
 	\end{column}
 \end{columns}
+\end{frame}
 
+\begin{frame}
+\frametitle{Relation}
+\begin{example}
+	Consider the relation $R$ over the set of all positive integers $\mathbb{I}^+$:	$R = \{(a, b) \mid |a - b| \equiv 0 \pmod{2}\}$
+	\begin{enumerate}
+		\item Is $R$ an equivalence relation? Explain your answer.
+		\item How many equivalence classes of $R$ in $\mathbb{I}^+$ are there? What are they?
+	\end{enumerate}
+\end{example}
+\begin{solution*}
+	\begin{enumerate}
+		\item<2-> Yes. \begin{itemize}
+			\item $\forall a \in \mathbb{I}^+, |a - a| = 0$.
+			\item $|b - a| = |a - b|$.
+			\item $|a - c| \equiv a - c \equiv (a - b) + (b - c) \equiv |a - b| + |b - c| \pmod{2}$.
+		\end{itemize}
+		
+		\item<3-> \begin{itemize}
+			\item 2.
+			\item $[1] = \{a \mid a \equiv 1 \pmod{2}\}$, $[2] = \{a \mid a \equiv 0 \pmod{2}\}$.
+		\end{itemize}
+	\end{enumerate}
+\end{solution*}
 \end{frame}
 
 \begin{frame}[fragile]
