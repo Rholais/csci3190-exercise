@@ -1,5 +1,5 @@
 %!TEX program = xelatex
-\documentclass[10pt, compress]{beamer}
+\documentclass[10pt, compress, handout]{beamer}
 \usepackage[titleprogressbar]{../../cls/beamerthemem}
 
 \usepackage{booktabs}
@@ -105,7 +105,8 @@
 		\begin{proof}
 			\begin{enumerate}
 				\item<2-> $(\neg p \lor (p \lor q)) \equiv (1 \lor q) \equiv 1$.
-				\item<3-> $(\neg(p \land q) \lor (\neg p \lor q)) \equiv (\neg p \lor \neg q \lor q)$
+				\item<3-> $(\neg(p \land q) \lor (\neg p \lor q))$
+				$\equiv ((\neg p \lor \neg q) \lor (\neg p \lor q)) \equiv (\neg p \lor \neg q \lor q)$
 				$\equiv (\neg p \lor 1) \equiv 1$.
 				\item<4-> $\neg (p \to q) \equiv \neg (\neg p \lor q) \equiv (p \land \neg q)$
 				$\Rightarrow p$.

@@ -1,0 +1,243 @@
+%!TEX program = xelatex
+\documentclass[10pt, compress]{beamer}
+\usepackage[titleprogressbar]{../../cls/beamerthemem}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{minted}
+
+\usepgfplotslibrary{dateplot}
+
+\usemintedstyle{trac}
+
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{theorems}[numbered]
+\newtheorem{crl}{Corollary}[theorem]
+\newtheorem*{solution*}{Solution}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\usepackage{version}
+%\excludeversion{proof}
+%\excludeversion{solution*}
+
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{qtree}
+
+\usepackage{tikz}
+
+\makeatletter
+\def\old@comma{,}
+\catcode`\,=13
+\def,{%
+	\ifmmode%
+	\old@comma\discretionary{}{}{}%
+	\else%
+	\old@comma%
+	\fi%
+}
+\makeatother
+
+\title{CSCI 3190 Tutorial of Week 08}
+\subtitle{Quiz 1}
+\author{LI Haocheng}
+\institute{Department of Computer Science and Engineering}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}[fragile]
+\frametitle{Tautologies}
+\begin{example}
+	\begin{enumerate}
+		\item Determine if the following is a tautology. Show your proof. \begin{equation}
+			(p \to q) \to ((p \lor q) \to q).
+		\end{equation}
+		\item Determine if the followings are logically equivalent. Show your proof. \begin{equation}
+		(p \to q) \land (p \to r) \text{~and~} q \to r.
+		\end{equation}
+	\end{enumerate}
+\end{example}
+\begin{proof}
+	\begin{enumerate}
+		\item<2-> $((p \to q) \to ((p \lor q) \to q)) \equiv \neg (\neg p \lor q) \lor (\neg(p \lor q) \lor q)$
+		$\equiv ((p \land \neg q) \lor (\neg p \land \neg q) \lor q)$
+		$\equiv (((p \lor \neg q) \land (\neg p \lor \neg q) \land \neg q) \lor q ) \equiv ((\neg q \land \neg q) \lor q) \equiv T$.
+		\item<3-> Let $p = 0, q = 1, r = 0$, then $lhs = 1, rhs = 0$.
+	\end{enumerate}
+\end{proof}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Distributive Property}
+\begin{example}
+	Prove that \begin{enumerate}
+		\item $(A - B) - (A - C) \equiv A \cap (C - B)$;
+		\item $(A - C) - (B - C) \equiv (A - B) - C$.
+	\end{enumerate}
+\end{example}
+\begin{proof}
+	\begin{columns}
+		\onslide<2->\begin{column}{.4\linewidth}
+			\begin{align}
+				\begin{aligned}
+					& (A - B) - (A - C)\\
+					\equiv & (A \cap \overline{B}) \cap \overline{A \cap \overline{C}}\\
+					\equiv & A \cap \overline{B} \cap (\overline{A} \cup C)\\
+					\equiv & A \cap \overline{B} \cap C\\
+					\equiv & A \cap (C - B).
+				\end{aligned}
+			\end{align}
+		\end{column}
+		\onslide<3>\begin{column}{.4\linewidth}
+			\begin{align}
+				\begin{aligned}
+					& (A - C) - (B - C)\\
+					\equiv & A \cap \overline{C} \cap \overline{B \cap \overline{C}}\\
+					\equiv & A \cap \overline{C} \cap (\overline{B} \cup C)\\
+					\equiv & A \cap \overline{B} \cap \overline{C}\\
+					\equiv & (A - B) - C.
+				\end{aligned}
+			\end{align}
+		\end{column}
+	\end{columns}
+\end{proof}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Relation}
+\begin{columns}
+	\begin{column}{.6\linewidth}
+		\begin{example}
+			\begin{enumerate}
+				\item Let $A = \{1, 2, 3, 4, 5\}$, $R$ is a relation on $A \times A$ such that $((a, b), (c, d)) \in R$ if and only if $a - d = c - b$. Show that $R$ is an equivalence relation.
+				\item How many equivalence classes are there in $R$?
+			\end{enumerate}
+		\end{example}
+		\begin{proof}
+			\begin{enumerate}
+				\item<2-> \begin{itemize}
+					\item $a - b = a - b$.
+					\item $a - d = c - b \Leftrightarrow c - b = a - d$.
+					\item $a - d = c - b, c - f = e - d \Rightarrow a - f = e - b$.
+				\end{itemize}
+				\item<3-> 9.
+			\end{enumerate}
+		\end{proof}
+	\end{column}
+	\begin{column}{.5\linewidth}
+		\onslide<1->\begin{example}
+			Let $n \in \mathbb{Z}^+$, let $U = \{1, 2, \cdots, n\}$. Define the relation $R$ on the power set of $U$ by $(A, B) \in R$ if and only if $A \not\subset B$ and $B \not\subset A$. Is $R$ an equivalence relation? What is $|R|$?
+		\end{example}
+		\begin{solution*}
+			\begin{enumerate}
+				\item<4->. $R$ is not an equivalence relation. Let $n = 3, A = \{1\}, B = \{2\}$, $C = \{1, 3\}$ so that $(A, B) \in R, (B, C) \in R, (A, C) \notin R$.
+				\item<5> $|R| = 2^{2n} - 2(3^n - 2^n)$.
+			\end{enumerate}
+		\end{solution*}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Sets}
+\begin{columns}
+	\begin{column}{.7\linewidth}
+
+	\end{column}
+	\begin{column}{.4\linewidth}
+		\onslide<1->\begin{example}
+			Let $A_1$, $A$ and $B$ be sets such that $\{1, 2, 3, 4, 5\} = A_1 \subset A$, $B = \{s, t, u, v, w, x\}$ and $f$ is a function from $A_1$ to $B$. If $f$ can be extended to $A$ (by defining the mapping for those in $A - A_1$) in 216 ways, what is $|A|$?
+		\end{example}
+		\onslide<4>\begin{solution*}
+			$|A - A_1| = 3$ so that $|A| = 8$.
+		\end{solution*}
+	\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Onto}
+\begin{example}
+	Consider the set $X$ of all functions $f \colon A \rightarrow B$, where $A = \{1, 2, 3, 4, 5, 6, 7\}$, $B = \{a, b, c, d, e\}$. How many functions in $X$ are onto?
+\end{example}
+\onslide<2>\begin{solution*}
+	For the first situation that 1 of $B$ matches 3 of $A$ and others match 1 of $A$ for each, we select 1 of 5 in $B$ and then for each of other 4 items in $B$ select 1 different item in $A$ so that there are ${}_5 C_1 \times {}_7 P_4$ functions in the first situation.
+	
+	For the second situation that 2 of $B$ match 2 of $A$ for each and others match 1 of $A$ for each, we select 2 of 5 in $B$, for each of other 3 items in $B$ select 1 different item in $A$ and then from the rest 4 items in $A$ select 2 of them to match 1 of 2 rest item in $B$ so that there are ${}_5 C_2 \times {}_7 P_3 \times {}_4 C_2$ functions in the section situation.
+	
+	Totally, there are ${}_5 C_1 \times {}_7 P_4 + {}_5 C_2 \times {}_7 P_3 \times {}_4 C_2 = 16800$ functions.
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Generating Function}
+\onslide<1->\begin{example}
+	Let the lifespan of a raccoon be exactly 6 years. Suppose there are 4 new-born raccoons at the 0th year and the number of new-born raccoons in each year is 3 times that in the previous year. Let $b_r$ be the number of raccoons on $r$-th year where $r \ge 0$. Give a closed form generating function for $b_r$.
+\end{example}
+
+\onslide<2>\begin{solution*}
+	\begin{equation}
+		n_r = \begin{cases}
+		4 \times 3^r, & r \ge 0\\
+		0, & \text{otherwise}.
+		\end{cases} \leftrightarrow \frac{4}{1 - 3x},
+	\end{equation} so that number of racoons is \begin{equation}
+		b_r = \Sigma_{i = r - 5}^{r} n_i \leftrightarrow \frac{4(1 - x^6)}{(1 - 3x)(1 - x)}.
+	\end{equation}
+\end{solution*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Relation}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Big-Theta}
+\begin{columns}
+	\begin{column}{.5\linewidth}
+		\begin{example}
+			Show that $n \log n$ is $O(\log n!)$.
+		\end{example}
+		
+		\onslide<2->\begin{proof}
+			We can easily show that $(n - i)(i + 1) \ge n$ for $i = 0, 1, \cdots, n - 1$.
+			Hence, $(n!)^2 = (n \cdot 1)((n - 1) \cdot 2) \cdot ((n - 2) \cdot 3) \cdots (2 \cdot (n -
+			1)) \cdot (1 \cdot n) \ge n^n$. Therefore, $2 log n! \ge n log n$.
+		\end{proof}
+	\end{column}
+	\begin{column}{.6\linewidth}
+		\onslide<1->\begin{example}
+			Determine whether $\log n!$ is $\Theta(n \log n)$.
+		\end{example}
+		
+		\onslide<3->\begin{solution*}
+			We have known that $n \log n = O(\log n!)$.
+			
+			\textbf{Claim} $\log n! = O(n \log n)$ so that $n \log n = \Omega(\log n!)$. Hence, $\log n! = \Theta(n \log n)$.
+			
+			\textbf{Proof} $\exists c = 1, \exists N = 1$, such that $\forall n \ge N, n! \le n^n$, so that $\log n! \le c n\log n$.
+		\end{solution*}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Sorting Algorithm}
+	\begin{theorem} \label{t-11-2-1}
+		A sorting algorithm based on binary comparisons requires at least $\lceil \log n! \rceil$ comparisons.
+	\end{theorem}
+	\onslide<2>\begin{proof}
+		The complexity of a sort based on binary comparisons is measured in terms of the number	of such comparisons used. The largest number of binary comparisons ever needed to sort a list with $n$ elements gives the worst-case performance of the algorithm. The most comparisons used equals the longest path length in the decision tree representing the sorting procedure. In other words, the largest number of comparisons ever needed is equal to the height of the decision
+		tree. Because the height of a binary tree with $n!$ leaves is at least $\lceil \log n! \rceil$, at least $\lceil \log n! \rceil$ comparisons are needed.
+	\end{proof}
+\end{frame}
+
+\plain{Questions?}
+
+\end{document}
