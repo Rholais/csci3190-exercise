@@ -1,6 +1,6 @@
 %!TEX program = xelatex
 \documentclass[10pt, compress, handout]{beamer}
-\usetheme[titleprogressbar]{m}
+\usepackage[titleprogressbar]{../../cls/beamerthemem}
 
 \usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
@@ -37,65 +37,6 @@
 \begin{document}
 
 \maketitle
-
-\begin{frame}[allowframebreaks]
-	\frametitle{Pigeonhole Principle}
-	\begin{example}
-		Let $S$ be a set of 7 positive integers the maximum of which is at most 24. Prove that the sums of the elements in all the nonempty subsets of $S$ cannot be distinct.
-	\end{example}
-	
-	\textbf{Proof.}	Consider all nonempty subsets. Their maximum sum is at most $18 + 19 + \cdots + 24 = 147$. There are $128 - 1 = 127$ nonempty subsets. There are more holes than pigeons.
-	
-	\newpage
-		
-	Consider nonempty subsets of size at most 6. Their maximum sum is at most $19 + 20 + \cdots + 24 = 129$. There are $127 - 1 = 126$ nonempty subsets of size at most 6 elements. There are still more holes than pigeons.
-		
-	Consider nonempty subsets of size at most 5. Their maximum sum is at most $20 + 21 + \cdots + 24 = 110$. There are $126 - 7 = 119$ nonempty subsets with at most 5 elements so at least 2 of them have equal sum.
-\end{frame}
-
-\begin{frame}[fragile]
-	\frametitle{Relation}
-	\onslide<1->\begin{example}
-		Let $n \in \mathbb{Z}^+$, let $U = \{1, 2, \cdots, n\}$. Define the relation $R$ on the power set of $U$ by $(A, B) \in R$ if and only if $A \not\subset B$ and $B \not\subset A$. Is $R$ an equivalence relation? What is $|R|$? (Note that the power set of $U$ is set of all subset of $U$.)
-	\end{example}
-	\onslide<2>\textbf{Solution} \begin{enumerate}
-		\item $R$ is not an equivalence relation. Let $n = 3, A = \{1\}, B = \{2\}$, $C = \{1, 3\}$ so that $(A, B) \in R, (B, C) \in R, (A, C) \notin R$.
-		\item $|R| = 2^{2n} - 2(3^n - 2^n)$.
-	\end{enumerate}
-\end{frame}
-
-\begin{frame}[fragile]
-	\frametitle{Equivalence Class}
-	\onslide<1->\begin{definition}
-		Let $R$ be an equivalence relation on a set $A$. The set of all elements that are related to an element $a$ of $A$ is called the equivalence class of $a$. The equivalence class of a with respect
-		to $R$ is denoted by $[a]_R$. When only one relation is under consideration, we can delete the subscript $R$ and write $[a]$ for this equivalence class.
-	\end{definition}
-	\onslide<2->\begin{example}
-		Let $R$ be the relation on the set of integers such that $aRb$ if and only if $a = b$ or $a =-b$. What is the equivalence class of an integer?
-	\end{example}
-	\onslide<3>\textbf{Solution} Because an integer is equivalent to itself and its negative in this equivalence relation, it follows that $[a]=\{-a, a\}$. This set contains two distinct integers unless $a = 0$. For instance, $[7]=\{-7, 7\}$, $[-5]=\{-5, 5\}$, and $[0]=\{0\}$.
-\end{frame}
-
-\begin{frame}[allowframebreaks]
-	\frametitle{Partition}
-	\begin{theorem}
-		Let $R$ be an equivalence relation on a set $A$. These statements for elements $a$ and $b$ of $A$ are equivalent:\begin{enumerate}
-			\item $aRb$
-			\item $[a]=[b]$
-			\item $[a]\cap[b] \ne \emptyset$
-		\end{enumerate}
-	\end{theorem}
-	\textbf{Proof.} We first show that 1 implies 2. Assume that $aRb$. We will prove that $[a]=[b]$ by showing $[a]\subseteq[b]$ and $[b]\subseteq[a]$. Suppose $c \in [a]$. Then $aRc$. Because $aRb$ and $R$ is symmetric, we know that $bRa$. 
-	
-	Furthermore, because $R$ is transitive and $bRa$ and $aRc$, it follows that $bRc$. Hence, $c \in [b]$. This shows that $[a]\subseteq[b]$. The proof that $[b]\subseteq[a]$ is similar.
-		
-	Second, we will show that 2 implies 3. Assume that $[a]=[b]$. It follows that $[a]\cap[b] \ne \emptyset$ because $[a]$ is nonempty (because $a \in [a]$ because $R$ is reflexive).
-		
-	Next, we will show that 3 implies 1. Suppose that $[a]\cap[b] \ne \emptyset$. Then there is an
-		element $c$ with $c \in [a]$ and $c \in [b]$. In other words, $aRc$ and $bRc$. By the symmetric property, $cRb$. Then by transitivity, because $aRc$ and $cRb$, we have $aRb$.
-		
-	Because 1 implies 2, 2 implies 3, and 3 implies 1, the three statements, 1, 2, and 3, are equivalent.
-\end{frame}
 
 \begin{frame}[fragile]
 	\frametitle{Equivalence Relation}

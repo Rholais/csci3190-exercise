@@ -1,0 +1,193 @@
+%!TEX program = xelatex
+\documentclass[10pt, compress]{beamer}
+\usepackage[titleprogressbar]{../../cls/beamerthemem}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{minted}
+
+\usepgfplotslibrary{dateplot}
+
+\usemintedstyle{trac}
+
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{theorems}[numbered]
+\newtheorem{crl}{Corollary}[theorem]
+\newtheorem*{solution*}{Solution}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\usepackage{version}
+%\excludeversion{proof}
+%\excludeversion{solution*}
+
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{qtree}
+
+\usepackage{tikz}
+
+\makeatletter
+\def\old@comma{,}
+\catcode`\,=13
+\def,{%
+	\ifmmode%
+	\old@comma\discretionary{}{}{}%
+	\else%
+	\old@comma%
+	\fi%
+}
+\makeatother
+
+\title{CSCI 3190 Tutorial of Week 09}
+\subtitle{Mathematical Induction}
+\author{LI Haocheng}
+\institute{Department of Computer Science and Engineering}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}[allowframebreaks]
+\frametitle{Equivalence Relation}
+\begin{theorem}
+	Let $R$ be an equivalence relation on a set $A$. These statements for elements $a$ and $b$ of $A$ are equivalent:\begin{enumerate}
+		\item $aRb$
+		\item $[a]=[b]$
+		\item $[a]\cap[b] \ne \emptyset$
+	\end{enumerate}
+\end{theorem}
+\textbf{Proof.} We first show that 1 implies 2. Assume that $aRb$. We will prove that $[a]=[b]$ by showing $[a]\subseteq[b]$ and $[b]\subseteq[a]$. Suppose $c \in [a]$. Then $aRc$. Because $aRb$ and $R$ is symmetric, we know that $bRa$. 
+
+Furthermore, because $R$ is transitive and $bRa$ and $aRc$, it follows that $bRc$. Hence, $c \in [b]$. This shows that $[a]\subseteq[b]$. The proof that $[b]\subseteq[a]$ is similar.
+
+Second, we will show that 2 implies 3. Assume that $[a]=[b]$. It follows that $[a]\cap[b] \ne \emptyset$ because $[a]$ is nonempty (because $a \in [a]$ because $R$ is reflexive).
+
+Next, we will show that 3 implies 1. Suppose that $[a]\cap[b] \ne \emptyset$. Then there is an
+element $c$ with $c \in [a]$ and $c \in [b]$. In other words, $aRc$ and $bRc$. By the symmetric property, $cRb$. Then by transitivity, because $aRc$ and $cRb$, we have $aRb$.
+
+Because 1 implies 2, 2 implies 3, and 3 implies 1, the three statements, 1, 2, and 3, are equivalent.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Raccoons}
+\begin{example}
+	Let the lifespan of a raccoon be exactly 6 years. Suppose there are 4 new-born raccoons at the 0th year and the number of new-born raccoons in each year is 3 times that in the previous year. Let $b_r$ be the number of raccoons on $r$-th year where $r \ge 0$. Give a closed form generating function for $b_r$.
+\end{example}
+
+\onslide<2>\begin{solution*}
+	\begin{equation}
+		n_r = \begin{cases}
+		4 \times 3^r, & r \ge 0\\
+		0, & \text{otherwise}.
+		\end{cases} \leftrightarrow \frac{4}{1 - 3x},
+	\end{equation} so that number of racoons is \begin{equation}
+		b_r = \Sigma_{i = r - 5}^{r} n_i \leftrightarrow \frac{4(1 - x^6)}{(1 - 3x)(1 - x)}.
+	\end{equation}
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Mathematical Induction}
+\begin{example}
+	For $n \in \mathbb{N}^+$, prove each of the following by mathematical induction:\begin{enumerate}
+		\item $3 | 2^{2n + 1}$;
+		\item $9 | n^3 + (n + 1)^3 + (n + 2)^3$.
+	\end{enumerate}
+\end{example}
+\begin{proof}
+	\begin{enumerate}
+		\item<2-> \begin{description}
+			\item[Base] Let $n = 0$, $3 \mid 2^1 + 1 = 3$.
+			\item[Induction] Suppose $3 \mid 2^{2n - 1} + 1$, $2^{2n + 1} = 3 * 2^{2n - 1} + 2^{2n - 1} + 1 \equiv 0 \pmod{3}$.
+		\end{description}
+		\item<3> \begin{description}
+			\item[Base] Let $n = 0$, $9 \mid 1^3 + 2^3$.
+			\item[Induction] Suppose $9 \mid (n - 1)^3 + n^3 + (n + 1)^3$, $n^3 + (n + 1)^3 + (n + 2)^3 = (n - 1)^3 + n^3 + (n + 1)^3 + 3((n - 1)^2 + (n - 1)(n + 2) + (n + 2)^2) = (n - 1)^3 + n^3 + (n + 1)^3 + 9(n^2 + n + 1) \equiv 0 \pmod{9}$.
+		\end{description}
+	\end{enumerate}
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\frametitle{Right Trominoes}
+\begin{columns}
+	\begin{column}{.3\linewidth}
+		\begin{example}
+			Let $n \in \mathbb{N}^+$. Show that every $2^n \times 2^n$ checkerboard with one square removed can be tiled using right trominoes, where these pieces cover three squares at a time.
+		\end{example}
+		\begin{figure}
+			\includegraphics[width=.4\linewidth]{tromino}
+			\caption{Tromino}
+		\end{figure}
+	\end{column}
+	\begin{column}{.8\linewidth}
+		\begin{proof}
+			\begin{description}
+				\item[Base]<2-> $P(1)$ is true, obviously.
+				\item[Induction]<3> Split the $2^{k + 1} \times 2^{k + 1}$ checkerboard with one square removed into four checkerboards of size $2^k \times 2^k$. Now temporarily remove the
+				square from each of the three full checkerboards at the center of the original. By the inductive hypothesis,
+				each of these four checkerboards with a square removed can be tiled by right trominoes. Furthermore, the three squares that were temporarily removed can be covered by one right
+				tromino.
+			\end{description}
+		\end{proof}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Recursive Algorithms}
+\begin{columns}
+	\begin{column}{.4\linewidth}
+		\begin{example}
+			\setcounter{algorithm}{0}
+			\begin{algorithm}[H]
+				\caption{Recursive Algorithm to Find $a^{2^n}$}
+				\label{alg:a2n}
+				\begin{algorithmic}[1]
+					\Require $a \in \mathbb{R}, n \in \mathbb{N}^+$.
+					\Ensure $a^{2^n}$.
+					\Procedure{pow2}{$a$, $n$}
+					\onslide<2->\If {$n = 1$}
+					\State\Return $a$
+					\EndIf
+					\State $p \gets$ \Call{pow2}{$a$, $n - 1$}
+					\State\Return $p \times p$
+					\EndProcedure
+				\end{algorithmic}
+			\end{algorithm}
+		\end{example}
+	\end{column}
+	\begin{column}{.6\linewidth}
+		\onslide<1->\begin{example}
+			\setcounter{algorithm}{1}
+			\begin{algorithm}[H]
+				\caption{Recursive Algorithm to Find $a^{n}$}
+				\label{alg:an}
+				\begin{algorithmic}[1]
+					\Require $a \in \mathbb{R}, n \in \mathbb{N}$.
+					\Ensure $a^{n}$.
+					\Procedure{pow}{$a$, $n$}
+					\onslide<3>\If {$n = 0$}
+					\Return $1$
+					\EndIf
+					\If {$n = 1$}
+					\Return $a$
+					\EndIf
+					\State $p \gets$ \Call{pow2}{$a$, $\lfloor\frac{n}{2}\rfloor$}
+					\If {$n \equiv 0 \pmod{2}$}
+					\Return $p \times p$
+					\EndIf
+					\State\Return $p \times p \times a$
+					\EndProcedure
+				\end{algorithmic}
+			\end{algorithm}
+		\end{example}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\plain{Questions?}
+
+\end{document}
