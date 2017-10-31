@@ -39,32 +39,6 @@
 \maketitle
 
 \begin{frame}[fragile]
-	\frametitle{Circuit}
-	\onslide<1->\begin{example}
-		Let $P_1$ and $P_2$ be two paths without cycle between the vertices $u$ and $v$ in the simple graph $G$ that do not contain the same set of edges. Show that there is a circuit in $G$.
-	\end{example}
-	\onslide<2>\textbf{Proof.}	Let
-	the paths $P_1$ and $P_2$ be $u = x_0, x_1, \cdots, x_n = v$ and $u = y_0, y_1$, $\cdots$, $y_m = v$, respectively. Since the paths do not contain cycles, they must diverge eventually. We can suppose that $x_0 = y_0, x_1 = y_1$, $\cdots$, $x_i = y_i$, but $x_{i + 1} \ne y_{i + 1}$. To form our circuit, we follow the path $y_i, y_{i + 1}, y_{i + 2}$, and so on,
-	until it once again first encounters a vertex on $P_1$. Once we are back on $P_1$, we
-	follow it along-forwards or backwards, as necessary-to return
-	to $x_i$. Since $x_i = y_i$, this certainly forms a circuit.
-\end{frame}
-
-\begin{frame}[allowframebreaks]
-	\frametitle{Tree}
-	\begin{theorem}
-		An undirected graph is a tree if and only if there is a unique path without cycle between any two of its vertices.
-	\end{theorem}
-	\textbf{Proof.} First assume that $T$ is a tree. Then $T$ is a connected graph without circuit. Let $x$ and $y$ be two vertices of $T$ . Because $T$ is connected, there is a path without cycle between $x$ and $y$. Moreover, this path must be unique, for if there were a second such path, the path formed by combining the first path from $x$ to $y$ followed by the path from $y$ to $x$ obtained by reversing the order of the second path from $x$ to $y$ would form a circuit. 
-	
-	\newpage
-	
-	This implies that there is a circuit in $T$. Hence, there is a unique path without cycle between any two vertices of a tree. 
-	
-	Now assume that there is a unique path without cycle between any two vertices of a graph $T$. Then $T$ is connected, because there is a path between any two of its vertices. Furthermore, $T$ can have no circuits. To see that this is true, suppose $T$ had a circuit that contained the vertices $x$ and $y$. Then there would be two simple paths between $x$ and $y$, because the circuit is made up of a path from $x$ to $y$ and a second path from $y$ to $x$. Hence, a graph with a unique simple path between any two vertices is a tree.
-\end{frame}
-
-\begin{frame}[fragile]
 	\frametitle{Terminology}
 	\begin{columns}
 		\begin{column}{.6\linewidth}
