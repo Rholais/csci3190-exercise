@@ -188,6 +188,28 @@ Because 1 implies 2, 2 implies 3, and 3 implies 1, the three statements, 1, 2, a
 \end{columns}
 \end{frame}
 
+\begin{frame}[allowframebreaks]
+	\frametitle{Tree}
+	\begin{theorem}
+		An undirected graph is a tree if and only if there is a unique path without cycle between any two of its vertices.
+	\end{theorem}
+	\textbf{Proof.} First assume that $T$ is a tree which is connected graph without circuit.
+	Because $T$ is connected, there is a path without cycle between two vertices $x$ and $y$.
+	Moreover, this path must be unique, for if there were a second such path,
+	they would form a circuit.
+	
+	\newpage
+	
+	This implies that there is a circuit in $T$. Hence, there is a unique path without cycle between any two vertices of a tree. 
+	
+	Now assume that there is a unique path without cycle between any two vertices of a graph $T$.
+	Then $T$ is connected, because there is a path between any two of its vertices.
+	Furthermore, $T$ can have no circuits.
+	To see that this is true, suppose $T$ had a circuit that contained the vertices $x$ and $y$.
+	Then there would be two simple paths between $x$ and $y$,
+	Hence, a graph with a unique simple path between any two vertices is a tree.
+\end{frame}
+
 \plain{Questions?}
 
 \end{document}
