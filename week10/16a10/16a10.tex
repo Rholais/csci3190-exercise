@@ -275,39 +275,39 @@ between $A[1\cdots m]$ and $B[1\cdots n]$.
 	\label{a-7}
 	\begin{algorithmic}
 		\Procedure{Unique}{$A$, $B$}
-		\State $C \coloneqq \Call{Zeros}{n}$
-		\State $D \coloneqq \Call{Zeros}{{}}$
-		\For{$j \coloneqq 1 \cdots m$}
-		\State $D[A[j]] \coloneqq j$
+		\State $C \gets \Call{Zeros}{n}$
+		\State $D \gets \Call{Zeros}{{}}$
+		\For{$j \gets 1 \cdots m$}
+		\State $D[A[j]] \gets j$
 		\EndFor
-		\For{$k \coloneqq 1 \cdots n$}
+		\For{$k \gets 1 \cdots n$}
 		\State $C[k] = D[B[k]]$
 		\EndFor
-		\State $P \coloneqq \Call{Zeros}{n}$
-		\State $M \coloneqq \Call{Zeros}{n + 1}$
-		\State $l \coloneqq 0$
-		\For{$k \coloneqq 1 \cdots n$}
-		\State $lo \coloneqq 1$
-		\State $hi \coloneqq l$
+		\State $P \gets \Call{Zeros}{n}$
+		\State $M \gets \Call{Zeros}{n + 1}$
+		\State $l \gets 0$
+		\For{$k \gets 1 \cdots n$}
+		\State $lo \gets 1$
+		\State $hi \gets l$
 		\While{$lo \le hi$}
-		\State $mid \coloneqq \Call{Ceil}{\frac{lo + hi}{2}}$
+		\State $mid \gets \lceil\frac{lo + hi}{2}\rceil$
 		\If{$C[M[mid + 1]] < C[k]$}
-		\State $lo \coloneqq mid + 1$
+		\State $lo \gets mid + 1$
 		\Else
-		\State $hi \coloneqq mid - 1$
+		\State $hi \gets mid - 1$
 		\EndIf
 		\EndWhile
-		\State $P[k] = M[lo]$
-		\State $M[lo + 1] = k$
+		\State $P[k] \gets M[lo]$
+		\State $M[lo + 1] \gets k$
 		\If{$lo > l$}
-		\State $l = lo$
+		\State $l \gets lo$
 		\EndIf
 		\EndFor
-		\State $S \coloneqq \Call{Zeros}{l}$
-		\State $k = M[l + 1]$
-		\For{$i \coloneqq l \cdots 1$}
-		\State $S[i]=A[C[k]]$
-		\State $k = P[k]$
+		\State $S \gets \Call{Zeros}{l}$
+		\State $k \gets M[l + 1]$
+		\For{$i \gets l \cdots 1$}
+		\State $S[i] \gets A[C[k]]$
+		\State $k \gets P[k]$
 		\EndFor
 		\State \Return $S$
 		\EndProcedure
