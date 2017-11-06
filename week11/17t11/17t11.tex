@@ -1,0 +1,156 @@
+%!TEX program = xelatex
+\documentclass[10pt, compress]{beamer}
+\usepackage[titleprogressbar]{../../cls/beamerthemem}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{minted}
+
+\usepgfplotslibrary{dateplot}
+
+\usemintedstyle{trac}
+
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{theorems}[numbered]
+\newtheorem{crl}{Corollary}[theorem]
+\newtheorem*{solution*}{Solution}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\usepackage{version}
+%\excludeversion{proof}
+%\excludeversion{solution*}
+
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{qtree}
+
+\usepackage{tikz}
+
+\makeatletter
+\def\old@comma{,}
+\catcode`\,=13
+\def,{%
+	\ifmmode%
+	\old@comma\discretionary{}{}{}%
+	\else%
+	\old@comma%
+	\fi%
+}
+\makeatother
+
+\title{CSCI 3190 Tutorial of Week 11}
+\subtitle{Trees}
+\author{LI Haocheng}
+\institute{Department of Computer Science and Engineering}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}[fragile]
+\frametitle{Cycle}
+\onslide<1->\begin{example}
+	Let $P_1$ and $P_2$ be two paths without cycle between the vertices $u$ and $v$
+	in the simple graph $G$ that do not contain the same set of edges.
+	Show that there is a cycle in $G$.
+\end{example}
+\onslide<2>\textbf{Proof.}	Let
+the paths $P_1$ and $P_2$ be $u = x_0, x_1, \cdots, x_n = v$ and $u = y_0, y_1$, $\cdots$, $y_m = v$, respectively. Since the paths do not contain cycles, they must diverge eventually. We can suppose that $x_0 = y_0, x_1 = y_1$, $\cdots$, $x_i = y_i$, but $x_{i + 1} \ne y_{i + 1}$. To form our cycle, we follow the path $y_i, y_{i + 1}, y_{i + 2}$, and so on,
+until it once again first encounters a vertex on $P_1$. Once we are back on $P_1$, we
+follow it along-forwards or backwards, as necessary-to return
+to $x_i$. Since $x_i = y_i$, this certainly forms a cycle.
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Tree}
+	\begin{theorem}
+		An undirected graph is a tree if and only if there is a unique path without cycle between any two of its vertices.
+	\end{theorem}
+	\onslide<2>\begin{proof}
+		First assume that $T$ is a tree which is connected graph without cycle.
+		Because $T$ is connected, there is a path without cycle between two vertices $x$ and $y$.
+		Moreover, this path must be unique, for if there were a second such path,
+		they would form a cycle.	
+		This implies that there is a cycle in $T$.
+	
+		Now assume that there is a unique path without cycle between any two vertices of a graph $T$.
+		Then $T$ is connected, because there is a path between any two of its vertices.
+		Furthermore, $T$ can have no cycles.
+		To see that this is true, suppose $T$ had a cycle that contained the vertices $x$ and $y$.
+		Then there would be two simple paths between $x$ and $y$.
+	\end{proof}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Terminology}
+\begin{columns}
+	\begin{column}{.6\linewidth}
+		\onslide<1->\begin{example}
+			In the rooted tree $T$ (with root $a$) shown in Figure \ref{f-11-1-5}, find the parent of $c$, the children of $g$, the
+			siblings of $h$, all ancestors of $e$, all descendants of $b$, all internal vertices, and all leaves. What
+			is the subtree rooted at $g$?
+		\end{example}
+		\onslide<2>\textbf{Solution} The parent of $c$ is $b$. The children of $g$ are $h$, $i$, and $j$. The siblings of $h$ are $i$ and $j$. The ancestors of $e$ are $c$, $b$, and $a$. The descendants of $b$ are $c$, $d$, and $e$. The internal vertices are $a$, $b$, $c$, $g$, $h$, and $j$. The leaves are $d$, $e$, $f$, $i$, $k$, $l$, and $m$.
+	\end{column}
+	\onslide<1->\begin{column}{.4\linewidth}
+		\begin{figure}
+			\centering
+			$\Tree [.a [.b [.c d e ] ] f [.g [.h k ] i [.j l m ]]]$
+			\caption{A Rooted Tree $T$}
+			\label{f-11-1-5}
+		\end{figure}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Left Child}
+\begin{columns}
+	\begin{column}{.6\linewidth}
+		\onslide<1->\begin{example}
+			What are the left and right children of $d$ in the binary tree $T$ shown in Figure \ref{f-11-1-8} (where the order is that implied by the drawing)? What are the left and right subtrees of $c$?
+		\end{example}
+		\onslide<2>\textbf{Solution} The left child of $d$ is $f$ and the right child is $g$.
+	\end{column}
+	\onslide<1->\begin{column}{.4\linewidth}
+		\begin{figure}
+			\centering
+			$\Tree [.a [.b [.d f g ] e ] [.c [.h j ] [.i k [.l m ]]]]$
+			\caption{A Binary Tree $T$}
+			\label{f-11-1-8}
+		\end{figure}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Preorder}
+\begin{columns}
+	\begin{column}{.6\linewidth}
+		\onslide<1->\begin{example}
+			Determine the orders in which a preorder, a inorder and a postorder traversal visits the vertices of the given ordered rooted tree in Figure \ref{f-11-3-e7}.
+		\end{example}
+		\begin{solution*}
+			\begin{enumerate}
+				\item<2-> $a, b, d, e, f, g, c$.
+				\item<3-> $d, b, f, e, g, a, c$.
+				\item<4-> $d, f, g, e, b, c, a$.
+			\end{enumerate}
+		\end{solution*}
+	\end{column}
+	\onslide<1->\begin{column}{.4\linewidth}
+		\begin{figure}
+			\centering
+			$\Tree [.a [.b d [.e f g ]] c ]$
+			\caption{A Rooted Tree $T$}
+			\label{f-11-3-e7}
+		\end{figure}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\plain{Questions?}
+
+\end{document}
