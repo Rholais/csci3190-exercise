@@ -54,7 +54,8 @@
 \begin{columns}
 	\begin{column}{.5\linewidth}
 		\begin{example}
-			Give a recursive algorithm for computing $nx$ whenever $n$ is a positive integer and $x$ is an integer, using just addition.
+			Give a recursive algorithm for computing $nx$ whenever $n$ is a positive integer
+			and $x$ is an integer, using just addition.
 		\end{example}
 		\onslide<2->\begin{solution*}
 			\begin{algorithm}[H]
@@ -96,7 +97,9 @@
 \begin{frame}
 \frametitle{Minimum}
 \begin{example}
-	Give a recursive algorithm for finding the minimum of a finite set of integers, making use of the fact that the minimum of $n$ integers is the smaller of the last integer in the list and the minimum of the first $n - 1$ integers in the list.
+	Give a recursive algorithm for finding the minimum of a finite set of integers,
+	making use of the fact that the minimum of $n$ integers is the smaller of the last integer
+	in the list and the minimum of the first $n - 1$ integers in the list.
 \end{example}
 \onslide<2>\begin{solution*}
 	\begin{algorithm}[H]
@@ -125,9 +128,10 @@
 	\end{enumerate}
 \end{example}
 
-%\newpage
+\newpage
 
-\begin{columns}
+\begin{solution*}
+	\begin{columns}
 	\begin{column}{.6\linewidth}
 		\begin{algorithm}[H]
 			\caption{A Recursive Algorithm for Fibonacci}
@@ -168,6 +172,7 @@
 		The number of additions follows the expression $b_n = n - 1$ so that $O(b_n) = n$.
 	\end{column}
 \end{columns}
+\end{solution*}
 \end{frame}
 
 \begin{frame}
@@ -260,7 +265,7 @@
 \begin{example}
 	Prove that the merge sort algorithm is correct.
 \end{example}
-\begin{proof}
+\onslide<2>\begin{proof}
 	If
 	$n = 1$, then the algorithm does nothing, which is correct because
 	a list with one element is already sorted. Assume that

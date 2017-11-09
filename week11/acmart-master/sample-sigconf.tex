@@ -89,7 +89,12 @@
 			& \begin{cases}
 				w_0 & = 1,\\
 				w_1 & = 1,\\
-				w_{n + 1} & = w_n + 2 w_{n - 1}
+				w_{n + 1} & = \begin{bmatrix}
+					1 & 2
+				\end{bmatrix}\begin{bmatrix}
+				w_n\\
+				w_{n - 1}
+			\end{bmatrix}
 			\end{cases}\\
 			\Leftrightarrow & \begin{bmatrix}
 			w_{n + 1}\\
