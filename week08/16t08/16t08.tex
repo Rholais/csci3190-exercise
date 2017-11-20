@@ -42,58 +42,6 @@
 \maketitle
 
 \begin{frame}[fragile]
-\frametitle{Recursive Algorithms}
-\begin{columns}
-	\begin{column}{.4\linewidth}
-		\begin{example}
-			\setcounter{algorithm}{0}
-			\begin{algorithm}[H]
-				\caption{Recursive Algorithm to Find $a^{2^n}$}
-				\label{alg:a2n}
-				\begin{algorithmic}[1]
-					\Require $a \in \mathbb{R}, n \in \mathbb{N}$.
-					\Ensure $a^{2^n}$.
-					\Procedure{pow2}{$a$, $n$}
-					\onslide<2->\If {$n = 0$}
-					\State\Return $a$
-					\EndIf
-					\State $p \gets$ \Call{pow2}{$a$, $n - 1$}
-					\State\Return $p \times p$
-					\EndProcedure
-				\end{algorithmic}
-			\end{algorithm}
-		\end{example}
-	\end{column}
-	\begin{column}{.6\linewidth}
-		\onslide<1->\begin{example}
-			\setcounter{algorithm}{1}
-			\begin{algorithm}[H]
-				\caption{Recursive Algorithm to Find $a^{n}$}
-				\label{alg:an}
-				\begin{algorithmic}[1]
-					\Require $a \in \mathbb{R}, n \in \mathbb{N}$.
-					\Ensure $a^{n}$.
-					\Procedure{pow}{$a$, $n$}
-					\onslide<3>\If {$n = 0$}
-					\Return $1$
-					\EndIf
-					\If {$n = 1$}
-					\Return $a$
-					\EndIf
-					\State $p \gets$ \Call{pow2}{$a$, $\lfloor\frac{n}{2}\rfloor$}
-					\If {$n \equiv 0 \pmod{2}$}
-					\Return $p \times p$
-					\EndIf
-					\State\Return $p \times p \times a$
-					\EndProcedure
-				\end{algorithmic}
-			\end{algorithm}
-		\end{example}
-	\end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}[fragile]
 	\frametitle{$m$-ary Tree}
 	\onslide<1->\begin{theorem}\label{t-11-1-3}
 		A full $m$-ary tree with $i$ internal vertices contains $n = m i + 1$ vertices.
