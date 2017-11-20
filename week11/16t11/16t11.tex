@@ -48,56 +48,6 @@
 \maketitle
 
 \begin{frame}[allowframebreaks]
-	\frametitle{Double Tower of Hanoi}
-	\begin{example}
-		A Double Tower of Hanoi contains $2n$ disks of $n$ different sizes, two of each size. As usual, we can move
-		only one disk at a time, without putting a larger one over a smaller one. Assume that disks of equal size are
-		indistinguishable from each other:\begin{enumerate}[(a)]
-			\item Write a pseudo-code to solve the above problem recursively.
-			\item Set up a recurrence equation to count the number of steps to move $2n$ disks. 
-			\item Solve the recurrence equation and give the complexity of your algorithm.
-		\end{enumerate}
-	\end{example}
-	\begin{solution*}
-		\begin{columns}
-			\begin{column}{.5\linewidth}
-				\begin{enumerate}[(a)]
-					\item See Algorithm \ref{a-3}.		
-					\item $H_{2n} = 2H_{2n - 2} + 2$.
-					\item \begin{align}
-					H_{2n} & = 2(2H_{2n - 4} + 2) + 2\\
-					& = 4H_{2n - 4} + 4 + 2\\
-					& \cdots\\
-					& = 2^{n + 1} - 2.\\
-					O(H_{2n}) & = 2^n.
-					\end{align}
-				\end{enumerate}
-			\end{column}
-			\begin{column}{.5\linewidth}
-				\begin{algorithm}[H]
-					\caption{Double Tower of Hanoi}
-					\label{a-3}
-					\begin{algorithmic}
-						\Procedure{Hanoi}{$h$, $b$, $e$, $m$}
-						\If{$h$ = 0}
-						\State \Return
-						\ElsIf{$h$ = 2}
-						\State \Call{Move}{$b$, $e$}
-						\State \Call{Move}{$b$, $e$}
-						\Else
-						\State \Call{Hanoi}{$h - 2$, $b$, $m$, $e$}
-						\State \Call{Hanoi}{2, $b$, $e$}
-						\State \Call{Hanoi}{$h - 2$, $m$, $e$, $b$}
-						\EndIf
-						\EndProcedure
-					\end{algorithmic}
-				\end{algorithm}
-			\end{column}
-		\end{columns}
-	\end{solution*}
-\end{frame}
-
-\begin{frame}[allowframebreaks]
 	\frametitle{Longest Common Subsequence}
 	\begin{example}
 		Consider the longest common subsequence problem between sequence $A[1\cdots m]$ and sequence $B[1\cdots n]$. Give a

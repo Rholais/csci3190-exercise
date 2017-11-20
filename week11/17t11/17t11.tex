@@ -1,5 +1,5 @@
 %!TEX program = xelatex
-\documentclass[10pt, compress]{beamer}
+\documentclass[10pt, compress, handout]{beamer}
 \usepackage[titleprogressbar]{../../cls/beamerthemem}
 
 \usepackage{booktabs}
@@ -48,6 +48,108 @@
 \begin{document}
 
 \maketitle
+
+\begin{frame}[fragile]
+\frametitle{Recursive Algorithms}
+\begin{columns}
+	\begin{column}{.4\linewidth}
+		\begin{example}
+			\setcounter{algorithm}{0}
+			\begin{algorithm}[H]
+				\caption{Recursive Algorithm to Find $a^{2^n}$}
+				\label{alg:a2n}
+				\begin{algorithmic}[1]
+					\Require $a \in \mathbb{R}, n \in \mathbb{N}$.
+					\Ensure $a^{2^n}$.
+					\Procedure{pow2}{$a$, $n$}
+					\onslide<2->\If {$n = 0$}
+					\State\Return $a$
+					\EndIf
+					\State $p \gets$ \Call{pow2}{$a$, $n - 1$}
+					\State\Return $p \times p$
+					\EndProcedure
+				\end{algorithmic}
+			\end{algorithm}
+		\end{example}
+	\end{column}
+	\begin{column}{.6\linewidth}
+		\onslide<1->\begin{example}
+			\setcounter{algorithm}{1}
+			\begin{algorithm}[H]
+				\caption{Recursive Algorithm to Find $a^{n}$}
+				\label{alg:an}
+				\begin{algorithmic}[1]
+					\Require $a \in \mathbb{R}, n \in \mathbb{N}$.
+					\Ensure $a^{n}$.
+					\Procedure{pow}{$a$, $n$}
+					\onslide<3>\If {$n = 0$}
+					\Return $1$
+					\EndIf
+					\If {$n = 1$}
+					\Return $a$
+					\EndIf
+					\State $p \gets$ \Call{pow2}{$a$, $\lfloor\frac{n}{2}\rfloor$}
+					\If {$n \equiv 0 \pmod{2}$}
+					\Return $p \times p$
+					\EndIf
+					\State\Return $p \times p \times a$
+					\EndProcedure
+				\end{algorithmic}
+			\end{algorithm}
+		\end{example}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+\frametitle{Double Tower of Hanoi}
+\begin{example}
+	A Double Tower of Hanoi contains $2n$ disks of $n$ different sizes, two of each size. As usual, we can move
+	only one disk at a time, without putting a larger one over a smaller one. Assume that disks of equal size are
+	indistinguishable from each other:\begin{enumerate}[(a)]
+		\item Write a pseudo-code to solve the above problem recursively.
+		\item Set up a recurrence equation to count the number of steps to move $2n$ disks. 
+		\item Solve the recurrence equation and give the complexity of your algorithm.
+	\end{enumerate}
+\end{example}
+\begin{solution*}
+	\begin{columns}
+		\begin{column}{.5\linewidth}
+			\begin{enumerate}[(a)]
+				\item See Algorithm \ref{a-3}.		
+				\item $H_{2n} = 2H_{2n - 2} + 2$.
+				\item \begin{align}
+				H_{2n} & = 2(2H_{2n - 4} + 2) + 2\\
+				& = 4H_{2n - 4} + 4 + 2\\
+				& \cdots\\
+				& = 2^{n + 1} - 2.\\
+				& = O(2^n).
+				\end{align}
+			\end{enumerate}
+		\end{column}
+		\begin{column}{.5\linewidth}
+			\begin{algorithm}[H]
+				\caption{Double Tower of Hanoi}
+				\label{a-3}
+				\begin{algorithmic}
+					\Procedure{Hanoi}{$h$, $b$, $e$, $m$}
+					\If{$h$ = 0}
+					\State \Return
+					\ElsIf{$h$ = 2}
+					\State \Call{Move}{$b$, $e$}
+					\State \Call{Move}{$b$, $e$}
+					\Else
+					\State \Call{Hanoi}{$h - 2$, $b$, $m$, $e$}
+					\State \Call{Hanoi}{2, $b$, $e$}
+					\State \Call{Hanoi}{$h - 2$, $m$, $e$, $b$}
+					\EndIf
+					\EndProcedure
+				\end{algorithmic}
+			\end{algorithm}
+		\end{column}
+	\end{columns}
+\end{solution*}
+\end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Cycle}
@@ -147,6 +249,39 @@ to $x_i$. Since $x_i = y_i$, this certainly forms a cycle.
 			\caption{A Rooted Tree $T$}
 			\label{f-11-3-e7}
 		\end{figure}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Expression}
+\begin{columns}
+	\begin{column}{.6\linewidth}
+		\onslide<1->\begin{example}
+			\begin{enumerate}
+				\item Represent the expression $((x + 2) \uparrow 3) \cdot (y - (3 + x)) - 5$ using a binary tree.
+				\item Write this expression in prefix notation.
+				\item Write this expression in postfix notation.
+				\item Write this expression in infix notation.
+			\end{enumerate}
+		\end{example}
+		\onslide<2>\begin{solution*}
+			\begin{enumerate}
+				\item $-\ \cdot\ \uparrow\ +\ x\ 2\ 3\ -\ y\ +\ 3\ x\ 5$
+				\item $x\ 2\ +\ 3\ \uparrow\ y\ 3\ x\ +\ -\ \cdot\ 5\ -$
+				\item $x\ +\ 2\ \uparrow\ 3\ \cdot\ y\ -\ 3\ +\ x\ -\ 5$
+			\end{enumerate}
+		\end{solution*}
+	\end{column}
+	\onslide<2>\begin{column}{.4\linewidth}
+		\begin{solution*}
+			\begin{figure}
+				\centering
+				$\Tree [.- [.\(\cdot\) [.\(\uparrow\) [.+ x 2 ] 3 ] [.- y [.+ 3 x ] ] ] 5 ]$
+				\caption{A Rooted Tree $T$}
+				\label{f-11-3-e16}
+			\end{figure}
+		\end{solution*}
 	\end{column}
 \end{columns}
 \end{frame}
