@@ -50,49 +50,6 @@
 \maketitle
 
 \begin{frame}[allowframebreaks]
-	\frametitle{Counting}
-	\begin{example}
-		\begin{enumerate}[(a)]
-			\item Write a recursive algorithm to count the number of leaves (nodes) in a binary tree pointed to by a tree node pointer called \texttt{root}. You can assume that each tree node \texttt{x} has a pointer \texttt{x.left} pointing to its left sub-tree and a pointer \texttt{x.right} pointing to its right sub-tree.
-			\item Express the time complexity of your algorithm with a recurrence equation.
-			\item solve the recurrence.
-		\end{enumerate}
-	\end{example}
-	\begin{solution*}
-		\begin{columns}
-			\begin{column}{.4\linewidth}
-				\begin{enumerate}[(a)]
-					\item See Algorithm \ref{a-1}.
-					\item $T(root) = T(root.left) + T(root.right) + 1$
-					\item $T(root) = T(root.left.left) + T(root.left.right) + T(root.right.left) + T(root.right.right) + 3 = \cdots = n$
-				\end{enumerate}
-			\end{column}
-			\begin{column}{.6\linewidth}
-				\begin{algorithm}[H]
-					\caption{Counting}
-					\label{a-1}
-					\begin{algorithmic}
-						\Procedure{Count}{$root$}
-						\If{$root.left = 0 \wedge root.right = 0$}
-						\State \Return 1
-						\EndIf
-						\State $c \coloneqq 0$\Comment{1 if counting nodes.}
-						\If{$root.left \ne 0$}
-						\State $c \coloneqq c + \Call{Count}{root.left}$
-						\EndIf
-						\If{$root.right \ne 0$}
-						\State $c \coloneqq c + \Call{Count}{root.right}$
-						\EndIf
-						\State \Return $c$
-						\EndProcedure
-					\end{algorithmic}
-				\end{algorithm}
-			\end{column}
-		\end{columns}
-	\end{solution*}
-\end{frame}
-
-\begin{frame}[allowframebreaks]
 	\frametitle{Tree}
 	\begin{example}
 		\begin{enumerate}[(a)]

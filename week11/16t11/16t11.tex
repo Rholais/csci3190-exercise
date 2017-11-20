@@ -48,36 +48,6 @@
 \maketitle
 
 \begin{frame}[allowframebreaks]
-	\frametitle{Longest Common Subsequence}
-	\begin{example}
-		Consider the longest common subsequence problem between sequence $A[1\cdots m]$ and sequence $B[1\cdots n]$. Give a
-		recursive algorithm to print out ALL the longest common subsequences assuming that you already build the
-		table $T[1\cdots m, 1\cdots n]$ where the entry $T[j, k]$ represents the length of the longest common subsequence between $A[1\cdots j]$ and $B[1\cdots k]$.
-	\end{example}
-	\begin{solution*}
-		See Algorithm \ref{a-5}.
-		\begin{algorithm}[H]
-			\caption{Print Out ALL the LCSes}
-			\label{a-5}
-			\begin{algorithmic}
-				\Procedure{All}{$T$, $A$, $B$, $j$, $k$}
-				\If{$j \cdot k = 0$} \Return $\{``"\}$
-				\ElsIf{$A[j] = B[k]$} \Return $\{C + A[j] \colon Z \in \Call{All}{T, A, B, j - 1, k - 1}\}$
-				\Else
-				\State $R \coloneqq \{\}$
-				\If{$T[j, k - 1] \ge T[j - 1, k]$} $R \coloneqq R \cup \Call{All}{T, A, B, j, k - 1}$
-				\EndIf
-				\If{$T[j - 1, k] \ge T[j, k - 1]$} $R \coloneqq R \cup \Call{All}{T, A, B, j - 1, k}$
-				\EndIf
-				\State \Return $R$
-				\EndIf
-				\EndProcedure
-			\end{algorithmic}
-		\end{algorithm}
-	\end{solution*}
-\end{frame}
-
-\begin{frame}[allowframebreaks]
 	\frametitle{LCS between 3 Sequences}
 	\begin{example}
 		Consider the longest common subsequence problem between three sequences $A[1\cdots m]$, $B[1\cdots n]$ and $C[1\cdots p]$.
