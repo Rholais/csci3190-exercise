@@ -88,7 +88,9 @@
 			siblings of $h$, all ancestors of $e$, all descendants of $b$, all internal vertices, and all leaves. What
 			is the subtree rooted at $g$?
 		\end{example}
-		\onslide<2>\textbf{Solution} The parent of $c$ is $b$. The children of $g$ are $h$, $i$, and $j$. The siblings of $h$ are $i$ and $j$. The ancestors of $e$ are $c$, $b$, and $a$. The descendants of $b$ are $c$, $d$, and $e$. The internal vertices are $a$, $b$, $c$, $g$, $h$, and $j$. The leaves are $d$, $e$, $f$, $i$, $k$, $l$, and $m$.
+		\onslide<2>\begin{solution*}
+			The parent of $c$ is $b$. The children of $g$ are $h$, $i$, and $j$. The siblings of $h$ are $i$ and $j$. The ancestors of $e$ are $c$, $b$, and $a$. The descendants of $b$ are $c$, $d$, and $e$. The internal vertices are $a$, $b$, $c$, $g$, $h$, and $j$. The leaves are $d$, $e$, $f$, $i$, $k$, $l$, and $m$.
+		\end{solution*}
 	\end{column}
 	\onslide<1->\begin{column}{.4\linewidth}
 		\begin{figure}
@@ -108,7 +110,9 @@
 		\onslide<1->\begin{example}
 			What are the left and right children of $d$ in the binary tree $T$ shown in Figure \ref{f-11-1-8} (where the order is that implied by the drawing)? What are the left and right subtrees of $c$?
 		\end{example}
-		\onslide<2>\textbf{Solution} The left child of $d$ is $f$ and the right child is $g$.
+		\onslide<2>\begin{solution*}
+			The left child of $d$ is $f$ and the right child is $g$.
+		\end{solution*}
 	\end{column}
 	\onslide<1->\begin{column}{.4\linewidth}
 		\begin{figure}
@@ -129,6 +133,22 @@
 	\onslide<2>\begin{proof}
 		Every vertex, except the root, is the child of an internal vertex. Because each of the $i$ internal vertices has $m$ children, there are $m i$ vertices in the tree other than the root. Therefore, the tree contains $n = m i + 1$ vertices
 	\end{proof}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Full $m$-ary Tree}
+\onslide<1->\begin{theorem}\label{t-11-1-4}
+	A full $m$-ary tree with \begin{enumerate}
+		\item $n$ vertices has $i = \frac{n - 1}{m}$ internal vertices and $l =\frac{(m - 1)n + 1}{m}$ leaves,
+		\item $i$ internal vertices has $n = mi + 1$ vertices and $l = (m - 1) i + 1$ leaves,
+		\item $l$ leaves has $n = \frac{m l - 1}{m - 1}$ vertices and $i = \frac{l - 1}{m - 1}$ internal vertices.
+	\end{enumerate}
+\end{theorem}
+\onslide<2>\begin{proof}
+	The three parts of the theorem can all be proved using the equality given in Theorem \ref{t-11-1-3}, that is, $n = m i + 1$, together with the equality $n = l + i$, which is true because each vertex is either a leaf or an internal vertex. 
+	
+	For example, solving for $i$ in $n = m i + 1$ gives $i = \frac{n - 1}{m}$. Then inserting this expression for $i$ into the equation $n = l + i$ shows that $l = n - i = n - \frac{n - 1}{m} = \frac{(m - 1)n + 1}{m}$.
+\end{proof}
 \end{frame}
 
 \begin{frame}[fragile]
