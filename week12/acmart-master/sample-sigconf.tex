@@ -22,7 +22,8 @@
 %\acmISBN{123-4567-24-567/08/06}
 
 %Conference
-\acmConference[CSCI'3190]{Introduction to Discrete Mathematics and Algorithms}{2017}{The Chinese University of Hong Kong}
+\acmConference[CSCI'3190]{Introduction to Discrete Mathematics and Algorithms}{2017}
+{The Chinese University of Hong Kong}
 \acmYear{2017}
 \copyrightyear{2017}
 
@@ -40,6 +41,8 @@
 
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode}
+
+\usepackage{cleveref}
 
 \makeatletter
 \def\old@comma{,}
@@ -145,14 +148,13 @@ $\log_2(n^2) < n^{0.1}\log_2 n < n^{0.5}$.
 			\State\Return $a \times p \times p$
 			\EndProcedure
 		\end{algorithmic}
-	\end{algorithm}
+	\end{algorithm}	
 	\item $O(\log_2 n)$ iterations.
 \end{enumerate}
 
-
 \section{Longest Common Subsequence}
 \begin{enumerate}
-	\item See Algorithm \ref{a-7}.
+	\item See~\Cref{a-7} and~\Cref{tab:max}.
 	\begin{algorithm}
 		\caption{Compute the LCS with Unique Symbols}
 		\label{a-7}
@@ -174,7 +176,25 @@ $\log_2(n^2) < n^{0.1}\log_2 n < n^{0.5}$.
 			\EndProcedure
 		\end{algorithmic}
 	\end{algorithm}
-	\item See Algorithm \ref{a-5}.
+	\begin{table}[!tb]
+		\centering
+		\caption{Results of Algorithm}
+		\label{tab:max}
+		\begin{tabular}{c|ccccccccc}
+			\toprule
+			T & 0 & d & c & b & a & c & d & b & c \\ 
+			\midrule 
+			0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\  
+			a & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 \\ 
+			c & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 \\ 
+			a & 0 & 0 & 1 & 1 & 1 & 2 & 2 & 2 & 2 \\ 
+			b & 0 & 0 & 1 & 1 & 2 & 2 & 2 & 2 & 2 \\ 
+			d & 0 & 1 & 1 & 2 & 2 & 2 & 3 & 3 & 3 \\ 
+			c & 0 & 1 & 2 & 2 & 2 & 3 & 3 & 3 & 4 \\ 
+			\bottomrule 
+		\end{tabular} 
+	\end{table}
+	\item See~\Cref{a-5}, results are: acbc, acdc, cabc, cadc, cbdc.
 	\begin{algorithm}
 		\caption{Print Out ALL the LCSes}
 		\label{a-5}
