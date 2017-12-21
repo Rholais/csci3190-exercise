@@ -80,20 +80,28 @@
 \section{Complexity}
 \subsection{Order}
 \begin{solution*}
-$\log_2(n^2) < n^{0.1}\log_2 n < n^{0.5}$.
+\begin{equation}
+\log_2(n^2) < n^{0.1}\log_2 n < n^{0.5}.
+\end{equation}
 \end{solution*}
 \subsection{Proof}
 \begin{proof}
 	\ \\
 	\begin{enumerate}
-		\item $\exists C = 2, N = 0, \forall n > N, \log_2(n^2) < Cn^{0.1}\log_2 n$.
-		\item $\exists C = 1, N = 0, \forall n > N, n^{0.1}\log_2 n < n^{0.5}$.
+		\item \begin{equation}
+		\exists C = 2, N = 0, \forall n > N, \log_2(n^2) < Cn^{0.1}\log_2 n.
+		\end{equation}
+		\item \begin{equation}
+		\exists C = 1, N = 0, \forall n > N, n^{0.1}\log_2 n < n^{0.5}.
+		\end{equation}
 	\end{enumerate}
 \end{proof}
 
 \section{Mathematical Induction}
 \begin{description}
-	\item[Base] $\frac{1}{2^2 - 1} = \frac{1 \times 8}{8 \times 3}$.
+	\item[Base] \begin{equation}
+	\frac{1}{2^2 - 1} = \frac{1 \times 8}{8 \times 3}.
+	\end{equation}
 	\item[Indunction] \begin{align}
 		\begin{aligned}
 			& \sum_{j = 2}^{n}\frac{1}{j^2 - 1}\\
