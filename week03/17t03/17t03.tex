@@ -1,6 +1,6 @@
 %!TEX program = xelatex
 \documentclass[10pt, compress, handout]{beamer}
-\usetheme[titleprogressbar]{m}
+\usepackage[titleprogressbar]{../../cls/beamerthemem}
 
 \usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
@@ -48,29 +48,6 @@
 \begin{document}
 
 \maketitle
-
-\begin{frame}[fragile]
-	\frametitle{Inverse Relation}
-	\begin{columns}
-		\begin{column}{.6\linewidth}
-			Let $R$ be a relation from a set $A$ to a set $B$.
-			\begin{definition}
-				The \textbf{inverse relation} from $B$ to $A$, denoted by $R^{-1}$, is the set of ordered pairs $\{(b, a) \mid (a, b) \in R \}$.
-			\end{definition}
-			\begin{definition}
-				The \textbf{complementary relation} $\bar{R}$ is the set of ordered pairs $\{(a, b) \mid (a, b) \notin R \}$.
-			\end{definition}
-		\end{column}
-		\begin{column}{.4\linewidth}
-			\begin{example}
-				Let $R$ be the relation $R = \{(a, b) \mid a < b\}$ on the set of integers. Find \begin{enumerate}
-					\onslide<1->\item $R^{-1}$ \onslide<2>$= \{(a, b) \mid a > b\}$
-					\onslide<1->\item $\bar{R}$ \onslide<2>$= \{(a, b) \mid a \ge b\}$
-				\end{enumerate}
-			\end{example}
-		\end{column}
-	\end{columns}
-\end{frame}
 
 \begin{frame}[fragile]
 	\frametitle{Division}
