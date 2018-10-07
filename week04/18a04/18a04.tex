@@ -53,6 +53,7 @@
 \usepackage{booktabs}
 \usepackage{enumitem}
 \usepackage{mathtools}
+\usepackage{soul}
 \usepackage{textcomp}
 
 
@@ -155,16 +156,10 @@
 
 \section{Tautology}
 \textbf{Proof}\begin{enumerate}[label=(\alph*)]
-	\item True. \begin{align}
-		\begin{aligned}
-		& \forall x \forall y [(x^2 = y^2) \rightarrow (x = y)]\\
-		\equiv & \forall x \forall y [((x = y) \lor (x = -y)) \rightarrow (x = y)]\\
-		\equiv & TRUE.
-		\end{aligned}
-	\end{align}
-	\item False. Let $x = 2$, no integer $y$ satisfying $y^2 = x$.
-	\item False. Let $x = 1, y = -1$, we have $xy < x$.
-	\item True. Let $x = 4, y = -1$, we have \begin{equation}
+	\item \hl{Claim: $\forall x \forall y [(x^2 = y^2) \rightarrow (x = y)]$. $x = 1 \land y = -1$ is a counterexample.}
+	\item Claim: $\forall x \exists y [y^2 = x]$. $x = 2$ is a counterexample.
+	\item Claim: $\forall x \forall y [xy \ge x]$. $x = 1 \land y = -1$ is a counterexample.
+	\item Claim: $\exists x \exists y [x - y = 5 \land 2x + 4y = 4]$. Let $x = 4, y = -1$, we have \begin{equation}
 		x - y = 5 \land 2x + 4y = 4.
 	\end{equation}
 \end{enumerate}
@@ -262,7 +257,7 @@
 
 \section{Invertible Function}
 \textbf{Solution}\begin{enumerate}[label=(\alph*)]
-	\item $5^5$.
+	\item Let $A = \{a_0, a_1, \ldots, a_4\}$, to form function $f$ we need to decide the value of $f(a_0), f(a_1), \ldots, f(a_4)$, each of which has five possible values. Therefore, the total number of function candidates is $5^5$.
 	\item $5! = 120$.
 \end{enumerate}
 
