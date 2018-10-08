@@ -111,47 +111,47 @@
 
 \section{Logical Equivalence}
 \textbf{Proof}\begin{enumerate}[label=(\alph*)]
-	\item \begin{align}
-	\begin{aligned}
-	& \lnot p \land \lnot q \rightarrow \lnot r\\
-	\equiv & \lnot r \lor \lnot (\lnot p \land \lnot q)\\
-	\equiv & \lnot r \lor (p \lor q)\\
-	\equiv & r \rightarrow q \lor p.
-	\end{aligned}
-	\end{align}
-	\item \begin{align}
-		\begin{aligned}
-		& p \rightarrow (q \land r)\\
-		\equiv & (q \land r) \lor \lnot p\\
-		\equiv & (\lnot p \lor q) \land (\lnot p \lor r)\\
-		\equiv & (p \rightarrow q) \land (p \rightarrow r).
-		\end{aligned}
-	\end{align}
-	\item \begin{align}
-		\begin{aligned}
-		& (p \lor q) \rightarrow r\\
-		\equiv & \lnot (p \lor q) \lor r\\
-		\equiv & (\lnot p \land \lnot q) \lor r\\
-		\equiv & (\lnot p \lor r) \land (\lnot q \lor r)\\
-		\equiv & (p \rightarrow r) \land (q \rightarrow r).
-		\end{aligned}
-	\end{align}
-	\item \begin{align}
-		\begin{aligned}
-		& ((q \rightarrow p) \land (\lnot p \rightarrow q) \land (q \rightarrow q))\\
-		\equiv & ((\lnot q \lor p) \land (p \lor q) \land (\lnot q \lor q))\\
-		\equiv & ((p \lor (q \land \lnot q)) \land TRUE)\\
-		\equiv & (p \lor FALSE)\\
-		\equiv & p.
-		\end{aligned}
-	\end{align}
-	\item \begin{align}
-		\begin{aligned}
-		& ((p \rightarrow \lnot p) \land (\lnot p \rightarrow p))\\
-		\equiv & ((\lnot p \lor \lnot p) \land (p \lor p))\\ \equiv & (\lnot p \land p)\\
-		\equiv & FALSE.
-		\end{aligned}
-	\end{align}
+    \item \begin{align}
+    \begin{aligned}
+    & \lnot p \land \lnot q \rightarrow \lnot r\\
+    \equiv & \lnot r \lor \lnot (\lnot p \land \lnot q)\\
+    \equiv & \lnot r \lor (p \lor q)\\
+    \equiv & r \rightarrow q \lor p.
+    \end{aligned}
+    \end{align}
+    \item \begin{align}
+        \begin{aligned}
+        & p \rightarrow (q \land r)\\
+        \equiv & (q \land r) \lor \lnot p\\
+        \equiv & (\lnot p \lor q) \land (\lnot p \lor r)\\
+        \equiv & (p \rightarrow q) \land (p \rightarrow r).
+        \end{aligned}
+    \end{align}
+    \item \begin{align}
+        \begin{aligned}
+        & (p \lor q) \rightarrow r\\
+        \equiv & \lnot (p \lor q) \lor r\\
+        \equiv & (\lnot p \land \lnot q) \lor r\\
+        \equiv & (\lnot p \lor r) \land (\lnot q \lor r)\\
+        \equiv & (p \rightarrow r) \land (q \rightarrow r).
+        \end{aligned}
+    \end{align}
+    \item \begin{align}
+        \begin{aligned}
+        & ((q \rightarrow p) \land (\lnot p \rightarrow q) \land (q \rightarrow q))\\
+        \equiv & ((\lnot q \lor p) \land (p \lor q) \land (\lnot q \lor q))\\
+        \equiv & ((p \lor (q \land \lnot q)) \land TRUE)\\
+        \equiv & (p \lor FALSE)\\
+        \equiv & p.
+        \end{aligned}
+    \end{align}
+    \item \begin{align}
+        \begin{aligned}
+        & ((p \rightarrow \lnot p) \land (\lnot p \rightarrow p))\\
+        \equiv & ((\lnot p \lor \lnot p) \land (p \lor p))\\ \equiv & (\lnot p \land p)\\
+        \equiv & FALSE.
+        \end{aligned}
+    \end{align}
 \end{enumerate}
 
 \section{Tautology}
