@@ -111,87 +111,87 @@
 
 \section{Logical Equivalence}
 \textbf{Proof}\begin{enumerate}[label=(\alph*)]
-	\item \begin{align}
-	\begin{aligned}
-	& \lnot p \land \lnot q \rightarrow \lnot r\\
-	\equiv & \lnot r \lor \lnot (\lnot p \land \lnot q)\\
-	\equiv & \lnot r \lor (p \lor q)\\
-	\equiv & r \rightarrow q \lor p.
-	\end{aligned}
-	\end{align}
-	\item \begin{align}
-		\begin{aligned}
-		& p \rightarrow (q \land r)\\
-		\equiv & (q \land r) \lor \lnot p\\
-		\equiv & (\lnot p \lor q) \land (\lnot p \lor r)\\
-		\equiv & (p \rightarrow q) \land (p \rightarrow r).
-		\end{aligned}
-	\end{align}
-	\item \begin{align}
-		\begin{aligned}
-		& (p \lor q) \rightarrow r\\
-		\equiv & \lnot (p \lor q) \lor r\\
-		\equiv & (\lnot p \land \lnot q) \lor r\\
-		\equiv & (\lnot p \lor r) \land (\lnot q \lor r)\\
-		\equiv & (p \rightarrow r) \land (q \rightarrow r).
-		\end{aligned}
-	\end{align}
-	\item \begin{align}
-		\begin{aligned}
-		& ((q \rightarrow p) \land (\lnot p \rightarrow q) \land (q \rightarrow q))\\
-		\equiv & ((\lnot q \lor p) \land (p \lor q) \land (\lnot q \lor q))\\
-		\equiv & ((p \lor (q \land \lnot q)) \land TRUE)\\
-		\equiv & (p \lor FALSE)\\
-		\equiv & p.
-		\end{aligned}
-	\end{align}
-	\item \begin{align}
-		\begin{aligned}
-		& ((p \rightarrow \lnot p) \land (\lnot p \rightarrow p))\\
-		\equiv & ((\lnot p \lor \lnot p) \land (p \lor p))\\ \equiv & (\lnot p \land p)\\
-		\equiv & FALSE.
-		\end{aligned}
-	\end{align}
+    \item \begin{align}
+    \begin{aligned}
+    & \lnot p \land \lnot q \rightarrow \lnot r\\
+    \equiv & \lnot r \lor \lnot (\lnot p \land \lnot q)\\
+    \equiv & \lnot r \lor (p \lor q)\\
+    \equiv & r \rightarrow q \lor p.
+    \end{aligned}
+    \end{align}
+    \item \begin{align}
+        \begin{aligned}
+        & p \rightarrow (q \land r)\\
+        \equiv & (q \land r) \lor \lnot p\\
+        \equiv & (\lnot p \lor q) \land (\lnot p \lor r)\\
+        \equiv & (p \rightarrow q) \land (p \rightarrow r).
+        \end{aligned}
+    \end{align}
+    \item \begin{align}
+        \begin{aligned}
+        & (p \lor q) \rightarrow r\\
+        \equiv & \lnot (p \lor q) \lor r\\
+        \equiv & (\lnot p \land \lnot q) \lor r\\
+        \equiv & (\lnot p \lor r) \land (\lnot q \lor r)\\
+        \equiv & (p \rightarrow r) \land (q \rightarrow r).
+        \end{aligned}
+    \end{align}
+    \item \begin{align}
+        \begin{aligned}
+        & ((q \rightarrow p) \land (\lnot p \rightarrow q) \land (q \rightarrow q))\\
+        \equiv & ((\lnot q \lor p) \land (p \lor q) \land (\lnot q \lor q))\\
+        \equiv & ((p \lor (q \land \lnot q)) \land TRUE)\\
+        \equiv & (p \lor FALSE)\\
+        \equiv & p.
+        \end{aligned}
+    \end{align}
+    \item \begin{align}
+        \begin{aligned}
+        & ((p \rightarrow \lnot p) \land (\lnot p \rightarrow p))\\
+        \equiv & ((\lnot p \lor \lnot p) \land (p \lor p))\\ \equiv & (\lnot p \land p)\\
+        \equiv & FALSE.
+        \end{aligned}
+    \end{align}
 \end{enumerate}
 
 \section{Tautology}
 \textbf{Proof}\begin{enumerate}[label=(\alph*)]
-	\item \hl{Claim: $\forall x \forall y [(x^2 = y^2) \rightarrow (x = y)]$. $x = 1 \land y = -1$ is a counterexample.}
-	\item Claim: $\forall x \exists y [y^2 = x]$. $x = 2$ is a counterexample.
-	\item Claim: $\forall x \forall y [xy \ge x]$. $x = 1 \land y = -1$ is a counterexample.
-	\item Claim: $\exists x \exists y [x - y = 5 \land 2x + 4y = 4]$. Let $x = 4, y = -1$, we have \begin{equation}
-		x - y = 5 \land 2x + 4y = 4.
-	\end{equation}
+    \item \hl{Claim: $\forall x \forall y [(x^2 = y^2) \rightarrow (x = y)]$. $x = 1 \land y = -1$ is a counterexample.}
+    \item Claim: $\forall x \exists y [y^2 = x]$. $x = 2$ is a counterexample.
+    \item Claim: $\forall x \forall y [xy \ge x]$. $x = 1 \land y = -1$ is a counterexample.
+    \item Claim: $\exists x \exists y [x - y = 5 \land 2x + 4y = 4]$. Let $x = 4, y = -1$, we have \begin{equation}
+        x - y = 5 \land 2x + 4y = 4.
+    \end{equation}
 \end{enumerate}
 
 \section{Set}
 \textbf{Proof}\begin{enumerate}[label=(\alph*)]
-	\item \begin{align}
-		\begin{aligned}
-		& ((a, b) \in A \times (B \cap C))\\
-		\equiv & ((a \in A) \land (b \in B \cap C))\\
-		\equiv & ((a \in A) \land (b \in B) \land (b \in C))\\
-		\equiv & (((a, b) \in A \times B) \land ((a, b) \in A \times C))\\
-		\equiv & ((a, b) \in (A \times B) \cap (A \times C)).
-		\end{aligned}
-	\end{align}
-	\item \begin{align}
-		\begin{aligned}
-		& (A \cup B) - C\\
-		= & (A \cup B) \cap \overline{C}\\
-		= & (A \cap \overline{C}) \cup (B \cap \overline{C})\\
-		= & (A - C) \cup (B - C).
-		\end{aligned}
-	\end{align}
-	\item \begin{align}
-		\begin{aligned}
-		& (A - B) \cup (A - C)\\
-		= & (A \cap \overline{B}) \cup (A \cap \overline{C})\\
-		= & A \cap (\overline{B} \cup \overline{C})\\
-		= & A \cap \overline{B \cap C}\\
-		= & A - (B \cap C).
-		\end{aligned}
-	\end{align}
+    \item \begin{align}
+        \begin{aligned}
+        & ((a, b) \in A \times (B \cap C))\\
+        \equiv & ((a \in A) \land (b \in B \cap C))\\
+        \equiv & ((a \in A) \land (b \in B) \land (b \in C))\\
+        \equiv & (((a, b) \in A \times B) \land ((a, b) \in A \times C))\\
+        \equiv & ((a, b) \in (A \times B) \cap (A \times C)).
+        \end{aligned}
+    \end{align}
+    \item \begin{align}
+        \begin{aligned}
+        & (A \cup B) - C\\
+        = & (A \cup B) \cap \overline{C}\\
+        = & (A \cap \overline{C}) \cup (B \cap \overline{C})\\
+        = & (A - C) \cup (B - C).
+        \end{aligned}
+    \end{align}
+    \item \begin{align}
+        \begin{aligned}
+        & (A - B) \cup (A - C)\\
+        = & (A \cap \overline{B}) \cup (A \cap \overline{C})\\
+        = & A \cap (\overline{B} \cup \overline{C})\\
+        = & A \cap \overline{B \cap C}\\
+        = & A - (B \cap C).
+        \end{aligned}
+    \end{align}
 \end{enumerate}
 
 \section{Function Composition}
@@ -223,83 +223,83 @@
 \textbf{Proof}\begin{enumerate}[label=(\alph*)]
 \item $(p \land q) \rightarrow p \equiv \lnot (p \land q) \lor p \equiv \lnot p \lor \lnot q \lor p \equiv TRUE$.
 \item \begin{align}
-	\begin{aligned}
-	& (p \land (p \rightarrow q) \land (s \lor r) \land (r \rightarrow \lnot q)) \rightarrow s\\
-	\equiv & \lnot (p \land (\lnot p \lor q) \land (s \lor r) \land (\lnot r \lor \lnot q)) \lor s\\
-	\equiv & \lnot (p \land q \land (\lnot r \lor \lnot q) \land (s \lor r)) \lor s\\
-	\equiv & \lnot (p \land q \land \lnot r \land (r \lor s)) \lor s\\
-	\equiv & \lnot (p \land q \land \lnot r \land s) \lor s\\ \equiv & \lnot p \lor \lnot q \lor r \lor \lnot s \lor s\\
-	\equiv & TRUE.
-	\end{aligned}
+    \begin{aligned}
+    & (p \land (p \rightarrow q) \land (s \lor r) \land (r \rightarrow \lnot q)) \rightarrow s\\
+    \equiv & \lnot (p \land (\lnot p \lor q) \land (s \lor r) \land (\lnot r \lor \lnot q)) \lor s\\
+    \equiv & \lnot (p \land q \land (\lnot r \lor \lnot q) \land (s \lor r)) \lor s\\
+    \equiv & \lnot (p \land q \land \lnot r \land (r \lor s)) \lor s\\
+    \equiv & \lnot (p \land q \land \lnot r \land s) \lor s\\ \equiv & \lnot p \lor \lnot q \lor r \lor \lnot s \lor s\\
+    \equiv & TRUE.
+    \end{aligned}
 \end{align}
 \item \begin{align}
-	\begin{aligned}
-	& ((p \rightarrow r) \land (q \rightarrow r)) \rightarrow ((p \lor q) \rightarrow r)\\
-	\equiv & \lnot ((\lnot p \lor r) \land (\lnot q \lor r)) \lor (\lnot (p \lor q) \lor r)\\
-	\equiv & \lnot ((\lnot p \land \lnot q) \lor r) \lor ((\lnot p \land \lnot q) \lor r)\\
-	\equiv & TRUE.
-	\end{aligned}
+    \begin{aligned}
+    & ((p \rightarrow r) \land (q \rightarrow r)) \rightarrow ((p \lor q) \rightarrow r)\\
+    \equiv & \lnot ((\lnot p \lor r) \land (\lnot q \lor r)) \lor (\lnot (p \lor q) \lor r)\\
+    \equiv & \lnot ((\lnot p \land \lnot q) \lor r) \lor ((\lnot p \land \lnot q) \lor r)\\
+    \equiv & TRUE.
+    \end{aligned}
 \end{align}
 \end{enumerate}
 
 \section{Infinite Set}
 \textbf{Proof}\begin{enumerate}[label=(\alph*)]
-	\item False. Let \begin{equation}
-		\begin{cases}
-		A = \{x \mid x > 0 \land x \in \mathbb{Z}\},\\
-		B = \{x \mid x < 0 \land x \in \mathbb{Z}\},
-		\end{cases}
-	\end{equation} then $A \cap B = \emptyset$.
-	\item False. Let $B = \mathbb{Z}, A = \emptyset$, then $A \subseteq B, \left|A\right| = 0$.
-	\item True. Otherwise, $\left|A\right| > \left|B\right|$ which is contradictory to $A \subseteq B$.
-	\item False. Let $A = \emptyset, B = \mathbb{Z}$, then $A \subseteq B, \left|B\right| = \infty$.
+    \item False. Let \begin{equation}
+        \begin{cases}
+        A = \{x \mid x > 0 \land x \in \mathbb{Z}\},\\
+        B = \{x \mid x < 0 \land x \in \mathbb{Z}\},
+        \end{cases}
+    \end{equation} then $A \cap B = \emptyset$.
+    \item False. Let $B = \mathbb{Z}, A = \emptyset$, then $A \subseteq B, \left|A\right| = 0$.
+    \item True. Otherwise, $\left|A\right| > \left|B\right|$ which is contradictory to $A \subseteq B$.
+    \item False. Let $A = \emptyset, B = \mathbb{Z}$, then $A \subseteq B, \left|B\right| = \infty$.
 \end{enumerate}
 
 \section{Invertible Function}
 \textbf{Solution}\begin{enumerate}[label=(\alph*)]
-	\item Let $A = \{a_0, a_1, \ldots, a_4\}$, to form function $f$ we need to decide the value of $f(a_0), f(a_1), \ldots, f(a_4)$, each of which has five possible values. Therefore, the total number of function candidates is $5^5$.
-	\item $5! = 120$.
+    \item Let $A = \{a_0, a_1, \ldots, a_4\}$, to form function $f$ we need to decide the value of $f(a_0), f(a_1), \ldots, f(a_4)$, each of which has five possible values. Therefore, the total number of function candidates is $5^5$.
+    \item $5! = 120$.
 \end{enumerate}
 
 \section{Closure}
 \textbf{Solution}\begin{enumerate}[label=(\alph*)]
-	\item \begin{description}
-		\item[Symmetric closure] $\{(1, 3), (1, 5), (2, 4), (2, 5), (3, 1), (4, 2), (5, 1), (5, 2)\}$.
-		\item[Reflexive closure] $\{(1, 1), (1, 3), (1, 5), (2, 2), (2, 4), (2, 5), (3, 1), (3, 3), (4, 2), (4, 4), (5, 1), (5, 2), (5, 5)\}$.
-	\end{description}
-	\item \begin{description}
-		\item[Reflexive closure] $\{(1, 1), (1, 5), (2, 2), (2, 4), (3, 1), (3, 3), (4, 4), (5, 2), (5, 5)\}$.
-		\item[Transitive closure] $\{(1, 1), (1, 2), (1, 4), (1, 5), (2, 2), (2, 4), (3, 1), (3, 2), (3, 3), (3, 4), (3, 5), (4, 4), (5, 2), (5, 4), (5, 5)\}$.
-	\end{description}
+    \item \begin{description}
+        \item[Symmetric closure] $\{(1, 3), (1, 5), (2, 4), (2, 5), (3, 1), (4, 2), (5, 1), (5, 2)\}$.
+        \item[Reflexive closure] $\{(1, 1), (1, 3), (1, 5), (2, 2), (2, 4), (2, 5), (3, 1), (3, 3), (4, 2), (4, 4), (5, 1), (5, 2), (5, 5)\}$.
+    \end{description}
+    \item \begin{description}
+        \item[Reflexive closure] $\{(1, 1), (1, 5), (2, 2), (2, 4), (3, 1), (3, 3), (4, 4), (5, 2), (5, 5)\}$.
+        \item[Transitive closure] $\{(1, 1), (1, 2), (1, 4), (1, 5), (2, 2), (2, 4), (3, 1), (3, 2), (3, 3), (3, 4), (3, 5), (4, 4), (5, 2), (5, 4), (5, 5)\}$.
+    \end{description}
 \end{enumerate}
 
 \section{Equivalence Relation}
 \textbf{Proof}\begin{description}
-	\item[Reflexive] $a + b = b + a$ so that $((a, b), (a, b)) \in R$.
-	\item[Symmetric] $a + d = b + c \Leftrightarrow c + b = d + a$ so that \begin{equation}
-		((a, b), (c, d)) \in R \Leftrightarrow ((c, d), (a, b)) \in R.
-	\end{equation}
-	\item[Transitive] $a + d = b + c \land c + f = d + e \Rightarrow a + f = b + e$ so that \begin{equation}
-		((a, b), (c, d)) \in R \land ((c, d), (e, f)) \in R \Rightarrow ((a, b), (e, f)) \in R.
-	\end{equation}
+    \item[Reflexive] $a + b = b + a$ so that $((a, b), (a, b)) \in R$.
+    \item[Symmetric] $a + d = b + c \Leftrightarrow c + b = d + a$ so that \begin{equation}
+        ((a, b), (c, d)) \in R \Leftrightarrow ((c, d), (a, b)) \in R.
+    \end{equation}
+    \item[Transitive] $a + d = b + c \land c + f = d + e \Rightarrow a + f = b + e$ so that \begin{equation}
+        ((a, b), (c, d)) \in R \land ((c, d), (e, f)) \in R \Rightarrow ((a, b), (e, f)) \in R.
+    \end{equation}
 \end{description}
 
 \section{Equivalence Class}
 \textbf{Proof}\begin{enumerate}[label=(\alph*)]
-	\item \begin{description}
-		\item[$\Rightarrow$] Let $c \in [a]$, then $(c, a) \in R$. Since $(a, b) \in R$, $(c, b) \in R$. Therefore, $c \in [b]$, so that $[a] \subseteq [b]$. Similarly, we can prove $[b] \subseteq [a]$. Thus $[a] = [b]$.
-		\item[$\Leftarrow$] $[a] = [b] \Rightarrow b \in [a] \Rightarrow (a, b) \in R$.
-	\end{description}
-	\item \begin{description}
-		\item[$\Rightarrow$] \begin{align}
-			\begin{aligned}
-			& [a] \cap [b] \ne \emptyset\\
-			\Rightarrow & \exists c \in [a] \cap [b]\\
-			\Rightarrow & (a, c) \in R \land (c, b) \in R\\
-			\Rightarrow & (a, b) \in R.
-			\end{aligned}
-		\end{align}
-		\item[$\Leftarrow$] $(a, b) \in R \Rightarrow b \in [a] \Rightarrow b \in [a] \cap [b] \ne \emptyset$.
-	\end{description}
+    \item \begin{description}
+        \item[$\Rightarrow$] Let $c \in [a]$, then $(c, a) \in R$. Since $(a, b) \in R$, $(c, b) \in R$. Therefore, $c \in [b]$, so that $[a] \subseteq [b]$. Similarly, we can prove $[b] \subseteq [a]$. Thus $[a] = [b]$.
+        \item[$\Leftarrow$] $[a] = [b] \Rightarrow b \in [a] \Rightarrow (a, b) \in R$.
+    \end{description}
+    \item \begin{description}
+        \item[$\Rightarrow$] \begin{align}
+            \begin{aligned}
+            & [a] \cap [b] \ne \emptyset\\
+            \Rightarrow & \exists c \in [a] \cap [b]\\
+            \Rightarrow & (a, c) \in R \land (c, b) \in R\\
+            \Rightarrow & (a, b) \in R.
+            \end{aligned}
+        \end{align}
+        \item[$\Leftarrow$] $(a, b) \in R \Rightarrow b \in [a] \Rightarrow b \in [a] \cap [b] \ne \emptyset$.
+    \end{description}
 \end{enumerate}
 \end{document}
