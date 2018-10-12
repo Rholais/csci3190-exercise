@@ -1,0 +1,233 @@
+%!TEX program = xelatex
+\documentclass[10pt, compress]{beamer}
+\usepackage[titleprogressbar]{../../cls/beamerthemem}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{minted}
+
+\usepgfplotslibrary{dateplot}
+
+\usemintedstyle{trac}
+
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{theorems}[numbered]
+\newtheorem{crl}{Corollary}[theorem]
+\newtheorem*{solution*}{Solution}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\usepackage{version}
+%\excludeversion{proof}
+%\excludeversion{solution*}
+
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{qtree}
+
+\usepackage{tikz}
+
+\makeatletter
+\def\old@comma{,}
+\catcode`\,=13
+\def,{%
+	\ifmmode%
+	\old@comma\discretionary{}{}{}%
+	\else%
+	\old@comma%
+	\fi%
+}
+\makeatother
+
+\title{CSCI 3190 Tutorial of Week 05}
+\subtitle{Quiz 1}
+\author{LI Haocheng}
+\institute{Department of Computer Science and Engineering}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}[fragile]
+\frametitle{Closures}
+\begin{columns}
+	\begin{column}{.4\linewidth}
+		\begin{definition}
+			A \textbf{reflexive closure} of $R$\begin{enumerate}
+				\item contains $R$,
+				\item is reflexive,
+				\item is contained within every reflexive relation that contains $R$.
+			\end{enumerate}
+		\end{definition}
+		\begin{definition}
+			A \textbf{diagonal relation} $\Delta$ on $A$ is $\{(a, a) \mid a \in A \}$.
+		\end{definition}
+	\end{column}
+	\begin{column}{.6\linewidth}
+		\begin{theorem}
+			Given a relation $R$ on a set $A$, the reflexive closure of $R$ equals $R \cup \Delta$.
+		\end{theorem}
+		\onslide<2>\begin{proof}
+			\begin{enumerate}
+				\item $R \cup \Delta \supseteq R$.
+				\item $R \cup \Delta \supseteq \Delta$.
+				\item If there exists a reflexive set $S \supset \Delta$, $r \in R \cup \Delta$, $r \notin S$. Therefore $r \notin \Delta$, $r \in R$ so that $S \nsupseteq R$ which forms a contradictory.
+			\end{enumerate}
+		\end{proof}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Symmetric Relation}
+\begin{columns}
+	\begin{column}{.6\linewidth}
+		\onslide<1->\begin{theorem}
+			Given a relation $R$ on a set $A$, the reflexive closure of $R$ equals $R \cup R^{-1}$.
+		\end{theorem}
+		\onslide<2->\begin{proof}
+			\begin{enumerate}
+				\item $R \cup R^{-1} \supseteq R$.
+				\item $(R \cup R^{-1})^{-1} = R^{-1} \cup {R^{-1}}^{-1} = R \cup R^{-1}$.
+				\item If there exists a set $S \supseteq R$, $r \in R \cup R^{-1}$, $r \notin S$. Therefore $r \notin R$, $r \in R^{-1}$ so that $S \ne S^{-1}$ which forms a contradictory.
+			\end{enumerate}
+		\end{proof}
+	\end{column}
+	\begin{column}{.5\linewidth}
+		\onslide<1->\begin{example}
+			What is the symmetric closure of the relation $R =\{(a, b) \mid a > b\}$ on the set of positive integers?
+		\end{example}
+		\onslide<3>\begin{solution*}
+			\begin{align}
+			\begin{aligned}
+			& R \cup R^{-1} \\
+			= & \{(a, b) \mid a > b \} \cup \{(a, a) \mid a < b\} \\
+			= & \{(a, b) \mid a \ne b\}.
+			\end{aligned}
+			\end{align}
+		\end{solution*}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Equivalence Relation}
+\begin{definition}
+	A relation on a set $A$ is called an \textbf{equivalence relation} if it is reflexive, symmetric, and transitive.
+\end{definition}
+\begin{example}
+	Let $R$ be the relation on the set of real numbers such that $(a, b) \in R$ if and only if $a - b$ is an integer. Is $R$ an equivalence relation?
+\end{example}
+\onslide<2>\begin{solution*}
+	Because $a - a = 0$ is an integer for all real numbers $a$, $\forall a \in \mathbb{R}, (a, a) \in R$. Hence, $R$ is reflexive. Now suppose that $(a, b) \in R$. Then $a - b$ is an integer, so $b - a$ is also an integer. Hence, $(b, a) \in R$. It follows that $R$ is symmetric. If $(a, b), (b, c) \in R$, then $a - b$ and $b - c$ are integers. Therefore, $a - c = (a - b) + (b - c)$ is also an integer. Hence, $(a, c) \in R$. Thus, $R$ is transitive. Consequently, $R$ is an equivalence relation.
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Example of Equivalence Relation}
+\begin{example}
+	Show the smallest equivalence relation contains $\{(a, b), (c, b), (d, c)\}$ on set $\{a, b, c, d, e\}$.
+\end{example}
+\onslide<2>\begin{solution*}
+	\begin{enumerate}
+		\item Find Reflexsive Closure: $\{(a, a), (a, b), (b, b), (c, b), (c, c), (d, c), (d, d), (e, e)\}$.
+		\item Find Symmetric Closure: $\{(a, a), (a, b), (b, a), (b, b), (b, c), (c, b), (c, c), (c, d), (d, c), (d, d), (e, e)\}$.
+		\item Find Transitive Closure: $\{(a, a), (a, b), (a, c), (a, d), (b, a), (b, b), (b, c), (b, d), (c, a), (c, b), (c, c), (c, d), (d, a), (d, b), (d, c), (d, d), (e, e)\}$
+	\end{enumerate}
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Equivalence Class}
+\onslide<1->\begin{example}
+	Let $A = \{1, 2, 3, 4, 5, 6, 7, 8\} \times \{1, 2, 3, 4, 5, 6, 7, 8\}$. Define a relation $R$ on $A$ by: $((a, b), (c, d)) \in R$ if and only if $a \times b = c \times d$ \begin{enumerate}[(a)]
+		\item Show that $R$ is an equivalence relation on $A$.
+		\item Determin the equivalence class of $[(1, 1)], [(2, 2)], [(2, 4)]$ and $[(4, 3)]$.
+	\end{enumerate}
+\end{example}
+\onslide<2>\begin{solution*}
+	\begin{enumerate}[(a)]
+		\item \begin{description}
+			\item[Reflexive] $(a, b) \in A \land a \times b = a \times b \Leftrightarrow ((a, b), (a, b)) \in R$.
+			\item[Symmetric] $((a, b), (c, d)) \in R \Leftrightarrow a \times b = c \times d \Leftrightarrow ((c, d), (a, b)) \in R$.
+			\item[Transitive] $((a, b), (c, d)) \in R \land ((c, d), (e, f)) \in R \Leftrightarrow a \times b = c \times d = e \times f \Rightarrow ((a, b), (e, f)) \in R$.
+		\end{description}
+		\item $\{(1, 1)\}$, $\{(1, 4), (2, 2), (4, 1)\}$, $\{(1, 8), (2, 4), (4, 2), (8, 1)\}$, $\{(2, 6), (3, 4), (4, 3), (6, 2)\}$.
+	\end{enumerate}
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Reflexive Relation}
+\onslide<1->\begin{example}
+	If $R$ is a relation on a set $A$, prove or disprove that $R^2$ is reflexive $\Rightarrow$ $R$ is reflexive.
+\end{example}
+\onslide<2->\begin{proof}
+	Let $A = \{0, 1\}, R = \{(0, 1), (1, 0)\}$ which is not reflexive, then $R^2 = \{(0, 0), (1, 1)\}$ is reflexive.
+\end{proof}
+\onslide<1->\begin{example}
+	What is the reflexive closure of the relation $R = \{(a, b) \mid a < b\}$ on the set of integers?
+\onslide<3>\begin{solution*}
+	$R \cup \Delta = \{(a, b) \mid a < b \} \cup \{(a, a) \mid a \in \mathbb{Z}\} = \{(a, b) \mid a \le b\}$.
+\end{solution*}
+\end{example}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Set}
+\begin{columns}
+	\begin{column}{.9\linewidth}
+		\onslide<1->\begin{example}
+			Determine  whether each of the following statements is true for arbitrary sets $A, B$, and $C$. Give a counter-example if your answer is ``No''.\begin{enumerate}
+				\item If $A \in B$ and $B \subseteq C$, then $A \in C$.
+				\item If $A \subseteq B$ and $B \in C$, then $A \subseteq C$.
+				\item If $A \subseteq B$ and $B \in C$, then $A \in C$.
+			\end{enumerate}
+		\end{example}
+		\onslide<2>\begin{solution*}
+			\begin{enumerate}
+				\item Yes.
+				\item No. Let $A = \{0\}, B = \{0\}, C = \{\{0\}\}$.
+				\item No. Let $A = \emptyset, B = \{0\}, C = \{\{0\}\}$.
+			\end{enumerate}
+		\end{solution*}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Inclusion Exclusion}
+\begin{columns}
+	\begin{column}{\linewidth}
+		\onslide<1->\begin{example}
+			Out of 30 students, 15 of them have taken the course Discrete Mathematics, 8 of them have taken Algorithms and 6 of them have taken Economics. Moreover, we know that 3 of them have taken all three courses. Let $x$ be the number of students not taking any of these three courses. What is the smallest possible $x$? Explain your answer.
+		\end{example}
+		\onslide<2>\begin{solution*}
+			Let $U$ be the set of all students, $A$ be the set of student taken Algorithms, $D$ be the set of students taken Discrete Mathematics and $E$ be the set of students taken Economics, then $x = \left|\overline{A \cup D \cup E}\right| = \left|U\right| - \left|A\right| - \left|D\right| - \left|E\right| + \left|A \cap D\right| + \left|A \cap E\right| + \left|D \cap E\right| - \left|A \cap D \cap E\right| = 1 + 2 \left|A \cap D \cap E\right| + \left|A \cap D \cap \overline{E}\right| + \left|A \cap \overline{D} \cap E\right| + \left|\overline{A} \cap D \cap E\right| \ge 7$. $x = 7$ when $\left|A \cap D \cap \overline{E}\right| = \left|A \cap \overline{D} \cap E\right| = \left|\overline{A} \cap D \cap E\right| = 0$.
+		\end{solution*}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{The Pigeonhole Principle}
+\begin{example}
+	Assume that in a group of six people, each pair of individuals consists of two friends or two enemies.
+	Show that there are either three mutual friends or three mutual enemies in the group.
+\end{example}
+\onslide<2>\begin{solution*}
+	Let $A$ be one of the six individuals.
+	Following from the generalized pigeonhole principle, of the five other people in the group,
+	there are either three or more who are friends or enemies of $A$.
+	
+	Without loss of generality, suppose that $B$, $C$, and $D$ are friends of $A$.
+	If any two of these three people are friends,
+	then these two and $A$ form a group of three mutual friends.
+	Otherwise, $B$, $C$, and $D$ form a set of three mutual enemies.
+\end{solution*}
+\end{frame}
+
+\plain{Questions?}
+
+\end{document}
