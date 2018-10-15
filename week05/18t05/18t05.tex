@@ -1,5 +1,5 @@
 %!TEX program = xelatex
-\documentclass[10pt, compress]{beamer}
+\documentclass[10pt, compress, handout]{beamer}
 \usepackage[titleprogressbar]{../../cls/beamerthemem}
 
 \usepackage{booktabs}
@@ -72,7 +72,7 @@
 			\begin{enumerate}
 				\item $R \cup \Delta \supseteq R$.
 				\item $R \cup \Delta \supseteq \Delta$.
-				\item If there exists a reflexive set $S \supset \Delta$, $r \in R \cup \Delta$, $r \notin S$. Therefore $r \notin \Delta$, $r \in R$ so that $S \nsupseteq R$ which forms a contradictory.
+				\item If there exists a reflexive set $S \supseteq \Delta$, $r \in R \cup \Delta$, $r \notin S$. Therefore $r \notin \Delta$, $r \in R$ so that $S \nsupseteq R$ which forms a contradictory.
 			\end{enumerate}
 		\end{proof}
 	\end{column}
@@ -84,7 +84,7 @@
 \begin{columns}
 	\begin{column}{.6\linewidth}
 		\onslide<1->\begin{theorem}
-			Given a relation $R$ on a set $A$, the reflexive closure of $R$ equals $R \cup R^{-1}$.
+			Given a relation $R$ on a set $A$, the symmetric closure of $R$ equals $R \cup R^{-1}$.
 		\end{theorem}
 		\onslide<2->\begin{proof}
 			\begin{enumerate}
