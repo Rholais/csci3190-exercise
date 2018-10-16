@@ -1,0 +1,613 @@
+% This is "sig-alternate.tex" V2.1 April 2013
+% This file should be compiled with V2.5 of "sig-alternate.cls" May 2012
+%
+% This example file demonstrates the use of the 'sig-alternate.cls'
+% V2.5 LaTeX2e document class file. It is for those submitting
+% articles to ACM Conference Proceedings WHO DO NOT WISH TO
+% STRICTLY ADHERE TO THE SIGS (PUBS-BOARD-ENDORSED) STYLE.
+% The 'sig-alternate.cls' file will produce a similar-looking,
+% albeit, 'tighter' paper resulting in, invariably, fewer pages.
+%
+% ----------------------------------------------------------------------------------------------------------------
+% This .tex file (and associated .cls V2.5) produces:
+%       1) The Permission Statement
+%       2) The Conference (location) Info information
+%       3) The Copyright Line with ACM data
+%       4) NO page numbers
+%
+% as against the acm_proc_article-sp.cls file which
+% DOES NOT produce 1) thru' 3) above.
+%
+% Using 'sig-alternate.cls' you have control, however, from within
+% the source .tex file, over both the CopyrightYear
+% (defaulted to 200X) and the ACM Copyright Data
+% (defaulted to X-XXXXX-XX-X/XX/XX).
+% e.g.
+% \CopyrightYear{2007} will cause 2007 to appear in the copyright line.
+% \crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
+%
+% ---------------------------------------------------------------------------------------------------------------
+% This .tex source is an example which *does* use
+% the .bib file (from which the .bbl file % is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission, you *NEED* to 'insert'
+% your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+% ================= IF YOU HAVE QUESTIONS =======================
+% Questions regarding the SIGS styles, SIGS policies and
+% procedures, Conferences etc. should be sent to
+% Adrienne Griscti (griscti@acm.org)
+%
+% Technical questions _only_ to
+% Gerald Murray (murray@hq.acm.org)
+% ===============================================================
+%
+% For tracking purposes - this is V2.0 - May 2012
+
+\documentclass{../../cls/sig-alternate-05-2015}
+\usepackage{booktabs}
+\usepackage{textcomp}
+
+
+\begin{document}
+
+% Copyright
+%\setcopyright{acmcopyright}
+%\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
+
+
+% DOI
+%\doi{10.475/123_4}
+
+% ISBN
+%\isbn{123-4567-24-567/08/06}
+
+%Conference
+%\conferenceinfo{PLDI '13}{June 16--19, 2013, Seattle, WA, USA}
+
+%\acmPrice{\$15.00}
+
+%
+% --- Author Metadata here ---
+%\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
+%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+% --- End of Author Metadata ---
+
+%\\TODO:1.tautology prove section 2. set section operation proof 3. function section basic proving onto bijection...
+\title{CSCI 3190 \\ Introduction to Discrete Mathematics and Algorithms}
+\subtitle{Extended Exercise 5}
+
+\maketitle
+\begin{abstract}
+
+\end{abstract}
+
+\keywords{}
+
+\section{Induction and Recursion}
+\subsection{Mathematical Induction}
+\begin{enumerate}
+\item Prove that if $h > -1$, then $1 + nh \le (1 + h)^n$ for all nonnegative integers $n$. This is called \textbf{Bernoulli's inequality}.
+
+\item Prove that for every positive integer $n$,
+\begin{equation}
+	\sum_{i = 1}^{n} \frac{1}{\sqrt{i}} > 2(\sqrt{n + 1} - 1).
+\end{equation}
+
+\item The \textbf{harmonic numbers} $H_j, j = 1, 2, 3, \ldots$, are defined by \begin{equation}
+	H_j = \sum_{i = 1}^j \frac{1}{i}.
+\end{equation}
+Prove that $H_{2^n} \le 1 + n$ whenever $n$ is a nonnegative integer.
+
+\item Prove that $n^2 - 1$ is divisible by 8 whenever $n$ is an odd positive integer.
+
+\item Prove that if $n$ is a positive integer, then 133 divides
+$11^{n + 1} + 12^{2n - 1}.$
+
+\item A knight on a chessboard can move one space horizontally
+(in either direction) and two spaces vertically (in
+either direction) or two spaces horizontally (in either direction)
+and one space vertically (in either direction).
+Suppose that we have an infinite chessboard,
+made up of all squares $(m, n)$ where $m$ and $n$ are nonnegative integers that denote the row number and the column number of the square,
+respectively.
+Use mathematical induction to show that a knight starting at $(0, 0)$ can visit every square using a finite sequence of moves.
+
+\item Show that \begin{align}
+\begin{aligned}
+	& [(p_1 \rightarrow p_2) \land (p_2 \rightarrow p_3) \land \cdots (p_{n - 1} \rightarrow p_{n})]\\
+	& \qquad \rightarrow [(p_1 \land p_2 \land \cdots \land p_{n - 1}) \rightarrow p_{n}]
+\end{aligned}
+\end{align} is a tautology whenever $p_1, p_2, \ldots, p_n$ are propositions, where $n \ge 2$.
+
+\item Let $a_1, a_2, \ldots, a_n$ be positive real numbers.
+The \textbf{arithmetic mean} of these numbers is defined by \begin{equation}
+	A = \frac{1}{n} \sum_{i = 1}^n a_i,
+\end{equation} and the \textbf{geometric mean} of these numbers is defined by \begin{equation}
+	G = \left(\prod_{i = 1}^{n} a_i\right)^\frac{1}{n}.
+\end{equation}
+Use mathematical induction to prove that $A \ge G$.
+
+\item Show that if $I_1, I_2, \ldots, I_n$ is a collection of open intervals on the real number line,
+$n \ge 2$,
+and every pair of these intervals has a nonempty intersection,
+that is,
+$I_i \cap I_j = \emptyset$ whenever $1 \le i \le n$ and $1 \le j \le n$,
+then the intersection of all these sets is nonempty, that is,
+$I_1 \cap I_2 \cap \cdots \cap I_n \ne \emptyset$.
+
+\item Show that a three-dimensional $2^n \times 2^n \times 2^n$ checkerboard with one $1 \times 1 \times 1$ cube missing can be completely covered by $2 \times 2 \times 2$ cubes with one $1 \times 1 \times 1$ cube removed.
+
+\end{enumerate}
+
+\subsection{Strong Induction and Well-Ordering}
+\begin{enumerate}
+\item Use strong induction to prove that $\sqrt{2}$ is irrational.
+
+\item A jigsaw puzzle is put together by successively joining
+pieces that fit together into blocks. A move is made each
+time a piece is added to a block, or when two blocks
+are joined. Use strong induction to prove that no matter
+how the moves are carried out, exactly $n - 1$ moves are
+required to assemble a puzzle with n pieces.
+
+\item Showthat if $a_1, a_2, \ldots, a_n$ are $n$ distinct real numbers, exactly $n - 1$ multiplications are used to compute the product of these $n$ numbers no matter how parentheses are inserted into their product.
+
+\end{enumerate}
+
+\subsection{Recursive Definitions and Structural Induction}
+\begin{enumerate}
+\item The \textbf{Fibonacci sequence},
+$f_0, f_1, f_2, \ldots$,
+is defined by the initial conditions $f_0 = 0, f_1 = 1$,
+and the recurrence relation \begin{equation}
+	f_n = f_{n - 1} + f_{n - 2}
+\end{equation} for $n = 2, 3, 4, \cdots$.
+Show that $\sum_{i = 0}^{2n - 1} f_i f_{i + 1} = f_{2n}^2$ when $n$ is a positive integer.
+
+\item A partition of a positive integer $n$ is a way to write $n$ as a sum of positive integers where the order of terms in
+the sum does not matter.
+For instance, $7 = 3 + 2 + 1 + 1$ is a partition of $7$.
+Let $P_m$ equal the number of different partitions of $m$,
+and let $P_{m, n}$ be the number of different ways to express $m$ as the sum of positive integers not exceeding $n$. \begin{enumerate}
+	\item Show that $P_{m, m} = P_m$.
+	\item Show that the following recursive definition for $P_{m, n}$ is correct: \begin{equation}
+		P_{m, n} = \begin{cases}
+		1 & \text{if } m = 1 \lor n = 1,\\
+		P_{m, m} & \text{if } m < n,\\
+		1 + P_{m, m - 1} & \text{if } m = n > 1,\\
+		P_{m, n - 1} + P_{m - n, n} & \text{if } m > n > 1.
+		\end{cases}
+	\end{equation}
+	\item Find the number of partitions of 5 and of 6 using this recursive definition.
+\end{enumerate}
+
+\item Consider an inductive definition of a version of \textbf{Ackermann's function}.
+This functionwas named after Wilhelm Ackermann,
+a German mathematician who was a student of the great mathematician David Hilbert.
+Ackermann's function plays an important role in the theory of recursive functions and in the study of the complexity of certain algorithms involving set unions.
+\begin{equation}
+	A(m, n) = \begin{cases}
+	2n & \text{if } m = 0,\\
+	0 & \text{if } m \ge 1 \land n = 0,\\
+	2 & \text{if } m \ge 1 \land n = 1,\\
+	A(m - 1, A(m, n - 1)) & \text{if } m \ge 1 \land n \ge 2.
+	\end{cases}
+\end{equation}
+Prove that $A(m, n + 1) > A(m, n)$ whenever $m$ and $n$ are
+nonnegative integers.
+
+\end{enumerate}
+
+\subsection{Recursive Algorithms}
+\begin{enumerate}
+\item Give a recursive algorithm for tiling a $2^n \times 2^n$ checkerboard with one square missing using right triominoes.
+
+\item Prove that the merge sort algorithm is correct.
+\end{enumerate}
+
+\section{Advanced Counting Techniques}
+\subsection{Applications of Recurrence Relations}
+\begin{enumerate}
+\item A string that contains only 0s, 1s, and 2s is called a \textbf{ternary string}. \begin{enumerate}
+	\item Find a recurrence relation for the number of ternary
+	strings of length $n$ that do not contain two consecutive
+	0s or two consecutive 1s.
+	\item What are the initial conditions?
+	\item How many ternary strings of length six do not contain
+	two consecutive 0s or two consecutive 1s?
+\end{enumerate}
+
+\item \begin{enumerate}
+	\item Find a recurrence relation for the number of ternary
+	strings of length $n$ that do not contain consecutive
+	symbols that are the same.
+	\item What are the initial conditions?
+	\item How many ternary strings of length six do not contain
+	consecutive symbols that are the same?
+\end{enumerate}
+
+\item \begin{enumerate}
+	\item Find the recurrence relation satisfied by $R_n$,
+	where $R_n$ is the number of regions that a plane is divided into by $n$ lines,
+	if no two of the lines are parallel and no three of the lines go through the same point.
+	\item Find $R_n$ using iteration.
+\end{enumerate}
+
+\item \begin{enumerate}
+	\item Find the recurrence relation satisfied by $S_n$,
+	where $S_n$ is the number of regions into which three-dimensional space is divided by $n$ planes if every three of the planes meet in one point,
+	but no four of the planes go through the same point.
+	\item Find $S_n$ using iteration.
+\end{enumerate}
+
+\end{enumerate}
+
+\subsection{Solving Linear Recurrence Relations}
+\begin{enumerate}
+\item 
+\end{enumerate}
+
+\nocite{*}
+\bibliographystyle{abbrv}
+\bibliography{ref}  % sigproc.bib is the name of the Bibliography in this case
+ 
+\clearpage
+%APPENDICES are optional
+%\balancecolumns
+\appendix
+%Appendix A
+\section{Answer}
+\subsection{Induction and Recursion}
+\subsubsection{Mathematical Induction}
+\begin{enumerate}
+\item Let $P(n)$ be ``$1 + nh \le (1 + h)^n, h > -1$.''
+
+\textit{Basis step:} $P(0)$ is true because \begin{equation}
+	1 + 0 \cdot h = 1 \le 1 = (1 + h)^0.
+\end{equation}
+
+\textit{Inductive step:} Assume $1 + kh \le (1 + h)^k$.
+Then because $(1 + h) > 0$, $(1 + h)^{k + 1} = (1 + h) (1 + h) ^k \ge (1 + h)(1 + k h) = 1 + (k + 1) h + k h^2 \ge 1 + (k + 1) h$.
+
+\item Let $P(n)$ be \begin{equation}
+\sum_{i = 1}^{n} \frac{1}{\sqrt{i}} > 2(\sqrt{n + 1} - 1).
+\end{equation}
+
+\textit{Basis step:} $P(1)$ is true because $1 > 2 (\sqrt{2} - 1)$.
+
+\textit{Inductive step:} Assume that $P(k)$ is true.
+Then \begin{equation}
+\sum_{i = 1}^{k} \frac{1}{\sqrt{i}} > 2(\sqrt{k + 1} - 1).
+\end{equation}
+If we show that $2(\sqrt{k + 1} - 1) + \frac{1}{\sqrt{k + 1}} > 2(\sqrt{k + 2} - 1)$,
+it follows that $P(k + 1)$ is true.
+This inequality is equivalent to $2(\sqrt{k + 2} - \sqrt{k + 1}) < \frac{1}{\sqrt{k + 1}}$,
+which is equivalent to $2(\sqrt{k + 2} - \sqrt{k + 1}) (\sqrt{k + 2} + \sqrt{k + 1}) < \frac{\sqrt{k + 1}}{\sqrt{k + 1}} + \frac{\sqrt{k + 2}}{\sqrt{k + 1}}$.
+This is equivalent to $2 < 1 + \frac{\sqrt{k + 2}}{\sqrt{k + 1}}$,
+which is clearly true.
+
+\item Let $P(n)$ be ``$H_{2^n} \le 1 + n$.''
+
+\textit{Basis step:} $P(0)$ is true because $H_{2^0} = H_1 = 1 \le 1 + 0$.
+
+\textit{Inductive step:} Assume that $H_{2^k} \le 1 + k$.
+Then $H_{2^{k + 1}} = H_{2^k} + \sum_{j = 2^k + 1}^{2^{k + 1}} \frac{1}{j} \le 1 + k + 2^k \left(\frac{1}{2^{k + 1}}\right) < 1 + k + 1 = 1 + (k + 1)$.
+
+\item Let $P(n)$ be the proposition that $(2n - 1)^2 - 1$ is divisible by
+8.
+
+\textit{Basis step:} $P(1)$ is true because $8 \mid 0$.
+
+\textit{Inductive step:} Now assume that $P(k)$ is true.
+Because $[(2(k + 1) - 1]^2 - 1 = [(2k - 1)^2 - 1] + 8k$,
+$P(k + 1)$ is true because both terms on the right-hand side are divisible by 8.
+This shows that $P(n)$ is true for all positive integers $n$,
+so $m^2 - 1$ is divisible by 8 whenever $m$ is an odd positive integer.
+
+\item \textit{Basis step:} $11^{1 + 1} + 12^{2 \cdot 1 - 1} = 121 + 12 = 133$.
+
+\textit{Inductive step:} Assume the inductive hypothesis,
+that $11^{n + 1} + 12^{2n - 1}$ is divisible by 133.
+Then $11^{(n + 1) + 1} + 12^{2(n+1) - 1} = 11 \cdot 11^{n + 1} + 144 \cdot 12^{2n - 1} = 11 \cdot 11^{n + 1} + (11 + 133) \cdot 12^{2n - 1} = 11(11^{n + 1} + 12^{2n - 1}) + 133 \cdot 12^{2n - 1}$.
+The expression in parentheses is divisible by 133 by the inductive hypothesis,
+and obviously the second term is divisible by 133,
+so the entire quantity is divisible by 133, as desired.
+
+\item We use the notation $(i, j)$ to mean the square
+in row $i$ and column $j$ and use induction on $i + j$ to show that every square can be reached by the knight.
+
+\textit{Basis step:} There are six base cases, for the cases when $i + j \le 2$.
+The knight is already at $(0, 0)$ to start,
+so the empty sequence of moves reaches that square.
+To reach $(1, 0)$,
+the knight moves $(0, 0) \rightarrow (2, 1) \rightarrow (0, 2) \rightarrow (1, 0)$.
+Similarly, to reach $(0, 1)$,
+the knight moves $(0, 0) \rightarrow (1, 2) \rightarrow (2, 0) \rightarrow (0, 1)$.
+Note that the knight has reached $(2, 0)$ and $(0, 2)$ in the process.
+For the last basis step there is $(0, 0) \rightarrow (1, 2) \rightarrow (2, 0) \rightarrow (0, 1) \rightarrow (2, 2) \rightarrow (0, 3) \rightarrow (1, 1)$.
+
+\textit{Inductive step:} Assume the inductive hypothesis,
+that the knight can reach any square $(i, j)$ for which $i + j = k$,
+where $k$ is an integer greater than 1.
+We must show how the knight can reach each square $(i, j)$ when $i + j = k + 1$.
+Because $k + 1 \ge 3$,
+at least one of $i$ and $j$ is at least 2.
+If $i \ge 2$,
+then by the inductive hypothesis,
+there is a sequence of moves ending at $(i - 2, j + 1)$,
+because $i - 2 + j + 1 = i + j - 1 = k$;
+from there it is just one step to $(i, j)$;
+similarly, if $j \ge 2$.
+
+\item Let $P(n)$ be \begin{align}
+\begin{aligned}
+& [(p_1 \rightarrow p_2) \land (p_2 \rightarrow p_3) \land \cdots (p_{n - 1} \rightarrow p_{n})]\\
+& \qquad \rightarrow [(p_1 \land p_2 \land \cdots \land p_{n - 1}) \rightarrow p_{n}].
+\end{aligned}
+\end{align}
+
+\textit{Basis step:} $P(2)$ is true because $(p_1 \rightarrow p_2) \rightarrow (p_1 \rightarrow p_2)$ is a tautology.
+
+\textit{Inductive step:} Assume $P(k)$ is true.
+To show \begin{align}
+\begin{aligned}
+& [(p_1 \rightarrow p_2) \land (p_2 \rightarrow p_3) \land \cdots (p_{k} \rightarrow p_{k + 1})]\\
+& \qquad \rightarrow [(p_1 \land p_2 \land \cdots \land p_{k}) \rightarrow p_{k + 1}]
+\end{aligned}
+\end{align} is a tautology,
+assume that the hypothesis of this conditional statement is true.
+Because both the hypothesis and $P(k)$ are true,
+it follows that $(p_1 \land \cdots \land p_{k - 1}) \rightarrow p_k$ is true.
+Because this is true, and because $p_k \rightarrow p_{k + 1}$ is true,
+it follows by hypothetical syllogism that $(p_1 \land \cdots \land p_{k - 1}) \rightarrow p_{k + 1}$ is true.
+The weaker statement $(p_1 \land \cdots \land p_{k - 1} \land p_k) \rightarrow p_{k + 1}$ follows from this.
+
+\item We will first prove the result when $n$ is a power of 2,
+that is, if $n = 2^k, k = 1, 2, \ldots$.
+Let $P(k)$ be the statement that $A \ge G$,
+where $A$ and $G$ are the arithmetic and geometric means,
+respectively, of a set of $n = 2^k$ positive real numbers.
+
+\textit{Basis step:} $k = 1$ and $n = 2^1 = 2$.
+Note that $(\sqrt{a_1} - \sqrt{a_2})^2 \ge 0$.
+Expanding this shows that $a_1 - 2 \sqrt{a_1 a_2} + a_2 \ge 0$,
+that is $\frac{a_1 + a_2}{2} \ge (a_1 a_2)^\frac{1}{2}$.
+
+\textit{Inductive step:} Assume that $P(k)$ is true,
+with $n = 2^k$.
+We will show that $P(k + 1)$ is true.
+We have $2^{k + 1} = 2n$.
+Now $\frac{\sum_{i = 1}^{2n} a_i}{2n} = \frac{\frac{\sum_{i = 1}^n a_i}{n} + \frac{\sum_{i = n + 1}^{2n} a_i}{n}}{2}$,
+and similarly $\left(\prod_{i = 1}^{2n} a_i\right)^{\frac{1}{2n}} = \left[\left(\prod_{i = 1}^n a_i\right)^\frac{1}{n} \left(\prod_{i = n + 1}^{2n} a_i\right)^\frac{1}{n}\right]^\frac{1}{2}$.
+To simplify this notification,
+let $A(x, y, \ldots)$ and $G(x, y, \ldots)$ denote the arithmetic mean and geometric mean of $x, y, \ldots$,
+respectively.
+Also, if $x \le x', y \le y'$, and so on,
+then $A(x, y, \ldots) \le A(x', y', \ldots)$ and $G(x, y, \ldots) \le G(x', y', \ldots)$.
+Hence, \begin{align}
+	\begin{aligned}
+	& A(a_1, \ldots, a_{2n})\\
+	= & A(A(a_1, \ldots, a_n), A(a_{n + 1}, \ldots, a_{2n}))\\
+	\ge & A(G(a_1, \ldots, a_n), G(a_{n + 1}, \ldots, a_{2n}))\\
+	\ge & G(G(a_1, \ldots, a_n), G(a_{n + 1}, \ldots, a_{2n}))\\
+	\ge & G(a_1, \ldots, a_{2n}).
+	\end{aligned}
+\end{align}
+This finishes the proof for powers of 2.
+Now if $n$ is not a power of 2,
+let $m$ be the next higher power of 2,
+and let $a_{n + 1}, \ldots, a_{m}$ all equal $A(a_1, \ldots, a_n) = \bar{a}$.
+Then we have $\left[(a_1 a_2 \cdots a_n) \bar{a}^{m - n}\right]^\frac{1}{m} \le A(a_1, \ldots, a_m)$,
+because $m$ is a power of 2.
+Because $A(a_1, \ldots, a_m) = \bar{a}$,
+it follows that $(a_1 \cdots a_n)^\frac{1}{m} \bar{a}^{1 - \frac{n}{m}} \le \bar{a}^\frac{n}{m}$.
+Raising both sides to the $\frac{m}{n}$th power gives $G(a_1, \ldots, a_n) \le A(a_1, \ldots, a_n)$.
+
+\item We prove this by mathematical induction.
+
+\textit{Basis step:} ($n = 2$) is true tautologically.
+For $n = 3$, suppose that the intervals are $(a, b), (c, d)$, and $(e, f)$,
+where without loss of generality we can assume that $a \le c \le e$.
+Because $(a, b) \cap (e, f) = \emptyset$,
+we must have $e < b$;
+for a similar reason, $e < d$.
+It follows that the number halfway between $e$ and the smaller of $b$ and $d$ is common to all three intervals.
+
+\textit{Inductive step:} Assume that whenever we have $k$ intervals that have pairwise nonempty intersections then there is a point common to all the intervals,
+and suppose that we are given intervals $I_1, I_2, \ldots, I_{k + 1}$ that have pairwise nonempty intersections.
+For each $i$ from $1$ to $k$, let $J_i = I_i \cap I_{k + 1}$.
+We claim that the collection $J_1, J_2, \ldots, J_k$ satisfies the inductive hypothesis,
+that is, that $J_{i_1} \cap J_{i_2} = \emptyset$ for each choice of subscripts $i_1$ and $i_2$.
+This follows from the $n = 3$ case proved above,
+using the sets $I_{i_1}, I_{i_2}$, and $I_{k + 1}$.
+We can now invoke the inductive hypothesis to conclude that there is a number common to all of the sets $J_i$ for $i = 1, 2, \ldots, k$,
+which perforce is in the intersection of all the sets $I_i$ for $i = 1, 2, \ldots, k + 1$.
+
+\item Let $P(n)$ be the statement that every $2^n \times 2^n \times 2^n$ checkerboard with a $1 \times 1 \times 1$ cube removed can be covered by tiles that are $2 \times 2 \times 2$ cubes each with a $1 \times 1 \times 1$ cube removed.
+
+\textit{Basis step:} $P(1)$,
+holds because one tile coincides with the solid to be tiled.
+
+\textit{Inductive step:} Assume that $P(k)$ holds.
+Now consider a $2^{k + 1} \times 2^{k + 1} \times 2^{k + 1}$ cube with a $ 1 \times 1 \times 1$ cube removed.
+Split this object into eight pieces using planes parallel to its faces and running through its center.
+The missing $1 \times 1 \times 1$ piece occurs in one of these eight pieces.
+Now position one tile with its center at the center of the large object so that the missing $1 \times 1 \times 1$ cube lies in the octant in which the large object is missing a $1 \times 1 \times 1$ cube.
+This creates eight $2^k \times 2^k \times 2^k$ cubes,
+each missing a $1 \times 1 \times 1$ cube.
+By the inductive hypothesis we can fill each of these eight objects with tiles.
+Putting these tilings together produces the desired tiling.
+
+\end{enumerate}
+
+\subsubsection{Strong Induction and Well-Ordering}
+\begin{enumerate}
+\item Let $P(n)$ be the statement that there is no positive integer b such that $\sqrt{2} = \frac{n}{b}$.
+
+\textit{Basis step:} $P(1)$ is true because $\sqrt{2} > 1 \ge \frac{1}{b}$ for all positive integers $b$.
+
+\textit{Inductive step:} Assume that $P (j)$ is true for all
+$j \le k$,
+where $k$ is an arbitrary positive integer;
+we prove that $P(k + 1)$ is true by contradiction.
+Assume that $\sqrt{2} = \frac{k + 1}{b}$ for some positive integer $b$.
+Then $2b^2 = (k + 1)^2$, so $(k + 1)^2$ is even, and hence,
+$k + 1$ is even.
+So write $k + 1 = 2t$ for some positive integer $t$,
+whence $2b^2 = 4t^2$ and $b^2 = 2t^2$.
+By the same reasoning as before, $b$ is even,
+so $b = 2s$ for some positive integer $s$.
+Then $\sqrt{2} = \frac{k + 1}{b} = \frac{2t}{2s} = \frac{t}{s}$.
+But $t \le k$,
+so this contradicts the inductive hypothesis,
+and our proof of the inductive step is complete.
+
+\item Let $P(n)$ be the statement that exactly $n - 1$ moves are required to assemble a puzzle with $n$ pieces.
+
+\textit{Basis step:} $P(1)$ is trivially true.
+
+\textit{Inductive step:} Assume that $P (j)$ is true for all $j \le k$,
+and consider a puzzle with $k + 1$ pieces.
+The final move must be the joining of two blocks,
+of size $j$ and $k + 1 - j$ for some integer $j$ with $1 \le j \le k$.
+By the inductive hypothesis,
+it required $j - 1$ moves to construct the one block,
+and $k + 1 - j - 1 = k - j$ moves to construct the other.
+Therefore, $1 + (j - 1) + (k - j) = k$ moves are required in all,
+so $P(k + 1)$ is true.
+
+\item Let $P(n)$ be the statement that if $x_1, x_2, \ldots, x_n$ are $n$ distinct real numbers, then $n - 1$ multiplications are used to find the product of these numbers no matter how parentheses are inserted in the product.
+We will prove that $P(n)$ is true using strong induction.
+
+\textit{Basis step:} $P(1)$ is true because $1 - 1 = 0$
+multiplications are required to find the product of $x_1$,
+a product with only one factor.
+
+\textit{Inductive step:} Suppose that $P(k)$ is true for $1 \le k \le n$.
+The last multiplication used to find the product of the $n + 1$
+distinct real numbers $x_1, x_2, \ldots, x_n, x_{n + 1}$ is a multiplication of the product of the first $k$ of these numbers for some $k$ and the product of the last $n + 1 - k$ of them.
+By the inductive hypothesis,
+$k - 1$ multiplications are used to find the product of $k$ of the numbers,
+no matter how parentheses were inserted in the product of these numbers,
+and $n - k$ multiplications are used to find the product of the other $n + 1 - k$ of them,
+no matter how parentheses were inserted in the product of these
+numbers.
+Because one more multiplication is required to find the product of all $n + 1$ numbers,
+the total number of multiplications used equals $(k - 1) + (n - k) + 1 = n$.
+Hence, $P(n + 1)$ is true.
+
+\end{enumerate}
+
+\subsubsection{Recursive Definitions and Structural Induction}
+\begin{enumerate}
+\item \textit{Basis step:} $f_0 f_1 + f_1 f_2 = 0 \cdot 1 + 1 \cdot 1 = 1^2 = f_2^2$.
+
+\textit{Inductive step:} Assume that $\sum_{i = 0}^{2k - 1} f_i f_{i + 1} = f_{2k}^2$.
+Then $\sum_{i = 0}^{2k + 1} f_i f_{i + 1} = f_{2k}^2 + f_{2k} f_{2k + 1} + f_{2k + 1} f_{2k + 2} = f_{2k} (f_{2k} + f_{2k + 1}) + f_{2k + 1} f_{2k + 2} = f_{2k} f_{2k + 2} + f_{2k + 1} f_{2k + 2} = (f_{2k} + f_{2k + 1}) f_{2k + 2} = f_{2k + 2}^2$.
+
+\item \begin{enumerate}
+	\item $P_{m, m} = P_m$ because a number exceeding $m$ cannot be used in a partition of $m$.
+	\item Because there is only one way to partition 1, namely, 1 = 1, it follows that $P_{1,n} = 1$.
+	Because there is only one way to partition $m$ into $1$s, $P_{m,1} = 1$. When $n > m$ it follows that $P_{m, n} = P_{m, m}$ because a number exceeding $m$ cannot be used.
+	$P_{m, m} = 1 + P_{m, m - 1}$ because one extra partition,
+	namely, $m = m$,
+	arises when $m$ is allowed in the partition.
+	$P_{m, n} = P_{m, n - 1} + P_{m - n, n}$ if $m > n$ because a partition of $m$ into integers not exceeding $n$ either does not use any $n$s and hence,
+	is counted in $P_{m, n - 1}$ or else uses an $n$ and a partition of $m - n$, and hence, is counted in $P_{m - n, n}$.
+	\item $P_5 = 7, P_6 = 11$.
+\end{enumerate}
+
+\item Use a double induction argument to prove the stronger statement:
+$A(m, k) > A(m, l)$ when $k > l$.
+
+\textit{Basis step:}
+When $m = 0$ the statement is true because $k > l$ implies that $A(0, k) = 2k > 2l = A(0, l)$.
+
+\textit{Inductive step:} Assume that $A(m, x) > A(m, y)$ for all nonnegative integers $x$ and $y$ with $x > y$.
+We will show that this implies that $A(m + 1, k) > A(m + 1, l)$ if $k > l$.
+
+\textit{Basis step:} When $l = 0$ and $k > 0$, $A(m + 1, l) = 0$ and either $A(m + 1, k) = 2$ or $A(m + 1, k) = A(m, A(m + 1, k - 1))$.
+If $m = 0$, this is $2A(1, k - 1) = 2k$.
+If $m > 0$,
+this is greater than 0 by the inductive hypothesis.
+In all cases, $A(m + 1, k) > 0$,
+and in fact, $A(m + 1, k) \ge 2$.
+If $l = 1$ and $k > 1$,
+then $A(m + 1, l) = 2$ and $A(m + 1, k) = A(m, A(m + 1, k - 1))$,
+with $A(m + 1, k - 1) \ge 2$.
+Hence, by the inductive hypothesis,
+$A(m, A(m + 1, k - 1)) \ge A(m, 2) > A(m, 1) = 2$.
+
+\textit{Inductive step:} Assume that $A(m + 1, r) > A(m + 1, s)$ for all $r > s, s = 0, 1, \ldots, l$.
+Then if $k + 1 > l + 1$ it follows that $A(m + 1, k + 1) = A(m, A(m + 1, k)) > A(m, A(m + 1, k)) =
+A(m + 1, l + 1)$.
+
+\end{enumerate}
+
+\subsubsection{Recursive Algorithms}
+\begin{enumerate}
+\item If $n = 1$ (basis step),
+place the one right triomino so that its armpit corresponds to the hole in the $2 \times 2$ board.
+
+If $n > 1$,
+then divide the board into four boards, each of size $2^{n - 1} \times 2^{n - 1}$,
+notice which quarter the hole occurs in,
+position one right triomino at the center of the board with its armpit in the quarter where the missing square is,
+and invoke the algorithm recursively four times -- once on each of the $2^{n - 1} \times 2^{n - 1}$ boards,
+each of which has one square missing.
+
+\item If $n = 1$,
+then the algorithm does nothing,
+which is correct because a list with one element is already sorted.
+
+Assume that the algorithm works correctly for $n = 1$ through $n = k$.
+If $n = k + 1$, then the list is split into two lists,
+$L_1$ and $L_2$.
+By the inductive hypothesis,
+mergesort correctly sorts each of these sublists;
+furthermore,
+merge correctly merges two sorted lists into one because with each comparison the smallest element in $L_1 \cup L_2$ not yet put into $L$ is put there.
+
+\end{enumerate}
+
+\subsection{Advanced Counting Techniques}
+\subsubsection{Applications of Recurrence Relations}
+\begin{enumerate}
+\item \begin{enumerate}
+	\item $a_n  = 2 a_{n - 1} + a_{n - 2}$ for $n \ge 2$.
+	\item $a_0 = 1, a_1 = 3$.
+	\item 239.
+\end{enumerate}
+
+\item \begin{enumerate}
+	\item $a_n  = 2 a_{n - 1}$ for $n \ge 2$.
+	\item $a_1 = 3$.
+	\item 96.
+\end{enumerate}
+
+\item \begin{enumerate}
+	\item $R_n = n + R_{n - 1}, R_0 = 1$.
+	\item $R_n = \frac{n(n + 1)}{2} + 1$.
+\end{enumerate}
+
+\item \begin{enumerate}
+	\item $S_n = s_{n - 1} + \frac{n^2 - n + 2}{2}, S_0 = 1$.
+	\item $S_n = \frac{n^3 + 5n + 6}{6}$.
+\end{enumerate}
+
+\end{enumerate}
+
+\subsubsection{Solving Linear Recurrence Relations}
+\begin{enumerate}
+\item 
+\end{enumerate}
+
+\end{document}

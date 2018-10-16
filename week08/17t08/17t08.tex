@@ -143,20 +143,6 @@
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Onto}
-\begin{example}
-	Consider the set $X$ of all functions $f \colon A \rightarrow B$, where $A = \{1, 2, 3, 4, 5, 6, 7\}$, $B = \{a, b, c, d, e\}$. How many functions in $X$ are onto?
-\end{example}
-\onslide<2>\begin{solution*}
-	For the first situation that 1 of $B$ matches 3 of $A$ and others match 1 of $A$ for each, we select 1 of 5 in $B$ and then for each of other 4 items in $B$ select 1 different item in $A$ so that there are ${}_5 C_1 \times {}_7 P_4$ functions in the first situation.
-	
-	For the second situation that 2 of $B$ match 2 of $A$ for each and others match 1 of $A$ for each, we select 2 of 5 in $B$, for each of other 3 items in $B$ select 1 different item in $A$ and then from the rest 4 items in $A$ select 2 of them to match 1 of 2 rest item in $B$ so that there are ${}_5 C_2 \times {}_7 P_3 \times {}_4 C_2$ functions in the section situation.
-	
-	Totally, there are ${}_5 C_1 \times {}_7 P_4 + {}_5 C_2 \times {}_7 P_3 \times {}_4 C_2 = 16800$ functions.
-\end{solution*}
-\end{frame}
-
-\begin{frame}[fragile]
 \frametitle{Pigeonhole Principle}
 \begin{columns}
 	\begin{column}{.6\linewidth}

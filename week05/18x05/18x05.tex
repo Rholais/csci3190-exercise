@@ -1,0 +1,792 @@
+% This is "sig-alternate.tex" V2.1 April 2013
+% This file should be compiled with V2.5 of "sig-alternate.cls" May 2012
+%
+% This example file demonstrates the use of the 'sig-alternate.cls'
+% V2.5 LaTeX2e document class file. It is for those submitting
+% articles to ACM Conference Proceedings WHO DO NOT WISH TO
+% STRICTLY ADHERE TO THE SIGS (PUBS-BOARD-ENDORSED) STYLE.
+% The 'sig-alternate.cls' file will produce a similar-looking,
+% albeit, 'tighter' paper resulting in, invariably, fewer pages.
+%
+% ----------------------------------------------------------------------------------------------------------------
+% This .tex file (and associated .cls V2.5) produces:
+%       1) The Permission Statement
+%       2) The Conference (location) Info information
+%       3) The Copyright Line with ACM data
+%       4) NO page numbers
+%
+% as against the acm_proc_article-sp.cls file which
+% DOES NOT produce 1) thru' 3) above.
+%
+% Using 'sig-alternate.cls' you have control, however, from within
+% the source .tex file, over both the CopyrightYear
+% (defaulted to 200X) and the ACM Copyright Data
+% (defaulted to X-XXXXX-XX-X/XX/XX).
+% e.g.
+% \CopyrightYear{2007} will cause 2007 to appear in the copyright line.
+% \crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
+%
+% ---------------------------------------------------------------------------------------------------------------
+% This .tex source is an example which *does* use
+% the .bib file (from which the .bbl file % is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission, you *NEED* to 'insert'
+% your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+% ================= IF YOU HAVE QUESTIONS =======================
+% Questions regarding the SIGS styles, SIGS policies and
+% procedures, Conferences etc. should be sent to
+% Adrienne Griscti (griscti@acm.org)
+%
+% Technical questions _only_ to
+% Gerald Murray (murray@hq.acm.org)
+% ===============================================================
+%
+% For tracking purposes - this is V2.0 - May 2012
+
+\documentclass{../../cls/sig-alternate-05-2015}
+\usepackage{booktabs}
+\usepackage{textcomp}
+
+
+\begin{document}
+
+% Copyright
+%\setcopyright{acmcopyright}
+%\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
+
+
+% DOI
+%\doi{10.475/123_4}
+
+% ISBN
+%\isbn{123-4567-24-567/08/06}
+
+%Conference
+%\conferenceinfo{PLDI '13}{June 16--19, 2013, Seattle, WA, USA}
+
+%\acmPrice{\$15.00}
+
+%
+% --- Author Metadata here ---
+%\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
+%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+% --- End of Author Metadata ---
+
+%\\TODO:1.tautology prove section 2. set section operation proof 3. function section basic proving onto bijection...
+\title{CSCI 3190 \\ Introduction to Discrete Mathematics and Algorithms}
+\subtitle{Extended Exercise 4}
+
+\maketitle
+\begin{abstract}
+
+\end{abstract}
+
+\keywords{}
+
+\section{Basic Structures}
+\subsection{Sequences and Summations}
+\begin{enumerate}
+\item Find these terms of the sequence $\{a_n\}$, where \begin{equation}
+	a_n = 2 \cdot (-3)^n + 5^n.
+\end{equation}\begin{enumerate}
+	\item $a_0$
+	\item $a_1$
+	\item $a_4$
+	\item $a_5$
+\end{enumerate}
+
+\item Let $a_n$ be the $n$-th term of the sequence \begin{equation}
+	1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, \ldots,
+\end{equation} constructed by including the integer $k$ exactly $k$ times. Showthat $a_n = \lfloor \sqrt{2n}+ \frac{1}{2n} \rfloor$.
+
+\item Show that $\Sigma^n_{j = 1}(a_j - a_{j - 1}) = a_n - a_0$, where
+$a_0$, $a_1$, ..., $a_n$ is a sequence of real numbers. This type of sum is called \textbf{telescoping}.
+
+\item Sum both sides of the identity $k^2 - (k - 1)^2 = 2k - 1$ from $k = 1$ to $k = n$ and use last exercise find:
+\begin{enumerate}
+	\item a formula for $\Sigma^n_{k = 1}(2k - 1)$ (the sum of the first $n$ odd natural numbers).
+	\item a formula for $\Sigma^n_{k = 1} k$.
+\end{enumerate}
+
+\item Use the technique given in last Exercise, to derive the formula for $\Sigma^n_{k = 1} k^2$
+
+\end{enumerate}
+\subsection{Cardinality of Sets}
+\begin{enumerate}
+\item Show that a finite group of guests arriving at Hilbert \textquoteright s
+fully occupied Grand Hotel can be given rooms without
+evicting any current guest.
+\item Suppose that Hilbert \textquoteright s Grand Hotel is fully occupied, but
+the hotel closes all the even numbered rooms for maintenance.
+Show that all guests can remain in the hotel.
+\item Suppose that Hilbert \textquoteright s Grand Hotel is fully occupied on
+the day the hotel expands to a second building which also
+contains a countably infinite number of rooms. Show that
+the current guests can be spread out to fill every room of
+the two buildings of the hotel.
+\item Show that a countably infinite number of guests arriving
+at Hilbert \textquoteright s fully occupied Grand Hotel can be given
+rooms without evicting any current guest.
+\item Suppose that a countably infinite number of buses, each
+containing a countably infinite number of guests, arrive
+at Hilbert \textquoteright s fully occupied Grand Hotel. Show that all the
+arriving guests can be accommodated without evicting
+any current guest.
+\end{enumerate}
+
+\section{Counting}
+\subsection{The Basics of Counting}
+\begin{enumerate}
+	\item How many bit strings of length $10$ contain either five consecutive
+	$0$s or five consecutive $1$s?
+
+	\item A wired equivalent privacy (WEP) key for a wireless fidelity
+	(WiFi) network is a string of either $10$, $26$, or $58$
+	hexadecimal digits. How many different WEP keys are
+	there? (There are
+	$16$ place values for hexadecimal numbers: $0$ to $9$, $A$, $B$, $C$, $D$, $E$, and $F$.)
+
+	\item Suppose that $p$ and $q$ are prime numbers and that $n = pq$.
+	Use the principle of inclusion-exclusion to find the number
+	of positive integers not exceeding $n$ that are relatively
+	prime to $n$. ($a$ and $b$ are relatively prime if $\gcd(a,b)=1$)
+	
+	\item Use the principle of inclusion-exclusion to find the number
+	of positive integers less than $1,000,000$ that are not
+	divisible by either $4$, $5$ or by $6$.
+	
+	\item How many ways are there to arrange the letters a, b, c,
+	and d such that a is not followed immediately by b?
+	
+	\item Use the product rul{\tiny }e to show that there are $2^{2^n}$
+	different truth tables for propositions in $n$ variables.
+
+\end{enumerate}
+\subsection{The Pigeonhole Principle}
+\begin{enumerate}
+	\item \begin{enumerate}
+		\item Show that if there are $30$ students in a class, then at least
+		two have last names that begin with the same letter.
+		
+		\item What is the minimum number of students, each of whom
+		comes from one of the $50$ states, who must be enrolled in
+		a university to guarantee that there are at least $100$ who
+		come from the same state?
+	\end{enumerate}
+
+	\item A bowl contains $10$ red balls and $10$ blue balls. A woman
+	selects balls at random without looking at them.
+	\begin{enumerate}
+	\item How many balls must she select to be sure of having
+	at least three balls of the same color?
+	\item How many balls must she select to be sure of having
+	at least three blue balls?
+	\end{enumerate}
+
+	\item Let $(x_i, y_i), i = 1, 2, 3, 4, 5$, be a set of five distinct points with integer coordinates in the $xy$ plane. Show that the
+	midpoint of the line joining at least one pair of these points has integer coordinates.
+	
+	\item Show that whenever 25 girls and 25 boys are seated around a circular table there is always a person both of whose neighbors are boys.
+	
+	\item Suppose that 21 girls and 21 boys enter a mathematics competition. Furthermore, suppose that each entrant solves at most six questions, and for every boy-girl pair, there is at least one question that they both solved. Show that there is a question that was solved by at least three girls and at least three boys.
+	
+	\item An arm wrestler is the champion for a period of 75 hours. (Here, by an hour, we mean a period starting from an exact hour, such as 1 p.m., until the next hour.) The arm wrestler had at least one match an hour, but no more than 125 total matches. Show that there is a period of consecutive hours during which the arm wrestler had exactly 24 matches.
+	
+	\item Let $x$ be an irrational number. Show that for some positive integer $j$ not exceeding the positive integer $n$, the absolute value of the difference between $jx$ and the nearest integer to $jx$ is less than $\frac{1}{n}$.
+\end{enumerate}
+\subsection{Permutations and Combinations}
+\begin{enumerate}
+
+	\item How many permutations of the letters ABCDEFG contain
+	\begin{enumerate}
+		\item the string BCD?
+		\item the string CFGA?
+		\item the strings BA and GF?
+		\item the strings ABC and DE?
+		\item the strings ABC and CDE?
+		\item the strings CBA and BED?
+	\end{enumerate}
+	
+	\item How many $4$-permutations of the positive integers not exceeding
+	$100$ contain three consecutive integers $k$, $k + 1$,
+	$k + 2$ in the correct order
+	\begin{enumerate}
+		\item where these consecutive integers can perhaps be separated
+		by other integers in the permutation?
+		\item  where they are in consecutive positions in the permutation?
+	\end{enumerate}
+	
+	\item A circular r-permutation of n people is a seating of r of
+	these n people around a circular table, where seatings are considered
+	to be the same if they can be obtained from each other
+	by rotating the table.
+	
+	Find a formula for the number of circular r-permutations
+	of n people.
+	
+	\item How many ways are there for a horse race with four horses
+	to finish if ties are possible? [Note: Any number of the
+	four horses may tie.]
+	
+	\item There are six runners in the $100$-yard dash. How many
+	ways are there for three medals to be awarded if ties
+	are possible? (The runner or runners who finish with the
+	fastest time receive gold medals, the runner or runners
+	who finish with exactly one runner ahead receive silver
+	 medals, and the runner or runners who finish with exactly
+	two runners ahead receive bronze medals.)
+
+\end{enumerate}
+\subsection{Binomial Coefficients and Identities}
+
+\begin{enumerate}
+	\item What is the coefficient of $x^{101}y^{99}$ in the expansion of
+	$(2x-3y)^{200}$?
+	\item Find the coefficient of $x^{11}$ in the expansion of $(x^2-\dfrac{3}{x})^{10}$.
+	
+	\item Give a formula for the coefficient of $x^k$ in the expansion
+	of $(x^2 - 1/x)^{100}$, where $k$ is an integer.
+	
+	\item Show that if $n$ and $k$ are integers with $1 \le k \le n$, then $\binom{n}{k} \le \frac{n^k}{2^{k - 1}}$.
+
+	\item Prove that if $n$ and $k$ are integers with $1 \le k \le n$, then $k \binom{n}{k} = n \binom{n - 1}{k - 1}$,\begin{enumerate}
+		\item using a combinatorial proof. [\textit{Hint:} Show that the two sides of the identity count the number of ways to select a subset with $k$ elements from a set with $n$ elements and then an element of this subset.]
+		\item using an algebraic proof based on the formula for $\binom{n}{r}$.
+	\end{enumerate}
+\end{enumerate}
+
+\section{Advanced Counting Techniques}
+\subsection{Generating Functions}
+\begin{enumerate}
+	\item Find a closed form for the generating function for each
+	of these sequences. (For each sequence, use the most obvious
+	choice of a sequence that follows the pattern of the
+	initial terms listed.)
+	\begin{enumerate}
+		\item $0, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, . . .$
+		\item $0, 0, 0, 1, 1, 1, 1, 1, 1, . . .$
+		\item $0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, . . .$
+		\item $2, 4, 8, 16, 32, 64, 128, 256, . . .$
+		\item $2, -2, 2, -2, 2, -2, 2, -2, . . .$
+		\item $1, 1, 0, 1, 1, 1, 1, 1, 1, 1, . . .$
+		\item $0, 0, 0, 1, 2, 3, 4, . . .$
+	\end{enumerate}
+	\item For each of these generating functions, provide a closed
+	formula for the sequence it determines.
+	\begin{enumerate}
+		\item $(x^2 + 1)^3$
+		\item $(3x - 1)^3$
+		\item $\frac{1}{1 - 2x^2} $
+		\item $\frac{x^2}{(1 - x)^3}$
+		\item $x - 1 + \frac{1}{1 - 3x}$
+		\item $\frac{1 + x^3}{(1 + x)^3}$
+		\item $\frac{x}{1 + x + x^2}$
+		\item $e^{3x^2} - 1$
+	\end{enumerate}
+	\item Use generating functions to determine the number of different
+	ways $10$ identical balloons can be given to four
+	children if each child receives at least two balloons.
+	
+	\item A coding system encodes messages using strings of
+	base 4 digits (that is, digits from the set $\{0, 1, 2, 3\}$). A codeword is valid if and only if it contains an even
+	number of $0$s and an even number of $1$s. Let an equal the number of valid codewords of length $n$. Furthermore, let $b_n$, $c_n$, and $d_n$ equal the number of strings of base 4 digits of length $n$ with an even number of $0$s and an odd number of $1$s, with an odd number of $0$s and an even number of $1$s, and with an odd number of $0$s and an odd number of $1$s, respectively. \begin{enumerate}
+		\item Show that $d_n = 4^n - a_n - b_n - c_n$. Use this to show that $a_{n+1} = 2a_n + b_n + c_n$, $b_{n+1} = b_n - c_n + 4^n$, and $c_{n+1} = c_n - b_n + 4^n$.
+		\item What are $a_1$, $b_1$, $c_1$, and $d_1$?
+		\item Use parts (a) and (b) to find $a_3$, $b_3$, $c_3$, and $d_3$.
+		\item Use the recurrence relations in part (a), together with the initial conditions in part (b), to set up three equations relating the generating functions $A(x)$, $B(x)$, and $C(x)$ for the sequences $\{a_n\}$, $\{b_n\}$, and $\{c_n\}$, respectively.
+		\item Solve the system of equations from part (d) to get explicit formula for $A(x)$, $B(x)$, and $C(x)$ and use these to get explicit formula for $a_n$, $b_n$, $c_n$, and $d_n$.
+		
+
+	\end{enumerate}
+	
+	\item Use generating functions to find the number of ways to
+	make change for $\$100$ using
+	\begin{enumerate}
+		\item $\$10$, $\$20$, and $\$50$ bills.
+		\item $\$5$, $\$10$, $\$20$, and $\$50$ bills.
+		\item $\$5$, $\$10$, $\$20$, and $\$50$ bills if at least one bill of each
+		denomination is used.
+		\item $\$5$, $\$10$, and $\$20$ bills if at least one and no more than
+		four of each denomination is used.
+	\end{enumerate}
+\end{enumerate}
+
+\nocite{*}
+\bibliographystyle{abbrv}
+\bibliography{ref}  % sigproc.bib is the name of the Bibliography in this case
+ 
+\clearpage
+%APPENDICES are optional
+%\balancecolumns
+\appendix
+%Appendix A
+\section{Answer}
+\subsection{Basic Structures}
+\subsubsection{Sequences and Summations}
+\begin{enumerate}
+\item \begin{enumerate}
+	\item $3$
+	\item $-1$
+	\item $787$
+	\item $2639$
+\end{enumerate}
+	
+\item Assume $a_n = k$, so that:
+\begin{align}
+	\frac{(k - 1)k}{2} + 1 \le n & \le \frac{k(k + 1)}{2}\\
+	k^2 - k + 2 \le 2n & \le k^2 + k\\
+	(k - \frac{1}{2})^2 < (k - \frac{1}{2})^2 + \frac{7}{4} \le 2n & \le (k + \frac{1}{2})^2 - \frac{1}{4} < (k + \frac{1}{2})^2\\
+	k - \frac{1}{2} < \sqrt{2n} & < k + \frac{1}{2}\\
+	\sqrt{2n} - \frac{1}{2} < k & < \sqrt{2n} + \frac{1}{2}\\
+	k & = \lfloor \sqrt{2n} + \frac{1}{2} \rfloor
+\end{align}
+
+\item 
+\begin{align}
+	& \Sigma^n_{j = 1}(a_j - a_{j - 1})\\
+	= & \Sigma^n_{j = 1}a_j - \Sigma^n_{j = 1}a_{j - 1}\\
+	= & a_n + \Sigma^{n - 1}_{j = 1}a_j - \Sigma^{n - 1}_{j = 1}a_j + a_0\\
+	= & a_n - a_0
+\end{align}
+
+\item 
+\begin{enumerate}
+	\item 
+	\begin{equation}
+		\Sigma^n_{k = 1}(2k - 1) = n^2
+	\end{equation}
+	
+	\item 
+	\begin{align}
+		& \Sigma^n_{k = 1} k\\
+		= & \frac{\Sigma^n_{k = 1}(2k - 1) + \Sigma^n_{k = 1} 1}{2}\\
+		= & \frac{n^2 + n}{2}
+	\end{align}
+\end{enumerate}
+
+\item Since $k^3 - (k - 1)^3 = 3k^2 - 3k + 1$:
+\begin{align}
+	& \Sigma_{k = 1}^n k^2\\
+	= & \frac{n^3 + 3\Sigma_{k = 1}^n k - \Sigma_{k = 1}^n 1}{3}\\
+	= & \frac{2n^3 + 3n^2 + 3n - 2n}{6}\\
+	= & \frac{2n^3 + 3n^2 + n}{6}
+\end{align}
+\end{enumerate}
+\subsubsection{Cardinality of Sets}
+\begin{enumerate}
+\item Suppose $m$
+new guests arrive at the fully occupied hotel. Move the guest
+in Room $n$ to Room $m + n$ for $n = 1, 2, 3, ...$; then the new
+guests can occupy rooms 1 to $m$.
+\item Move the guest
+in Room $n$ to Room $2n$ for $n = 1, 2, 3, ...$.
+\item For $n = 1, 2, 3, ...$, put the guest currently in Room $2n$ into Room $n$, and the guest
+currently in Room $2n - 1$ into Room $n$ of the new building.
+\item Move the guest
+in Room $n$ to Room $2n - 1$ for $n = 1, 2, 3, ...$; then the $m$-th new guests can occupy room $2m$.
+\item Move the guess currently Room $i$ to Room $2i + 1$ for $i = 1, 2, 3, ...$. Put the $j$ th guest from the $k$-th bus into
+Room $2^k(2j + 1)$.
+\end{enumerate}
+
+\subsection{Counting}
+\subsubsection{The Basics of Counting}
+\begin{enumerate}
+	\item First of all notice that if we count the number of bit strings containing five consecutive 0's then this number will also be the same as if it ontained five consecutive 1's.
+		Containing five consecutive $0$'s: The difficulty with this exercise is that we must beware of double counting things.
+		\begin{itemize}
+			\item exactly five $0$'s: If the $00000$ start the string, then we will have $000001$, $-$, $-$, $-$, $-$, so $2^4=16$ choices; if the $00000$ are in the middle (not on the end), we have something that looks like $-$, $1000001$,$-$, $-$, so $2^4=16$ choices; if the $00000$ are in the middle (not on the end), we have something that looks like $-$, $1000001$, $-$, $-$,so $2^3=8$ choices, and if the $00000$ is on the end, then the scenario wil look like $-$, $-$, $-$, $-$, $-$,$100000$ and so $16$ choices again. In total $16+8+8+8+8+16=64$ choices.
+			\item exactly six $0$'s: Use the same reasoning to get that in this case there are $(8+4+4+4+8)=28$ choices.
+			\item exactly seven $0$'s: $4+2+2+4=12$ choices.
+			\item exactly eight $0$'s: $2+1+2=5$ choices.
+			\item exactly nine $0$'s: $1+1=2$ choices.
+			\item exactly ten $0$'s: 1 choice.
+		\end{itemize}
+		
+		In total, for five consecutive $0$'s, there are $64+28+12+5+2+1=112$.
+		
+		Now for five consecutive $1$'s we also have $112$ such bit string. However, in order to answer our problem, we cannot simply add these two together since we would be double counting two situations $00000111111$ and $1111100000$. Thus the answer to our problem is $112+112-2=222$.
+
+	\item $16^{10} + 16^{26} + 16^{58}$
+
+
+	\item There are $n$ positive integers less than or equal to $n$ which forms the set $S_n$. 
+	
+	Exactly $n/p$ of the elements of $S_n$ form the set $S_p$ which comprises factors of $p$ less than or equal to n so $|S_p|=n/p$.
+	
+	Exactly $n/q$ of the elements of $S_n$ form the set $S_q$ which comprises factors of $p$ less than or equal to $n$ so $|S_q|=n/q$.
+	
+	Exactly $n/(pq)$ of the elements of $S_n$ form the intersection $S_p\cap S_q$ which comprises factors of $pq$ less than or equal to n so $|S_p \cap S_q|=n/(pq)$. 
+	
+	The set of numbers less than or equal to $n$ that contain neither factors of $p$ nor $q$ is the set $S_n \cap (S_p \cup S_q)$. 
+	
+	By inclusion-exclusion we have: 
+	\begin{equation}
+	\begin{aligned}
+	|S_n \cap (S_p \cup S_q)| 
+	=& |S_n| - (|S_p| + |S_q|) + |S_p \cap S_q|\\ 
+	=& n - (n/p + n/q) + n/pq\\ 
+	=& n(1 - 1/p - 1/q + 1/pq)\\
+	=& n(1 - 1/p)(1 - 1/q)
+	\end{aligned} 
+	\end{equation}
+
+	\item Note that a number is divisible by $4$ and $5$ if and only if it
+	is divisible by $20$ (since ($4$, $5$) = $1$). A number is divisible by $4$ and $6$
+	if and only if it is divisible by $12$ (since the l.c.m of $4$ and $6$ is $12$), and a number is divisible by $5$ and $6$ if and
+	only if it is divisible by $30$. A number is divisible by $4$, $5$ and $6$ if and
+	only it is divisible by $60$.
+	
+	Let $A_k$ be the set of numbers less than $10, 000$ ( i.e. less than or equal
+	to $9999$ ) which are divisible by k. Then $|A_k| = \lfloor 9999/k \rfloor$ (since if
+	$\lfloor 9999/k \rfloor =m$ then $mk \leq 9999 < (m + 1)k$.
+	
+	By the principle of inclusion-exclusion and the preceding observations,
+	the number of positive integers less than $10000$ which are divisible
+	by $4$, $5$ or $6$ is
+	
+	$|A_4\cup A_5 \cup A_6|=|A_4|+|A_5|+|A_6|-|A_{20}|-|A_{21}|-|A_{30}|+|A_{60}|
+	=\lfloor \frac{9999}{4} \rfloor+ \lfloor \frac{9999}{5} \rfloor+\lfloor \frac{9999}{6} \rfloor-\lfloor \frac{9999}{20} \rfloor-\lfloor \frac{9999}{12} \rfloor-\lfloor \frac{9999}{30} \rfloor+\lfloor \frac{9999}{60} \rfloor=2499+1999+1666-499-833-333+166=4665$.
+	
+	The answer is therefore $10000-4666=5335$.
+	
+	\item 18. $A_4^4 -A_3^3=18.$ 
+	
+	\item There are $2^n$ values in $n$ variable truth table and each of them can be either $T$ or $F$ so that there are $2^{2^n}$ tables.
+\end{enumerate}
+\subsubsection{The Pigeonhole Principle}
+\begin{enumerate}
+	\item\begin{enumerate}
+		\item \textbf{Proof}. $X$ denotes the set of students. $Y$ denotes the set of distinct letters.
+		$|X|=50$ and $|Y|=26$. pigeonhole principle shows that there exists at least two different students' last name that has same first letter.
+		
+		\item $50 \times 99 + 1=4951$
+	\end{enumerate}
+	
+	\item \begin{enumerate}
+		\item $2\times 2+1=5$
+		
+		\item $10+3=13$
+	\end{enumerate}
+	\item \textbf{Proof}. The middle point of $(x_i, y_i)$ and $(x_j, y_j)$ is $(\frac{x_i + x_j}{2}, \frac{y_i + y_j}{2})$. The middle point has integer coordinates if and only if $(x_i, y_i)$ has the same parity of $(x_j, y_j)$.  There are only
+	four possibilities for the parity of a pair of integers, namely, (even, even), (even, odd),
+	(odd, even), and (odd, odd). For five distinct integers, by Pigeonhole Principle, there
+	are at least two points with the same parity. The middle point of these two has integer
+	coordinates.
+	
+	\item \textbf{Proof}. Number the seats around the table
+	from 1 to 50, and think of seat 50 as being adjacent to seat 1.
+	There are 25 seats with odd numbers and 25 seats with even
+	numbers. If no more than 12 boys occupied the odd-numbered seats, then at least 13 boys would occupy the even-numbered
+	seats, and vice versa. Without loss of generality, assume that
+	at least 13 boys occupy the 25 odd-numbered seats. Then at
+	least two of those boys must be in consecutive odd-numbered
+	seats, and the person sitting between them will have boys as
+	both of his or her neighbors.
+	
+	\item \textbf{Proof}. Consider a $21 \times 21$ grid. The rows corresponding to the boys and the columns corresponding to the girls. For all$(i, j)$, if the	$i$th boy shares a question $q$ with the $j$th girl	such that there are at least two more girls who solved $q$, then we put a red ball into the	cell $(i, j)$. If $i$th boy shares a question $q$ with the $j$th girl such that there are at least two more boys who solved	$q$, then we put a blue ball into the cell $(i, j)$.  We now claim that each row contains at least 11 red balls and each column contains at least 11 blue balls:
+
+	We will just prove for the rows and the statement about columns follows by a symmetric argument. For any $i$, we will argue that out of the questions that the $i$th	boy	solves, there are at most 5 distinct questions such that for any such question there are at most 2 girls who solved it. This follows by the Pigeonhole principle. Since otherwise the $i$th boy solves more than 6 distinct questions. This set of at most 5 questions, covers only
+	$2 \times 5 = 10$ girls with whom boy $i$ shares a question.  This means that with the remaining 11 girls, this boy shares a problem that is solved by at least two other girls. Note that
+	whenever it shares such a question with girl $j$, we put a red ball in the cell $(i, j)$. So, there are at least 11 red balls in any row of the grid.
+	
+	We know that the total number of balls is at least $2 \times 21 \times 11$. This is greater than the total number of cells which is $21 \times 21$. So, by the Pigeonhole principle, there is a cell that contains both blue and red ball. But then this means that the question that is shared in this cell is solved by at least 3 boys and at least 3 girls.
+	
+	\item \textbf{Proof}. Let $a_i$ be the number of matches completed by
+	hour $i$. Then $1 \le a_1 < a_2 < \cdots < a_{75} \le 125$. Also
+	$25 \le a_1 + 24 < a_2 + 24 < \cdots < a75 + 24 \le 149$. There
+	are 150 numbers $a_1, \cdots , a_{75}, a_1 + 24, \cdots , a_{75} + 24$. By the
+	pigeonhole principle, at least two are equal. Because all the
+	$a_i$ s are distinct and all the $(a_i + 24)$s are distinct, it follows
+	that $a_i = a_j + 24$ for some $i > j$. Thus, in the period from
+	the $(j + 1)$st to the $i$th hour, there are exactly 24 matches.
+	
+	\item \textbf{Proof}. Let $d_j$ be $jx - N(jx)$, where $N(jx)$ is the integer
+	closest to $jx$ for $1 \le j \le n$. Each $d_j$ is an irrational number
+	between $\-\frac{1}{2}$ and $\frac{1}{2}$. 
+	
+	When $n$ is even, consider the $n$ intervals $\{x \mid \frac{j}{n} < x < \frac{j + 1}{n}\}$, $\{x \mid -\frac{j + 1}{n} < x < -\frac{j}{n}\}$ for $j = 0, 1, . . . , \frac{n}{2} - 1$. If $d_j$ belongs to the interval $\{x \mid 0 < x < \frac{1}{n}\}$ or to the interval $\{x \mid -\frac{1}{n} < x < 0\}$ for some $j$ , we are done. If not, because there are $n - 2$ intervals
+	and $n$ numbers $d_j$ , the pigeonhole principle tells us
+	that there is an interval $\{x \mid \frac{k}{n} < x < \frac{k + 1}{n}\}$ containing
+	$d_r$ and $d_s$ with $r < s$. The proof can be finished by
+	showing that $(s - r)x$ is within $\frac{1}{n}$ of its nearest integer.
+	
+	When $n$ is odd, consider the $n + 1$ intervals $\{x \mid \frac{j}{n} < x < \frac{j + 1}{n}\}$, $\{x \mid -\frac{j + 1}{n} < x < -\frac{j}{n}\}$ for $j = 0, 1, . . . , \frac{n}{2} + 1$. If $d_j$ belongs to the interval $\{x \mid 0 < x < \frac{1}{n}\}$ or to the interval $\{x \mid -\frac{1}{n} < x < 0\}$ for some $j$ , we are done. If not, because there are $n - 1$ intervals	and $n$ numbers $d_j$ , the pigeonhole principle tells us that there is an interval $\{x \mid \frac{k}{n} < x < \frac{k + 1}{n}\}$ containing $d_r$ and $d_s$ with $r < s$. The proof can be finished by showing that $(s - r)x$ is within $\frac{1}{n}$ of its nearest integer.
+\end{enumerate}
+\subsubsection{Permutations and Combinations}
+\begin{enumerate}
+
+	\item 
+	\begin{enumerate}
+		\item 120 \item 24 \item 120 \item 24
+		\item 6 \item 0
+	\end{enumerate}
+	\item We need to show two
+	things: that if we have a group of $n$ people, then among them
+	we must find either a pair of friends or a subset of $n$ of them
+	all of whom are mutual enemies; and that there exists a group
+	of $n-1$ people for which this is not possible. For the first
+	statement, if there is any pair of friends, then the condition is
+	satisfied, and if not, then every pair of people are enemies, so
+	the second condition is satisfied. For the second statement, if
+	we have a group of $n-1$ people all of whom are enemies of
+	each other, then there is neither a pair of friends nor a subset
+	of $n$ of them all of whom are mutual enemies.
+	\item $n!/(r(n - r)!)$
+	\item Note that order does matter!
+	\begin{itemize}
+		\item No ties
+			\begin{itemize}
+				\item The number of permutations is $P(4,4) = 4! = 24$
+			\end{itemize}
+		\item Two horses tie
+		\begin{itemize}
+			\item There are $C(4,2) = 6$ ways to choose the two horses that tie
+			\item There are $P(3,3) = 6$ ways for the "groups" to finish (A "group" is either a single horse or the two tying horses)
+			\item By the product rule, there are $6\times 6 = 36$ possibilities for this case
+		\end{itemize}
+		\item Two groups of two horses tie
+			\begin{itemize}
+				\item There are $C(4,2) = 6$ ways to choose the two winning horses
+				
+				\item  The other two horses tie for second place
+			\end{itemize}		
+		\item  Three horses tie with each other
+			\begin{itemize}
+				\item There are $C(4,3) = 4$ ways to choose the two horses that tie
+				
+				\item There are $P(2,2) = 2$ ways for the "groups" to finish
+				
+				\item  By the product rule, there are $4*2 = 8$ possibilities for this case
+			\end{itemize}		
+		\item All four horses tie
+			\begin{itemize}
+				\item There is only one combination for this
+			\end{itemize}		
+		\item By the sum rule, the total is $ 24+36+6+8+1 = 75$
+	\end{itemize}
+	
+	\item 873.
+	
+	Let $n$ be the number of gold medals awarded.
+	\begin{enumerate}
+		\item If $n=2$, then there are $C(6,2)=15$ ways to choose the gold medalists and $2^4-1=15$ ways to choose the bronze medalists, so there are $15\times 15=225$ possibilities.
+		
+		\item If $n=1$, there are $C(6,1)$ ways to award the gold medal, and then there are $C(5,1)=5$ ways to award one silver medal and $2^4-1=15$ ways to award bronze medals, and there are $C(5,2)+ \cdots + C(5,5)=2^5-C(5,0)-C(5,1)=26$ ways to award more than one silver medal; so in this case there are $6(5\times 15 + 26)=606$ possibilities.
+		
+		\item If $n\geq3$, there are $C(6,3)+\cdots +C(6,6)=2^6-C(6,2)-C(6,1)-C(6,0)=42$ ways to award the gold.
+		
+		Therefore there are a total of $225+606+42=873$ ways to award the medals.
+	\end{enumerate}
+
+OR
+ \begin{multline}
+		{}_6 C_1 \times ({}_5 C_1 \times ({}_4 C_1 + {}_4 C_2 + {}_4 C_3 + {}_4 C_4) + {}_5 C_2 + {}_5 C_3 + {}_5 C_4 + {}_5 C_5)\\
+		+ {}_6 C_2 \times ({}_4 C_1 + {}_4 C_2 + {}_4 C_3 + {}_4 C_4) + {}_6 C_3 + {}_6 C_4 + {}_6 C_5 + {}_6 C_6\\
+		= 873.
+	\end{multline}
+\end{enumerate}
+\subsubsection{Binomial Coefficients and Identities}
+\begin{enumerate}
+	\item By the binomial theorem $\sum_{k=0}^{200}\binom{200}{k}(2x)^{200-k}(-3y)^k$. When $k=99$, $\binom{200}{99}(2x)^{101}(-3y)^{99}$. Thus the coefficient is $-\binom{200}{99}2^{101}(3)^{99}$
+	
+	\item By the binomial theorem 	$(x^2-\frac{3}{x})^{10}\\=\sum_{n=0}^{10}\binom{10}{n}(x^2)^{10-n}(-\frac{3}{x})^n
+	\\=\sum_{n=0}^{10}\binom{10}{n}x^{20-2n}(-3)^nx^n=\sum_{n=0}^{10}(-3)^n\binom{10}{n} x^{20-3n}$
+	
+	So the term $x^{11}$ occurs when $20-3n=11$; i.e. when $n=3$. So the coefficient of $x^{11}$ is $(-3)^3\binom{10}{3}=-27\times 120 = -3240$
+	
+	\item $(-1)^{(200-k)/3} \binom{100}
+	{(200-k)/3}$ if $k \equiv 2$ (mod $3$) and $-100 \leq
+	k \leq 200$; $0$ otherwise
+	
+	\item \begin{equation}
+	\binom{n}{k} = \frac{n(n - 1)(n - 2) \cdots (n - k + 1)}{k(k - 1)(k - 2) \cdots 2} \le \frac{n \cdot n \cdot \cdots \cdot n}{2 \cdot 2 \cdot \cdots \cdot 2} = \frac{n^k}{2^{k - 1}}
+	\end{equation}
+	
+	\item \begin{enumerate}
+		\item We show that each side counts the number of ways
+		to choose from a set with n elements a subset with $k$ elements
+		and a distinguished element of that set. For the lefthand
+		side, first choose the $k$-set (this can be done in $\binom{n}{k}$ ways)
+		and then choose one of the $k$ elements in this subset to be
+		the distinguished element (this can be done in $k$ ways). For
+		the right-hand side, first choose the distinguished element out
+		of the entire $n$-set (this can be done in $n$ ways), and then
+		choose the remaining $k - 1$ elements of the subset from the
+		remaining $n - 1$ elements of the set (this can be done in $\binom{n - 1}{k - 1}$ ways).
+		\item \begin{equation}
+			k \binom{n}{k} = k \cdot \frac{n!}{k!(n - k)!} = \frac{n \cdot (n - 1)!}{(k - 1)!(n - k)!} = n \binom{n - 1}{k - 1}.
+		\end{equation}
+	\end{enumerate}
+	
+\end{enumerate}
+
+\subsection{Advanced Counting Techniques}
+\subsubsection{Generating Functions}
+\begin{enumerate}
+	\item \begin{enumerate}
+		\item $2x(1-x^6)/(1-x)$
+		\item $x^3/(1-x)$
+		\item $x/(1-x^3)$
+		\item $2/(1-2x)$
+		\item $2/(1+x)$
+		\item $(1/(1-x))-x^2$
+		\item $x^3/(1-x)^2$
+	\end{enumerate}
+	\item \begin{enumerate}
+		\item \begin{equation}
+			a_n = \begin{cases}
+				1,&n \in \{0, 6\},\\
+				3,&n \in \{2, 4\},\\
+				0,&\text{otherwise.}
+			\end{cases}
+		\end{equation}
+		
+		\item \begin{equation}
+			a_n = \begin{cases}
+				-1,&n = 0,\\
+				9,&n = 1,\\
+				27,&n = 2,\\
+				-27,&n = 3.
+			\end{cases}
+		\end{equation}
+		
+		\item \begin{equation}
+			a_n = \begin{cases}
+				2^{\frac{n}{2}}, & n \equiv 0 \pmod{2},\\
+				0, & \text{otherwise}.
+			\end{cases}
+		\end{equation}
+		
+		\item \begin{equation}
+			a_n = \frac{(n - 1)n}{2}.
+		\end{equation}
+		\item \begin{equation}
+			a_n = \begin{cases}
+				0, & n = 0,\\
+				4, & n = 1,\\
+				3^n, & \text{otherwise}.
+			\end{cases}
+		\end{equation}
+		\item \begin{align}
+			& \frac{1 + x^3}{(1 + x)^3}\\
+			= & (1 + x^3) \Sigma_{n = 0}^\infty (-1)^n \frac{(n + 1)(n + 2)}{2} x^n\\
+			= & \Sigma_{n = 0}^\infty (-1)^n \frac{(n + 1)(n + 2)}{2} x^n\\
+			& - \Sigma_{n = 3}^\infty (-1)^n \frac{(n - 2)(n - 1)}{2} x^n\\
+			= & 1 + \Sigma_{n = 1}^\infty (-1)^n 3n x^n
+		\end{align}
+		\begin{equation}
+			a_n = \begin{cases}
+			1, & n = 0,\\
+			(-1)^n 3n, & \text{otherwise}.
+			\end{cases}
+		\end{equation}
+		\item \begin{equation}
+			a_n = \begin{cases}
+				0, & n \equiv 0 \pmod{3},\\
+				1, & n \equiv 1 \pmod{3},\\
+				-1, & \text{otherwise}.
+			\end{cases}
+		\end{equation}
+		\item \begin{equation}
+			a_n = \begin{cases}
+				\frac{3^{\frac{n}{2}}}{(\frac{n}{2})!}, & n \ge 2, n \equiv 0 \pmod{2},\\
+				0, & \text{otherwise}.
+			\end{cases}
+		\end{equation}
+	\end{enumerate}
+	\item The coefficient of $x^{10}$ in $(x^2+x^3+\cdots +x^{10})^4$.
+	\item \begin{enumerate}
+		\item Obviously, $a_n$, $b_n$, $c_n$, $d_n$ cover all situation of strings of base 4 digits, so that $a_n + b_n + c_n + d_n = 4^n$ and $d_n = 4^n - a_n - b_n - c_n$.
+		
+		Recursively, $a_{n + 1}$ can be succeeded from $a_n$ by appending either 2 or 3, from $b_n$ by appending a 1 and from $c_n$ by appending a 0.
+		
+		$b_{n + 1}$ can be succeeded from $b_n$ by appending either 2 or 3, from $a_n$ by appending a 1 and from $d_n$ by appending a 0.
+		
+		$c_{n + 1}$ can be succeeded from $c_n$ by appending either 2 or 3, from $d_n$ by appending a 1 and from $a_n$ by appending a 0, so that:
+		
+		\begin{equation}
+			\begin{cases}
+			a_{n+1} & = 2a_n + b_n + c_n,\\
+			b_{n+1} & = 2b_n + a_n + d_n\\
+			& = b_n - c_n + 4^n,\\
+			c_{n+1} & = 2c_n + d_n + a_n\\
+			& = c_n - b_n + 4^n.
+			\end{cases}
+		\end{equation}
+		
+		\item \begin{equation}
+			\begin{cases}
+			a_1 = 2,\\
+			b_1 = 1,\\
+			c_1 = 1,\\
+			d_1 = 0.
+			\end{cases}
+		\end{equation}
+		
+		\item \begin{equation}
+			\begin{cases}
+			a_3 = 20,\\
+			b_3 = 16,\\
+			c_3 = 16,\\
+			d_3 = 12.
+			\end{cases}
+		\end{equation}
+		
+		\item \begin{equation}
+			\begin{cases}
+			(1 - 2x)A(x) - x B(x) - x C(x) & = 1,\\
+			(1 - x) B(x) + x C(x) & = \frac{x}{1 - 4x},\\
+			x B(x) + (1 - x) C(x) & = \frac{x}{1 - 4x}.
+			\end{cases}
+		\end{equation}
+		
+		\item \begin{align}
+			A(x) & = \frac{1 - 4x + 2x^2}{1 - 6x + 8x^2}.\\
+			B(x) & = \frac{x}{1 - 4x}.\\
+			C(x) & = \frac{x}{1 - 4x}.\\
+			a_n & = \begin{cases}
+				1, & n = 0,\\
+				4^{n-1} + 2^{n - 1}, & \text{otherwise}.
+			\end{cases}\\
+			b_n & = \begin{cases}
+				0, & n = 0,\\
+				4^{n - 1}, & \text{otherwise}.
+			\end{cases}\\
+			c_n & = \begin{cases}
+				0, & n = 0,\\
+				4^{n - 1}, & \text{otherwise}.
+			\end{cases}\\
+			d_n & = \begin{cases}
+				0, & n = 0,\\
+				4^{n - 1} - 2^{n - 1}, & \text{otherwise}.
+			\end{cases}
+		\end{align}
+	\end{enumerate}
+	\begin{enumerate}
+		\item The coefficent of $x^{100}$.
+		
+		 $(1+x^{10}+x^{20}+\cdots+x^{100})(1+x^{20}+x^{40}+\cdots+x^{100})(1+x^{50}+x^{100})$
+		 
+		 \item The coefficent of $x^{100}$.
+		 
+		 $(1+x^{5}+x^{10}+\cdots+x^{100})(1+x^{10}+x^{20}+\cdots+x^{100})(1+x^{20}+x^{40}+\cdots+x^{100})(1+x^{50}+x^{100})$
+		 
+		 \item The coefficent of $x^{100}$.
+		 
+		 $(x^{5}+x^{10}+\cdots+x^{100})(x^{10}+x^{20}+\cdots+x^{100})(x^{20}+x^{40}+\cdots+x^{100})(x^{50}+x^{100})$
+		 
+		 \item The coefficent of $x^{100}$.
+		 
+		 $(x^{5}+x^{10}+ x^{15}+x^{20})(x^{10}+x^{20}+x^{30}+x^{40})(x^{20}+x^{40}+x^{60}+x^{80})$
+	\end{enumerate}
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,298 @@
+%!TEX program = xelatex
+\documentclass[10pt, compress]{beamer}
+\usepackage[titleprogressbar]{../../cls/beamerthemem}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{minted}
+
+\usepgfplotslibrary{dateplot}
+
+\usemintedstyle{trac}
+
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{theorems}[numbered]
+\newtheorem{crl}{Corollary}[theorem]
+\newtheorem*{solution*}{Solution}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\resetcounteronoverlays{algorithm}
+
+\usepackage{version}
+%\excludeversion{proof}
+%\excludeversion{solution*}
+
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{qtree}
+
+\usepackage{tikz}
+
+\makeatletter
+\def\old@comma{,}
+\catcode`\,=13
+\def,{%
+	\ifmmode%
+	\old@comma\discretionary{}{}{}%
+	\else%
+	\old@comma%
+	\fi%
+}
+\makeatother
+
+\title{CSCI 3190 Tutorial of Week 06}
+\subtitle{Counting}
+\author{LI Haocheng}
+\institute{Department of Computer Science and Engineering}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}[fragile]
+\frametitle{Permutation}
+\begin{columns}
+	\begin{column}{.6\linewidth}
+		\begin{definition}
+			A \textbf{permutation} of a set of distinct objects is an ordered arrangement of these objects.
+		\end{definition}
+		\begin{definition}
+			An ordered arrangement of $r$ elements of a set is called an \textbf{$r$-permutation}.
+		\end{definition}
+		\begin{theorem}
+			\label{thm:p}
+			If $n$ is a positive integer and $r$ is an integer with $1 \le r \le n$, then there are $P(n, r) = n(n - 1)(n - 2) \cdots (n - r + 1)$
+			$r$-permutations of a set with $n$ distinct elements.
+		\end{theorem}
+	\end{column}
+	\begin{column}{.5\linewidth}
+		\onslide<2>\begin{proof}
+			The first element of the
+			permutation can be chosen in $n$ ways. There are $n - 1$ ways to choose the second element of the permutation. Similarly, there are $n - 2$ ways to choose the third element, and so on, until there are exactly $n - (r - 1) = n - r + 1$ ways to choose the $r$th element. Consequently, by the product rule, there are
+			$n(n - 1)(n - 2) \cdots (n - r + 1)$
+			$r$-permutations of the set.
+		\end{proof}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Onto}
+\begin{example}
+	Consider the set $X$ of all functions $f \colon A \rightarrow B$, where $A = \{1, 2, 3, 4, 5, 6, 7\}$, $B = \{a, b, c, d, e\}$. How many functions in $X$ are onto?
+\end{example}
+\onslide<2>\begin{solution*}
+	For the first situation that 1 of $B$ matches 3 of $A$ and others match 1 of $A$ for each, we select 1 of 5 in $B$ and then for each of other 4 items in $B$ select 1 different item in $A$ so that there are ${}_5 C_1 \times {}_7 P_4$ functions in the first situation.
+	
+	For the second situation that 2 of $B$ match 2 of $A$ for each and others match 1 of $A$ for each, we select 2 of 5 in $B$, for each of other 3 items in $B$ select 1 different item in $A$ and then from the rest 4 items in $A$ select 2 of them to match 1 of 2 rest item in $B$ so that there are ${}_5 C_2 \times {}_7 P_3 \times {}_4 C_2$ functions in the section situation.
+	
+	Totally, there are ${}_5 C_1 \times {}_7 P_4 + {}_5 C_2 \times {}_7 P_3 \times {}_4 C_2 = 16800$ functions.
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Raccoons}
+\begin{example}
+	Let the lifespan of a raccoon be exactly 6 years.
+	Suppose there are 4 new-born raccoons at the 0th year and the number of new-born raccoons in each year is 3 times
+	that in the previous year. Let $b_r$ be the number of raccoons on $r$-th year where $r \ge 0$.
+	Give a closed form generating function for $b_r$.
+\end{example}
+
+\onslide<2>\begin{solution*}
+	\begin{equation}
+	n_r = \begin{cases}
+	4 \times 3^r, & r \ge 0\\
+	0, & \text{otherwise}.
+	\end{cases} \leftrightarrow \frac{4}{1 - 3x},
+	\end{equation} so that number of raccoons is \begin{equation}
+	b_r = \Sigma_{i = r - 5}^{r} n_i \leftrightarrow \frac{4(1 - x^6)}{(1 - 3x)(1 - x)}.
+	\end{equation}
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Mathematical Induction}
+\begin{example}
+	For $n \in \mathbb{N}^+$, prove each of the following by mathematical induction:\begin{enumerate}
+		\item $3 | 2^{2n + 1} + 1$;
+		\item $9 | n^3 + (n + 1)^3 + (n + 2)^3$.
+	\end{enumerate}
+\end{example}
+\begin{proof}
+	\begin{enumerate}
+		\item<2-> \begin{description}
+			\item[Base] Let $n = 0$, $3 \mid 2^1 + 1 = 3$.
+			\item[Induction] Suppose $3 \mid 2^{2n - 1} + 1$, $2^{2n + 1} = 3 * 2^{2n - 1} + 2^{2n - 1} + 1$
+			$\equiv 0 \pmod{3}$.
+		\end{description}
+		\item<3> \begin{description}
+			\item[Base] Let $n = 0$, $9 \mid 1^3 + 2^3$.
+			\item[Induction] Suppose $9 \mid (n - 1)^3 + n^3 + (n + 1)^3$, $n^3 + (n + 1)^3 + (n + 2)^3$
+			$= (n - 1)^3 + n^3 + (n + 1)^3 + 3((n - 1)^2 + (n - 1)(n + 2) + (n + 2)^2)$
+			$= (n - 1)^3 + n^3 + (n + 1)^3 + 9(n^2 + n + 1) \equiv 0 \pmod{9}$.
+		\end{description}
+	\end{enumerate}
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\frametitle{Multiply}
+\begin{columns}
+	\begin{column}{.5\linewidth}
+		\onslide<1->\begin{example}
+			Give a recursive algorithm for finding the sum of the first $n$ positive integers.
+		\end{example}
+		\onslide<2->\begin{solution*}
+			\begin{algorithm}[H]
+				\caption{A Recursive Algorithm for Summation}
+				\label{a-2}
+				\begin{algorithmic}
+					\Procedure{sum}{$n \in \mathbb{N}$}
+					\If{$n = 0$}
+					\State\Return $0$
+					\EndIf
+					\State\Return $n + $\Call{sum}{$n - 1$}
+					\EndProcedure
+				\end{algorithmic}
+			\end{algorithm}
+		\end{solution*}
+	\end{column}
+	\begin{column}{.5\linewidth}
+		\onslide<1->\begin{example}
+			Give a recursive algorithm for computing $nx$ whenever $n$ is a positive integer
+			and $x$ is an integer, using just addition.
+		\end{example}
+		\onslide<3->\begin{solution*}
+			\begin{algorithm}[H]
+				\caption{A Recursive Algorithm for Multiplication}
+				\label{a-1}
+				\begin{algorithmic}
+					\Procedure{mult}{$n \in \mathbb{N}$, $x \in \mathbb{Z}$}
+					\If{$n = 0$}
+					\State\Return $0$
+					\EndIf
+					\State\Return $x + $\Call{mult}{$n - 1, x$}
+					\EndProcedure
+				\end{algorithmic}
+			\end{algorithm}
+		\end{solution*}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Minimum}
+\begin{example}
+	Give a recursive algorithm for finding the minimum of a finite set of integers,
+	making use of the fact that the minimum of $n$ integers is the smaller of the last integer
+	in the list and the minimum of the first $n - 1$ integers in the list.
+\end{example}
+\onslide<2>\begin{solution*}
+	\begin{algorithm}[H]
+		\caption{A Recursive Algorithm for Minimum}
+		\label{a-3}
+		\begin{algorithmic}
+			\Procedure{smallest}{$a_1, \cdots, a_n \in \mathbb{Z}$}
+			\If{$n = 1$}
+			\State\Return $a_1$
+			\EndIf
+			\State\Return $\min(a_n, $ \Call{smallest}{$a_1, \cdots, a_{n - 1}$})
+			\EndProcedure
+		\end{algorithmic}
+	\end{algorithm}
+\end{solution*}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+\frametitle{Fibonacci}
+\begin{example}
+	Consider the computation of the $n$-th Fibonacci number:\begin{enumerate}
+		\item Give the pseudo code of a recursive algorithm to compute the nth Fibonacci number. What is the
+		complexity of your algorithm? Explain your answer.
+		\item Give the pseudo code of an iterative algorithm to compute the nth Fibonacci number. What is the
+		complexity of your algorithm? Explain your answer. 
+	\end{enumerate}
+\end{example}
+
+\newpage
+
+\begin{solution*}
+	\begin{columns}
+		\begin{column}{.6\linewidth}
+			\begin{algorithm}[H]
+				\caption{A Recursive Algorithm for Fibonacci}
+				\label{a-4-1}
+				\begin{algorithmic}
+					\Procedure{Fib}{$n$}
+					\If{$n = 0$}
+					\State\Return $0$
+					\EndIf
+					\If{$n = 1$}
+					\State\Return $1$
+					\EndIf
+					\State\Return \Call{Fib}{$n - 1$} + \Call{Fib}{$n - 2$}
+					\EndProcedure
+				\end{algorithmic}
+			\end{algorithm}
+			
+			$O(a_n) = 2^n$.
+		\end{column}
+		
+		\begin{column}{.5\linewidth}
+			\begin{algorithm}[H]
+				\caption{A Iterative Algorithm for Fibonacci}
+				\label{a-4-2}
+				\begin{algorithmic}
+					\Procedure{IterFib}{$n$}
+					\If{$n = 0$}\ \Return $0$
+					\EndIf
+					\State $x \coloneqq 0, y \coloneqq 1$
+					\For{$i \coloneqq 1, 2, \cdots, n - 1$}
+					\State $z \coloneqq x + y, x \coloneqq y, y \coloneqq z$
+					\EndFor
+					\State \Return $y$
+					\EndProcedure
+				\end{algorithmic}
+			\end{algorithm}
+			
+			The number of additions follows the expression $b_n = n - 1$ so that $O(b_n) = n$.
+		\end{column}
+	\end{columns}
+\end{solution*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Mode}
+\begin{example}
+	Give a recursive algorithm for finding a mode of a list of integers.
+\end{example}
+\onslide<2>\begin{solution*}
+	\begin{algorithm}[H]
+		\caption{A Recursive Algorithm for Minimum}
+		\label{a-5}
+		\begin{algorithmic}
+			\Procedure{mode}{$a_1, \cdots, a_n \in \mathbb{Z}$}
+			\If{$n = 1$}
+			\Return $a_1$
+			\EndIf
+			\State $m \eqqcolon $ \Call{mode}{$a_1, \cdots, a_{n - 1}$}
+			\If{$m = a_n$}
+			\Return $a_n$
+			\EndIf
+			\State $numM \eqqcolon$ number of $m$ in $a_1, \cdots, a_n$
+			\State $numN \eqqcolon$ number of $a_n$ in $a_1, \cdots, a_n$
+			\If{$numM \le numN$}
+			\Return $a_n$
+			\EndIf
+			\State\Return $m$
+			\EndProcedure
+		\end{algorithmic}
+	\end{algorithm}
+\end{solution*}
+\end{frame}
+
+\plain{Questions?}
+
+\end{document}
