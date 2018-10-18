@@ -102,7 +102,7 @@
 \end{equation}
 
 \item The \textbf{harmonic numbers} $H_j, j = 1, 2, 3, \ldots$, are defined by \begin{equation}
-	H_j = \sum_{i = 1}^j \frac{1}{i}.
+    H_j = \sum_{i = 1}^j \frac{1}{i}.
 \end{equation}
 Prove that $H_{2^n} \le 1 + n$ whenever $n$ is a nonnegative integer.
 
@@ -122,16 +122,16 @@ Use mathematical induction to show that a knight starting at $(0, 0)$ can visit 
 
 \item Show that \begin{align}
 \begin{aligned}
-	& [(p_1 \rightarrow p_2) \land (p_2 \rightarrow p_3) \land \cdots (p_{n - 1} \rightarrow p_{n})]\\
-	& \qquad \rightarrow [(p_1 \land p_2 \land \cdots \land p_{n - 1}) \rightarrow p_{n}]
+    & [(p_1 \rightarrow p_2) \land (p_2 \rightarrow p_3) \land \cdots (p_{n - 1} \rightarrow p_{n})]\\
+    & \qquad \rightarrow [(p_1 \land p_2 \land \cdots \land p_{n - 1}) \rightarrow p_{n}]
 \end{aligned}
 \end{align} is a tautology whenever $p_1, p_2, \ldots, p_n$ are propositions, where $n \ge 2$.
 
 \item Let $a_1, a_2, \ldots, a_n$ be positive real numbers.
 The \textbf{arithmetic mean} of these numbers is defined by \begin{equation}
-	A = \frac{1}{n} \sum_{i = 1}^n a_i,
+    A = \frac{1}{n} \sum_{i = 1}^n a_i,
 \end{equation} and the \textbf{geometric mean} of these numbers is defined by \begin{equation}
-	G = \left(\prod_{i = 1}^{n} a_i\right)^\frac{1}{n}.
+    G = \left(\prod_{i = 1}^{n} a_i\right)^\frac{1}{n}.
 \end{equation}
 Use mathematical induction to prove that $A \ge G$.
 
@@ -168,7 +168,7 @@ required to assemble a puzzle with n pieces.
 $f_0, f_1, f_2, \ldots$,
 is defined by the initial conditions $f_0 = 0, f_1 = 1$,
 and the recurrence relation \begin{equation}
-	f_n = f_{n - 1} + f_{n - 2}
+    f_n = f_{n - 1} + f_{n - 2}
 \end{equation} for $n = 2, 3, 4, \cdots$.
 Show that $\sum_{i = 0}^{2n - 1} f_i f_{i + 1} = f_{2n}^2$ when $n$ is a positive integer.
 
@@ -177,16 +177,16 @@ the sum does not matter.
 For instance, $7 = 3 + 2 + 1 + 1$ is a partition of $7$.
 Let $P_m$ equal the number of different partitions of $m$,
 and let $P_{m, n}$ be the number of different ways to express $m$ as the sum of positive integers not exceeding $n$. \begin{enumerate}
-	\item Show that $P_{m, m} = P_m$.
-	\item Show that the following recursive definition for $P_{m, n}$ is correct: \begin{equation}
-		P_{m, n} = \begin{cases}
-		1 & \text{if } m = 1 \lor n = 1,\\
-		P_{m, m} & \text{if } m < n,\\
-		1 + P_{m, m - 1} & \text{if } m = n > 1,\\
-		P_{m, n - 1} + P_{m - n, n} & \text{if } m > n > 1.
-		\end{cases}
-	\end{equation}
-	\item Find the number of partitions of 5 and of 6 using this recursive definition.
+    \item Show that $P_{m, m} = P_m$.
+    \item Show that the following recursive definition for $P_{m, n}$ is correct: \begin{equation}
+        P_{m, n} = \begin{cases}
+        1 & \text{if } m = 1 \lor n = 1,\\
+        P_{m, m} & \text{if } m < n,\\
+        1 + P_{m, m - 1} & \text{if } m = n > 1,\\
+        P_{m, n - 1} + P_{m - n, n} & \text{if } m > n > 1.
+        \end{cases}
+    \end{equation}
+    \item Find the number of partitions of 5 and of 6 using this recursive definition.
 \end{enumerate}
 
 \item Consider an inductive definition of a version of \textbf{Ackermann's function}.
@@ -194,12 +194,12 @@ This functionwas named after Wilhelm Ackermann,
 a German mathematician who was a student of the great mathematician David Hilbert.
 Ackermann's function plays an important role in the theory of recursive functions and in the study of the complexity of certain algorithms involving set unions.
 \begin{equation}
-	A(m, n) = \begin{cases}
-	2n & \text{if } m = 0,\\
-	0 & \text{if } m \ge 1 \land n = 0,\\
-	2 & \text{if } m \ge 1 \land n = 1,\\
-	A(m - 1, A(m, n - 1)) & \text{if } m \ge 1 \land n \ge 2.
-	\end{cases}
+    A(m, n) = \begin{cases}
+    2n & \text{if } m = 0,\\
+    0 & \text{if } m \ge 1 \land n = 0,\\
+    2 & \text{if } m \ge 1 \land n = 1,\\
+    A(m - 1, A(m, n - 1)) & \text{if } m \ge 1 \land n \ge 2.
+    \end{cases}
 \end{equation}
 Prove that $A(m, n + 1) > A(m, n)$ whenever $m$ and $n$ are
 nonnegative integers.
@@ -217,35 +217,35 @@ nonnegative integers.
 \subsection{Applications of Recurrence Relations}
 \begin{enumerate}
 \item A string that contains only 0s, 1s, and 2s is called a \textbf{ternary string}. \begin{enumerate}
-	\item Find a recurrence relation for the number of ternary
-	strings of length $n$ that do not contain two consecutive
-	0s or two consecutive 1s.
-	\item What are the initial conditions?
-	\item How many ternary strings of length six do not contain
-	two consecutive 0s or two consecutive 1s?
+    \item Find a recurrence relation for the number of ternary
+    strings of length $n$ that do not contain two consecutive
+    0s or two consecutive 1s.
+    \item What are the initial conditions?
+    \item How many ternary strings of length six do not contain
+    two consecutive 0s or two consecutive 1s?
 \end{enumerate}
 
 \item \begin{enumerate}
-	\item Find a recurrence relation for the number of ternary
-	strings of length $n$ that do not contain consecutive
-	symbols that are the same.
-	\item What are the initial conditions?
-	\item How many ternary strings of length six do not contain
-	consecutive symbols that are the same?
+    \item Find a recurrence relation for the number of ternary
+    strings of length $n$ that do not contain consecutive
+    symbols that are the same.
+    \item What are the initial conditions?
+    \item How many ternary strings of length six do not contain
+    consecutive symbols that are the same?
 \end{enumerate}
 
 \item \begin{enumerate}
-	\item Find the recurrence relation satisfied by $R_n$,
-	where $R_n$ is the number of regions that a plane is divided into by $n$ lines,
-	if no two of the lines are parallel and no three of the lines go through the same point.
-	\item Find $R_n$ using iteration.
+    \item Find the recurrence relation satisfied by $R_n$,
+    where $R_n$ is the number of regions that a plane is divided into by $n$ lines,
+    if no two of the lines are parallel and no three of the lines go through the same point.
+    \item Find $R_n$ using iteration.
 \end{enumerate}
 
 \item \begin{enumerate}
-	\item Find the recurrence relation satisfied by $S_n$,
-	where $S_n$ is the number of regions into which three-dimensional space is divided by $n$ planes if every three of the planes meet in one point,
-	but no four of the planes go through the same point.
-	\item Find $S_n$ using iteration.
+    \item Find the recurrence relation satisfied by $S_n$,
+    where $S_n$ is the number of regions into which three-dimensional space is divided by $n$ planes if every three of the planes meet in one point,
+    but no four of the planes go through the same point.
+    \item Find $S_n$ using iteration.
 \end{enumerate}
 
 \end{enumerate}
@@ -271,7 +271,7 @@ nonnegative integers.
 \item Let $P(n)$ be ``$1 + nh \le (1 + h)^n, h > -1$.''
 
 \textit{Basis step:} $P(0)$ is true because \begin{equation}
-	1 + 0 \cdot h = 1 \le 1 = (1 + h)^0.
+    1 + 0 \cdot h = 1 \le 1 = (1 + h)^0.
 \end{equation}
 
 \textit{Inductive step:} Assume $1 + kh \le (1 + h)^k$.
@@ -393,13 +393,13 @@ respectively.
 Also, if $x \le x', y \le y'$, and so on,
 then $A(x, y, \ldots) \le A(x', y', \ldots)$ and $G(x, y, \ldots) \le G(x', y', \ldots)$.
 Hence, \begin{align}
-	\begin{aligned}
-	& A(a_1, \ldots, a_{2n})\\
-	= & A(A(a_1, \ldots, a_n), A(a_{n + 1}, \ldots, a_{2n}))\\
-	\ge & A(G(a_1, \ldots, a_n), G(a_{n + 1}, \ldots, a_{2n}))\\
-	\ge & G(G(a_1, \ldots, a_n), G(a_{n + 1}, \ldots, a_{2n}))\\
-	\ge & G(a_1, \ldots, a_{2n}).
-	\end{aligned}
+    \begin{aligned}
+    & A(a_1, \ldots, a_{2n})\\
+    = & A(A(a_1, \ldots, a_n), A(a_{n + 1}, \ldots, a_{2n}))\\
+    \ge & A(G(a_1, \ldots, a_n), G(a_{n + 1}, \ldots, a_{2n}))\\
+    \ge & G(G(a_1, \ldots, a_n), G(a_{n + 1}, \ldots, a_{2n}))\\
+    \ge & G(a_1, \ldots, a_{2n}).
+    \end{aligned}
 \end{align}
 This finishes the proof for powers of 2.
 Now if $n$ is not a power of 2,
@@ -514,15 +514,15 @@ Hence, $P(n + 1)$ is true.
 Then $\sum_{i = 0}^{2k + 1} f_i f_{i + 1} = f_{2k}^2 + f_{2k} f_{2k + 1} + f_{2k + 1} f_{2k + 2} = f_{2k} (f_{2k} + f_{2k + 1}) + f_{2k + 1} f_{2k + 2} = f_{2k} f_{2k + 2} + f_{2k + 1} f_{2k + 2} = (f_{2k} + f_{2k + 1}) f_{2k + 2} = f_{2k + 2}^2$.
 
 \item \begin{enumerate}
-	\item $P_{m, m} = P_m$ because a number exceeding $m$ cannot be used in a partition of $m$.
-	\item Because there is only one way to partition 1, namely, 1 = 1, it follows that $P_{1,n} = 1$.
-	Because there is only one way to partition $m$ into $1$s, $P_{m,1} = 1$. When $n > m$ it follows that $P_{m, n} = P_{m, m}$ because a number exceeding $m$ cannot be used.
-	$P_{m, m} = 1 + P_{m, m - 1}$ because one extra partition,
-	namely, $m = m$,
-	arises when $m$ is allowed in the partition.
-	$P_{m, n} = P_{m, n - 1} + P_{m - n, n}$ if $m > n$ because a partition of $m$ into integers not exceeding $n$ either does not use any $n$s and hence,
-	is counted in $P_{m, n - 1}$ or else uses an $n$ and a partition of $m - n$, and hence, is counted in $P_{m - n, n}$.
-	\item $P_5 = 7, P_6 = 11$.
+    \item $P_{m, m} = P_m$ because a number exceeding $m$ cannot be used in a partition of $m$.
+    \item Because there is only one way to partition 1, namely, 1 = 1, it follows that $P_{1,n} = 1$.
+    Because there is only one way to partition $m$ into $1$s, $P_{m,1} = 1$. When $n > m$ it follows that $P_{m, n} = P_{m, m}$ because a number exceeding $m$ cannot be used.
+    $P_{m, m} = 1 + P_{m, m - 1}$ because one extra partition,
+    namely, $m = m$,
+    arises when $m$ is allowed in the partition.
+    $P_{m, n} = P_{m, n - 1} + P_{m - n, n}$ if $m > n$ because a partition of $m$ into integers not exceeding $n$ either does not use any $n$s and hence,
+    is counted in $P_{m, n - 1}$ or else uses an $n$ and a partition of $m - n$, and hence, is counted in $P_{m - n, n}$.
+    \item $P_5 = 7, P_6 = 11$.
 \end{enumerate}
 
 \item Use a double induction argument to prove the stronger statement:
@@ -582,25 +582,25 @@ merge correctly merges two sorted lists into one because with each comparison th
 \subsubsection{Applications of Recurrence Relations}
 \begin{enumerate}
 \item \begin{enumerate}
-	\item $a_n  = 2 a_{n - 1} + a_{n - 2}$ for $n \ge 2$.
-	\item $a_0 = 1, a_1 = 3$.
-	\item 239.
+    \item $a_n  = 2 a_{n - 1} + a_{n - 2}$ for $n \ge 2$.
+    \item $a_0 = 1, a_1 = 3$.
+    \item 239.
 \end{enumerate}
 
 \item \begin{enumerate}
-	\item $a_n  = 2 a_{n - 1}$ for $n \ge 2$.
-	\item $a_1 = 3$.
-	\item 96.
+    \item $a_n  = 2 a_{n - 1}$ for $n \ge 2$.
+    \item $a_1 = 3$.
+    \item 96.
 \end{enumerate}
 
 \item \begin{enumerate}
-	\item $R_n = n + R_{n - 1}, R_0 = 1$.
-	\item $R_n = \frac{n(n + 1)}{2} + 1$.
+    \item $R_n = n + R_{n - 1}, R_0 = 1$.
+    \item $R_n = \frac{n(n + 1)}{2} + 1$.
 \end{enumerate}
 
 \item \begin{enumerate}
-	\item $S_n = s_{n - 1} + \frac{n^2 - n + 2}{2}, S_0 = 1$.
-	\item $S_n = \frac{n^3 + 5n + 6}{6}$.
+    \item $S_n = s_{n - 1} + \frac{n^2 - n + 2}{2}, S_0 = 1$.
+    \item $S_n = \frac{n^3 + 5n + 6}{6}$.
 \end{enumerate}
 
 \end{enumerate}
