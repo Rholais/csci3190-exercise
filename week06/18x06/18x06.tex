@@ -166,6 +166,9 @@ required to assemble a puzzle with n pieces.
 
 \subsection{Recursive Definitions and Structural Induction}
 \begin{enumerate}
+\item Give a recursive definition of $P_m(n)$, the product of the
+integer $m$ and the nonnegative integer $n$.
+	
 \item The \textbf{Fibonacci sequence},
 $f_0, f_1, f_2, \ldots$,
 is defined by the initial conditions $f_0 = 0, f_1 = 1$,
@@ -173,6 +176,14 @@ and the recurrence relation \begin{equation}
     f_n = f_{n - 1} + f_{n - 2}
 \end{equation} for $n = 2, 3, 4, \cdots$.
 Show that $\sum_{i = 0}^{2n - 1} f_i f_{i + 1} = f_{2n}^2$ when $n$ is a positive integer.
+
+\item Give a recursive definition of
+\begin{enumerate}
+	\item the set of even integers.
+	\item the set of positive integers congruent to $2$ modulo $3$.
+	\item the set of positive integers not divisible by $5$.
+\end{enumerate}
+
 
 \item A partition of a positive integer $n$ is a way to write $n$ as a sum of positive integers where the order of terms in
 the sum does not matter.
@@ -641,10 +652,23 @@ Hence, $P(n + 1)$ is true.
 
 \subsubsection{Recursive Definitions and Structural Induction}
 \begin{enumerate}
+\item $P_m(0) = 0$, $P_m(n + 1) = P_m(n) + m$.
+	
+	
 \item \textit{Basis step:} $f_0 f_1 + f_1 f_2 = 0 \cdot 1 + 1 \cdot 1 = 1^2 = f_2^2$.
 
 \textit{Inductive step:} Assume that $\sum_{i = 0}^{2k - 1} f_i f_{i + 1} = f_{2k}^2$.
 Then $\sum_{i = 0}^{2k + 1} f_i f_{i + 1} = f_{2k}^2 + f_{2k} f_{2k + 1} + f_{2k + 1} f_{2k + 2} = f_{2k} (f_{2k} + f_{2k + 1}) + f_{2k + 1} f_{2k + 2} = f_{2k} f_{2k + 2} + f_{2k + 1} f_{2k + 2} = (f_{2k} + f_{2k + 1}) f_{2k + 2} = f_{2k + 2}^2$.
+
+
+\item
+\begin{enumerate}
+	\item $0 \in S$, and if $x \in S$, then $x + 2 \in S$
+	and $x - 2 \in S$. 
+	\item $2 \in S$, and if $x \in S$, then $x + 3 \in S$.
+	\item $1 \in S$, $2 \in S$, $3 \in S$, $4 \in S$, and if $x \in S$, then $x + 5 \in S$.
+\end{enumerate}
+
 
 \item \begin{enumerate}
     \item $P_{m, m} = P_m$ because a number exceeding $m$ cannot be used in a partition of $m$.
