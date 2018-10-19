@@ -1,0 +1,166 @@
+%!TEX program = xelatex
+\documentclass[10pt, compress]{beamer}
+\usepackage[titleprogressbar]{../../cls/beamerthemem}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{minted}
+
+\usepgfplotslibrary{dateplot}
+
+\usemintedstyle{trac}
+
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{theorems}[numbered]
+\newtheorem{crl}{Corollary}[theorem]
+\newtheorem*{solution*}{Solution}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\resetcounteronoverlays{algorithm}
+
+\usepackage{version}
+%\excludeversion{proof}
+%\excludeversion{solution*}
+
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{qtree}
+
+\usepackage{tikz}
+
+\makeatletter
+\def\old@comma{,}
+\catcode`\,=13
+\def,{%
+	\ifmmode%
+	\old@comma\discretionary{}{}{}%
+	\else%
+	\old@comma%
+	\fi%
+}
+\makeatother
+
+\title{CSCI 3190 Tutorial of Week 07}
+\subtitle{Recursive Algorithm}
+\author{LI Haocheng}
+\institute{Department of Computer Science and Engineering}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}
+\frametitle{Minimum}
+\begin{example}
+	Give a recursive algorithm for finding the minimum of a finite set of integers,
+	making use of the fact that the minimum of $n$ integers is the smaller of the last integer
+	in the list and the minimum of the first $n - 1$ integers in the list.
+\end{example}
+\onslide<2>\begin{solution*}
+	\begin{algorithm}[H]
+		\caption{A Recursive Algorithm for Minimum}
+		\label{a-3}
+		\begin{algorithmic}
+			\Procedure{smallest}{$a_1, \cdots, a_n \in \mathbb{Z}$}
+			\If{$n = 1$}
+			\State\Return $a_1$
+			\EndIf
+			\State\Return $\min(a_n, $ \Call{smallest}{$a_1, \cdots, a_{n - 1}$})
+			\EndProcedure
+		\end{algorithmic}
+	\end{algorithm}
+\end{solution*}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+\frametitle{Fibonacci}
+\begin{example}
+	Consider the computation of the $n$-th Fibonacci number:\begin{enumerate}
+		\item Give the pseudo code of a recursive algorithm to compute the nth Fibonacci number. What is the
+		complexity of your algorithm? Explain your answer.
+		\item Give the pseudo code of an iterative algorithm to compute the nth Fibonacci number. What is the
+		complexity of your algorithm? Explain your answer. 
+	\end{enumerate}
+\end{example}
+
+\newpage
+
+\begin{solution*}
+	\begin{columns}
+		\begin{column}{.6\linewidth}
+			\begin{algorithm}[H]
+				\caption{A Recursive Algorithm for Fibonacci}
+				\label{a-4-1}
+				\begin{algorithmic}
+					\Procedure{Fib}{$n$}
+					\If{$n = 0$}
+					\State\Return $0$
+					\EndIf
+					\If{$n = 1$}
+					\State\Return $1$
+					\EndIf
+					\State\Return \Call{Fib}{$n - 1$} + \Call{Fib}{$n - 2$}
+					\EndProcedure
+				\end{algorithmic}
+			\end{algorithm}
+			
+			$O(a_n) = 2^n$.
+		\end{column}
+		
+		\begin{column}{.5\linewidth}
+			\begin{algorithm}[H]
+				\caption{A Iterative Algorithm for Fibonacci}
+				\label{a-4-2}
+				\begin{algorithmic}
+					\Procedure{IterFib}{$n$}
+					\If{$n = 0$}\ \Return $0$
+					\EndIf
+					\State $x \coloneqq 0, y \coloneqq 1$
+					\For{$i \coloneqq 1, 2, \cdots, n - 1$}
+					\State $z \coloneqq x + y, x \coloneqq y, y \coloneqq z$
+					\EndFor
+					\State \Return $y$
+					\EndProcedure
+				\end{algorithmic}
+			\end{algorithm}
+			
+			The number of additions follows the expression $b_n = n - 1$ so that $O(b_n) = n$.
+		\end{column}
+	\end{columns}
+\end{solution*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Mode}
+\begin{example}
+	Give a recursive algorithm for finding a mode of a list of integers.
+\end{example}
+\onslide<2>\begin{solution*}
+	\begin{algorithm}[H]
+		\caption{A Recursive Algorithm for Minimum}
+		\label{a-5}
+		\begin{algorithmic}
+			\Procedure{mode}{$a_1, \cdots, a_n \in \mathbb{Z}$}
+			\If{$n = 1$}
+			\Return $a_1$
+			\EndIf
+			\State $m \eqqcolon $ \Call{mode}{$a_1, \cdots, a_{n - 1}$}
+			\If{$m = a_n$}
+			\Return $a_n$
+			\EndIf
+			\State $numM \eqqcolon$ number of $m$ in $a_1, \cdots, a_n$
+			\State $numN \eqqcolon$ number of $a_n$ in $a_1, \cdots, a_n$
+			\If{$numM \le numN$}
+			\Return $a_n$
+			\EndIf
+			\State\Return $m$
+			\EndProcedure
+		\end{algorithmic}
+	\end{algorithm}
+\end{solution*}
+\end{frame}
+
+\plain{Questions?}
+
+\end{document}
