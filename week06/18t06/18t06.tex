@@ -2,18 +2,24 @@
 \documentclass[10pt, compress]{beamer}
 \usepackage[titleprogressbar]{../../cls/beamerthemem}
 
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{theorems}[numbered]
+\newcounter{example}
+\resetcounteronoverlays{example}
+\newtheorem{crl}{Corollary}[theorem]
+\newtheorem{eg}[example]{Example}
+\newtheorem*{solution*}{Solution}
+
 \usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
 \usepackage{minted}
 
+\usepackage{cleveref}
+\crefname{example}{Example}{Examples}
+
 \usepgfplotslibrary{dateplot}
 
 \usemintedstyle{trac}
-
-\setbeamertemplate{caption}[numbered]
-\setbeamertemplate{theorems}[numbered]
-\newtheorem{crl}{Corollary}[theorem]
-\newtheorem*{solution*}{Solution}
 
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode}
@@ -79,9 +85,9 @@
 
 \begin{frame}[fragile]
 \frametitle{Onto}
-\begin{example}
+\begin{eg}
 	Consider the set $X$ of all functions $f \colon A \rightarrow B$, where $A = \{1, 2, 3, 4, 5, 6, 7\}$, $B = \{a, b, c, d, e\}$. How many functions in $X$ are onto?
-\end{example}
+\end{eg}
 \onslide<2>\begin{solution*}
 	For the first situation that 1 of $B$ matches 3 of $A$ and others match 1 of $A$ for each, we select 1 of 5 in $B$ and then for each of other 4 items in $B$ select 1 different item in $A$ so that there are ${}_5 C_1 \times {}_7 P_4$ functions in the first situation.
 	
@@ -92,34 +98,103 @@
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Tokens}
+\begin{eg}
+	Use generating functions to determine the number of ways to insert tokens worth \$1, \$2,
+	and \$5 into a vending machine to pay for an item that costs $r$ dollars in both the cases when
+	the order in which the tokens are inserted does not matter.
+\end{eg}
+\onslide<2>\begin{solution*}
+	Because
+	we can use any number of \$1 tokens, any number of \$2 tokens, and any number of \$5 tokens,
+	the answer is the coefficient of $x^r$ in the generating function \begin{align}
+		\begin{aligned}
+		& \left(\sum_{i = 0}^{\infty} x^i\right) \left(\sum_{i = 0}^{\infty} x^{2i}\right) \left(\sum_{i = 0}^{\infty} x^{5i}\right)\\
+		= & \frac{1}{(1 - x)(1 - x^2)(1 - x^5)}.
+		\end{aligned}
+	\end{align}
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Recurrence Relation}
+\begin{eg}
+	Solve the recurrence relation $a_k = 3a_{k - 1}$ for $k = 1, 2, 3, \ldots$ and initial condition $a_0 = 2$.
+\end{eg}
+\onslide<2>\begin{solution*}
+	Let $G(x)$ be the generating function for the sequence $\{a_k\}$, that is, $G(x) = \sum_{k = 0}^{\infty} a_k x^k$.
+	Using the recurrence relation, we see that \begin{equation}
+		G(x) - 3xG(x) = \sum_{k = 0}^{\infty} a_k x^k - 3 \sum_{k = 1}^{\infty} a_{k - 1} x^{k} = a_0 + \sum_{k = 1}^{\infty} (a_k - 3 a_{k - 1}) x^{k}	= 2.
+	\end{equation}
+	Solving for $G(x)$ shows that $G(x) = \frac{2}{1 - 3x} = \sum_{k = 0}^\infty 2 \cdot 3^k x^k$.
+	Consequently, $a_k = 2 \cdot 3^k$.
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Raccoons}
-\begin{example}
+\begin{eg}
 	Let the lifespan of a raccoon be exactly 6 years.
 	Suppose there are 4 new-born raccoons at the 0th year and the number of new-born raccoons in each year is 3 times
 	that in the previous year. Let $b_r$ be the number of raccoons on $r$-th year where $r \ge 0$.
 	Give a closed form generating function for $b_r$.
-\end{example}
+\end{eg}
 
 \onslide<2>\begin{solution*}
-	\begin{equation}
-	n_r = \begin{cases}
-	4 \times 3^r, & r \ge 0\\
-	0, & \text{otherwise}.
-	\end{cases} \leftrightarrow \frac{4}{1 - 3x},
-	\end{equation} so that number of raccoons is \begin{equation}
-	b_r = \Sigma_{i = r - 5}^{r} n_i \leftrightarrow \frac{4(1 - x^6)}{(1 - 3x)(1 - x)}.
+	Let $N(x)$ be the generating function for the number sequence of newborn raccoons.
+	Using the recurrence relation, we see that $N(x) - 3xN(x) = 4$.
+	Solving for $N(x)$ shows that $N(x) = \frac{4}{1 - 3x}$.
+	Let $B(x)$ be the generating function for the number sequence of raccoons, then \begin{equation}
+	B(x) = \sum_{i = 0}^{5} x^i N(x) = N(x) \left(\sum_{i = 0}^{5} x^i\right) = N(x) \cdot \frac{(1 - x^6)}{1 - x} = \frac{4(1 - x^6)}{(1 - 3x)(1 - x)}.
 	\end{equation}
 \end{solution*}
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Codeword Enumeration}
+\begin{eg}
+	\label{eg:8}
+	Computer system considers a string of decimal digits a valid
+	codeword if it contains an even number of 0 digits. For instance, 1230407869 is valid,
+	whereas 120987045608 is not valid. Let $a_n$ be the number of valid $n$-digit codewords. Find
+	a recurrence relation for $a_n$.
+\end{eg}
+
+\onslide<2>\begin{solution*}
+	Note that $a_1 = 9$.
+	There are two ways to form
+	a valid string with $n$ digits from a string with one fewer digit.
+	First, it can be obtained by appending a valid string of $n - 1$ digits with a digit other than 0, which has $9a_{n - 1}$ ways.
+	Second, it can be obtained by appending a 0 to a string of length $n - 1$ that is not valid, which has $10_{n - 1} - a_{n - 1}$ ways.
+	Because all valid strings of length n are produced in one of these two ways, it follows that there are $a_n = 9 a_{n - 1} + (10^{n - 1} - a_{n - 1}) = 8 a_{n - 1} + 10^{n - 1}$ valid strings of length $n$.
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Solve Codeword Enumeration}
+\begin{eg}
+	Suppose that a valid codeword is an $n$-digit number in decimal notation containing an even number of 0s.
+	Let an denote the number of valid codewords of length $n$.
+	In~\Cref{eg:8} we showed that the sequence $\{a_n\}$ satisfies the recurrence relation $a_n = 8 a_{n - 1} + 10^{n - 1}$ and the initial condition $a_1 = 9$. Use generating functions to find an explicit formula for $a_n$.
+\end{eg}
+
+\onslide<2>\begin{solution*}
+	we extend this sequence	by setting $a_0 = 1$.
+	Let $G(x) = \sum_{n = 0}^{\infty} a_n x_n$ be the generating function of the sequence $\{a_n\}$,
+	then $G(x) - 8x G(x) = 1 + \frac{x}{1 - 10x}$.
+	Solving for $G(x)$ shows that $G(x) = \frac{1 - 9x}{(1 - 8x)(1 - 10x)} = \frac{1}{2} \left(\frac{1}{1 - 8x} + \frac{1}{1 - 10x}\right) = \sum_{n = 0}^\infty \frac{1}{2} (8^n + 10^n) x^n$.
+	Consequently, we have shown that $a_n = \frac{1}{2} (8^n + 10^n)$.
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Mathematical Induction}
-\begin{example}
+\begin{eg}
 	For $n \in \mathbb{N}^+$, prove each of the following by mathematical induction:\begin{enumerate}
 		\item $3 | 2^{2n + 1} + 1$;
 		\item $9 | n^3 + (n + 1)^3 + (n + 2)^3$.
 	\end{enumerate}
-\end{example}
+\end{eg}
 \begin{proof}
 	\begin{enumerate}
 		\item<2-> \begin{description}
@@ -141,9 +216,9 @@
 \frametitle{Multiply}
 \begin{columns}
 	\begin{column}{.5\linewidth}
-		\onslide<1->\begin{example}
+		\onslide<1->\begin{eg}
 			Give a recursive algorithm for finding the sum of the first $n$ positive integers.
-		\end{example}
+		\end{eg}
 		\onslide<2->\begin{solution*}
 			\begin{algorithm}[H]
 				\caption{A Recursive Algorithm for Summation}
@@ -160,10 +235,10 @@
 		\end{solution*}
 	\end{column}
 	\begin{column}{.5\linewidth}
-		\onslide<1->\begin{example}
+		\onslide<1->\begin{eg}
 			Give a recursive algorithm for computing $nx$ whenever $n$ is a positive integer
 			and $x$ is an integer, using just addition.
-		\end{example}
+		\end{eg}
 		\onslide<3->\begin{solution*}
 			\begin{algorithm}[H]
 				\caption{A Recursive Algorithm for Multiplication}
@@ -180,117 +255,6 @@
 		\end{solution*}
 	\end{column}
 \end{columns}
-\end{frame}
-
-\begin{frame}
-\frametitle{Minimum}
-\begin{example}
-	Give a recursive algorithm for finding the minimum of a finite set of integers,
-	making use of the fact that the minimum of $n$ integers is the smaller of the last integer
-	in the list and the minimum of the first $n - 1$ integers in the list.
-\end{example}
-\onslide<2>\begin{solution*}
-	\begin{algorithm}[H]
-		\caption{A Recursive Algorithm for Minimum}
-		\label{a-3}
-		\begin{algorithmic}
-			\Procedure{smallest}{$a_1, \cdots, a_n \in \mathbb{Z}$}
-			\If{$n = 1$}
-			\State\Return $a_1$
-			\EndIf
-			\State\Return $\min(a_n, $ \Call{smallest}{$a_1, \cdots, a_{n - 1}$})
-			\EndProcedure
-		\end{algorithmic}
-	\end{algorithm}
-\end{solution*}
-\end{frame}
-
-\begin{frame}[allowframebreaks]
-\frametitle{Fibonacci}
-\begin{example}
-	Consider the computation of the $n$-th Fibonacci number:\begin{enumerate}
-		\item Give the pseudo code of a recursive algorithm to compute the nth Fibonacci number. What is the
-		complexity of your algorithm? Explain your answer.
-		\item Give the pseudo code of an iterative algorithm to compute the nth Fibonacci number. What is the
-		complexity of your algorithm? Explain your answer. 
-	\end{enumerate}
-\end{example}
-
-\newpage
-
-\begin{solution*}
-	\begin{columns}
-		\begin{column}{.6\linewidth}
-			\begin{algorithm}[H]
-				\caption{A Recursive Algorithm for Fibonacci}
-				\label{a-4-1}
-				\begin{algorithmic}
-					\Procedure{Fib}{$n$}
-					\If{$n = 0$}
-					\State\Return $0$
-					\EndIf
-					\If{$n = 1$}
-					\State\Return $1$
-					\EndIf
-					\State\Return \Call{Fib}{$n - 1$} + \Call{Fib}{$n - 2$}
-					\EndProcedure
-				\end{algorithmic}
-			\end{algorithm}
-			
-			$O(a_n) = 2^n$.
-		\end{column}
-		
-		\begin{column}{.5\linewidth}
-			\begin{algorithm}[H]
-				\caption{A Iterative Algorithm for Fibonacci}
-				\label{a-4-2}
-				\begin{algorithmic}
-					\Procedure{IterFib}{$n$}
-					\If{$n = 0$}\ \Return $0$
-					\EndIf
-					\State $x \coloneqq 0, y \coloneqq 1$
-					\For{$i \coloneqq 1, 2, \cdots, n - 1$}
-					\State $z \coloneqq x + y, x \coloneqq y, y \coloneqq z$
-					\EndFor
-					\State \Return $y$
-					\EndProcedure
-				\end{algorithmic}
-			\end{algorithm}
-			
-			The number of additions follows the expression $b_n = n - 1$ so that $O(b_n) = n$.
-		\end{column}
-	\end{columns}
-\end{solution*}
-\end{frame}
-
-\begin{frame}
-\frametitle{Mode}
-\begin{example}
-	Give a recursive algorithm for finding a mode of a list of integers.
-\end{example}
-\onslide<2>\begin{solution*}
-	\begin{algorithm}[H]
-		\caption{A Recursive Algorithm for Minimum}
-		\label{a-5}
-		\begin{algorithmic}
-			\Procedure{mode}{$a_1, \cdots, a_n \in \mathbb{Z}$}
-			\If{$n = 1$}
-			\Return $a_1$
-			\EndIf
-			\State $m \eqqcolon $ \Call{mode}{$a_1, \cdots, a_{n - 1}$}
-			\If{$m = a_n$}
-			\Return $a_n$
-			\EndIf
-			\State $numM \eqqcolon$ number of $m$ in $a_1, \cdots, a_n$
-			\State $numN \eqqcolon$ number of $a_n$ in $a_1, \cdots, a_n$
-			\If{$numM \le numN$}
-			\Return $a_n$
-			\EndIf
-			\State\Return $m$
-			\EndProcedure
-		\end{algorithmic}
-	\end{algorithm}
-\end{solution*}
 \end{frame}
 
 \plain{Questions?}
