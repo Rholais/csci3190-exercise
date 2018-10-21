@@ -166,9 +166,9 @@ required to assemble a puzzle with n pieces.
 
 \subsection{Recursive Definitions and Structural Induction}
 \begin{enumerate}
-\item Give a recursive definition of $P_m(n)$, the product of the
-integer $m$ and the nonnegative integer $n$.
-	
+\item Give a recursive definition of $P_m(n)$,
+the product of the integer $m$ and the nonnegative integer $n$.
+
 \item The \textbf{Fibonacci sequence},
 $f_0, f_1, f_2, \ldots$,
 is defined by the initial conditions $f_0 = 0, f_1 = 1$,
@@ -179,9 +179,9 @@ Show that $\sum_{i = 0}^{2n - 1} f_i f_{i + 1} = f_{2n}^2$ when $n$ is a positiv
 
 \item Give a recursive definition of
 \begin{enumerate}
-	\item the set of even integers.
-	\item the set of positive integers congruent to $2$ modulo $3$.
-	\item the set of positive integers not divisible by $5$.
+    \item the set of even integers.
+    \item the set of positive integers congruent to $2$ modulo $3$.
+    \item the set of positive integers not divisible by $5$.
 \end{enumerate}
 
 
@@ -227,16 +227,16 @@ $a < b$ using the fact that $gcd(a, b) = gcd(a, b - a)$.
 
 \item Devise a recursive algorithm for computing $n^2$ where $n$ is a nonnegative integer,
 using the fact that \begin{equation}
-	(n + 1)^2 = n^2 + 2n + 1.
+    (n + 1)^2 = n^2 + 2n + 1.
 \end{equation}
 Then prove that this algorithm is correct.
 
 \item Devise a recursive algorithm to find the $n$th term of the sequence defined by \begin{equation}
-	\begin{cases}
-	a_0 = 1,\\
-	a_1 = 2,\\
-	a_n = a_{n-1} \cdot a_{n-2} & \text{for } n = 2, 3, 4, \ldots.
-	\end{cases}
+    \begin{cases}
+    a_0 = 1,\\
+    a_1 = 2,\\
+    a_n = a_{n-1} \cdot a_{n-2} & \text{for } n = 2, 3, 4, \ldots.
+    \end{cases}
 \end{equation}
 
 \item Give a recursive algorithm for tiling a $2^n \times 2^n$ checkerboard with one square missing using right triominoes.
@@ -248,22 +248,22 @@ Then prove that this algorithm is correct.
 \subsection{Applications of Recurrence Relations}
 \begin{enumerate}
 \item \begin{enumerate}
-	\item Find a recurrence relation for the number of bit strings
-	of length $n$ that contain a pair of consecutive $0$s.
-	\item What are the initial conditions?
-	\item How many bit strings of length seven contain two
-	consecutive $0$s?
+    \item Find a recurrence relation for the number of bit strings
+    of length $n$ that contain a pair of consecutive $0$s.
+    \item What are the initial conditions?
+    \item How many bit strings of length seven contain two
+    consecutive $0$s?
 \end{enumerate}
 
 \item \begin{enumerate}
-	\item Find a recurrence relation for the number of ways to
-	climb $n$ stairs if the person climbing the stairs can take
-	one stair or two stairs at a time.
-	\item What are the initial conditions?
-	\item In how many ways can this person climb a flight of
-	eight stairs?
+    \item Find a recurrence relation for the number of ways to
+    climb $n$ stairs if the person climbing the stairs can take
+    one stair or two stairs at a time.
+    \item What are the initial conditions?
+    \item In how many ways can this person climb a flight of
+    eight stairs?
 \end{enumerate}
-	
+    
 \item A string that contains only 0s, 1s, and 2s is called a \textbf{ternary string}. \begin{enumerate}
     \item Find a recurrence relation for the number of ternary
     strings of length $n$ that do not contain two consecutive
@@ -314,7 +314,7 @@ $S(m, 1) = 1$.
 
 
 %\item The \textbf{harmonic numbers} $H_j, j = 1, 2, 3, \ldots$, are defined by \begin{equation}
-%	H_j = \sum_{i = 1}^j \frac{1}{i}.
+%    H_j = \sum_{i = 1}^j \frac{1}{i}.
 %\end{equation}
 %Prove that $H_{2^n} \le 1 + n$ whenever $n$ is a nonnegative integer.
 
@@ -329,17 +329,17 @@ Find the solution to $a_n=7a_{n-2}+6a_{n-3}$ with $a_0=9$, $a_1 = 10$, and $a_2=
 has roots $1, 1, 1, 1, -2, -2, -2, 3, 3, -4$?
 
 \item \begin{enumerate}
-	\item Determine values of the constants $A$ and $B$ such
-	that $a_n = An + B$ is a solution of recurrence relation $a_n = 2a_{n - 1} + n + 5$.
-	\item Find the solution of this recurrence relation with
-	$a_0 = 4$.
+    \item Determine values of the constants $A$ and $B$ such
+    that $a_n = An + B$ is a solution of recurrence relation $a_n = 2a_{n - 1} + n + 5$.
+    \item Find the solution of this recurrence relation with
+    $a_0 = 4$.
 \end{enumerate}
 
 \item \begin{enumerate}
-	\item Find all solutions of the recurrence relation
-	$a_n = 2a_{n-1} + 3^n$.
-	\item Find the solution of the recurrence relation in part (a)
-	with initial condition $a_1 = 5$.
+    \item Find all solutions of the recurrence relation
+    $a_n = 2a_{n-1} + 3^n$.
+    \item Find the solution of the recurrence relation in part (a)
+    with initial condition $a_1 = 5$.
 \end{enumerate}
 
 \item Find all solutions of the recurrence relation 
@@ -353,12 +353,12 @@ of rabbits left on an island produces two new pairs of rabbits at the age of $1$
 the age of $2$ months and every month afterward. None of
 the rabbits ever die or leave the island.
 \begin{enumerate}
-	\item Find a recurrence relation for the number of pairs of
-	rabbits on the island n months after one newborn pair
-	is left on the island.
-	\item By solving the recurrence relation in (a) determine
-	the number of pairs of rabbits on the island $n$ months
-	after one pair is left on the island.
+    \item Find a recurrence relation for the number of pairs of
+    rabbits on the island n months after one newborn pair
+    is left on the island.
+    \item By solving the recurrence relation in (a) determine
+    the number of pairs of rabbits on the island $n$ months
+    after one pair is left on the island.
 \end{enumerate}
 
 \item A new employee at an exciting new software company
@@ -367,26 +367,26 @@ end of each year her salary will be double her salary of
 the previous year, with an extra increment of $\$10,000$ for
 each year she has been with the company.
 \begin{enumerate}
-	\item Construct a recurrence relation for her salary for her
-	$n$th year of employment.
-	\item Solve this recurrence relation to find her salary for her
-	$n$th year of employment.
+    \item Construct a recurrence relation for her salary for her
+    $n$th year of employment.
+    \item Solve this recurrence relation to find her salary for her
+    $n$th year of employment.
 \end{enumerate}
 
 
 
 %\item \begin{enumerate}
-%	\item Use the formula found in Example $4$ for $f_n$, the $n$th
-%	Fibonacci number, to show that $f_n$ is the integer
-%	closest to
-%	\begin{equation}
-%	\frac{1}{\sqrt{5}} \left( \frac{1 + \sqrt{5}}{2} \right)^n
-%%	\sum_{i = 1}^{n} \frac{1}{\sqrt{i}} > 2(\sqrt{n + 1} - 1).
-%	\end{equation}
-%	\item Determine for which $n$ $f_n$ is greater than 
-%	$\frac{1}{\sqrt{5}} \left( \frac{1 + \sqrt{5}}{2} \right)^n$ 
-%	and for which $n$ $f_n$ is less than
-%	$\frac{1}{\sqrt{5}} \left( \frac{1 + \sqrt{5}}{2} \right)^n$.
+%    \item Use the formula found in Example $4$ for $f_n$, the $n$th
+%    Fibonacci number, to show that $f_n$ is the integer
+%    closest to
+%    \begin{equation}
+%    \frac{1}{\sqrt{5}} \left( \frac{1 + \sqrt{5}}{2} \right)^n
+%%    \sum_{i = 1}^{n} \frac{1}{\sqrt{i}} > 2(\sqrt{n + 1} - 1).
+%    \end{equation}
+%    \item Determine for which $n$ $f_n$ is greater than 
+%    $\frac{1}{\sqrt{5}} \left( \frac{1 + \sqrt{5}}{2} \right)^n$ 
+%    and for which $n$ $f_n$ is less than
+%    $\frac{1}{\sqrt{5}} \left( \frac{1 + \sqrt{5}}{2} \right)^n$.
 %\end{enumerate}
 
 
@@ -599,8 +599,8 @@ greater than or equal to $6$. We want to show that $P (k + 1)$ is
 true. Because $k-1 \geq $5, we know that $P (k-1)$ is true, that is,
 that we can form $k - 1$ dollars. Add another 2-dollar bill, and
 we have formed $k + 1$ dollars.
-	
-	
+    
+    
 \item Let $P(n)$ be the statement that there is no positive integer b such that $\sqrt{2} = \frac{n}{b}$.
 
 \textit{Basis step:} $P(1)$ is true because $\sqrt{2} > 1 \ge \frac{1}{b}$ for all positive integers $b$.
@@ -660,8 +660,8 @@ Hence, $P(n + 1)$ is true.
 \subsubsection{Recursive Definitions and Structural Induction}
 \begin{enumerate}
 \item $P_m(0) = 0$, $P_m(n + 1) = P_m(n) + m$.
-	
-	
+    
+    
 \item \textit{Basis step:} $f_0 f_1 + f_1 f_2 = 0 \cdot 1 + 1 \cdot 1 = 1^2 = f_2^2$.
 
 \textit{Inductive step:} Assume that $\sum_{i = 0}^{2k - 1} f_i f_{i + 1} = f_{2k}^2$.
@@ -670,10 +670,10 @@ Then $\sum_{i = 0}^{2k + 1} f_i f_{i + 1} = f_{2k}^2 + f_{2k} f_{2k + 1} + f_{2k
 
 \item
 \begin{enumerate}
-	\item $0 \in S$, and if $x \in S$, then $x + 2 \in S$
-	and $x - 2 \in S$. 
-	\item $2 \in S$, and if $x \in S$, then $x + 3 \in S$.
-	\item $1 \in S$, $2 \in S$, $3 \in S$, $4 \in S$, and if $x \in S$, then $x + 5 \in S$.
+    \item $0 \in S$, and if $x \in S$, then $x + 2 \in S$
+    and $x - 2 \in S$. 
+    \item $2 \in S$, and if $x \in S$, then $x + 3 \in S$.
+    \item $1 \in S$, $2 \in S$, $3 \in S$, $4 \in S$, and if $x \in S$, then $x + 5 \in S$.
 \end{enumerate}
 
 
@@ -757,7 +757,7 @@ $k^2 + 2(k + 1 - 1) + 1 = k^2 + 2k + 1 = (k + 1)^2$, as desired.
 \textbf{else return} $a(n - 1) \cdot a(n - 2)$.
 
 
-	
+    
 \item If $n = 1$ (basis step),
 place the one right triomino so that its armpit corresponds to the hole in the $2 \times 2$ board.
 
@@ -786,15 +786,15 @@ merge correctly merges two sorted lists into one because with each comparison th
 \subsubsection{Applications of Recurrence Relations}
 \begin{enumerate}
 \item \begin{enumerate}
-	\item $a_n = a_{n-1} + a_{n-2} + 2^{n-2}$ for $n \geq 2$
-	\item $a_0 = 0$, $a_1 = 0$
-	\item $94$
+    \item $a_n = a_{n-1} + a_{n-2} + 2^{n-2}$ for $n \geq 2$
+    \item $a_0 = 0$, $a_1 = 0$
+    \item $94$
 \end{enumerate}
 
 \item \begin{enumerate}
-	\item $a_n = a_{n-1} + a_{n-2}$ for $n \geq 2$
-	\item $a_0 = 1$, $a_1 = 1$
-	\item $34$
+    \item $a_n = a_{n-1} + a_{n-2}$ for $n \geq 2$
+    \item $a_0 = 1$, $a_1 = 1$
+    \item $34$
 \end{enumerate}
 
 \item \begin{enumerate}
@@ -844,36 +844,36 @@ $a_n = 8(-1)^n - 3(-2)^n + 4 \cdot 3^n$
 (a_{2,0} + a_{2,1}n+ a_{2,2}n^2)(-2)^n + (a_{3,0} + a_{3,1}n)3^n + a_{4,0}(-4)^n$
 
 \item \begin{enumerate}
-	\item $A = -1$, $B = -7$.
-	\item $a_n = 11 \cdot 2^n - n - 7$.
+    \item $A = -1$, $B = -7$.
+    \item $a_n = 11 \cdot 2^n - n - 7$.
 \end{enumerate}
 
 \item \begin{enumerate}
-	\item $a_n = \alpha 2^n + 3^{n+1}$.
-	\item $a_n = -2 \cdot 2^n + 3^{n+1}$.
+    \item $a_n = \alpha 2^n + 3^{n+1}$.
+    \item $a_n = -2 \cdot 2^n + 3^{n+1}$.
 \end{enumerate}
 
 \item $a_n = \alpha 2^n + \beta 3^n - n \cdot 2^{n+1} + 3n/2 + 21/4$.
 
 \item \begin{enumerate}
-	\item $a_n = 3a_{n-1} + 4a_{n-2}$, $a_0 = 2, a_1 = 6$.
-	\item $a_n = [4^{n+1} + (-1)^n]/5$.
+    \item $a_n = 3a_{n-1} + 4a_{n-2}$, $a_0 = 2, a_1 = 6$.
+    \item $a_n = [4^{n+1} + (-1)^n]/5$.
 \end{enumerate}
 
 \item \begin{enumerate}
-	\item $a_n = 2a_{n+1} + (n - 1)10,000$.
-	\item $a_n = 70,000 \cdot 2^{n-1} - 10,000n - 10,000$.
+    \item $a_n = 2a_{n+1} + (n - 1)10,000$.
+    \item $a_n = 70,000 \cdot 2^{n-1} - 10,000n - 10,000$.
 \end{enumerate}
 
 
 
 %\item \begin{enumerate}
-%	\item Using the formula for $f_n$, we see that 
-%	$\left| f_n - \frac{1}{\sqrt{5}} \left( \frac{1 + \sqrt{5}}{2} \right)^n \right| 
-%	= \left|\frac{1}{\sqrt{5}} \left( \frac{1 + \sqrt{5}}{2} \right)^n \right|
-%	< \frac{1}{\sqrt{5}} < \frac{1}{2}$.
-%	This means that $f_n$ is the integer closest to $\frac{1}{\sqrt{5}} \left( \frac{1 + \sqrt{5}}{2} \right)^n$.
-%	\item Less when $n$ is even; greater when $n$ is odd.
+%    \item Using the formula for $f_n$, we see that 
+%    $\left| f_n - \frac{1}{\sqrt{5}} \left( \frac{1 + \sqrt{5}}{2} \right)^n \right| 
+%    = \left|\frac{1}{\sqrt{5}} \left( \frac{1 + \sqrt{5}}{2} \right)^n \right|
+%    < \frac{1}{\sqrt{5}} < \frac{1}{2}$.
+%    This means that $f_n$ is the integer closest to $\frac{1}{\sqrt{5}} \left( \frac{1 + \sqrt{5}}{2} \right)^n$.
+%    \item Less when $n$ is even; greater when $n$ is odd.
 %\end{enumerate}
 
 \end{enumerate}
