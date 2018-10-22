@@ -32,11 +32,11 @@
 \def\old@comma{,}
 \catcode`\,=13
 \def,{%
-	\ifmmode%
-	\old@comma\discretionary{}{}{}%
-	\else%
-	\old@comma%
-	\fi%
+    \ifmmode%
+    \old@comma\discretionary{}{}{}%
+    \else%
+    \old@comma%
+    \fi%
 }
 \makeatother
 
@@ -48,52 +48,6 @@
 \begin{document}
 
 \maketitle
-
-\begin{frame}[fragile]
-\frametitle{Factorial Expression}
-\begin{columns}
-	\begin{column}{.4\linewidth}
-		\begin{crl}
-			If $n$ and $r$ are integers with $0 \le r \le n$, then $P(n, r) = \frac{n!}{(n - r)!}$.
-		\end{crl}
-		\onslide<2->\begin{proof}
-			When $n$ and $r$ are integers with $1 \le r \le n$, we have it by Theorem~\ref{thm:p}. Because $\frac{n!}{(n - 0)!} = 1$ whenever $n \ge 0$, we have it when $r = 0$.
-		\end{proof}
-	\end{column}
-	\begin{column}{.6\linewidth}
-		\onslide<1->\begin{example}
-			How many ways are there to select a first-prize winner, a second-prize winner, and a third-prize winner from 100 different people who have entered a contest?
-		\end{example}
-		\onslide<3>\begin{solution*}
-			The number is the number of 3-permutations of a set of 100 elements. Consequently, the answer is $P(100, 3) = 100 \times 99 \times 98 = 970200$.
-		\end{solution*}
-	\end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Example of Permutation}
-\begin{example}
-	How many times does \texttt{plan}, \texttt{than} and \texttt{both} NOT occur in permutations of the 26 letters?
-\end{example}
-\onslide<2>\begin{solution*}
-	\texttt{plan} occurs $23!$ times.
-	
-	\texttt{than} occurs $23!$ times.
-	
-	\texttt{both} occurs $23!$ times.
-	
-	\texttt{plan} and \texttt{than} occurs $0$ times.
-	
-	\texttt{plan} and \texttt{both} occurs $20!$ times.
-	
-	\texttt{than} and \texttt{both} occurs $21!$ times.
-	
-	\texttt{plan}, \texttt{than} and \texttt{both} occurs $0$ times.
-	
-	So the answer is $26! - 23! \times 3 + 21! + 20!$.
-\end{solution*}
-\end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Combination}
