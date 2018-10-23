@@ -120,9 +120,9 @@
 
 \section{Equivalence Class}
 \begin{example}
-	Let \begin{equation}
-		A = \{1, 2, 3, 4, 5, 6, 7, 8\} \times \{1, 2, 3, 4, 5, 6, 7, 8\}.
-	\end{equation} Define a relation $R$ on $A$ by: $((a, b), (c, d)) \in R$ if and only if $a \times b = c \times d$ \begin{enumerate}[label=(\alph*)]
+    Let \begin{equation}
+        A = \{1, 2, 3, 4, 5, 6, 7, 8\} \times \{1, 2, 3, 4, 5, 6, 7, 8\}.
+    \end{equation} Define a relation $R$ on $A$ by: $((a, b), (c, d)) \in R$ if and only if $a \times b = c \times d$ \begin{enumerate}[label=(\alph*)]
 		\item Show that $R$ is an equivalence relation on $A$.
 		\item Determin the equivalence class of \begin{enumerate}[label=(\roman*)]
 			\item $[(1, 1)]$,
@@ -135,9 +135,12 @@
 \begin{solution*}
 	\begin{enumerate}[label=(\alph*)]
 		\item \begin{description}
-			\item[Reflexive] \begin{equation}
-				(a, b) \in A \land a \times b = a \times b \Leftrightarrow ((a, b), (a, b)) \in R.
-			\end{equation}
+			\item[Reflexive] \begin{align}
+				\begin{aligned}
+                    & (a, b) \in A \land a \times b = a \times b\\
+                    \Leftrightarrow & ((a, b), (a, b)) \in R.
+                \end{aligned}
+			\end{align}
 			\item[Symmetric] \begin{equation}
 				((a, b), (c, d)) \in R \Leftrightarrow a \times b = c \times d \Leftrightarrow ((c, d), (a, b)) \in R.
 			\end{equation}
