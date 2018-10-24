@@ -89,9 +89,9 @@
 	Consider the set $X$ of all functions $f \colon A \rightarrow B$, where $A = \{1, 2, 3, 4, 5, 6, 7\}$, $B = \{a, b, c, d, e\}$. How many functions in $X$ are onto?
 \end{eg}
 \onslide<2>\begin{solution*}
-	For the first situation that 1 of $B$ matches 3 of $A$ and others match 1 of $A$ for each, we select 1 of 5 in $B$ and then for each of other 4 items in $B$ select 1 different item in $A$ so that there are ${}_5 C_1 \times {}_7 P_4$ functions in the first situation.
+	For the first situation that 1 of $B$ matches 3 of $A$ and others match 1 of $A$ for each, we select 4 of 5 in $B$ and for each of them select 1 different item in $A$ so that there are ${}_4 C_1 \times {}_7 P_4$ functions in the first situation.
 	
-	For the second situation that 2 of $B$ match 2 of $A$ for each and others match 1 of $A$ for each, we select 2 of 5 in $B$, for each of other 3 items in $B$ select 1 different item in $A$ and then from the rest 4 items in $A$ select 2 of them to match 1 of 2 rest item in $B$ so that there are ${}_5 C_2 \times {}_7 P_3 \times {}_4 C_2$ functions in the section situation.
+	For the second situation that 2 of $B$ match 2 of $A$ for each and others match 1 of $A$ for each, we select 3 of 5 in $B$, for each of them select 1 different item in $A$ and then from the rest 4 items in $A$ select 2 of them to match 1 of 2 rest item in $B$ so that there are ${}_5 C_2 \times {}_7 P_3 \times {}_4 C_2$ functions in the section situation.
 	
 	Totally, there are ${}_5 C_1 \times {}_7 P_4 + {}_5 C_2 \times {}_7 P_3 \times {}_4 C_2 = 16800$ functions.
 \end{solution*}
@@ -148,113 +148,6 @@
 	B(x) = \sum_{i = 0}^{5} x^i N(x) = N(x) \left(\sum_{i = 0}^{5} x^i\right) = N(x) \cdot \frac{(1 - x^6)}{1 - x} = \frac{4(1 - x^6)}{(1 - 3x)(1 - x)}.
 	\end{equation}
 \end{solution*}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Codeword Enumeration}
-\begin{eg}
-	\label{eg:8}
-	Computer system considers a string of decimal digits a valid
-	codeword if it contains an even number of 0 digits. For instance, 1230407869 is valid,
-	whereas 120987045608 is not valid. Let $a_n$ be the number of valid $n$-digit codewords. Find
-	a recurrence relation for $a_n$.
-\end{eg}
-
-\onslide<2>\begin{solution*}
-	Note that $a_1 = 9$.
-	There are two ways to form
-	a valid string with $n$ digits from a string with one fewer digit.
-	First, it can be obtained by appending a valid string of $n - 1$ digits with a digit other than 0, which has $9a_{n - 1}$ ways.
-	Second, it can be obtained by appending a 0 to a string of length $n - 1$ that is not valid, which has $10_{n - 1} - a_{n - 1}$ ways.
-	Because all valid strings of length n are produced in one of these two ways, it follows that there are $a_n = 9 a_{n - 1} + (10^{n - 1} - a_{n - 1}) = 8 a_{n - 1} + 10^{n - 1}$ valid strings of length $n$.
-\end{solution*}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Solve Codeword Enumeration}
-\begin{eg}
-	Suppose that a valid codeword is an $n$-digit number in decimal notation containing an even number of 0s.
-	Let an denote the number of valid codewords of length $n$.
-	In~\Cref{eg:8} we showed that the sequence $\{a_n\}$ satisfies the recurrence relation $a_n = 8 a_{n - 1} + 10^{n - 1}$ and the initial condition $a_1 = 9$. Use generating functions to find an explicit formula for $a_n$.
-\end{eg}
-
-\onslide<2>\begin{solution*}
-	we extend this sequence	by setting $a_0 = 1$.
-	Let $G(x) = \sum_{n = 0}^{\infty} a_n x_n$ be the generating function of the sequence $\{a_n\}$,
-	then $G(x) - 8x G(x) = 1 + \frac{x}{1 - 10x}$.
-	Solving for $G(x)$ shows that $G(x) = \frac{1 - 9x}{(1 - 8x)(1 - 10x)} = \frac{1}{2} \left(\frac{1}{1 - 8x} + \frac{1}{1 - 10x}\right) = \sum_{n = 0}^\infty \frac{1}{2} (8^n + 10^n) x^n$.
-	Consequently, we have shown that $a_n = \frac{1}{2} (8^n + 10^n)$.
-\end{solution*}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Mathematical Induction}
-\begin{eg}
-	For $n \in \mathbb{N}^+$, prove each of the following by mathematical induction:\begin{enumerate}
-		\item $3 | 2^{2n + 1} + 1$;
-		\item $9 | n^3 + (n + 1)^3 + (n + 2)^3$.
-	\end{enumerate}
-\end{eg}
-\begin{proof}
-	\begin{enumerate}
-		\item<2-> \begin{description}
-			\item[Base] Let $n = 0$, $3 \mid 2^1 + 1 = 3$.
-			\item[Induction] Suppose $3 \mid 2^{2n - 1} + 1$, $2^{2n + 1} = 3 * 2^{2n - 1} + 2^{2n - 1} + 1$
-			$\equiv 0 \pmod{3}$.
-		\end{description}
-		\item<3> \begin{description}
-			\item[Base] Let $n = 0$, $9 \mid 1^3 + 2^3$.
-			\item[Induction] Suppose $9 \mid (n - 1)^3 + n^3 + (n + 1)^3$, $n^3 + (n + 1)^3 + (n + 2)^3$
-			$= (n - 1)^3 + n^3 + (n + 1)^3 + 3((n - 1)^2 + (n - 1)(n + 2) + (n + 2)^2)$
-			$= (n - 1)^3 + n^3 + (n + 1)^3 + 9(n^2 + n + 1) \equiv 0 \pmod{9}$.
-		\end{description}
-	\end{enumerate}
-\end{proof}
-\end{frame}
-
-\begin{frame}
-\frametitle{Multiply}
-\begin{columns}
-	\begin{column}{.5\linewidth}
-		\onslide<1->\begin{eg}
-			Give a recursive algorithm for finding the sum of the first $n$ positive integers.
-		\end{eg}
-		\onslide<2->\begin{solution*}
-			\begin{algorithm}[H]
-				\caption{A Recursive Algorithm for Summation}
-				\label{a-2}
-				\begin{algorithmic}
-					\Procedure{sum}{$n \in \mathbb{N}$}
-					\If{$n = 0$}
-					\State\Return $0$
-					\EndIf
-					\State\Return $n + $\Call{sum}{$n - 1$}
-					\EndProcedure
-				\end{algorithmic}
-			\end{algorithm}
-		\end{solution*}
-	\end{column}
-	\begin{column}{.5\linewidth}
-		\onslide<1->\begin{eg}
-			Give a recursive algorithm for computing $nx$ whenever $n$ is a positive integer
-			and $x$ is an integer, using just addition.
-		\end{eg}
-		\onslide<3->\begin{solution*}
-			\begin{algorithm}[H]
-				\caption{A Recursive Algorithm for Multiplication}
-				\label{a-1}
-				\begin{algorithmic}
-					\Procedure{mult}{$n \in \mathbb{N}$, $x \in \mathbb{Z}$}
-					\If{$n = 0$}
-					\State\Return $0$
-					\EndIf
-					\State\Return $x + $\Call{mult}{$n - 1, x$}
-					\EndProcedure
-				\end{algorithmic}
-			\end{algorithm}
-		\end{solution*}
-	\end{column}
-\end{columns}
 \end{frame}
 
 \plain{Questions?}
