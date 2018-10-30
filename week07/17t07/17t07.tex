@@ -32,11 +32,11 @@
 \def\old@comma{,}
 \catcode`\,=13
 \def,{%
-	\ifmmode%
-	\old@comma\discretionary{}{}{}%
-	\else%
-	\old@comma%
-	\fi%
+    \ifmmode%
+    \old@comma\discretionary{}{}{}%
+    \else%
+    \old@comma%
+    \fi%
 }
 \makeatother
 
@@ -189,36 +189,6 @@
 		\end{itemize}
 	\end{enumerate}
 \end{solution*}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Big-Theta}
-\begin{columns}
-	\begin{column}{.5\linewidth}
-		\begin{example}
-			Show that $n \log n$ is $O(\log n!)$.
-		\end{example}
-		
-		\onslide<2->\begin{proof}
-			We can easily show that $(n - i)(i + 1) \ge n$ for $i = 0, 1, \cdots, n - 1$.
-			Hence, $(n!)^2 = (n \cdot 1)((n - 1) \cdot 2) \cdot ((n - 2) \cdot 3) \cdots (2 \cdot (n -
-			1)) \cdot (1 \cdot n) \ge n^n$. Therefore, $2 log n! \ge n log n$.
-		\end{proof}
-	\end{column}
-	\begin{column}{.6\linewidth}
-		\onslide<1->\begin{example}
-			Determine whether $\log n!$ is $\Theta(n \log n)$.
-		\end{example}
-		
-		\onslide<3->\begin{solution*}
-			We have known that $n \log n = O(\log n!)$.
-			
-			\textbf{Claim} $\log n! = O(n \log n)$ so that $n \log n = \Omega(\log n!)$. Hence, $\log n! = \Theta(n \log n)$.
-			
-			\textbf{Proof} $\exists c = 1, \exists N = 1$, such that $\forall n \ge N, n! \le n^n$, so that $\log n! \le c n\log n$.
-		\end{solution*}
-	\end{column}
-\end{columns}
 \end{frame}
 
 \begin{frame}
