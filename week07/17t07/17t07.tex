@@ -52,154 +52,154 @@
 \begin{frame}[fragile]
 \frametitle{Propositional Logic}
 \begin{example}
-	Explain, without using a truth table,
-	why $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p)$ is true
-	when $p, q, r$ have the same truth value and it is false otherwise.
+    Explain, without using a truth table,
+    why $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p)$ is true
+    when $p, q, r$ have the same truth value and it is false otherwise.
 \end{example}
 
 \onslide<2>\begin{proof}
-	It is easy to evaluate that the expression is true when all variables have the same truth value.
-	Suppose at least one is true and at least one is false.
-	There are 2 combinations of 2 variables which have different truth value.
-	These 2 combinations can form 2 disjunction expression with false value
-	and one of them is in the conjunction expression so that the whole expression is false.
+    It is easy to evaluate that the expression is true when all variables have the same truth value.
+    Suppose at least one is true and at least one is false.
+    There are 2 combinations of 2 variables which have different truth value.
+    These 2 combinations can form 2 disjunction expression with false value
+    and one of them is in the conjunction expression so that the whole expression is false.
 \end{proof}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Tautological Implications}
 \begin{columns}
-	\begin{column}{.7\linewidth}
-		\begin{example}
-			\begin{enumerate}
-				\item $p \Rightarrow (p \lor q)$
-				\item $(p \land q) \Rightarrow (p \to q)$
-				\item $\neg (p \to q) \Rightarrow p$
-				\item $((p \lor q) \land \neg p) \Rightarrow q$
-			\end{enumerate}
-		\end{example}
-		\begin{proof}
-			\begin{enumerate}
-				\item<2-> $(\neg p \lor (p \lor q)) \equiv (1 \lor q) \equiv 1$.
-				\item<3-> $(\neg(p \land q) \lor (\neg p \lor q))$
-				$\equiv ((\neg p \lor \neg q) \lor (\neg p \lor q)) \equiv (\neg p \lor \neg q \lor q)$
-				$\equiv (\neg p \lor 1) \equiv 1$.
-				\item<4-> $\neg (p \to q) \equiv \neg (\neg p \lor q) \equiv (p \land \neg q)$
-				$\Rightarrow p$.
-				\item<5-> $((p \lor q) \land \neg p) \equiv (0 \lor (\neg p \land q))$
-				$\equiv (\neg p \land q) \Rightarrow q$.
-			\end{enumerate}
-		\end{proof}
-	\end{column}
-	\begin{column}{.4\linewidth}
-		\begin{definition}
-			A compound proposition is \textbf{satisfiable}
-			if there is an assignment of truth values to its variables that makes it true.
-			When no such assignments exists, that is,
-			when the compound proposition is false for all assignments of truth values to its variables,
-			the compound proposition is \textbf{unsatisfiable}.
-		\end{definition}
-	\end{column}
+    \begin{column}{.7\linewidth}
+        \begin{example}
+            \begin{enumerate}
+                \item $p \Rightarrow (p \lor q)$
+                \item $(p \land q) \Rightarrow (p \to q)$
+                \item $\neg (p \to q) \Rightarrow p$
+                \item $((p \lor q) \land \neg p) \Rightarrow q$
+            \end{enumerate}
+        \end{example}
+        \begin{proof}
+            \begin{enumerate}
+                \item<2-> $(\neg p \lor (p \lor q)) \equiv (1 \lor q) \equiv 1$.
+                \item<3-> $(\neg(p \land q) \lor (\neg p \lor q))$
+                $\equiv ((\neg p \lor \neg q) \lor (\neg p \lor q)) \equiv (\neg p \lor \neg q \lor q)$
+                $\equiv (\neg p \lor 1) \equiv 1$.
+                \item<4-> $\neg (p \to q) \equiv \neg (\neg p \lor q) \equiv (p \land \neg q)$
+                $\Rightarrow p$.
+                \item<5-> $((p \lor q) \land \neg p) \equiv (0 \lor (\neg p \land q))$
+                $\equiv (\neg p \land q) \Rightarrow q$.
+            \end{enumerate}
+        \end{proof}
+    \end{column}
+    \begin{column}{.4\linewidth}
+        \begin{definition}
+            A compound proposition is \textbf{satisfiable}
+            if there is an assignment of truth values to its variables that makes it true.
+            When no such assignments exists, that is,
+            when the compound proposition is false for all assignments of truth values to its variables,
+            the compound proposition is \textbf{unsatisfiable}.
+        \end{definition}
+    \end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Propositional Satisfiability}
 \begin{example}
-	Determine whether each of the compound propositions
-	$(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r)$
-	$\land (\neg p \lor \neg q \lor \neg r)$ is satisfiable.
+    Determine whether each of the compound propositions
+    $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r)$
+    $\land (\neg p \lor \neg q \lor \neg r)$ is satisfiable.
 \end{example}
 \onslide<2>\begin{solution*}
-	Note that for
-	$(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r)$
-	$\land (\neg p \lor \neg q \lor \neg r)$ to be true,
-	$(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p)$ and
-	$(p \lor q \lor r) \land (\neg p \lor \neg q \lor \neg r)$ must both be true.
-	For the first to be true, the three variables must have the same truth values,
-	and for the second to be true,
-	at least one of three variables must be true and at least one must be false.
-	However, these conditions are contradictory.
-	From these observations we conclude that no assignment of truth values to $p$, $q$,
-	and $r$ makes
-	$(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r)$
-	$\land (\neg p \lor \neg q \lor \neg r)$ true. Hence, it is unsatisfiable.
+    Note that for
+    $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r)$
+    $\land (\neg p \lor \neg q \lor \neg r)$ to be true,
+    $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p)$ and
+    $(p \lor q \lor r) \land (\neg p \lor \neg q \lor \neg r)$ must both be true.
+    For the first to be true, the three variables must have the same truth values,
+    and for the second to be true,
+    at least one of three variables must be true and at least one must be false.
+    However, these conditions are contradictory.
+    From these observations we conclude that no assignment of truth values to $p$, $q$,
+    and $r$ makes
+    $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r)$
+    $\land (\neg p \lor \neg q \lor \neg r)$ true. Hence, it is unsatisfiable.
 \end{solution*}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Quantifiers}
 \begin{columns}
-	\begin{column}{.7\linewidth}
-		\begin{example}
-			Determine the truth value of the followings, where $x, y \in \mathbb{I}^+$.
-			\begin{enumerate}
-				\item $\forall x \forall y (2x^2 < y + 1)$
-				\item $\forall x \exists y (2x^2 < y + 1)$
-				\item $\exists x \forall y (2x^2 < y + 1)$
-				\item $\exists x \exists y (2x^2 < y + 1)$
-			\end{enumerate}
-		\end{example}
-		\begin{solution*}
-			\begin{enumerate}
-				\item<2-> False. Let $x = 1, y = 1$, then $2x^2 = y + 1$.
-				\item<3-> True. $\forall x \exists y = 2x^2$ s.t. $2x^2 < y + 1$.
-				\item<4-> False. Let $y = 1, 2x^2 < y + 1$, then $x < 1$.
-				\item<5-> True. Let $x = 1, y = 2$, then $2x^2 < y + 1$.
-			\end{enumerate}
-		\end{solution*}
-	\end{column}
-	\begin{column}{.4\linewidth}
-		\begin{example}
-			Can you conclude that $A = B$ if $A, B$ and $C$ are sets such that: \begin{enumerate}
-				\item $A \cup C = B \cup C$;
-				\item $A \cap C = B \cap C$.
-			\end{enumerate}
-		\end{example}
-		\begin{solution*}
-			\begin{enumerate}
-				\item<6-> No. Let $A = \emptyset, B = C \supset A$, then $A \cup C = B \cup C$.
-				\item<7-> No. Let $A \ne B, C = \emptyset$, then $A \cap C = B \cap C$.
-			\end{enumerate}
-		\end{solution*}
-	\end{column}
+    \begin{column}{.7\linewidth}
+        \begin{example}
+            Determine the truth value of the followings, where $x, y \in \mathbb{I}^+$.
+            \begin{enumerate}
+                \item $\forall x \forall y (2x^2 < y + 1)$
+                \item $\forall x \exists y (2x^2 < y + 1)$
+                \item $\exists x \forall y (2x^2 < y + 1)$
+                \item $\exists x \exists y (2x^2 < y + 1)$
+            \end{enumerate}
+        \end{example}
+        \begin{solution*}
+            \begin{enumerate}
+                \item<2-> False. Let $x = 1, y = 1$, then $2x^2 = y + 1$.
+                \item<3-> True. $\forall x \exists y = 2x^2$ s.t. $2x^2 < y + 1$.
+                \item<4-> False. Let $y = 1, 2x^2 < y + 1$, then $x < 1$.
+                \item<5-> True. Let $x = 1, y = 2$, then $2x^2 < y + 1$.
+            \end{enumerate}
+        \end{solution*}
+    \end{column}
+    \begin{column}{.4\linewidth}
+        \begin{example}
+            Can you conclude that $A = B$ if $A, B$ and $C$ are sets such that: \begin{enumerate}
+                \item $A \cup C = B \cup C$;
+                \item $A \cap C = B \cap C$.
+            \end{enumerate}
+        \end{example}
+        \begin{solution*}
+            \begin{enumerate}
+                \item<6-> No. Let $A = \emptyset, B = C \supset A$, then $A \cup C = B \cup C$.
+                \item<7-> No. Let $A \ne B, C = \emptyset$, then $A \cap C = B \cap C$.
+            \end{enumerate}
+        \end{solution*}
+    \end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}
 \frametitle{Relation}
 \begin{example}
-	Consider the relation $R$ over the set of all positive integers $\mathbb{I}^+$:	$R = \{(a, b) \mid |a - b| \equiv 0 \pmod{2}\}$
-	\begin{enumerate}
-		\item Is $R$ an equivalence relation? Explain your answer.
-		\item How many equivalence classes of $R$ in $\mathbb{I}^+$ are there? What are they?
-	\end{enumerate}
+    Consider the relation $R$ over the set of all positive integers $\mathbb{I}^+$:    $R = \{(a, b) \mid |a - b| \equiv 0 \pmod{2}\}$
+    \begin{enumerate}
+        \item Is $R$ an equivalence relation? Explain your answer.
+        \item How many equivalence classes of $R$ in $\mathbb{I}^+$ are there? What are they?
+    \end{enumerate}
 \end{example}
 \begin{solution*}
-	\begin{enumerate}
-		\item<2-> Yes. \begin{itemize}
-			\item $\forall a \in \mathbb{I}^+, |a - a| = 0$.
-			\item $|b - a| = |a - b|$.
-			\item $|a - c| \equiv a - c \equiv (a - b) + (b - c) \equiv |a - b| + |b - c| \pmod{2}$.
-		\end{itemize}
-		
-		\item<3-> \begin{itemize}
-			\item 2.
-			\item $[1] = \{a \mid a \equiv 1 \pmod{2}\}$, $[2] = \{a \mid a \equiv 0 \pmod{2}\}$.
-		\end{itemize}
-	\end{enumerate}
+    \begin{enumerate}
+        \item<2-> Yes. \begin{itemize}
+            \item $\forall a \in \mathbb{I}^+, |a - a| = 0$.
+            \item $|b - a| = |a - b|$.
+            \item $|a - c| \equiv a - c \equiv (a - b) + (b - c) \equiv |a - b| + |b - c| \pmod{2}$.
+        \end{itemize}
+        
+        \item<3-> \begin{itemize}
+            \item 2.
+            \item $[1] = \{a \mid a \equiv 1 \pmod{2}\}$, $[2] = \{a \mid a \equiv 0 \pmod{2}\}$.
+        \end{itemize}
+    \end{enumerate}
 \end{solution*}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Sorting Algorithm}
-	\begin{theorem} \label{t-11-2-1}
-		A sorting algorithm based on binary comparisons requires at least $\lceil \log n! \rceil$ comparisons.
-	\end{theorem}
-	\onslide<2>\begin{proof}
-		The complexity of a sort based on binary comparisons is measured in terms of the number	of such comparisons used. The largest number of binary comparisons ever needed to sort a list with $n$ elements gives the worst-case performance of the algorithm. The most comparisons used equals the longest path length in the decision tree representing the sorting procedure. In other words, the largest number of comparisons ever needed is equal to the height of the decision
-		tree. Because the height of a binary tree with $n!$ leaves is at least $\lceil \log n! \rceil$, at least $\lceil \log n! \rceil$ comparisons are needed.
-	\end{proof}
+    \frametitle{Sorting Algorithm}
+    \begin{theorem} \label{t-11-2-1}
+        A sorting algorithm based on binary comparisons requires at least $\lceil \log n! \rceil$ comparisons.
+    \end{theorem}
+    \onslide<2>\begin{proof}
+        The complexity of a sort based on binary comparisons is measured in terms of the number    of such comparisons used. The largest number of binary comparisons ever needed to sort a list with $n$ elements gives the worst-case performance of the algorithm. The most comparisons used equals the longest path length in the decision tree representing the sorting procedure. In other words, the largest number of comparisons ever needed is equal to the height of the decision
+        tree. Because the height of a binary tree with $n!$ leaves is at least $\lceil \log n! \rceil$, at least $\lceil \log n! \rceil$ comparisons are needed.
+    \end{proof}
 \end{frame}
 
 \plain{Questions?}
