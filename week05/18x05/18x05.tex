@@ -250,7 +250,9 @@ any current guest.
 \begin{enumerate}
 	\item What is the coefficient of $x^{101}y^{99}$ in the expansion of
 	$(2x-3y)^{200}$?
-	\item Find the coefficient of $x^{11}$ in the expansion of $(x^2-\dfrac{3}{x})^{10}$.
+	\item Find the coefficient of $x^{11}$ in the expansion of \begin{equation}
+        (x^2-\frac{3}{x})^{10}.
+    \end{equation}
 	
 	\item Give a formula for the coefficient of $x^k$ in the expansion
 	of $(x^2 - 1/x)^{100}$, where $k$ is an integer.
@@ -695,9 +697,16 @@ OR
 				-1, & \text{otherwise}.
 			\end{cases}
 		\end{equation}
-		\item \begin{equation}
+		\item Let $y = x^2, H(y) = e^{3y} - 1$, then the closed formula for the determined sequence is \begin{equation}
+            b_m = \begin{cases}
+            \frac{3^m}{m!}, & m \ge 1,\\
+            0, & \text{otherwise}.
+            \end{cases}
+        \end{equation}
+        Therefore, the closed formula for the original sequence is
+        \begin{equation}
 			a_n = \begin{cases}
-				\frac{3^{\frac{n}{2}}}{(\frac{n}{2})!}, & n \ge 2, n \equiv 0 \pmod{2},\\
+				b_{\frac{n}{2}} = \frac{3^{\frac{n}{2}}}{(\frac{n}{2})!}, & n \equiv 0 \pmod{2}, n \ge 2,\\
 				0, & \text{otherwise}.
 			\end{cases}
 		\end{equation}
