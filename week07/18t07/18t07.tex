@@ -1,5 +1,5 @@
 %!TEX program = xelatex
-\documentclass[10pt, compress]{beamer}
+\documentclass[10pt, compress, handout]{beamer}
 \usepackage[titleprogressbar]{../../cls/beamerthemem}
 
 \setbeamertemplate{caption}[numbered]
@@ -39,11 +39,11 @@
 \def\old@comma{,}
 \catcode`\,=13
 \def,{%
-	\ifmmode%
-	\old@comma\discretionary{}{}{}%
-	\else%
-	\old@comma%
-	\fi%
+    \ifmmode%
+    \old@comma\discretionary{}{}{}%
+    \else%
+    \old@comma%
+    \fi%
 }
 \makeatother
 
