@@ -1,5 +1,5 @@
 %!TEX program = xelatex
-\documentclass[10pt, compress]{beamer}
+\documentclass[10pt, compress, handout]{beamer}
 \usepackage[titleprogressbar]{../../cls/beamerthemem}
 
 \setbeamertemplate{caption}[numbered]
@@ -48,7 +48,7 @@
 \makeatother
 
 \title{CSCI 3190 Tutorial of Week 07}
-\subtitle{Generating Function}
+\subtitle{Recurrence Relation}
 \author{LI Haocheng}
 \institute{Department of Computer Science and Engineering}
 
@@ -57,44 +57,20 @@
 \maketitle
 
 \begin{frame}[fragile]
-\frametitle{Tautologies}
-\begin{example}
-	\begin{enumerate}
-		\item $(p \land q) \equiv \neg (p \to \neg q)$
-		\item $((p \land q) \to r) \equiv ((p \to r) \lor (q \to r))$
-		\item $\neg (p \leftrightarrow q) \equiv (p \leftrightarrow \neg q)$
-		\item $((p \land q) \to r) \not\equiv ((p \to r) \land (q \to r))$
-	\end{enumerate}
-\end{example}
-\begin{proof}
-	\begin{enumerate}
-		\item<2-> $\neg (p \to \neg q) \equiv \neg (\neg p \lor \neg q) \equiv (p \land q)$.
-		\item<3-> $((p \land q) \to r) \equiv (\neg (p \land q) \lor r)$
-		$\equiv ((\neg p \lor \neg q) \lor (r \lor r)) \equiv ((\neg p \lor r) \lor (\neg q \lor r))$
-		$\equiv ((p \to r) \lor (q \to r))$.
-		\item<4-> $\neg (p \leftrightarrow q) \equiv \neg ((p \lor \neg q) \land (\neg p \lor q))$
-		$\equiv ((p \land \neg q) \lor (\neg p \land q)) \equiv ((p \lor q) \land (\neg p \lor \neg q))$
-		$\equiv (p \leftrightarrow \neg q)$.
-		\item<5-> Let $p = 1, q = 0, r = 0$, then $lhs = 1, rhs = 0$.
-	\end{enumerate}
-\end{proof}
-\end{frame}
-
-\begin{frame}[fragile]
 \frametitle{Factorial Expression}
 \begin{columns}
 	\begin{column}{.5\linewidth}
-		\onslide<1->\begin{example}
+		\onslide<1->\begin{eg}
 			How many ways are there to select a first-prize winner, a second-prize winner, and a third-prize winner from 100 different people who have entered a contest?
-		\end{example}
+		\end{eg}
 		\onslide<2->\begin{solution*}
-			The number is the number of 3-permutations of a set of 100 elements. Consequently, the answer is $P(100, 3) = 100 \times 99 \times 98 = 970200$.
+			The number is the number of 3-permutations of a set of 100 elements. Consequently, the answer is ${}_{100}P_3 = 100 \times 99 \times 98 = 970200$.
 		\end{solution*}
 	\end{column}
 	\begin{column}{.6\linewidth}
-		\begin{example}
+		\onslide<1->\begin{eg}
 			How many times does \texttt{plan}, \texttt{than} and \texttt{both} NOT occur in permutations of the 26 letters?
-		\end{example}
+		\end{eg}
 		\onslide<3>\begin{solution*}
 			\texttt{plan} occurs $23!$ times.
 			
@@ -127,7 +103,7 @@
 \end{eg}
 
 \onslide<2>\begin{solution*}
-	Note that $a_1 = 9$.
+	There are nine 1-digit codewords so that $a_1 = 9$.
 	There are two ways to form
 	a valid string with $n$ digits from a string with one fewer digit.
 	First, it can be obtained by appending a valid string of $n - 1$ digits with a digit other than 0, which has $9a_{n - 1}$ ways.
@@ -165,7 +141,7 @@ For $n \in \mathbb{N}^+$, prove each of the following by mathematical induction:
 \begin{enumerate}
 \item<2-> \begin{description}
 	\item[Base] Let $n = 0$, $3 \mid 2^1 + 1 = 3$.
-	\item[Induction] Suppose $3 \mid 2^{2n - 1} + 1$, $2^{2n + 1} = 3 * 2^{2n - 1} + 2^{2n - 1} + 1$
+	\item[Induction] Suppose $3 \mid 2^{2n - 1} + 1$, $2^{2n + 1} = 2^{2n - 1} \times 3 + 2^{2n - 1} + 1$
 	$\equiv 0 \pmod{3}$.
 \end{description}
 \item<3> \begin{description}
@@ -176,162 +152,6 @@ For $n \in \mathbb{N}^+$, prove each of the following by mathematical induction:
 \end{description}
 \end{enumerate}
 \end{proof}
-\end{frame}
-
-\begin{frame}
-\frametitle{Multiply}
-\begin{columns}
-\begin{column}{.5\linewidth}
-\onslide<1->\begin{eg}
-Give a recursive algorithm for finding the sum of the first $n$ positive integers.
-\end{eg}
-\onslide<2->\begin{solution*}
-\begin{algorithm}[H]
-	\caption{A Recursive Algorithm for Summation}
-	\label{a-2}
-	\begin{algorithmic}
-		\Procedure{sum}{$n \in \mathbb{N}$}
-		\If{$n = 0$}
-		\State\Return $0$
-		\EndIf
-		\State\Return $n + $\Call{sum}{$n - 1$}
-		\EndProcedure
-	\end{algorithmic}
-\end{algorithm}
-\end{solution*}
-\end{column}
-\begin{column}{.5\linewidth}
-\onslide<1->\begin{eg}
-Give a recursive algorithm for computing $nx$ whenever $n$ is a positive integer
-and $x$ is an integer, using just addition.
-\end{eg}
-\onslide<3->\begin{solution*}
-\begin{algorithm}[H]
-	\caption{A Recursive Algorithm for Multiplication}
-	\label{a-1}
-	\begin{algorithmic}
-		\Procedure{mult}{$n \in \mathbb{N}$, $x \in \mathbb{Z}$}
-		\If{$n = 0$}
-		\State\Return $0$
-		\EndIf
-		\State\Return $x + $\Call{mult}{$n - 1, x$}
-		\EndProcedure
-	\end{algorithmic}
-\end{algorithm}
-\end{solution*}
-\end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}
-\frametitle{Minimum}
-\begin{example}
-	Give a recursive algorithm for finding the minimum of a finite set of integers,
-	making use of the fact that the minimum of $n$ integers is the smaller of the last integer
-	in the list and the minimum of the first $n - 1$ integers in the list.
-\end{example}
-\onslide<2>\begin{solution*}
-	\begin{algorithm}[H]
-		\caption{A Recursive Algorithm for Minimum}
-		\label{a-3}
-		\begin{algorithmic}
-			\Procedure{smallest}{$a_1, \cdots, a_n \in \mathbb{Z}$}
-			\If{$n = 1$}
-			\State\Return $a_1$
-			\EndIf
-			\State\Return $\min(a_n, $ \Call{smallest}{$a_1, \cdots, a_{n - 1}$})
-			\EndProcedure
-		\end{algorithmic}
-	\end{algorithm}
-\end{solution*}
-\end{frame}
-
-\begin{frame}[allowframebreaks]
-\frametitle{Fibonacci}
-\begin{example}
-	Consider the computation of the $n$-th Fibonacci number:\begin{enumerate}
-		\item Give the pseudo code of a recursive algorithm to compute the nth Fibonacci number. What is the
-		complexity of your algorithm? Explain your answer.
-		\item Give the pseudo code of an iterative algorithm to compute the nth Fibonacci number. What is the
-		complexity of your algorithm? Explain your answer. 
-	\end{enumerate}
-\end{example}
-
-\newpage
-
-\begin{solution*}
-	\begin{columns}
-		\begin{column}{.6\linewidth}
-			\begin{algorithm}[H]
-				\caption{A Recursive Algorithm for Fibonacci}
-				\label{a-4-1}
-				\begin{algorithmic}
-					\Procedure{Fib}{$n$}
-					\If{$n = 0$}
-					\State\Return $0$
-					\EndIf
-					\If{$n = 1$}
-					\State\Return $1$
-					\EndIf
-					\State\Return \Call{Fib}{$n - 1$} + \Call{Fib}{$n - 2$}
-					\EndProcedure
-				\end{algorithmic}
-			\end{algorithm}
-			
-			$O(a_n) = 2^n$.
-		\end{column}
-		
-		\begin{column}{.5\linewidth}
-			\begin{algorithm}[H]
-				\caption{A Iterative Algorithm for Fibonacci}
-				\label{a-4-2}
-				\begin{algorithmic}
-					\Procedure{IterFib}{$n$}
-					\If{$n = 0$}\ \Return $0$
-					\EndIf
-					\State $x \coloneqq 0, y \coloneqq 1$
-					\For{$i \coloneqq 1, 2, \cdots, n - 1$}
-					\State $z \coloneqq x + y, x \coloneqq y, y \coloneqq z$
-					\EndFor
-					\State \Return $y$
-					\EndProcedure
-				\end{algorithmic}
-			\end{algorithm}
-			
-			The number of additions follows the expression $b_n = n - 1$ so that $O(b_n) = n$.
-		\end{column}
-	\end{columns}
-\end{solution*}
-\end{frame}
-
-\begin{frame}
-\frametitle{Mode}
-\begin{example}
-	Give a recursive algorithm for finding a mode of a list of integers.
-\end{example}
-\onslide<2>\begin{solution*}
-	\begin{algorithm}[H]
-		\caption{A Recursive Algorithm for Minimum}
-		\label{a-5}
-		\begin{algorithmic}
-			\Procedure{mode}{$a_1, \cdots, a_n \in \mathbb{Z}$}
-			\If{$n = 1$}
-			\Return $a_1$
-			\EndIf
-			\State $m \eqqcolon $ \Call{mode}{$a_1, \cdots, a_{n - 1}$}
-			\If{$m = a_n$}
-			\Return $a_n$
-			\EndIf
-			\State $numM \eqqcolon$ number of $m$ in $a_1, \cdots, a_n$
-			\State $numN \eqqcolon$ number of $a_n$ in $a_1, \cdots, a_n$
-			\If{$numM \le numN$}
-			\Return $a_n$
-			\EndIf
-			\State\Return $m$
-			\EndProcedure
-		\end{algorithmic}
-	\end{algorithm}
-\end{solution*}
 \end{frame}
 
 \plain{Questions?}
