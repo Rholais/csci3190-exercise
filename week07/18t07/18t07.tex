@@ -59,56 +59,56 @@
 \begin{frame}[fragile]
 \frametitle{Factorial Expression}
 \begin{columns}
-	\begin{column}{.5\linewidth}
-		\onslide<1->\begin{eg}
-			How many ways are there to select a first-prize winner, a second-prize winner, and a third-prize winner from 100 different people who have entered a contest?
-		\end{eg}
-		\onslide<2->\begin{solution*}
-			The number is the number of 3-permutations of a set of 100 elements. Consequently, the answer is ${}_{100}P_3 = 100 \times 99 \times 98 = 970200$.
-		\end{solution*}
-	\end{column}
-	\begin{column}{.6\linewidth}
-		\onslide<1->\begin{eg}
-			How many times does \texttt{plan}, \texttt{than} and \texttt{both} NOT occur in permutations of the 26 letters?
-		\end{eg}
-		\onslide<3>\begin{solution*}
-			\texttt{plan} occurs $23!$ times.
-			
-			\texttt{than} occurs $23!$ times.
-			
-			\texttt{both} occurs $23!$ times.
-			
-			\texttt{plan} and \texttt{than} occurs $0$ times.
-			
-			\texttt{plan} and \texttt{both} occurs $20!$ times.
-			
-			\texttt{than} and \texttt{both} occurs $21!$ times.
-			
-			\texttt{plan}, \texttt{than} and \texttt{both} occurs $0$ times.
-			
-			So the answer is $26! - 23! \times 3 + 21! + 20!$.
-		\end{solution*}
-	\end{column}
+    \begin{column}{.5\linewidth}
+        \onslide<1->\begin{eg}
+            How many ways are there to select a first-prize winner, a second-prize winner, and a third-prize winner from 100 different people who have entered a contest?
+        \end{eg}
+        \onslide<2->\begin{solution*}
+            The number is the number of 3-permutations of a set of 100 elements. Consequently, the answer is ${}_{100}P_3 = 100 \times 99 \times 98 = 970200$.
+        \end{solution*}
+    \end{column}
+    \begin{column}{.6\linewidth}
+        \onslide<1->\begin{eg}
+            How many times does \texttt{plan}, \texttt{than} and \texttt{both} NOT occur in permutations of the 26 letters?
+        \end{eg}
+        \onslide<3>\begin{solution*}
+            \texttt{plan} occurs $23!$ times.
+            
+            \texttt{than} occurs $23!$ times.
+            
+            \texttt{both} occurs $23!$ times.
+            
+            \texttt{plan} and \texttt{than} occurs $0$ times.
+            
+            \texttt{plan} and \texttt{both} occurs $20!$ times.
+            
+            \texttt{than} and \texttt{both} occurs $21!$ times.
+            
+            \texttt{plan}, \texttt{than} and \texttt{both} occurs $0$ times.
+            
+            So the answer is $26! - 23! \times 3 + 21! + 20!$.
+        \end{solution*}
+    \end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Codeword Enumeration}
 \begin{eg}
-	\label{eg:8}
-	Computer system considers a string of decimal digits a valid
-	codeword if it contains an even number of 0 digits. For instance, 1230407869 is valid,
-	whereas 120987045608 is not valid. Let $a_n$ be the number of valid $n$-digit codewords. Find
-	a recurrence relation for $a_n$.
+    \label{eg:8}
+    Computer system considers a string of decimal digits a valid
+    codeword if it contains an even number of 0 digits. For instance, 1230407869 is valid,
+    whereas 120987045608 is not valid. Let $a_n$ be the number of valid $n$-digit codewords. Find
+    a recurrence relation for $a_n$.
 \end{eg}
 
 \onslide<2>\begin{solution*}
-	There are nine 1-digit codewords so that $a_1 = 9$.
-	There are two ways to form
-	a valid string with $n$ digits from a string with one fewer digit.
-	First, it can be obtained by appending a valid string of $n - 1$ digits with a digit other than 0, which has $9a_{n - 1}$ ways.
-	Second, it can be obtained by appending a 0 to a string of length $n - 1$ that is not valid, which has $10_{n - 1} - a_{n - 1}$ ways.
-	Because all valid strings of length n are produced in one of these two ways, it follows that there are $a_n = 9 a_{n - 1} + (10^{n - 1} - a_{n - 1}) = 8 a_{n - 1} + 10^{n - 1}$ valid strings of length $n$.
+    There are nine 1-digit codewords so that $a_1 = 9$.
+    There are two ways to form
+    a valid string with $n$ digits from a string with one fewer digit.
+    First, it can be obtained by appending a valid string of $n - 1$ digits with a digit other than 0, which has $9a_{n - 1}$ ways.
+    Second, it can be obtained by appending a 0 to a string of length $n - 1$ that is not valid, which has $10_{n - 1} - a_{n - 1}$ ways.
+    Because all valid strings of length n are produced in one of these two ways, it follows that there are $a_n = 9 a_{n - 1} + (10^{n - 1} - a_{n - 1}) = 8 a_{n - 1} + 10^{n - 1}$ valid strings of length $n$.
 \end{solution*}
 \end{frame}
 
@@ -121,7 +121,7 @@ In~\Cref{eg:8} we showed that the sequence $\{a_n\}$ satisfies the recurrence re
 \end{eg}
 
 \onslide<2>\begin{solution*}
-we extend this sequence	by setting $a_0 = 1$.
+we extend this sequence    by setting $a_0 = 1$.
 Let $G(x) = \sum_{n = 0}^{\infty} a_n x_n$ be the generating function of the sequence $\{a_n\}$,
 then $G(x) - 8x G(x) = 1 + \frac{x}{1 - 10x}$.
 Solving for $G(x)$ shows that $G(x) = \frac{1 - 9x}{(1 - 8x)(1 - 10x)} = \frac{1}{2} \left(\frac{1}{1 - 8x} + \frac{1}{1 - 10x}\right) = \sum_{n = 0}^\infty \frac{1}{2} (8^n + 10^n) x^n$.
@@ -140,15 +140,15 @@ For $n \in \mathbb{N}^+$, prove each of the following by mathematical induction:
 \begin{proof}
 \begin{enumerate}
 \item<2-> \begin{description}
-	\item[Base] Let $n = 0$, $3 \mid 2^1 + 1 = 3$.
-	\item[Induction] Suppose $3 \mid 2^{2n - 1} + 1$, $2^{2n + 1} = 2^{2n - 1} \times 3 + 2^{2n - 1} + 1$
-	$\equiv 0 \pmod{3}$.
+    \item[Base] Let $n = 0$, $3 \mid 2^1 + 1 = 3$.
+    \item[Induction] Suppose $3 \mid 2^{2n - 1} + 1$, $2^{2n + 1} = 2^{2n - 1} \times 3 + 2^{2n - 1} + 1$
+    $\equiv 0 \pmod{3}$.
 \end{description}
 \item<3> \begin{description}
-	\item[Base] Let $n = 0$, $9 \mid 1^3 + 2^3$.
-	\item[Induction] Suppose $9 \mid (n - 1)^3 + n^3 + (n + 1)^3$, $n^3 + (n + 1)^3 + (n + 2)^3$
-	$= (n - 1)^3 + n^3 + (n + 1)^3 + 3((n - 1)^2 + (n - 1)(n + 2) + (n + 2)^2)$
-	$= (n - 1)^3 + n^3 + (n + 1)^3 + 9(n^2 + n + 1) \equiv 0 \pmod{9}$.
+    \item[Base] Let $n = 0$, $9 \mid 1^3 + 2^3$.
+    \item[Induction] Suppose $9 \mid (n - 1)^3 + n^3 + (n + 1)^3$, $n^3 + (n + 1)^3 + (n + 2)^3$
+    $= (n - 1)^3 + n^3 + (n + 1)^3 + 3((n - 1)^2 + (n - 1)(n + 2) + (n + 2)^2)$
+    $= (n - 1)^3 + n^3 + (n + 1)^3 + 9(n^2 + n + 1) \equiv 0 \pmod{9}$.
 \end{description}
 \end{enumerate}
 \end{proof}
