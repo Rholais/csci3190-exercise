@@ -50,39 +50,20 @@
 \maketitle
 
 \begin{frame}[fragile]
-\frametitle{Combinatorial Proof}
-\begin{columns}
-	\begin{column}{.6\linewidth}
-		\begin{crl}
-			Let $0 \le r \le n$. Then $C(n, r) = C(n, n - r)$.
-		\end{crl}
-		\begin{definition}
-			A \textbf{combinatorial proof} of an identity is a proof that uses counting arguments to prove that both sides of the identity count the same objects but in different ways or a proof that is based on showing that there is a bijection between the sets of objects counted by the two sides of the identity. These two types of proofs are called \textbf{double counting proofs} and \textbf{bijective proofs}, respectively.
-		\end{definition}
-	\end{column}
-	\begin{column}{.4\linewidth}
-		\begin{proof}
-			Suppose that $|S| = n$. The function that maps a subset $A$ of $S$ to $\bar{A}$ is a bijection between subsets of $S$ with $r$ elements and subsets with $n - r$ elements. The identity $C(n, r) = C(n, n - r)$ follows because when there is a bijection between two finite sets, the two sets must have the same number of elements.
-		\end{proof}
-	\end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}[fragile]
-	\frametitle{Binomial Coefficients}
-	\begin{example}
-		Show that if $n$ and $k$ are integers with $1 \le k \le n$, then $\binom{n}{k} \le \frac{n^k}{2^{k - 1}}$.
-	\end{example}
-	\onslide<2>\begin{solution*}
-		\begin{align}
-		\begin{aligned}
-		&\binom{n}{k}\\
-		= & \frac{n(n - 1)(n - 2) \cdots (n - k + 1)}{k(k - 1)(k - 2) \cdots 2}\\
-		\le & \frac{n \cdot n \cdot \cdots \cdot n}{2 \cdot 2 \cdot \cdots \cdot 2}\\
-		= & \frac{n^k}{2^{k - 1}}.
-		\end{aligned}
-		\end{align}
-	\end{solution*}
+    \frametitle{Binomial Coefficients}
+    \begin{example}
+        Show that if $n$ and $k$ are integers with $1 \le k \le n$, then $\binom{n}{k} \le \frac{n^k}{2^{k - 1}}$.
+    \end{example}
+    \onslide<2>\begin{solution*}
+        \begin{align}
+        \begin{aligned}
+        &\binom{n}{k}\\
+        = & \frac{n(n - 1)(n - 2) \cdots (n - k + 1)}{k(k - 1)(k - 2) \cdots 2}\\
+        \le & \frac{n \cdot n \cdot \cdots \cdot n}{2 \cdot 2 \cdot \cdots \cdot 2}\\
+        = & \frac{n^k}{2^{k - 1}}.
+        \end{aligned}
+        \end{align}
+    \end{solution*}
 \end{frame}
 
 \plain{Questions?}
