@@ -1,0 +1,431 @@
+% This is "sig-alternate.tex" V2.1 April 2013
+% This file should be compiled with V2.5 of "sig-alternate.cls" May 2012
+%
+% This example file demonstrates the use of the 'sig-alternate.cls'
+% V2.5 LaTeX2e document class file. It is for those submitting
+% articles to ACM Conference Proceedings WHO DO NOT WISH TO
+% STRICTLY ADHERE TO THE SIGS (PUBS-BOARD-ENDORSED) STYLE.
+% The 'sig-alternate.cls' file will produce a similar-looking,
+% albeit, 'tighter' paper resulting in, invariably, fewer pages.
+%
+% ----------------------------------------------------------------------------------------------------------------
+% This .tex file (and associated .cls V2.5) produces:
+%       1) The Permission Statement
+%       2) The Conference (location) Info information
+%       3) The Copyright Line with ACM data
+%       4) NO page numbers
+%
+% as against the acm_proc_article-sp.cls file which
+% DOES NOT produce 1) thru' 3) above.
+%
+% Using 'sig-alternate.cls' you have control, however, from within
+% the source .tex file, over both the CopyrightYear
+% (defaulted to 200X) and the ACM Copyright Data
+% (defaulted to X-XXXXX-XX-X/XX/XX).
+% e.g.
+% \CopyrightYear{2007} will cause 2007 to appear in the copyright line.
+% \crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
+%
+% ---------------------------------------------------------------------------------------------------------------
+% This .tex source is an example which *does* use
+% the .bib file (from which the .bbl file % is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission, you *NEED* to 'insert'
+% your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+% ================= IF YOU HAVE QUESTIONS =======================
+% Questions regarding the SIGS styles, SIGS policies and
+% procedures, Conferences etc. should be sent to
+% Adrienne Griscti (griscti@acm.org)
+%
+% Technical questions _only_ to
+% Gerald Murray (murray@hq.acm.org)
+% ===============================================================
+%
+% For tracking purposes - this is V2.0 - May 2012
+
+\documentclass{../../cls/sig-alternate-05-2015}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\usepackage{booktabs}
+\usepackage{cleveref}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{soul}
+\usepackage{textcomp}
+
+
+\begin{document}
+
+% Copyright
+%\setcopyright{acmcopyright}
+%\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
+
+
+% DOI
+%\doi{10.475/123_4}
+
+% ISBN
+%\isbn{123-4567-24-567/08/06}
+
+%Conference
+%\conferenceinfo{PLDI '13}{June 16--19, 2013, Seattle, WA, USA}
+
+%\acmPrice{\$15.00}
+
+%
+% --- Author Metadata here ---
+%\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
+%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+% --- End of Author Metadata ---
+
+\makeatletter
+\def\old@comma{,}
+\catcode`\,=13
+\def,{%
+    \ifmmode%
+    \old@comma\discretionary{}{}{}%
+    \else%
+    \old@comma%
+    \fi%
+}
+\makeatother
+
+\title{CSCI 3190 \\ Introduction to Discrete Mathematics and Algorithms}
+\subtitle{Sample Solution of Assignment 2}
+
+\maketitle
+\begin{abstract}
+
+\end{abstract}
+
+\keywords{}
+
+\section{Apple}
+\textbf{Solution} The number of ways is the coefficient of $x^{12}$ in \begin{align}
+    \begin{aligned}
+    & \left(\sum_{i = 1}^{20} x^i\right)^3\\
+    = & \left[\left(\sum_{i = 1}^{20} x^i\right) \left(\sum_{i = 1}^{20} x^i\right)\right] \left(\sum_{i = 1}^{20} x^i\right)\\
+    = & \left(\sum_{i = 2}^{21} (i - 1) x^i + \sum_{i = 22}^{40} (41 - i) x^i\right) \left(\sum_{i = 1}^{20} x^i\right)\\
+    = & \left(\sum_{i = 2}^{21} (i - 1) x^i\right) \left(\sum_{i = 1}^{20} x^i\right) + \text{ other higher order terms...}\\
+    = & \sum_{i = 3}^{22} \frac{(i - 1)(i - 2)}{2} x^i + \text{ other higher order terms...}
+    \end{aligned}
+\end{align}
+So the number of ways is $\frac{(12 - 1) \times (12 - 2)}{2} = 55$.
+
+\section{Bill}
+\textbf{Solution} Since \hl{$(10 \mid 10, 20, 100) \land (10 \nmid 5, 25)$}. The number of \$5 bills is even. So is the number of \$25 bills.
+\begin{enumerate}[label=(\alph*)]
+    \item The number of ways is the sum of coefficient of $1, x^5, x^{10}$ in \begin{align}
+        \begin{aligned}
+        & \left(\sum_{i = 0}^{5} x^{i}\right) \left(\sum_{i = 0}^{5} x^{2i}\right)\\
+        = & \frac{1 - x^6}{1 - x} \left(\sum_{i = 0}^{5} x^{2i}\right)\\
+        = & (1 + x) \left(\sum_{i = 0}^{2} x^{2i}\right) \left(\sum_{i = 0}^{5} x^{2i}\right)\\
+        = & (1 + x) (1 + 2x^2 + 3x^4 + 3x^6 + 3x^8 + 3x^{10} + 2x^{12} + x^{14})
+        \end{aligned}
+    \end{align}
+    So the number of ways is $1 + 3 + 3 = 7$.
+    \item The number of ways is the sum of coefficient of $x^2, x^4, x^6, x^8$ in \begin{equation}
+        \left(\sum_{i = 1}^{\infty} x^{i}\right) \left(\sum_{i = 1}^{\infty} x^{i}\right) = \sum_{i = 2}^{\infty} (i - 1) x^i
+    \end{equation}
+    \hl{So the number of ways is $1 + 3 + 5 + 7 = 16$.}
+\end{enumerate}
+
+\section{Complexity}
+\textbf{Proof}\begin{enumerate}[label=(\alph*)]
+    \item Let $N = 1, C = 19$, then \begin{equation}
+        \forall n \ge N, 3n^2 + 5n + 10 < C \cdot n^2.
+    \end{equation}
+    \item Let $N = 4, C = 51$, then $\forall n \ge N, 100 \log_2 n < C \cdot n$.
+    \item Let $N = 0, C = 5$, then $\forall n \ge N, 3^n < C \cdot n!$.
+\end{enumerate}
+
+\section{Pigeonhole Principle}
+\textbf{Solution} There are four pairs can add up to 16. Form the set into four pigeonholes accordingly, let the selected numbers be pigeons. At least five pigeons must be selected to guarantee that at least one hole has two pigeons.
+
+\section{Hanoi Tower}
+\textbf{Solution I}:
+If both moving directly from A to B and moving from B to A are not allowed.
+The basis step is to move the Tower of Hanoi with zero disk,
+which does nothing and requires zero step.
+The inductive step is that if we know how to move a Tower of Hanoi with $n - 1$ disks, to move a Tower of Hanoi with $n$ disks: \begin{enumerate}
+    \item Move the top $n - 1$ disks to the destination.
+    \item Move the bottom disk to the intermediate peg.
+    \item Move the top $n - 1$ disks back to the origin.
+    \item Move the bottom disk to the destination.
+    \item Move the top $n - 1$ disks to the destination, again.
+\end{enumerate}
+\begin{enumerate}[label=(\alph*)]
+    \item \begin{algorithm}[H]
+        \caption{Tower of Hanoi}
+        \label{a:5-1}
+        \begin{algorithmic}
+            \Procedure{Hanoi}{$n$, $A$, $B$, $C$}
+            \If{$n$ = 0}
+            \State \Return
+            \Else
+            \State \Call{Hanoi}{$n - 1$, $A$, $B$, $C$}
+            \State \Call{Move}{$A$, $C$}
+            \State \Call{Hanoi}{$n - 1$, $B$, $A$, $C$}
+            \State \Call{Move}{$C$, $B$}
+            \State \Call{Hanoi}{$n - 1$, $A$, $B$, $C$}
+            \EndIf
+            \EndProcedure
+        \end{algorithmic}
+    \end{algorithm}
+
+    \item Let the number of steps to move $n$ disks be $\{s_n\}$, then \begin{equation}
+        \begin{cases}
+        s_0 = 0,\\
+        s_n = 3s_{n - 1} + 2.
+        \end{cases}
+    \end{equation}
+    
+    \item Let the generating function of $\{s_n\}$ be $S(x)$, then \begin{equation}
+        S(x) - 3xS(x) = \frac{2x}{1 - x}.
+    \end{equation}
+    By solving $S(x)$, we get \begin{align}
+        \begin{aligned}
+        S(x) = & \frac{2x}{(1 - x)(1 - 3x)}\\
+        = & \frac{1}{1 - 3x} - \frac{1}{1 - x}\\
+        = & \sum_{n = 0}^{\infty} (3^n - 1) x^n.
+        \end{aligned}
+    \end{align}
+    Therefore, the number of steps is $s_n = 3^n - 1 = O(3^n)$.
+\end{enumerate}
+
+\textbf{Solution II}
+If only moving from A to B is not allowed, then the previous solution is obviously valid as well.
+The question becomes if it is possible to use the additional movement from B to A to speed up the algorithm.
+\begin{enumerate}[label=(\alph*)]
+    \item \begin{algorithm}[H]
+        \caption{Faster Tower of Hanoi}
+        \label{a:5-2}
+        \begin{algorithmic}
+            \Procedure{HanoiAB}{$n$}
+            \If{$n$ = 0}
+            \State \Return
+            \Else
+            \State \Call{HanoiAB}{$n - 1$}
+            \State \Call{Move}{$A$, $C$}
+            \State \Call{HanoiBA}{$n - 1$}
+            \State \Call{Move}{$C$, $B$}
+            \State \Call{HanoiAB}{$n - 1$}
+            \EndIf
+            \EndProcedure
+            \Procedure{HanoiBA}{$n$}
+            \If{$n$ = 0}
+            \State \Return
+            \Else
+            \State \Call{HanoiBC}{$n - 1$}
+            \State \Call{Move}{$B$, $A$}
+            \State \Call{HanoiCA}{$n - 1$}
+            \EndIf
+            \EndProcedure
+            \Procedure{HanoiBC}{$n$}
+            \If{$n$ = 0}
+            \State \Return
+            \Else
+            \State \Call{HanoiBA}{$n - 1$}
+            \State \Call{Move}{$B$, $C$}
+            \State \Call{HanoiAC}{$n - 1$}
+            \EndIf
+            \EndProcedure
+            \Procedure{HanoiAC}{$n$}
+            \If{$n$ = 0}
+            \State \Return
+            \Else
+            \State \Call{HanoiAB}{$n - 1$}
+            \State \Call{Move}{$A$, $C$}
+            \State \Call{HanoiBC}{$n - 1$}
+            \EndIf
+            \EndProcedure
+            \Procedure{HanoiCA}{$n$}
+            \If{$n$ = 0}
+            \State \Return
+            \Else
+            \State \Call{HanoiCB}{$n - 1$}
+            \State \Call{Move}{$C$, $A$}
+            \State \Call{HanoiBA}{$n - 1$}
+            \EndIf
+            \EndProcedure
+            \Procedure{HanoiCB}{$n$}
+            \If{$n$ = 0}
+            \State \Return
+            \Else
+            \State \Call{HanoiCA}{$n - 1$}
+            \State \Call{Move}{$C$, $B$}
+            \State \Call{HanoiAB}{$n - 1$}
+            \EndIf
+            \EndProcedure
+        \end{algorithmic}
+    \end{algorithm}
+    \item Let the number of steps to move $n$ disks from A to B, from B to A, from B to C, from A to C, from C to A, from C to B be $\{p_n\}, \{q_n\}, \{r_n\}, \{s_n\}, \{t_n\}, \{u_n\}$, respectively, then \begin{align}
+    \begin{cases}
+    p_0, q_0, r_0, s_0, t_0, u_0 = 0,\\
+    p_n = 2p_{n - 1} + q_{n - 1} + 2,\\
+    q_n = r_{n - 1} + t_{n - 1} + 1,\\
+    r_n = q_{n - 1} + s_{n - 1} + 1,\\
+    s_n = p_{n - 1} + r_{n - 1} + 1,\\
+    t_n = u_{n - 1} + q_{n - 1} + 1,\\
+    u_n = t_{n - 1} + p_{n - 1} + 1.
+    \end{cases}
+    \end{align}
+    \item Let the generating function of $\{p_n\}, \{q_n\}, \{r_n\}, \{s_n\}, \{t_n\}, \{u_n\}$ be $P(x), Q(x), R(x), S(x), T(x), U(x)$, then \begin{subequations}
+        \label{eq:6-2-c-09}
+        \begin{align}
+        (1 - 2x)P(x) - xQ(x) = \frac{2x}{1 - x},\\
+        Q(x) - xR(x) - xT(x) = \frac{x}{1 - x},\\
+        -xQ(x) + R(x) - xS(x) = \frac{x}{1 - x},\label{eq:6-2-c-09:c}\\
+        -xP(x) - xR(x) + S(x) = \frac{x}{1 - x},\label{eq:6-2-c-09:d}\\
+        -xQ(x) + T(x) - xU(x) = \frac{x}{1 - x},\label{eq:6-2-c-09:e}\\
+        -xP(x) - xT(x) + U(x) = \frac{x}{1 - x}.\label{eq:6-2-c-09:f}
+        \end{align}
+    \end{subequations}
+    \Cref{eq:6-2-c-09:c} $+ x$ \Cref{eq:6-2-c-09:d},
+    \Cref{eq:6-2-c-09:e} $+ x$ \Cref{eq:6-2-c-09:f},
+    we have
+    \begin{subequations}
+        \label{eq:6-2-c-10}
+        \begin{align}
+           (1 - 2x)P(x) - xQ(x) = \frac{2x}{1 - x},\\
+           Q(x) - xR(x) - xT(x) = \frac{x}{1 - x},\label{eq:6-2-c-10:b}\\
+           -x^2P(x) - xQ(x) + (1 - x^2)R(x) = \frac{x + x^2}{1 - x},\\
+           -x^2P(x) - xQ(x) + (1 - x^2)T(x) = \frac{x + x^2}{1 - x}.\label{eq:6-2-c-10:e}
+        \end{align}
+    \end{subequations}
+    $(1 - x^2)$\Cref{eq:6-2-c-10:b} $+ x$ \Cref{eq:6-2-c-10:e},
+    we have
+    \begin{subequations}
+        \label{eq:6-2-c-11}
+        \begin{align}
+        (1 - 2x)P(x) - xQ(x) = \frac{2x}{1 - x},\\
+        -x^2P(x) - xQ(x) + (1 - x^2)R(x) = \frac{x + x^2}{1 - x},\label{eq:6-2-c-11:b}\\
+        -x^3P(x) + (1 - 2x^2)Q(x) - x(1 - x^2)R(x) = \frac{x + x^2}{1 - x}.\label{eq:6-2-c-11:c}
+        \end{align}
+    \end{subequations}
+    $x$\Cref{eq:6-2-c-11:b} $+$ \Cref{eq:6-2-c-11:c}, we have
+    \begin{subequations}
+        \label{eq:6-2-c-12}
+        \begin{align}
+        (1 - 2x)P(x) - xQ(x) = \frac{2x}{1 - x},\label{eq:6-2-c-12:a}\\
+        -2x^3P(x) + (1 - 3x^2)Q(x) = \frac{x + 2x^2 + x^3}{1 - x}\label{eq:6-2-c-12:b}.
+        \end{align}
+    \end{subequations}
+    $(1 - 3x^2)$\Cref{eq:6-2-c-12:a} $+ x$ \Cref{eq:6-2-c-12:b}, we have
+    \begin{align}
+        \begin{aligned}
+        & (1 - 2x - 3x^2 + 6x^3 - 2x^4)P(x) = \frac{2x + x^2 - 4x^3 + x^4}{1 - x}\\
+        \Leftrightarrow & (1 - x)(1 - x - 4x^2 + 2x^3)P(x) = \frac{x(1 - x)(2 + 3x - x^2)}{1 - x}\\
+        \Leftrightarrow & P(x) = \frac{x(2 + 3x - x^2)}{(1 - x)(1 - x - 4x^2 + 2x^3)}\\
+        & \qquad = - \frac{2}{1 - x} + \frac{2 + 2x - 3x^2}{1 - x - 4x^2 + 2x^3}.
+        \end{aligned}
+    \end{align} The smallest root of $1 - x - 4x^2 + 2x^3 = 0$ is $x \approx 0.426$ so that the complexity is about $O(0.426^{-n}) \approx O(2.4^n)$.
+\end{enumerate}
+
+\section{Exponential}
+\textbf{Solution}\begin{enumerate}[label=(\alph*)]
+    \item The complexity of~\Cref{a:6-a} is $O(n)$.
+    \begin{algorithm}[H]
+        \caption{Recursive Algorithm}
+        \label{a:6-a}
+        \begin{algorithmic}
+            \Procedure{Power}{$n$, $a$}
+            \If{$n$ = 0}
+            \State \Return $a$
+            \Else
+            \State $p \leftarrow$ \Call{Power}{$n - 1$, $a$}
+            \State \Return $p \times p$
+            \EndIf
+            \EndProcedure
+        \end{algorithmic}
+    \end{algorithm}
+
+    \item The complexity of~\Cref{a:6-b} is $O(n)$.
+    \begin{algorithm}[H]
+        \caption{Iterative Algorithm}
+        \label{a:6-b}
+        \begin{algorithmic}
+            \Procedure{Power}{$n$, $a$}
+            \For{$i = 1, \ldots, n$}
+            \State $a \leftarrow a \times a$
+            \EndFor
+            \State \Return $a$
+            \EndProcedure
+        \end{algorithmic}
+    \end{algorithm}
+\end{enumerate}
+
+\section{Induction}
+\textbf{Solution}\begin{enumerate}[label=(\alph*)]
+    \item \begin{description}
+        \item[Basis step] When $n = 0$, we have $8 \mid 3^0 + 7^0 - 2 = 0$.
+        \item[Inductive step] Let $P(n)$ be the statement that \begin{equation}
+            8 \mid 3^n + 7^n - 2.
+        \end{equation}
+        If $P(k)$ is true, then \begin{align}
+            \begin{aligned}
+            & 3^{k + 1} + 7^{k + 1} - 2\\
+            = & 3 \times 3^k + 7 \times 7^k - 2\\
+            = & 5 \times (3^k + 7^k - 2) + 8 + 2 \times (7^k - 3^k)\\
+            = & 5 \times (3^k + 7^k - 2) + 8 + 8 \sum_{i = 0}^{k} 7^{k - i} \times 3^i,
+            \end{aligned}
+        \end{align} which is divisible by 8. Therefore, $P(k + 1)$ is also true.
+    \end{description}
+
+    \item \begin{description}
+        \item[Basis step] The number of subset $S$ of $\{1\}$ with $2 \mid \left|S\right|$ is $1 = 2^{1 - 1}$.
+        \item[Inductive step] Let $P(n)$ be the statement that the number of subset $S$ of $\{1, 2, \ldots, n\}$ with $2 \mid \left|S\right|$ is $2^{n - 1}$. If $P(k)$ is true, then the subsets $S$ of $\{1, 2, \ldots, k + 1\}$ with $2 \mid \left|S\right|$ have two cases. One case is the subsets $S$ of $\{1, 2, \ldots, k\}$ with $2 \mid \left|S\right|$ whose number is $2^{k - 1}$. The other case is the unions of $\{k + 1\}$ and subsets $S$ of $\{1, 2, \ldots, k\}$ with $2 \nmid \left|S\right|$ whose number is $2^k - 2^{k - 1} = 2^{k - 1}$. Thus the total number is $2^k \times 2 = 2^{k + 1}$. Therefore, $P(k + 1)$ is true.
+    \end{description}
+\end{enumerate}
+
+\section{Structural Induction}
+\begin{description}
+    \item[Basis step] $\forall a \ge 1 \land (a, 0) \in S$, we have $a \mid 0$.
+    \item[Inductive step] If $a \mid b$ for $(a, b) \in S$, we have $(a, a + b) \in S$ and $a | a + b$.
+\end{description}
+
+\section{Recursive Definition}
+\textbf{Solution}\begin{enumerate}[label=(\alph*)]
+    \item \begin{equation}
+        \begin{cases}
+        1 \in A, &\\
+        n + 1 \in A, & \text{if } n \in A.
+        \end{cases}
+    \end{equation}
+    \item \begin{equation}
+    \begin{cases}
+    3 \in B, &\\
+    3n \in B, & \text{if } n \in B.
+    \end{cases}
+    \end{equation}
+    \item \begin{equation}
+        \begin{cases}
+        1 \in C, &\\
+        -n \in C, & \text{if } n \in C,\\
+        nx \in C, & \text{if } n \in C,\\
+        m + n \in C, & \text{if } m, n \in C,\\
+        \end{cases}
+    \end{equation}
+    \item \begin{equation}
+        \begin{cases}
+        \text{``''} \in D, &\\
+        \text{``0''} \in D, &\\
+        \text{``1''} \in D, &\\
+        \text{``0n0''} \in D, & \text{if ``n''} \in D\\
+        \text{``1n1''} \in D, & \text{if ``n''} \in D.
+        \end{cases}
+    \end{equation}
+\end{enumerate}
+
+\end{document}
