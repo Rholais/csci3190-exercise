@@ -1,5 +1,5 @@
 %!TEX program = xelatex
-\documentclass[10pt, compress]{beamer}
+\documentclass[10pt, compress, handout]{beamer}
 \usepackage[titleprogressbar]{../../cls/beamerthemem}
 
 \setbeamertemplate{caption}[numbered]
@@ -48,7 +48,7 @@
 \makeatother
 
 \title{CSCI 3190 Tutorial of Week 08}
-\subtitle{Recursive Algorithm}
+\subtitle{Assignment 2}
 \author{LI Haocheng}
 \institute{Department of Computer Science and Engineering}
 
@@ -56,92 +56,155 @@
 
 \maketitle
 
-\begin{frame}[allowframebreaks]
-\frametitle{Fibonacci}
-\begin{eg}
-	Consider the computation of the $n$-th Fibonacci number:\begin{enumerate}
-		\item Give the pseudo code of a recursive algorithm to compute the nth Fibonacci number. What is the
-		complexity of your algorithm? Explain your answer.
-		\item Give the pseudo code of an iterative algorithm to compute the nth Fibonacci number. What is the
-		complexity of your algorithm? Explain your answer. 
-	\end{enumerate}
-\end{eg}
-
-\newpage
-
-\begin{solution*}
-	\begin{columns}
-		\begin{column}{.6\linewidth}
-			\begin{algorithm}[H]
-				\caption{A Recursive Algorithm for Fibonacci}
-				\label{a-4-1}
-				\begin{algorithmic}
-					\Procedure{Fib}{$n$}
-					\If{$n = 0$}
-					\State\Return $0$
-					\EndIf
-					\If{$n = 1$}
-					\State\Return $1$
-					\EndIf
-					\State\Return \Call{Fib}{$n - 1$} + \Call{Fib}{$n - 2$}
-					\EndProcedure
-				\end{algorithmic}
-			\end{algorithm}
-			
-			$O(a_n) = 2^n$.
-		\end{column}
-		
-		\begin{column}{.5\linewidth}
-			\begin{algorithm}[H]
-				\caption{A Iterative Algorithm for Fibonacci}
-				\label{a-4-2}
-				\begin{algorithmic}
-					\Procedure{IterFib}{$n$}
-					\If{$n = 0$}\ \Return $0$
-					\EndIf
-					\State $x \coloneqq 0, y \coloneqq 1$
-					\For{$i \coloneqq 1, 2, \cdots, n - 1$}
-					\State $z \coloneqq x + y, x \coloneqq y, y \coloneqq z$
-					\EndFor
-					\State \Return $y$
-					\EndProcedure
-				\end{algorithmic}
-			\end{algorithm}
-			
-			The number of additions follows the expression $b_n = n - 1$ so that $O(b_n) = n$.
-		\end{column}
-	\end{columns}
-\end{solution*}
+\begin{frame}
+\frametitle{Apple}
+\begin{columns}
+    \begin{column}{1.1\linewidth}
+        \onslide<1->\begin{eg}
+            How many ways are there to choose a dozen apples from a bushel containing 20 indistinguishable
+            Delicious apples, 20 indistinguishable Macintosh apples and 20 indistinguishable Granny Smith
+            apples, if at least one of each kind must be chosen. Use generating function to solve the problem.
+        \end{eg}
+        \onslide<2->\begin{solution*}
+            The number of ways is the coefficient of $x^{12}$ in \begin{equation}
+                \left(\sum_{i = 1}^{20} x^i\right)^3 = \left(\sum_{i = 2}^{21} (i - 1) x^i + \cdots \right) \left(\sum_{i = 1}^{20} x^i\right) = \sum_{i = 3}^{22} \frac{(i - 1)(i - 2)}{2} x^i + \cdots.
+            \end{equation}
+            So the number of ways is $\frac{(12 - 1) \times (12 - 2)}{2} = 55$.
+        \end{solution*}
+    \end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}
-\frametitle{Mode}
-\begin{eg}
-	Give a recursive algorithm for finding a mode of a list of integers.
-\end{eg}
-\onslide<2>\begin{solution*}
-	\begin{algorithm}[H]
-		\caption{A Recursive Algorithm for Minimum}
-		\label{a-5}
-		\begin{algorithmic}
-			\Procedure{mode}{$a_1, \cdots, a_n \in \mathbb{Z}$}
-			\If{$n = 1$}
-			\Return $a_1$
-			\EndIf
-			\State $m \eqqcolon $ \Call{mode}{$a_1, \cdots, a_{n - 1}$}
-			\If{$m = a_n$}
-			\Return $a_n$
-			\EndIf
-			\State $numM \eqqcolon$ number of $m$ in $a_1, \cdots, a_n$
-			\State $numN \eqqcolon$ number of $a_n$ in $a_1, \cdots, a_n$
-			\If{$numM \le numN$}
-			\Return $a_n$
-			\EndIf
-			\State\Return $m$
-			\EndProcedure
-		\end{algorithmic}
-	\end{algorithm}
-\end{solution*}
+\frametitle{Bills}
+\begin{columns}
+    \begin{column}{1.1\linewidth}
+        \onslide<1->\begin{eg}
+            Use generating functions to find the number of ways to make change for \$100 using \$10, \$20 and \$25 bills if no more than five of each type is used.
+        \end{eg}
+        \onslide<2->\begin{solution*}
+            Since $(10 \mid 10, 20, 100) \land (10 \mid 5, 25)$. The number of \$5 bills is even. The number of ways is the sum of coefficient of $1, x^5, x^{10}$ in \begin{align}
+            \begin{aligned}
+            & \left(\sum_{i = 0}^{5} x^{i}\right) \left(\sum_{i = 0}^{5} x^{2i}\right) = \frac{1 - x^6}{1 - x} \left(\sum_{i = 0}^{5} x^{2i}\right)\\
+            = & (1 + x) \left(\sum_{i = 0}^{2} x^{2i}\right) \left(\sum_{i = 0}^{5} x^{2i}\right)\\
+            = & (1 + x) (1 + 2x^2 + 3x^4 + 3x^6 + 3x^8 + 3x^{10} + 2x^{12} + x^{14}).
+            \end{aligned}
+            \end{align}
+            So the number of ways is $1 + 3 + 3 = 7$.
+        \end{solution*}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Complexity}
+\begin{columns}
+    \begin{column}{0.5\linewidth}
+        \onslide<1->\begin{eg}
+            Show the following: \begin{enumerate}
+                \item $3n^2 + 5n + 10 = O(n^2)$
+                \item $100 \log_2 n = O(n)$
+                \item $3^n = O(n!)$
+            \end{enumerate}
+        \end{eg}
+        \onslide<2->\begin{proof}
+            \begin{enumerate}
+                \item<2-> Let $N = 1, C = 19$, then \begin{equation}
+                \forall n \ge N, 3n^2 + 5n + 10 < C \cdot n^2.
+                \end{equation}
+                \item<3-> Let $N = 4, C = 51$, then $\forall n \ge N, 100 \log_2 n < C \cdot n$.
+                \item<4-> Let $N = 0, C = 5$, then $\forall n \ge N, 3^n < C \cdot n!$.
+            \end{enumerate}
+        \end{proof}
+    \end{column}
+    \begin{column}{0.6\linewidth}
+        \onslide<1->\begin{eg}
+            Determine whether $\log n!$ is $\Theta(n \log n)$.
+        \end{eg}
+        
+        \onslide<5->\begin{proof}
+            We can easily show that $(n - i)(i + 1) \ge n$ for $i = 0, 1, \cdots, n - 1$.
+            Hence, $(n!)^2 = (n \cdot 1)((n - 1) \cdot 2) \cdot ((n - 2) \cdot 3) \cdots (2 \cdot (n -
+            1)) \cdot (1 \cdot n) \ge n^n$. Therefore, $2 log n! \ge n log n$ so that $n \log n$ is $O(\log n!)$.
+           
+            $\exists c = 1, \exists N = 1$, such that $\forall n \ge N, n! \le n^n$, so that $\log n! \le c n\log n$. Thus $\log n! = O(n \log n)$ so that $n \log n = \Omega(\log n!)$. Hence, $\log n! = \Theta(n \log n)$.
+        \end{proof}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Pigeonhole Principle}
+\begin{columns}
+    \begin{column}{0.6\linewidth}
+        \onslide<1->\begin{eg}
+            How many numbers must be selected from the set $\{1, 3, 5, 7, 9, 11, 13, 15\}$ to guarantee that at
+            least one pair of these numbers add up to 16? Explain your answer using the pigeonhole principle.
+        \end{eg}
+        \onslide<2->\begin{solution*}
+            There are four pairs can add up to 16. Form the set into four pigeonholes accordingly, let the selected numbers be pigeons. At least five pigeons must be selected to guarantee that at least one hole has two pigeons.
+        \end{solution*}
+    \end{column}
+    \begin{column}{0.5\linewidth}
+        \onslide<1->\begin{eg}
+            Give a recursive algorithm for finding the sum of the first $n$ positive integers.
+        \end{eg}
+        \onslide<3->\begin{solution*}
+            \begin{algorithm}[H]
+                \caption{A Recursive Algorithm for Summation}
+                \label{a-2}
+                \begin{algorithmic}
+                    \Procedure{sum}{$n \in \mathbb{N}$}
+                    \If{$n = 0$}
+                    \State\Return $0$
+                    \EndIf
+                    \State\Return $n + $\Call{sum}{$n - 1$}
+                    \EndProcedure
+                \end{algorithmic}
+            \end{algorithm}
+        \end{solution*}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Hanoi Tower}
+\begin{columns}
+    \begin{column}{0.6\linewidth}
+        \onslide<1->\begin{eg}
+            Consider the Tower of Hanoi problem with peg A, B, C. We want to transfer a tower of $n$ disks
+            from A to B, if direct moves between A and B are disallowed. \begin{enumerate}
+                \item Write a recursive pseudocode.
+                \item Set up a recurrence equation to count the number of steps to move $n$ disks.
+            \end{enumerate}
+        \end{eg}
+        \begin{solution*}
+            \begin{enumerate}
+                \item<2-> See~\Cref{a:5-1}.
+                \item<3> Let the number of steps to move $n$ disks be $\{s_n\}$, then $s_0 = 0, s_n = 3s_{n - 1} + 2$.
+            \end{enumerate}
+        \end{solution*}
+    \end{column}
+    \begin{column}{0.5\linewidth}
+        \onslide<2->\begin{algorithm}[H]
+            \caption{Tower of Hanoi}
+            \label{a:5-1}
+            \begin{algorithmic}
+                \Procedure{Hanoi}{$n$, $A$, $B$, $C$}
+                \If{$n$ = 0}
+                \State \Return
+                \Else
+                \State \Call{Hanoi}{$n - 1$, $A$, $B$, $C$}
+                \State \Call{Move}{$A$, $C$}
+                \State \Call{Hanoi}{$n - 1$, $B$, $A$, $C$}
+                \State \Call{Move}{$C$, $B$}
+                \State \Call{Hanoi}{$n - 1$, $A$, $B$, $C$}
+                \EndIf
+                \EndProcedure
+            \end{algorithmic}
+        \end{algorithm}
+    \end{column}
+\end{columns}
 \end{frame}
 
 \plain{Questions?}
