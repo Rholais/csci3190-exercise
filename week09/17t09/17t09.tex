@@ -49,32 +49,6 @@
 
 \maketitle
 
-\begin{frame}[allowframebreaks]
-\frametitle{Equivalence Relation}
-\begin{theorem}
-	Let $R$ be an equivalence relation on a set $A$. These statements for elements $a$ and $b$ of $A$ are equivalent:\begin{enumerate}
-		\item $aRb$
-		\item $[a]=[b]$
-		\item $[a]\cap[b] \ne \emptyset$
-	\end{enumerate}
-\end{theorem}
-\textbf{Proof.} We first show that 1 implies 2. Assume that $aRb$.
-We will prove that $[a]=[b]$ by showing $[a]\subseteq[b]$ and $[b]\subseteq[a]$. Suppose $c \in [a]$. Then $aRc$.
-Because $aRb$ and $R$ is symmetric, we know that $bRa$. 
-
-Furthermore, because $R$ is transitive and $bRa$ and $aRc$, it follows that $bRc$. Hence, $c \in [b]$.
-This shows that $[a]\subseteq[b]$. The proof that $[b]\subseteq[a]$ is similar.
-
-Second, we will show that 2 implies 3. Assume that $[a]=[b]$.
-It follows that $[a]\cap[b] \ne \emptyset$ because $[a]$ is nonempty (because $a \in [a]$ because $R$ is reflexive).
-
-Next, we will show that 3 implies 1. Suppose that $[a]\cap[b] \ne \emptyset$. Then there is an
-element $c$ with $c \in [a]$ and $c \in [b]$. In other words, $aRc$ and $bRc$. By the symmetric property, $cRb$.
-Then by transitivity, because $aRc$ and $cRb$, we have $aRb$.
-
-Because 1 implies 2, 2 implies 3, and 3 implies 1, the three statements, 1, 2, and 3, are equivalent.
-\end{frame}
-
 \begin{frame}[fragile]
 \frametitle{Equivalence Class}
 \begin{example}
