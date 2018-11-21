@@ -1,0 +1,194 @@
+% This is "sig-alternate.tex" V2.1 April 2013
+% This file should be compiled with V2.5 of "sig-alternate.cls" May 2012
+%
+% This example file demonstrates the use of the 'sig-alternate.cls'
+% V2.5 LaTeX2e document class file. It is for those submitting
+% articles to ACM Conference Proceedings WHO DO NOT WISH TO
+% STRICTLY ADHERE TO THE SIGS (PUBS-BOARD-ENDORSED) STYLE.
+% The 'sig-alternate.cls' file will produce a similar-looking,
+% albeit, 'tighter' paper resulting in, invariably, fewer pages.
+%
+% ----------------------------------------------------------------------------------------------------------------
+% This .tex file (and associated .cls V2.5) produces:
+%       1) The Permission Statement
+%       2) The Conference (location) Info information
+%       3) The Copyright Line with ACM data
+%       4) NO page numbers
+%
+% as against the acm_proc_article-sp.cls file which
+% DOES NOT produce 1) thru' 3) above.
+%
+% Using 'sig-alternate.cls' you have control, however, from within
+% the source .tex file, over both the CopyrightYear
+% (defaulted to 200X) and the ACM Copyright Data
+% (defaulted to X-XXXXX-XX-X/XX/XX).
+% e.g.
+% \CopyrightYear{2007} will cause 2007 to appear in the copyright line.
+% \crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
+%
+% ---------------------------------------------------------------------------------------------------------------
+% This .tex source is an example which *does* use
+% the .bib file (from which the .bbl file % is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission, you *NEED* to 'insert'
+% your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+% ================= IF YOU HAVE QUESTIONS =======================
+% Questions regarding the SIGS styles, SIGS policies and
+% procedures, Conferences etc. should be sent to
+% Adrienne Griscti (griscti@acm.org)
+%
+% Technical questions _only_ to
+% Gerald Murray (murray@hq.acm.org)
+% ===============================================================
+%
+% For tracking purposes - this is V2.0 - May 2012
+
+\documentclass{../../cls/sig-alternate-05-2015}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\usepackage{booktabs}
+\usepackage{cleveref}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{soul}
+\usepackage{textcomp}
+
+\begin{document}
+
+% Copyright
+%\setcopyright{acmcopyright}
+%\setcopyright{acmlicensed}
+%\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
+
+
+% DOI
+%\doi{10.475/123_4}
+
+% ISBN
+%\isbn{123-4567-24-567/08/06}
+
+%Conference
+%\conferenceinfo{PLDI '13}{June 16--19, 2013, Seattle, WA, USA}
+
+%\acmPrice{\$15.00}
+
+%
+% --- Author Metadata here ---
+%\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
+%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+% --- End of Author Metadata ---
+
+\makeatletter
+\def\old@comma{,}
+\catcode`\,=13
+\def,{%
+    \ifmmode%
+    \old@comma\discretionary{}{}{}%
+    \else%
+    \old@comma%
+    \fi%
+}
+\makeatother
+
+\title{CSCI 3190 \\ Introduction to Discrete Mathematics and Algorithms}
+\subtitle{Sample Solution of Quiz 2}
+
+\maketitle
+\begin{abstract}
+
+\end{abstract}
+
+\keywords{}
+
+\section{Complexity}
+Show that $n^2 + 100 \sqrt{n} + 7 = O(n^2)$.
+
+\textbf{Proof} Let $C = 2, N = 25$, then $\forall n \ge N, n^2 + 100 \sqrt{n} + 7 < Cn^2$.
+
+\section{Mathematical Induction}
+Prove by mathematical induction that \begin{equation}
+\sum_{i = 1}^{n} \frac{1}{i^2} < 2 - \frac{1}{n}.
+\end{equation}
+
+\textbf{Proof} \begin{description}
+    \item[Basis step] When $n = 2$,
+    it's obvious that $1 + \frac{1}{4} < 2 - \frac{1}{2}$.
+    \item[Inductive step] Let statement $P(n)$ be $\sum_{i = 1}^{n} \frac{1}{i^2} < 2 - \frac{1}{n}$. When $P(k)$ is true, \begin{align}
+    \begin{aligned}
+    \sum_{i = 1}^{k + 1} \frac{1}{i^2} = & \sum_{i = 1}^{k} \frac{1}{i^2} + \frac{1}{(k + 1)^2}\\
+    < & 2 - \frac{1}{k} + \frac{1}{k(k + 1)}\\
+    = & 2 - \frac{1}{k + 1}.
+    \end{aligned}
+    \end{align}
+    Then $P(k + 1)$ is also true.
+\end{description}
+
+\section{Recurrence Equation}
+Consider~\Cref{a:3} to find the minimum of
+$n$ numbers.Let $T(n)$ be the running time to solve FindMin() where $n$ is the number of elements in $A[]$
+\begin{algorithm}[H]
+    \caption{Recursive Algorithm}
+    \label{a:3}
+    \begin{algorithmic}
+        \Procedure{FindMin}{$A[]$}
+        \If{\Call{len}{$A[]$} = 1}
+        \State \Return $A[0]$
+        \Else
+        \State $p \leftarrow$ \Call{FindMin}{1H of $A[]$}
+        \State $q \leftarrow$ \Call{FindMin}{2H of $A[]$}
+        \State \Return \Call{min}{$p$, $q$}
+        \EndIf
+        \EndProcedure
+    \end{algorithmic}
+\end{algorithm}
+\begin{enumerate}
+    \item Write a recurrence equation for $T(n)$.
+    \item Solve the recurrence and find the complexity of FindMin().
+\end{enumerate}
+
+\textbf{Proof} \begin{enumerate}
+    \item \begin{equation}
+    \begin{cases}
+    T(1) = a,\\
+    T(n) = 2T(\frac{n}{2}) + b.
+    \end{cases}
+    \end{equation}
+    \item $T(n) = 2T(\frac{n}{2}) + b = 4T(\frac{n}{4}) + 3b = \cdots = nT(1) + (n - 1)b = (a + b)n - b = O(n)$.
+\end{enumerate}
+
+\section{Bakery}
+Jim wants to order $k$ pies from the bakery.
+Unfortunately,
+the bakery is only left with 3 apple pies,
+2 banana pies and 4 cheese pies.
+Let $d_k$ be the number of ways
+to make up an order of $k$ pies.
+\begin{enumerate}
+    \item Give a generating function for $d_k$.
+    \item What are $d_k$ when $k = 0, 1, \ldots, 9$?
+\end{enumerate}
+\textbf{Solution} \begin{enumerate}
+    \item \begin{align}
+    \begin{aligned}
+    & (1 + x + x^2)(1 + x + x^2 + x^3)\\
+    & \qquad \cdot (1 + x + x^2 + x^3 + x^4)\\
+    = & (1 + 2x + 3x^2 + 3x^3 + 2x^4 + x^5)\\
+    & \qquad \cdot (1 + x + x^2 + x^3 + x^4)\\
+    = & 1 + 3x + 6x^2 + 9x^3 + 11x^4 + 11x^5\\
+    & \qquad + 9x^6 + 6x^7 + 3x^8 + x^9.
+    \end{aligned}
+    \end{align}
+    \item $d_0 = 1, d_1 = 3, d_2 = 6, d_3 = 9, d_4 = 11, d_5 = 11, d_6 = 9, d_7 = 6, d_8 = 3, d_9 = 1$.
+\end{enumerate}
+
+\end{document}
