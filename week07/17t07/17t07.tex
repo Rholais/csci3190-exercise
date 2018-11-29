@@ -50,43 +50,6 @@
 \maketitle
 
 \begin{frame}[fragile]
-\frametitle{Tautological Implications}
-\begin{columns}
-    \begin{column}{.7\linewidth}
-        \begin{example}
-            \begin{enumerate}
-                \item $p \Rightarrow (p \lor q)$
-                \item $(p \land q) \Rightarrow (p \to q)$
-                \item $\neg (p \to q) \Rightarrow p$
-                \item $((p \lor q) \land \neg p) \Rightarrow q$
-            \end{enumerate}
-        \end{example}
-        \begin{proof}
-            \begin{enumerate}
-                \item<2-> $(\neg p \lor (p \lor q)) \equiv (1 \lor q) \equiv 1$.
-                \item<3-> $(\neg(p \land q) \lor (\neg p \lor q))$
-                $\equiv ((\neg p \lor \neg q) \lor (\neg p \lor q)) \equiv (\neg p \lor \neg q \lor q)$
-                $\equiv (\neg p \lor 1) \equiv 1$.
-                \item<4-> $\neg (p \to q) \equiv \neg (\neg p \lor q) \equiv (p \land \neg q)$
-                $\Rightarrow p$.
-                \item<5-> $((p \lor q) \land \neg p) \equiv (0 \lor (\neg p \land q))$
-                $\equiv (\neg p \land q) \Rightarrow q$.
-            \end{enumerate}
-        \end{proof}
-    \end{column}
-    \begin{column}{.4\linewidth}
-        \begin{definition}
-            A compound proposition is \textbf{satisfiable}
-            if there is an assignment of truth values to its variables that makes it true.
-            When no such assignments exists, that is,
-            when the compound proposition is false for all assignments of truth values to its variables,
-            the compound proposition is \textbf{unsatisfiable}.
-        \end{definition}
-    \end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}[fragile]
 \frametitle{Propositional Satisfiability}
 \begin{example}
     Determine whether each of the compound propositions
