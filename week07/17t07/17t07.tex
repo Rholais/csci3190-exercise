@@ -50,30 +50,6 @@
 \maketitle
 
 \begin{frame}[fragile]
-\frametitle{Propositional Satisfiability}
-\begin{example}
-    Determine whether each of the compound propositions
-    $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r)$
-    $\land (\neg p \lor \neg q \lor \neg r)$ is satisfiable.
-\end{example}
-\onslide<2>\begin{solution*}
-    Note that for
-    $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r)$
-    $\land (\neg p \lor \neg q \lor \neg r)$ to be true,
-    $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p)$ and
-    $(p \lor q \lor r) \land (\neg p \lor \neg q \lor \neg r)$ must both be true.
-    For the first to be true, the three variables must have the same truth values,
-    and for the second to be true,
-    at least one of three variables must be true and at least one must be false.
-    However, these conditions are contradictory.
-    From these observations we conclude that no assignment of truth values to $p$, $q$,
-    and $r$ makes
-    $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r)$
-    $\land (\neg p \lor \neg q \lor \neg r)$ true. Hence, it is unsatisfiable.
-\end{solution*}
-\end{frame}
-
-\begin{frame}[fragile]
 \frametitle{Quantifiers}
 \begin{columns}
     \begin{column}{.7\linewidth}
