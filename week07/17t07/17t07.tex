@@ -49,45 +49,6 @@
 
 \maketitle
 
-\begin{frame}[fragile]
-\frametitle{Quantifiers}
-\begin{columns}
-    \begin{column}{.7\linewidth}
-        \begin{example}
-            Determine the truth value of the followings, where $x, y \in \mathbb{I}^+$.
-            \begin{enumerate}
-                \item $\forall x \forall y (2x^2 < y + 1)$
-                \item $\forall x \exists y (2x^2 < y + 1)$
-                \item $\exists x \forall y (2x^2 < y + 1)$
-                \item $\exists x \exists y (2x^2 < y + 1)$
-            \end{enumerate}
-        \end{example}
-        \begin{solution*}
-            \begin{enumerate}
-                \item<2-> False. Let $x = 1, y = 1$, then $2x^2 = y + 1$.
-                \item<3-> True. $\forall x \exists y = 2x^2$ s.t. $2x^2 < y + 1$.
-                \item<4-> False. Let $y = 1, 2x^2 < y + 1$, then $x < 1$.
-                \item<5-> True. Let $x = 1, y = 2$, then $2x^2 < y + 1$.
-            \end{enumerate}
-        \end{solution*}
-    \end{column}
-    \begin{column}{.4\linewidth}
-        \begin{example}
-            Can you conclude that $A = B$ if $A, B$ and $C$ are sets such that: \begin{enumerate}
-                \item $A \cup C = B \cup C$;
-                \item $A \cap C = B \cap C$.
-            \end{enumerate}
-        \end{example}
-        \begin{solution*}
-            \begin{enumerate}
-                \item<6-> No. Let $A = \emptyset, B = C \supset A$, then $A \cup C = B \cup C$.
-                \item<7-> No. Let $A \ne B, C = \emptyset$, then $A \cap C = B \cap C$.
-            \end{enumerate}
-        \end{solution*}
-    \end{column}
-\end{columns}
-\end{frame}
-
 \begin{frame}
 \frametitle{Relation}
 \begin{example}
