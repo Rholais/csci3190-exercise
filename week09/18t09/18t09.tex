@@ -117,12 +117,14 @@ Because 1 implies 2, 2 implies 3, and 3 implies 1, the three statements, 1, 2, a
 \end{columns}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[allowframebreaks]
 \frametitle{Minimum}
-\begin{columns}
-    \begin{column}{0.5\linewidth}
-        \onslide<1-> Consider~\Cref{a:3} to find the minimum of
-        $n$ numbers.Let $T(n)$ be the running time to solve FindMin() where $n$ is the number of elements in $A[]$
+% \begin{columns}
+%     \begin{column}{0.6\linewidth}
+        \begin{eg}
+            Consider~\Cref{a:3} to find the minimum of $n$ numbers.
+            Let $T(n)$ be the running time to solve FindMin() where $n$ is the number of elements in $A[]$.
+        \end{eg}
         \begin{algorithm}[H]
             \caption{Recursive Algorithm}
             \label{a:3}
@@ -138,17 +140,15 @@ Because 1 implies 2, 2 implies 3, and 3 implies 1, the three statements, 1, 2, a
                 \EndProcedure
             \end{algorithmic}
         \end{algorithm}
-    \end{column}
-    \begin{column}{0.6\linewidth}
-        \begin{eg}
-            \begin{enumerate}
-                \item Write a recurrence equation for $T(n)$.
-                \item Solve the recurrence and find the complexity of FindMin().
-            \end{enumerate}
-        \end{eg}
+        \begin{enumerate}
+            \item Write a recurrence equation for $T(n)$.
+            \item Solve the recurrence and find the complexity of FindMin().
+        \end{enumerate}
         \begin{solution*}
             \begin{enumerate}
-                \item<2-> \begin{equation}
+                \item<2-> Let $a$ be the running time of the basis step,
+                $b$ be the running time of the min operation of two numbers, then we have
+                \begin{equation}
                     \begin{cases}
                     T(1) = a,\\
                     T(n) = 2T(\frac{n}{2}) + b.
@@ -157,8 +157,8 @@ Because 1 implies 2, 2 implies 3, and 3 implies 1, the three statements, 1, 2, a
                 \item<3-> $T(n) = 2T(\frac{n}{2}) + b = 4T(\frac{n}{4}) + 3b = \cdots = nT(1) + (n - 1)b = (a + b)n - b = O(n)$.
             \end{enumerate}
         \end{solution*}
-    \end{column}
-\end{columns}
+%     \end{column}
+% \end{columns}
 \end{frame}
 
 \begin{frame}

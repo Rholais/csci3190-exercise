@@ -32,11 +32,11 @@
 \def\old@comma{,}
 \catcode`\,=13
 \def,{%
-	\ifmmode%
-	\old@comma\discretionary{}{}{}%
-	\else%
-	\old@comma%
-	\fi%
+    \ifmmode%
+    \old@comma\discretionary{}{}{}%
+    \else%
+    \old@comma%
+    \fi%
 }
 \makeatother
 
@@ -52,167 +52,150 @@
 \begin{frame}[fragile]
 \frametitle{Complexity}
 \onslide<1->\begin{example}
-	Show the following:\begin{enumerate}[(a)]
-		\item $3n^2 + 5n + 10 = O(n^2)$
-	\end{enumerate}
+    Show the following:\begin{enumerate}[(b)]
+        \item $100 \log_2 n = O(n)$
+    \end{enumerate}
 \end{example}
 \onslide<2>\begin{proof}
-	\begin{enumerate}[(a)]
-		\item \begin{description}
-			\item[Method 1] $\exists c = 4, \exists N = 6$, such that $\forall n > N, 3n^2 + 5n + 10 < 4n^2$.
-			\item[Method 2] Since $3 + \frac{5}{n} + \frac{10}{n^2} = O(1)$ and $n^2 = O(n^2)$, $3n^2 + 5n + 10 = O(n^2)$.
-		\end{description}
-	\end{enumerate}
+    \begin{enumerate}[(b)]
+        \item \begin{description}
+            \item[Method 1] Since $100 = O(1)$ and $\log_2 n = O(n)$, $100\log_2 n = O(n)$.
+            \item[Method 2] \begin{align}
+            & \lim\limits_{n \rightarrow \infty} \frac{100\log_2 n}{n}\\
+            = & \frac{100}{\ln 2} \lim\limits_{n \rightarrow \infty} \frac{1}{n}\\
+            = & 0
+            \end{align}
+        \end{description}
+    \end{enumerate}
 \end{proof}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Complexity}
 \onslide<1->\begin{example}
-	Show the following:\begin{enumerate}[(b)]
-		\item $100 \log_2 n = O(n)$
-	\end{enumerate}
+    Show the following:\begin{enumerate}[(a)]
+        \setcounter{enumi}{2}
+        \item $n! = O(n^n)$
+        \item $2^n = O(n!)$
+    \end{enumerate}
 \end{example}
 \onslide<2>\begin{proof}
-	\begin{enumerate}[(b)]
-		\item \begin{description}
-			\item[Method 1] Since $100 = O(1)$ and $\log_2 n = O(n)$, $100\log_2 n = O(n)$.
-			\item[Method 2] \begin{align}
-			& \lim\limits_{n \rightarrow \infty} \frac{100\log_2 n}{n}\\
-			= & \frac{100}{\ln 2} \lim\limits_{n \rightarrow \infty} \frac{1}{n}\\
-			= & 0
-			\end{align}
-		\end{description}
-	\end{enumerate}
-\end{proof}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Complexity}
-\onslide<1->\begin{example}
-	Show the following:\begin{enumerate}[(a)]
-		\setcounter{enumi}{2}
-		\item $n! = O(n^n)$
-		\item $2^n = O(n!)$
-	\end{enumerate}
-\end{example}
-\onslide<2>\begin{proof}
-	\begin{enumerate}[(a)]
-		\setcounter{enumi}{2}
-		\item $n! = \Pi_{i = 1}^n i \le \Pi_{i = 1}^n n = n^n$.
-		\item $\exists c = 2, \exists N = 1$, such that $\forall n > N, 2^n = \Pi_{i = 1}^n 2 = 2 \Pi_{i = 2}^n 2 \le 2 \Pi_{i = 2}^n i = 2(n!)$.
-	\end{enumerate}
+    \begin{enumerate}[(a)]
+        \setcounter{enumi}{2}
+        \item $n! = \Pi_{i = 1}^n i \le \Pi_{i = 1}^n n = n^n$.
+        \item $\exists c = 2, \exists N = 1$, such that $\forall n > N, 2^n = \Pi_{i = 1}^n 2 = 2 \Pi_{i = 2}^n 2 \le 2 \Pi_{i = 2}^n i = 2(n!)$.
+    \end{enumerate}
 \end{proof}
 \end{frame}
 
 \begin{frame}[allowframebreaks]
 \frametitle{LCS between 3 Sequences}
 \begin{example}
-	Consider the longest common subsequence problem between three sequences $A[1\cdots m]$, $B[1\cdots n]$ and $C[1\cdots p]$.
-	Give a $O(mnp)$ dynamic programming based method to compute the longest common subsequence among
-	these 3 sequences. 
+    Consider the longest common subsequence problem between three sequences $A[1\cdots m]$, $B[1\cdots n]$ and $C[1\cdots p]$.
+    Give a $O(mnp)$ dynamic programming based method to compute the longest common subsequence among
+    these 3 sequences. 
 \end{example}
 
 \begin{algorithm}[H]
-	\caption{Compute the LCS among 3 Sequences}
-	\label{a-6}
-	\begin{algorithmic}
-		\Procedure{Three}{$A$, $B$, $C$}
-		\State $T \coloneqq \Call{Zeros}{0 \cdots m, 0 \cdots n, 0 \cdots p}$
-		\For{$j \coloneqq 1 \cdots m$} $T[j, 0, 0] \coloneqq 0$
-		\EndFor
-		\For{$k \coloneqq 1 \cdots n$} $T[0, k, 0] \coloneqq 0$
-		\EndFor
-		\For{$l \coloneqq 1 \cdots p$} $T[0, 0, l] \coloneqq 0$
-		\EndFor
-		\For{$j \coloneqq 1 \cdots m$}
-		\For{$k \coloneqq 1 \cdots n$}
-		\For{$l \coloneqq 1 \cdots l$}
-		\If{$A[j] = B[k] = C[l]$} $T[j, k, l] \coloneqq T[j - 1, k - 1, l - 1] + 1$
-		\Else\ $T[j, k, l] = \Call{Max}{T[j - 1, k, l], T[j, k - 1, l], T[j, k - 1, l]}$
-		\EndIf
-		\EndFor
-		\EndFor
-		\EndFor
-		\State \Return $T[m, n, l]$
-		\EndProcedure
-	\end{algorithmic}
+    \caption{Compute the LCS among 3 Sequences}
+    \label{a-6}
+    \begin{algorithmic}
+        \Procedure{Three}{$A$, $B$, $C$}
+        \State $T \coloneqq \Call{Zeros}{0 \cdots m, 0 \cdots n, 0 \cdots p}$
+        \For{$j \coloneqq 1 \cdots m$} $T[j, 0, 0] \coloneqq 0$
+        \EndFor
+        \For{$k \coloneqq 1 \cdots n$} $T[0, k, 0] \coloneqq 0$
+        \EndFor
+        \For{$l \coloneqq 1 \cdots p$} $T[0, 0, l] \coloneqq 0$
+        \EndFor
+        \For{$j \coloneqq 1 \cdots m$}
+        \For{$k \coloneqq 1 \cdots n$}
+        \For{$l \coloneqq 1 \cdots l$}
+        \If{$A[j] = B[k] = C[l]$} $T[j, k, l] \coloneqq T[j - 1, k - 1, l - 1] + 1$
+        \Else\ $T[j, k, l] = \Call{Max}{T[j - 1, k, l], T[j, k - 1, l], T[j, k - 1, l]}$
+        \EndIf
+        \EndFor
+        \EndFor
+        \EndFor
+        \State \Return $T[m, n, l]$
+        \EndProcedure
+    \end{algorithmic}
 \end{algorithm}
 \end{frame}
 
 \begin{frame}[allowframebreaks]
 \frametitle{Unique Symbols}
 \begin{example}
-	Consider the longest common subsequence problem between sequence $A[1\cdots m]$ and sequence $B[1\cdots n]$ where
-	the symbols in $A$ are all unique. Give a $O(n \log m)$ algorithm that can find the longest common subsequence
-	between $A[1\cdots m]$ and $B[1\cdots n]$.
+    Consider the longest common subsequence problem between sequence $A[1\cdots m]$ and sequence $B[1\cdots n]$ where
+    the symbols in $A$ are all unique. Give a $O(n \log m)$ algorithm that can find the longest common subsequence
+    between $A[1\cdots m]$ and $B[1\cdots n]$.
 \end{example}
 
 \textbf{Solution} Firstly use Algorithm \ref{a-7-1} to translate longest common subsequence problem to longest increasing subsequence problem. Secondly use Algorithm \ref{a-7-2} to solve it.
 \begin{algorithm}[H]
-	\caption{Compute the LCS with Unique Symbols}
-	\label{a-7-1}
-	\begin{algorithmic}
-		\Procedure{Translate}{$A$, $B$}
-		\State $C \coloneqq \Call{Zeros}{n}$, $D \coloneqq \Call{Zeros}{{}}$
-		\For{$j \coloneqq 1 \cdots m$} $D[A[j]] \coloneqq j$
-		\EndFor
-		\For{$k \coloneqq 1 \cdots n$} $C[k] = D[B[k]]$
-		\EndFor
-		\State \Return $C$, $D$
-		\EndProcedure
-	\end{algorithmic}
+    \caption{Compute the LCS with Unique Symbols}
+    \label{a-7-1}
+    \begin{algorithmic}
+        \Procedure{Translate}{$A$, $B$}
+        \State $C \coloneqq \Call{Zeros}{n}$, $D \coloneqq \Call{Zeros}{{}}$
+        \For{$j \coloneqq 1 \cdots m$} $D[A[j]] \coloneqq j$
+        \EndFor
+        \For{$k \coloneqq 1 \cdots n$} $C[k] = D[B[k]]$
+        \EndFor
+        \State \Return $C$, $D$
+        \EndProcedure
+    \end{algorithmic}
 \end{algorithm}
 \begin{algorithm}[H]
-	\caption{Compute the LCS with Unique Symbols}
-	\label{a-7-2}
-	\begin{algorithmic}
-		\Procedure{Unique}{$A$, $B$}
-		\State $C, D \coloneqq \Call{Translate}{A, B}$
-		\State $P \coloneqq \Call{Zeros}{n}$, $M \coloneqq \Call{Zeros}{n + 1}$, $l \coloneqq 0$
-		\For{$k \coloneqq 1 \cdots n$}
-		\State $lo \coloneqq 1$, $hi \coloneqq l$
-		\While{$lo \le hi$}
-		\State $mid \coloneqq \Call{Ceil}{\frac{lo + hi}{2}}$
-		\If{$C[M[mid + 1]] < C[k]$} $lo \coloneqq mid + 1$
-		\Else\ $hi \coloneqq mid - 1$
-		\EndIf
-		\EndWhile
-		\State $P[k] = M[lo]$, $M[lo + 1] = k$
-		\If{$lo > l$} $l = lo$
-		\EndIf
-		\EndFor
-		\State $S \coloneqq \Call{Zeros}{l}$, $k = M[l + 1]$
-		\For{$i \coloneqq l \cdots 1$} $S[i]=A[C[k]]$, $k = P[k]$
-		\EndFor
-		\State \Return $S$
-		\EndProcedure
-	\end{algorithmic}
+    \caption{Compute the LCS with Unique Symbols}
+    \label{a-7-2}
+    \begin{algorithmic}
+        \Procedure{Unique}{$A$, $B$}
+        \State $C, D \coloneqq \Call{Translate}{A, B}$
+        \State $P \coloneqq \Call{Zeros}{n}$, $M \coloneqq \Call{Zeros}{n + 1}$, $l \coloneqq 0$
+        \For{$k \coloneqq 1 \cdots n$}
+        \State $lo \coloneqq 1$, $hi \coloneqq l$
+        \While{$lo \le hi$}
+        \State $mid \coloneqq \Call{Ceil}{\frac{lo + hi}{2}}$
+        \If{$C[M[mid + 1]] < C[k]$} $lo \coloneqq mid + 1$
+        \Else\ $hi \coloneqq mid - 1$
+        \EndIf
+        \EndWhile
+        \State $P[k] = M[lo]$, $M[lo + 1] = k$
+        \If{$lo > l$} $l = lo$
+        \EndIf
+        \EndFor
+        \State $S \coloneqq \Call{Zeros}{l}$, $k = M[l + 1]$
+        \For{$i \coloneqq l \cdots 1$} $S[i]=A[C[k]]$, $k = P[k]$
+        \EndFor
+        \State \Return $S$
+        \EndProcedure
+    \end{algorithmic}
 \end{algorithm}
 \end{frame}
 
 \begin{frame}[allowframebreaks]
 \frametitle{Tree}
 \begin{example}
-	\begin{enumerate}[(a)]
-		\item Show that the sum of the degrees of the vertices of a tree with $n$ vertices is $2n-2$.
-		\item For $n \ge 2$, let $d_1, d_2, \cdots , d_n$ be $n$ positive integers such that $d_1 + d_2 + \cdots + d_n = 2n -2$. Show that there
-		exists a tree whose vertices have degrees $d_1, d_2, \cdots, d_n$. 
-	\end{enumerate}
+    \begin{enumerate}[(a)]
+        \item Show that the sum of the degrees of the vertices of a tree with $n$ vertices is $2n-2$.
+        \item For $n \ge 2$, let $d_1, d_2, \cdots , d_n$ be $n$ positive integers such that $d_1 + d_2 + \cdots + d_n = 2n -2$. Show that there
+        exists a tree whose vertices have degrees $d_1, d_2, \cdots, d_n$. 
+    \end{enumerate}
 \end{example}
 \newpage
 \begin{proof}
-	\begin{enumerate}[(a)]
-		\item A $n$-vertex tree has $n-1$ edges so that the total degree is $2n - 2$.
-		\item For $n = 2$, this is trivial. Suppose $\forall$ positive $d_i$ such that $\Sigma_{i = 1}^{n - 1} d_i = 2n - 4$, $\exists$ a tree $T^\prime$ whose vertices have degrees $d_1, d_2, \cdots, d_{n - 1}$. Then $\forall$ positive $d_i$ such that $\Sigma_{i = 1}^{n} d_i = 2n - 2$, since $d_i$ cannot be all greater than 1 or less than 2, without loss of generality, let $d_{n - 1} > 1, d_n = 1$. Hence we can remove $d_n$ and subtract $d_{n - 1}$ by 1 so that $\Sigma_{i = 1}^{n - 1} d_i = 2n - 4$ and we can find a tree $T^\prime$. After that we can add vertex $d_n$ as a leaf of $d_{n - 1}$ to build the final tree $T$.
-	\end{enumerate}
+    \begin{enumerate}[(a)]
+        \item A $n$-vertex tree has $n-1$ edges so that the total degree is $2n - 2$.
+        \item For $n = 2$, this is trivial. Suppose $\forall$ positive $d_i$ such that $\Sigma_{i = 1}^{n - 1} d_i = 2n - 4$, $\exists$ a tree $T^\prime$ whose vertices have degrees $d_1, d_2, \cdots, d_{n - 1}$. Then $\forall$ positive $d_i$ such that $\Sigma_{i = 1}^{n} d_i = 2n - 2$, since $d_i$ cannot be all greater than 1 or less than 2, without loss of generality, let $d_{n - 1} > 1, d_n = 1$. Hence we can remove $d_n$ and subtract $d_{n - 1}$ by 1 so that $\Sigma_{i = 1}^{n - 1} d_i = 2n - 4$ and we can find a tree $T^\prime$. After that we can add vertex $d_n$ as a leaf of $d_{n - 1}$ to build the final tree $T$.
+    \end{enumerate}
 \end{proof}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Chain Letter}
 \begin{example}
-	Suppose that someone starts a chain letter. Each person who receives the letter is asked to send it on to four other people. Some people do this, but others do not send any letters. How many people have seen the letter, including the first person, if no one receives more than one letter and if the chain letter ends after there have been 100 people who read it but did not send it out? How many people sent out the letter?
+    Suppose that someone starts a chain letter. Each person who receives the letter is asked to send it on to four other people. Some people do this, but others do not send any letters. How many people have seen the letter, including the first person, if no one receives more than one letter and if the chain letter ends after there have been 100 people who read it but did not send it out? How many people sent out the letter?
 \end{example}
 \textbf{Solution} The chain letter can be represented using a 4-ary tree. The internal vertices correspond to people who sent out the letter, and the leaves correspond to people who did not send it out. Because 100 people did not send out the letter, the number of leaves in this rooted tree is
 $l = 100$. Hence, Theorem \ref{t-11-1-4} shows that the number of people who have seen the letter is $n = \frac{4 \times 100 - 1}{4 - 1} = 133$. Also, the number of internal vertices is $133 - 100 = 33$, so 33 people sent out the letter.
@@ -221,138 +204,138 @@ $l = 100$. Hence, Theorem \ref{t-11-1-4} shows that the number of people who hav
 \begin{frame}[allowframebreaks]
 \frametitle{Traversal}
 \begin{example}
-	\begin{enumerate}[(a)]
-		\item Construct a binary tree with 7 vertices of which the preorder traversal is the same as its inorder traversal. Give its postprder traversal and preorder traversal.
-		\item Construct a binary tree with 8 vertices of which the postorder traversal is the same as its inorder traversal. Give its postprder traversal and preorder traversal.
-		\item Construct a binary tree of which th preorder travelsal is the same as its postorder travelsal.
-	\end{enumerate}
+    \begin{enumerate}[(a)]
+        \item Construct a binary tree with 7 vertices of which the preorder traversal is the same as its inorder traversal. Give its postprder traversal and preorder traversal.
+        \item Construct a binary tree with 8 vertices of which the postorder traversal is the same as its inorder traversal. Give its postprder traversal and preorder traversal.
+        \item Construct a binary tree of which th preorder travelsal is the same as its postorder travelsal.
+    \end{enumerate}
 \end{example}
 \begin{solution*}
-	\begin{columns}
-		\begin{column}{.4\linewidth}
-			\begin{enumerate}
-				\item See Figure \ref{f-4-1}.
-				\begin{description}
-					\item[Postorder] 7654321
-					\item[Preorder] 1234567
-				\end{description}
-				\item See Figure \ref{f-4-2}.
-				\begin{description}
-					\item[Postorder] 87654321
-					\item[Preorder] 12345678
-				\end{description}
-				\item See Figure \ref{f-4-3}.
-				\begin{figure}
-					\centering
-					\begin{tikzpicture}
-					\node[draw](z){1};
-					\end{tikzpicture}
-					\caption{A Tree $T$}
-					\label{f-4-3}
-				\end{figure}
-			\end{enumerate}
-		\end{column}
-		\begin{column}{.3\linewidth}
-			\begin{figure}
-				\centering
-				\begin{tikzpicture}
-				\node[draw](z){1}
-				[sibling distance=7mm] 
-				[level distance=7mm]
-				child[missing]
-				child{
-					node[draw]{2} 
-					child[missing] 
-					child{
-						node[draw]{3} 
-						child[missing] 
-						child{
-							node[draw]{4} 
-							child[missing] 
-							child{
-								node[draw]{5} 
-								child[missing] 
-								child{
-									node[draw]{6} 
-									child[missing] 
-									child{
-										node[draw]{7}}}}}}};
-				\end{tikzpicture}
-				\caption{A Tree $T$}
-				\label{f-4-1}
-			\end{figure}
-		\end{column}
-		\begin{column}{.3\linewidth}
-			\begin{figure}
-				\centering
-				\begin{tikzpicture}
-				\node[draw](z){1}
-				[sibling distance=7mm] 
-				[level distance=7mm]
-				child{
-					node[draw]{2} 
-					child{
-						node[draw]{3} 
-						child{
-							node[draw]{4} 
-							child{
-								node[draw]{5} 
-								child{
-									node[draw]{6} 
-									child{
-										node[draw]{7}
-										child{
-											node[draw]{8}
-											child[missing] 
-										}
-										child[missing] 
-									}
-									child[missing] 
-								}
-								child[missing] 
-							}
-							child[missing] 
-						}
-						child[missing] 
-					}
-					child[missing] 
-				}
-				child[missing];
-				\end{tikzpicture}
-				\caption{A Tree $T$}
-				\label{f-4-2}
-			\end{figure}
-		\end{column}
-	\end{columns}
+    \begin{columns}
+        \begin{column}{.4\linewidth}
+            \begin{enumerate}
+                \item See Figure \ref{f-4-1}.
+                \begin{description}
+                    \item[Postorder] 7654321
+                    \item[Preorder] 1234567
+                \end{description}
+                \item See Figure \ref{f-4-2}.
+                \begin{description}
+                    \item[Postorder] 87654321
+                    \item[Preorder] 12345678
+                \end{description}
+                \item See Figure \ref{f-4-3}.
+                \begin{figure}
+                    \centering
+                    \begin{tikzpicture}
+                    \node[draw](z){1};
+                    \end{tikzpicture}
+                    \caption{A Tree $T$}
+                    \label{f-4-3}
+                \end{figure}
+            \end{enumerate}
+        \end{column}
+        \begin{column}{.3\linewidth}
+            \begin{figure}
+                \centering
+                \begin{tikzpicture}
+                \node[draw](z){1}
+                [sibling distance=7mm] 
+                [level distance=7mm]
+                child[missing]
+                child{
+                    node[draw]{2} 
+                    child[missing] 
+                    child{
+                        node[draw]{3} 
+                        child[missing] 
+                        child{
+                            node[draw]{4} 
+                            child[missing] 
+                            child{
+                                node[draw]{5} 
+                                child[missing] 
+                                child{
+                                    node[draw]{6} 
+                                    child[missing] 
+                                    child{
+                                        node[draw]{7}}}}}}};
+                \end{tikzpicture}
+                \caption{A Tree $T$}
+                \label{f-4-1}
+            \end{figure}
+        \end{column}
+        \begin{column}{.3\linewidth}
+            \begin{figure}
+                \centering
+                \begin{tikzpicture}
+                \node[draw](z){1}
+                [sibling distance=7mm] 
+                [level distance=7mm]
+                child{
+                    node[draw]{2} 
+                    child{
+                        node[draw]{3} 
+                        child{
+                            node[draw]{4} 
+                            child{
+                                node[draw]{5} 
+                                child{
+                                    node[draw]{6} 
+                                    child{
+                                        node[draw]{7}
+                                        child{
+                                            node[draw]{8}
+                                            child[missing] 
+                                        }
+                                        child[missing] 
+                                    }
+                                    child[missing] 
+                                }
+                                child[missing] 
+                            }
+                            child[missing] 
+                        }
+                        child[missing] 
+                    }
+                    child[missing] 
+                }
+                child[missing];
+                \end{tikzpicture}
+                \caption{A Tree $T$}
+                \label{f-4-2}
+            \end{figure}
+        \end{column}
+    \end{columns}
 \end{solution*}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Traversal}
 \begin{columns}
-	\begin{column}{.5\linewidth}
-		\onslide<1->\begin{example}
-			Construct a DFS and a BFS traversal for the graphs in Figure starting with node B as the root.
-		\end{example}
-		\onslide<2>\begin{solution*}
-			\begin{enumerate}[(a)]
-				\item \begin{description}
-					\item[DFS] B, A, C, F, D, E
-					\item[BFS] B, A, C, D, E, F
-				\end{description}
-				\item \begin{description}
-					\item[DFS] B, A, D, E, C
-					\item[BFS] B, A, C, D, E
-				\end{description}
-			\end{enumerate}
-		\end{solution*}
-	\end{column}
-	\onslide<1->\begin{column}{.5\linewidth}
-		\begin{figure}
-			\centering
-			\includegraphics[width=\linewidth]{fg-1}
-		\end{figure}
-	\end{column}
+    \begin{column}{.5\linewidth}
+        \onslide<1->\begin{example}
+            Construct a DFS and a BFS traversal for the graphs in Figure starting with node B as the root.
+        \end{example}
+        \onslide<2>\begin{solution*}
+            \begin{enumerate}[(a)]
+                \item \begin{description}
+                    \item[DFS] B, A, C, F, D, E
+                    \item[BFS] B, A, C, D, E, F
+                \end{description}
+                \item \begin{description}
+                    \item[DFS] B, A, D, E, C
+                    \item[BFS] B, A, C, D, E
+                \end{description}
+            \end{enumerate}
+        \end{solution*}
+    \end{column}
+    \onslide<1->\begin{column}{.5\linewidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\linewidth]{fg-1}
+        \end{figure}
+    \end{column}
 \end{columns}
 \end{frame}
 

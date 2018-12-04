@@ -1,5 +1,5 @@
 %!TEX program = xelatex
-\documentclass[10pt, compress]{beamer}
+\documentclass[10pt, compress, handout]{beamer}
 \usepackage[titleprogressbar]{../../cls/beamerthemem}
 
 \setbeamertemplate{caption}[numbered]
@@ -26,8 +26,8 @@
 \resetcounteronoverlays{algorithm}
 
 \usepackage{version}
-%\excludeversion{proof}
-%\excludeversion{solution*}
+\excludeversion{proof}
+\excludeversion{solution*}
 
 \usepackage{mathtools}
 \usepackage{multicol}
@@ -196,7 +196,7 @@
 \frametitle{Cycle}
 \begin{eg}
     Let $P_1$ and $P_2$ be two paths without cycle between the vertices $u$ and $v$
-    in the simple graph $G$ that do not contain the same set of edges.
+    in the simple graph $G$ that do not contain the same set of edges (i.e., the two paths are not the same).
     Show that there is a cycle in $G$.
 \end{eg}
 \onslide<2> \begin{proof}
