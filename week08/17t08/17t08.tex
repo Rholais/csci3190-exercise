@@ -32,11 +32,11 @@
 \def\old@comma{,}
 \catcode`\,=13
 \def,{%
-	\ifmmode%
-	\old@comma\discretionary{}{}{}%
-	\else%
-	\old@comma%
-	\fi%
+    \ifmmode%
+    \old@comma\discretionary{}{}{}%
+    \else%
+    \old@comma%
+    \fi%
 }
 \makeatother
 
@@ -52,14 +52,14 @@
 \begin{frame}[fragile]
 \frametitle{Tautologies}
 \begin{example}
-	\begin{enumerate}
-		\item Determine if the following is a tautology. Show your proof. \begin{equation}
-			(p \to q) \to ((p \lor q) \to q).
-		\end{equation}
-		\item Determine if the followings are logically equivalent. Show your proof. \begin{equation}
-		(p \to q) \land (p \to r) \text{~and~} q \to r.
-		\end{equation}
-	\end{enumerate}
+    \begin{enumerate}
+        \item Determine if the following is a tautology. Show your proof. \begin{equation}
+            (p \to q) \to ((p \lor q) \to q).
+        \end{equation}
+        \item Determine if the followings are logically equivalent. Show your proof. \begin{equation}
+        (p \to q) \land (p \to r) \text{~and~} q \to r.
+        \end{equation}
+    \end{enumerate}
 \end{example}
 \begin{proof}
 	\begin{enumerate}
