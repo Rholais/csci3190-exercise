@@ -1,0 +1,302 @@
+%!TEX program = xelatex
+\documentclass[10pt, compress, handout]{beamer}
+\usepackage[titleprogressbar]{../../cls/beamerthemem}
+
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{theorems}[numbered]
+\newcounter{example}
+\resetcounteronoverlays{example}
+\newtheorem{crl}{Corollary}[theorem]
+\newtheorem{eg}[example]{Example}
+\newtheorem*{solution*}{Solution}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{minted}
+
+\usepackage{cleveref}
+\crefname{example}{Example}{Examples}
+
+\usepgfplotslibrary{dateplot}
+
+\usemintedstyle{trac}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\resetcounteronoverlays{algorithm}
+
+\usepackage{version}
+% \excludeversion{proof}
+% \excludeversion{solution*}
+
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{qtree}
+
+\usepackage{tikz}
+
+\makeatletter
+\def\old@comma{,}
+\catcode`\,=13
+\def,{%
+    \ifmmode%
+    \old@comma\discretionary{}{}{}%
+    \else%
+    \old@comma%
+    \fi%
+}
+\makeatother
+
+\title{CSCI 3190 Tutorial of Week 13}
+\subtitle{Tree}
+\author{LI Haocheng}
+\institute{Department of Computer Science and Engineering}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}[fragile]
+\frametitle{Distributive Property}
+\begin{eg}
+    Prove that \begin{enumerate}
+        \item $(A - B) - (A - C) \equiv A \cap (C - B)$;
+        \item $(A - C) - (B - C) \equiv (A - B) - C$.
+    \end{enumerate}
+\end{eg}
+\begin{proof}
+    \begin{columns}
+        \onslide<2->\begin{column}{.4\linewidth}
+            \begin{align}
+                \begin{aligned}
+                    & (A - B) - (A - C)\\
+                    \equiv & (A \cap \overline{B}) \cap \overline{A \cap \overline{C}}\\
+                    \equiv & A \cap \overline{B} \cap (\overline{A} \cup C)\\
+                    \equiv & (A \cap \overline{A} \cap \overline{B}) \cup (A \cap \overline{B} \cap C)\\
+                    \equiv & A \cap (C - B).
+                \end{aligned}
+            \end{align}
+        \end{column}
+        \onslide<3>\begin{column}{.4\linewidth}
+            \begin{align}
+                \begin{aligned}
+                    & (A - C) - (B - C)\\
+                    \equiv & A \cap \overline{C} \cap \overline{B \cap \overline{C}}\\
+                    \equiv & A \cap \overline{C} \cap (\overline{B} \cup C)\\
+                    \equiv & A \cap \overline{B} \cap \overline{C}\\
+                    \equiv & (A - B) - C.
+                \end{aligned}
+            \end{align}
+        \end{column}
+    \end{columns}
+\end{proof}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Propositional Satisfiability}
+\begin{eg}
+    Determine whether each of the compound propositions
+    $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r)$
+    $\land (\neg p \lor \neg q \lor \neg r)$ is satisfiable.
+\end{eg}
+\onslide<2>\begin{solution*}
+    Note that for
+    $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r)$
+    $\land (\neg p \lor \neg q \lor \neg r)$ to be true,
+    $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p)$ and
+    $(p \lor q \lor r) \land (\neg p \lor \neg q \lor \neg r)$ must both be true.
+    For the first to be true, the three variables must have the same truth values,
+    and for the second to be true,
+    at least one of three variables must be true and at least one must be false.
+    However, these conditions are contradictory.
+    From these observations we conclude that no assignment of truth values to $p$, $q$,
+    and $r$ makes
+    $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r)$
+    $\land (\neg p \lor \neg q \lor \neg r)$ true. Hence, it is unsatisfiable.
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Quantifiers}
+\begin{columns}
+    \begin{column}{.7\linewidth}
+        \begin{eg}
+            Determine the truth value of the followings, where $x, y \in \mathbb{I}^+$.
+            \begin{enumerate}
+                \item $\forall x \forall y (2x^2 < y + 1)$
+                \item $\forall x \exists y (2x^2 < y + 1)$
+                \item $\exists x \forall y (2x^2 < y + 1)$
+                \item $\exists x \exists y (2x^2 < y + 1)$
+            \end{enumerate}
+        \end{eg}
+        \begin{solution*}
+            \begin{enumerate}
+                \item<2-> False. Let $x = 1, y = 1$, then $2x^2 = y + 1$.
+                \item<3-> True. $\forall x \exists y = 2x^2$ s.t. $2x^2 < y + 1$.
+                \item<4-> False. Let $y = 1, 2x^2 < y + 1$, then $x < 1$.
+                \item<5-> True. Let $x = 1, y = 2$, then $2x^2 < y + 1$.
+            \end{enumerate}
+        \end{solution*}
+    \end{column}
+    \begin{column}{.4\linewidth}
+        \begin{eg}
+            Can you conclude that $A = B$ if $A, B$ and $C$ are sets such that: \begin{enumerate}
+                \item $A \cup C = B \cup C$;
+                \item $A \cap C = B \cap C$.
+            \end{enumerate}
+        \end{eg}
+        \begin{solution*}
+            \begin{enumerate}
+                \item<6-> No. Let $A = \emptyset, B = C \supset A$, then $A \cup C = B \cup C$.
+                \item<7-> No. Let $A \ne B, C = \emptyset$, then $A \cap C = B \cap C$.
+            \end{enumerate}
+        \end{solution*}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Equivalence Class}
+\begin{eg}
+    Find smallest equivalence relation on set $\{a, b, c, d, e\}$ containing relation $\{(a, b), (b, c), (d, c)\}$.
+\end{eg}
+\begin{solution*}
+    \begin{enumerate}
+        \item<2-> Find Equivalence Classes: $[a] = \{a, b, c, d\}, [e] = \{e\}$.
+        \item<3> Find Equivalence Relation: $\{(a, a), (a, b), (a, c), (a, d), (b, a), (b, b), (b, c), (b, d), (c, a),$
+        $(c, b), (c, c), (c, d), (d, a), (d, b), (d, c), (d, d), (e, e)\}$
+    \end{enumerate}
+\end{solution*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Equivalence Relation}
+\begin{eg}
+    Consider the relation $R$ over the set of all positive integers $\mathbb{I}^+$:    $R = \{(a, b) \mid |a - b| \equiv 0 \pmod{2}\}$
+    \begin{enumerate}
+        \item Is $R$ an equivalence relation? Explain your answer.
+        \item How many equivalence classes of $R$ in $\mathbb{I}^+$ are there? What are they?
+    \end{enumerate}
+\end{eg}
+\begin{solution*}
+    \begin{enumerate}
+        \item<2-> Yes. \begin{itemize}
+            \item $\forall a \in \mathbb{I}^+, |a - a| = 0$.
+            \item $|b - a| = |a - b|$.
+            \item $|a - c| \equiv a - c \equiv (a - b) + (b - c) \equiv |a - b| + |b - c| \pmod{2}$.
+        \end{itemize}
+        
+        \item<3-> \begin{itemize}
+            \item 2.
+            \item $[1] = \{a \mid a \equiv 1 \pmod{2}\}$, $[2] = \{a \mid a \equiv 0 \pmod{2}\}$.
+        \end{itemize}
+    \end{enumerate}
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Relation}
+\begin{columns}
+    \begin{column}{.6\linewidth}
+        \begin{eg}
+            \begin{enumerate}
+                \item Let $A = \{1, 2, 3, 4, 5\}$, $R$ is a relation on $A \times A$ such that $((a, b), (c, d)) \in R$ if and only if $a - d = c - b$. Show that $R$ is an equivalence relation.
+                \item How many equivalence classes are there in $R$?
+            \end{enumerate}
+        \end{eg}
+        \begin{proof}
+            \begin{enumerate}
+                \item<2-> \begin{itemize}
+                    \item $a - b = a - b$.
+                    \item $a - d = c - b \Leftrightarrow c - b = a - d$.
+                    \item $a - d = c - b, c - f = e - d \Rightarrow a - f = e - b$.
+                \end{itemize}
+                \item<3-> 9.
+            \end{enumerate}
+        \end{proof}
+    \end{column}
+    \begin{column}{.5\linewidth}
+        \onslide<1->\begin{eg}
+            Let $n \in \mathbb{Z}^+$, let $U = \{1, 2, \cdots, n\}$. Define the relation $R$ on the power set of $U$ by $(A, B) \in R$ if and only if $A \not\subset B$ and $B \not\subset A$. Is $R$ an equivalence relation? What is $|R|$?
+        \end{eg}
+        \begin{solution*}
+            \begin{enumerate}
+                \item<4->. $R$ is not an equivalence relation. Let $n = 3, A = \{1\}, B = \{2\}$, $C = \{1, 3\}$ so that $(A, B) \in R, (B, C) \in R, (A, C) \notin R$.
+                \item<5> $|R| = 2^{2n} - 2(3^n - 2^n)$.
+            \end{enumerate}
+        \end{solution*}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Pigeonhole Principle}
+\begin{columns}
+    \begin{column}{.6\linewidth}
+        \begin{eg}
+            Let $S$ be a set of 7 positive integers the maximum of which is at most 24. Prove that the sums of the elements in all the nonempty subsets of $S$ cannot be distinct.
+        \end{eg}
+        \onslide<2->\begin{proof}
+            Consider nonempty subsets of size at most 5. Their maximum sum is at most $20 + 21 + \cdots + 24 = 110$. There are $126 - 7 = 119$ nonempty subsets with at most 5 elements so at least 2 of them have equal sum.
+        \end{proof}
+    \end{column}
+    \begin{column}{.5\linewidth}
+        \onslide<1->\begin{eg}
+            Given a closed form expression for the generating function of the following sequence:\begin{equation}
+            1, -2, 3, -4, 5, -6, \cdots
+            \end{equation}
+        \end{eg}
+        \onslide<3>\begin{solution*}
+            \begin{align}
+            a_r & = -1^{r + 1} & \leftrightarrow & -\frac{1}{1 + x},\\
+            b_r & = -1^r (r + 1) & \leftrightarrow & \frac{1}{(1 + x)^2}.
+            \end{align}
+        \end{solution*}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Complexity}
+\onslide<1->\begin{eg}
+    Show the following:\begin{enumerate}[(a)]
+        \item $3n^2 + 5n + 10 = O(n^2)$
+    \end{enumerate}
+\end{eg}
+\onslide<2>\begin{proof}
+    \begin{enumerate}[(a)]
+        \item \begin{description}
+            \item[Method 1] $\exists c = 4, \exists N = 6$, such that $\forall n > N, 3n^2 + 5n + 10 < 4n^2$.
+            \item[Method 2] Since $3 + \frac{5}{n} + \frac{10}{n^2} = O(1)$ and $n^2 = O(n^2)$, $3n^2 + 5n + 10 = O(n^2)$.
+        \end{description}
+    \end{enumerate}
+\end{proof}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Terminology}
+\begin{columns}
+    \begin{column}{.6\linewidth}
+        \onslide<1->\begin{eg}
+            In the rooted tree $T$ (with root $a$) shown in Figure \ref{f-11-1-5}, find the parent of $c$, the children of $g$, the
+            siblings of $h$, all ancestors of $e$, all descendants of $b$, all internal vertices, and all leaves. What
+            is the subtree rooted at $g$?
+        \end{eg}
+        \onslide<2>\begin{solution*}
+            The parent of $c$ is $b$. The children of $g$ are $h$, $i$, and $j$. The siblings of $h$ are $i$ and $j$. The ancestors of $e$ are $c$, $b$, and $a$. The descendants of $b$ are $c$, $d$, and $e$. The internal vertices are $a$, $b$, $c$, $g$, $h$, and $j$. The leaves are $d$, $e$, $f$, $i$, $k$, $l$, and $m$.
+        \end{solution*}
+    \end{column}
+    \onslide<1->\begin{column}{.4\linewidth}
+        \begin{figure}
+            \centering
+            $\Tree [.a [.b [.c d e ] ] f [.g [.h k ] i [.j l m ]]]$
+            \caption{A Rooted Tree $T$}
+            \label{f-11-1-5}
+        \end{figure}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\plain{Questions?}
+
+\end{document}
