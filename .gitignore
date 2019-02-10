@@ -1,3 +1,6 @@
+
+.DS_Store
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
@@ -181,4 +184,4 @@ TSWLatexianTemp*
 
 # Binary
 *.pdf
-week01/SIG Proceedings Template-Jan2015 Zip/sig-alternate-sample.pdf
+
