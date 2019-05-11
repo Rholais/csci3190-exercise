@@ -1,0 +1,628 @@
+%!TEX program = xelatex
+\documentclass[10pt, compress, handout]{beamer}
+\usepackage[titleprogressbar]{../cls/beamerthemem}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{minted}
+
+\usepgfplotslibrary{dateplot}
+
+\usemintedstyle{trac}
+
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{theorems}[numbered]
+\newcounter{example}
+\resetcounteronoverlays{example}
+\newtheorem{crl}{Corollary}[theorem]
+\newtheorem{eg}[example]{Example}
+\newtheorem*{solution*}{Solution}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\usepackage{cleveref}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{qtree}
+\usepackage{tikz}
+
+\usepackage{version}
+%\excludeversion{proof}
+%\excludeversion{solution*}
+
+\makeatletter
+\def\old@comma{,}
+\catcode`\,=13
+\def,{%
+    \ifmmode%
+    \old@comma\discretionary{}{}{}%
+    \else%
+    \old@comma%
+    \fi%
+}
+\makeatother
+
+\title{CSCI 3190 Tutorial}
+% \subtitle{Assignment 1}
+\author{LI Haocheng}
+\institute{Department of Computer Science and Engineering}
+
+\begin{document}
+
+\maketitle
+
+\section{Logic and Proofs}
+\subsection{Propositional Logic}
+
+\begin{frame}[fragile]
+    \frametitle{Tautological Implication}
+    \onslide<1->\begin{eg}
+        Prove the following tautological implication: \begin{enumerate}[(b)]
+            \item $(p \land (p \rightarrow q) \land (s \lor r) \land (r \rightarrow \lnot q)) \Rightarrow s$.
+        \end{enumerate}
+    \end{eg}
+    \onslide<2>\begin{proof}
+        \begin{enumerate}[(b)]
+            \item \begin{align}
+            \begin{aligned}
+            & (p \land (p \rightarrow q) \land (s \lor r) \land (r \rightarrow \lnot q)) \rightarrow s\\
+            \equiv & \lnot (p \land (\lnot p \lor q) \land (s \lor r) \land (\lnot r \lor \lnot q)) \lor s\\
+            \equiv & \lnot (p \land q \land (\lnot r \lor \lnot q) \land (s \lor r)) \lor s\\
+            \equiv & \lnot (p \land q \land \lnot r \land (r \lor s)) \lor s\\
+            \equiv & \lnot (p \land q \land \lnot r \land s) \lor s\\ \equiv & \lnot p \lor \lnot q \lor r \lor \lnot s \lor s\\
+            \equiv & TRUE.
+            \end{aligned}
+            \end{align}
+        \end{enumerate}
+    \end{proof}
+\end{frame}
+
+\subsection{Propositional Equivalences}
+
+\begin{frame}[fragile]
+\frametitle{Logical Equivalence}
+\onslide<1->\begin{eg}
+    Show that the following are logically equivalent:\begin{enumerate}[(a)]
+        \item $\lnot p \land \lnot q \rightarrow \lnot r \equiv r \rightarrow q \lor p$.
+        \item $p \rightarrow (q \land r) \equiv (p \rightarrow q) \land (p \rightarrow r)$.
+        \item $(p \lor q) \rightarrow r \equiv (p \rightarrow r) \land (q \rightarrow r)$.
+        \item $((q \rightarrow p) \land (\lnot p \rightarrow q) \land (q \rightarrow q)) \equiv p$.
+    \end{enumerate}
+\end{eg}
+\onslide<2>\begin{proof}
+    \begin{enumerate}[(a)]
+        \item $\lnot p \land \lnot q \rightarrow \lnot r \equiv \lnot r \lor \lnot (\lnot p \land \lnot q) \equiv \lnot r \lor (p \lor q) \equiv r \rightarrow q \lor p$.
+        \item $p \rightarrow (q \land r) \equiv (q \land r) \lor \lnot p \equiv (\lnot p \lor q) \land (\lnot p \lor r) \equiv (p \rightarrow q) \land (p \rightarrow r)$.
+        \item $(p \lor q) \rightarrow r \equiv \lnot (p \lor q) \lor r \equiv (\lnot p \land \lnot q) \lor r    \equiv (\lnot p \lor r) \land (\lnot q \lor r) \equiv (p \rightarrow r) \land (q \rightarrow r)$.
+        \item $((q \rightarrow p) \land (\lnot p \rightarrow q) \land (q \rightarrow q)) \equiv ((\lnot q \lor p) \land (p \lor q) \land (\lnot q \lor q)) \equiv ((p \lor (q \land \lnot q)) \land TRUE) \equiv (p \lor FALSE) \equiv p$.
+    \end{enumerate}
+\end{proof}
+\end{frame}
+
+\subsection{Nested Quantifiers}
+
+\begin{frame}[fragile]
+\frametitle{Tautology}
+\onslide<1->\begin{eg}
+    Prove the following statement or find a counterexample to disprove it. All the variables have the
+    same domain of the set of all integers:\begin{enumerate}[(a)]
+        \item $\forall x \forall y [(x^2 = y^2) \rightarrow (x = y)]$.
+        \item $\forall x \exists y [y^2 = x]$.
+        \item $\forall x \forall y [xy \ge x]$.
+        \item $\exists x \exists y [(x - y = 5) \land (2x + 4y = 4)]$.
+    \end{enumerate}
+\end{eg}
+\onslide<2>\begin{proof}
+    \begin{enumerate}[(a)]
+        \item False. $x = 1 \land y = -1$ is a counterexample.
+        \item False. Let $x = 2$, no integer $y$ satisfying $y^2 = x$.
+        \item False. Let $x = 1, y = -1$, we have $xy < x$.
+        \item True. Let $x = 4, y = -1$, we have $x - y = 5 \land 2x + 4y = 4$.
+    \end{enumerate}
+\end{proof}
+\end{frame}
+
+\section{Basic Structures}
+\subsection{Sets}
+
+\begin{frame}[fragile]
+\frametitle{Set}
+\begin{columns}
+    \begin{column}{.9\linewidth}
+        \onslide<1->\begin{eg}
+            Determine  whether each of the following statements is true for arbitrary sets $A, B$, and $C$. Give a counterexample if your answer is ``No''.\begin{enumerate}
+                \item If $A \in B$ and $B \subseteq C$, then $A \in C$.
+                \item If $A \subseteq B$ and $B \in C$, then $A \subseteq C$.
+                \item If $A \subseteq B$ and $B \in C$, then $A \in C$.
+            \end{enumerate}
+        \end{eg}
+        \onslide<2>\begin{solution*}
+            \begin{enumerate}
+                \item Yes.
+                \item No. Let $A = \{0\}, B = \{0\}, C = \{\{0\}\}$.
+                \item No. Let $A = \emptyset, B = \{0\}, C = \{\{0\}\}$.
+            \end{enumerate}
+        \end{solution*}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\subsection{Set Operations}
+
+\begin{frame}[fragile]
+\frametitle{Set}
+\onslide<1->\begin{eg}
+    Prove the followings:\begin{enumerate}[(a)]
+        \item $A \times (B \cap C) = (A \times B) \cap (A \times C)$.
+        \item $(A \cup B) - C = (A - C) \cup (B - C)$.
+    \end{enumerate}
+\end{eg}
+\onslide<2>\begin{proof}
+    \begin{enumerate}[(a)]
+        \item \begin{align}
+        \begin{aligned}
+        & ((a, b) \in A \times (B \cap C))\\
+        \equiv & ((a \in A) \land (b \in B \cap C))\\
+        \equiv & ((a \in A) \land (b \in B) \land (b \in C))\\
+        \equiv & (((a, b) \in A \times B) \land ((a, b) \in A \times C))\\
+        \equiv & ((a, b) \in (A \times B) \cap (A \times C)).
+        \end{aligned}
+        \end{align}
+        \item $(A \cup B) - C = (A \cup B) \cap \overline{C} = (A \cap \overline{C}) \cup (B \cap \overline{C}) = (A - C) \cup (B - C)$.
+    \end{enumerate}
+\end{proof}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Infinite Set}
+\onslide<1->\begin{eg}
+    Determine whether the following statements are true or false. \begin{enumerate}[(a)]
+        \item If $A$ and $B$ are infinite sets then $A \cap B$ is infinite.
+        \item If $B$ is infinite and $A \subseteq B$, then $A$ is infinite.
+        \item If $A \subseteq B$ with $B$ finite, then $A$ is finite.
+        \item If $A \subseteq B$ with $A$ finite, then $B$ is finite.
+    \end{enumerate}
+\end{eg}
+\onslide<2>\begin{proof}
+    \begin{enumerate}[(a)]
+        \item False. Let $A = \{x \mid x > 0 \land x \in \mathbb{Z}\}, B = \{x \mid x < 0 \land x \in \mathbb{Z}\}$, then $A \cap B = \emptyset$.
+        \item False. Let $B = \mathbb{Z}, A = \emptyset$, then $A \subseteq B, \left|A\right| = 0$.
+        \item True. Otherwise, $\left|A\right| > \left|B\right|$ which is contradictory to $A \subseteq B$.
+        \item False. Let $A = \emptyset, B = \mathbb{Z}$, then $A \subseteq B, \left|B\right| = \infty$.
+    \end{enumerate}
+\end{proof}
+\end{frame}
+
+\subsection{Functions}
+
+\begin{frame}[fragile]
+\frametitle{Function Composition}
+\onslide<1->\begin{eg}
+    Let $f$, $g$ and $h$ be functions from $\mathbb{N}$ to $\mathbb{N}$, where $\mathbb{N}$ is the set of all natural numbers, i.e., $1, 2, 3, \ldots$
+    and are defined as follows: \begin{align}
+        f(n) = & 2n + 1,\\
+        g(n) = & n + 5,\\
+        h(n) = & \begin{cases}
+        0 & \text{when $n$ is even},\\
+        1 & \text{when $n$ is odd}.
+        \end{cases}
+    \end{align} Determine $f \circ f, f \circ g, g \circ f$.
+\end{eg}
+\onslide<2>\begin{solution*}
+    \begin{enumerate}[(a)]
+        \item $(f \circ f)(n) = 2 (2n + 1) + 1 = 4n + 3$.
+        \item $(f \circ g)(n) = 2(n + 5) + 1 = 2n + 11$.
+        \item $(g \circ f)(n) = 2n + 1 + 5 = 2n + 6$.
+    \end{enumerate}
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Invertible Function}
+\onslide<1->\begin{eg}
+    If $\left|A\right| = \left|B\right| = 5$, \begin{enumerate}[(a)]
+        \item how many function $f: A \rightarrow B$ can be formed?
+        \item How many of them are invertible?
+    \end{enumerate}
+\end{eg}
+\onslide<2>\begin{solution*}
+    \begin{enumerate}[(a)]
+        \item $5^5$.
+        \item $5! = 120$.
+    \end{enumerate}
+\end{solution*}
+\end{frame}
+
+\section{Counting}
+\subsection{The Pigeonhole Principle}
+
+\begin{frame}[fragile]
+\frametitle{The Pigeonhole Principle}
+\begin{eg}
+    Assume that in a group of six people, each pair of individuals consists of two friends or two enemies.
+    Show that there are either three mutual friends or three mutual enemies in the group.
+\end{eg}
+\onslide<2>\begin{solution*}
+    Let $A$ be one of the six individuals.
+    Following from the generalized pigeonhole principle, of the five other people in the group,
+    there are either three or more who are friends or enemies of $A$.
+    
+    Without loss of generality, suppose that $B$, $C$, and $D$ are friends of $A$.
+    If any two of these three people are friends,
+    then these two and $A$ form a group of three mutual friends.
+    Otherwise, $B$, $C$, and $D$ form a set of three mutual enemies.
+\end{solution*}
+\end{frame}
+
+\subsection{Permutations and Combinations}
+\begin{frame}[fragile]
+\frametitle{Permutation}
+\begin{columns}
+    \begin{column}{.6\linewidth}
+        \begin{definition}
+            A \textbf{permutation} of a set of distinct objects is an ordered arrangement of these objects.
+        \end{definition}
+        \begin{definition}
+            An ordered arrangement of $r$ elements of a set is called an \textbf{$r$-permutation}.
+        \end{definition}
+        \begin{theorem}
+            \label{thm:p}
+            If $n$ is a positive integer and $r$ is an integer with $1 \le r \le n$, then there are $P(n, r) = n(n - 1)(n - 2) \cdots (n - r + 1)$
+            $r$-permutations of a set with $n$ distinct elements.
+        \end{theorem}
+    \end{column}
+    \begin{column}{.5\linewidth}
+        \onslide<2>\begin{proof}
+            The first element of the
+            permutation can be chosen in $n$ ways. There are $n - 1$ ways to choose the second element of the permutation. Similarly, there are $n - 2$ ways to choose the third element, and so on, until there are exactly $n - (r - 1) = n - r + 1$ ways to choose the $r$th element. Consequently, by the product rule, there are
+            $n(n - 1)(n - 2) \cdots (n - r + 1)$
+            $r$-permutations of the set.
+        \end{proof}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Factorial Expression}
+\begin{columns}
+    \begin{column}{.5\linewidth}
+        \onslide<1->\begin{eg}
+            How many ways are there to select a first-prize winner, a second-prize winner, and a third-prize winner from 100 different people who have entered a contest?
+        \end{eg}
+        \onslide<2->\begin{solution*}
+            The number is the number of 3-permutations of a set of 100 elements. Consequently, the answer is ${}_{100}P_3 = 100 \times 99 \times 98 = 970200$.
+        \end{solution*}
+    \end{column}
+    \begin{column}{.6\linewidth}
+        \onslide<1->\begin{eg}
+            How many times does \texttt{plan}, \texttt{than} and \texttt{both} NOT occur in permutations of the 26 letters?
+        \end{eg}
+        \onslide<3>\begin{solution*}
+            \texttt{plan} occurs $23!$ times.
+            
+            \texttt{than} occurs $23!$ times.
+            
+            \texttt{both} occurs $23!$ times.
+            
+            \texttt{plan} and \texttt{than} occurs $0$ times.
+            
+            \texttt{plan} and \texttt{both} occurs $20!$ times.
+            
+            \texttt{than} and \texttt{both} occurs $21!$ times.
+            
+            \texttt{plan}, \texttt{than} and \texttt{both} occurs $0$ times.
+            
+            So the answer is $26! - 23! \times 3 + 21! + 20!$.
+        \end{solution*}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Onto}
+\begin{eg}
+    Consider the set $X$ of all functions $f \colon A \rightarrow B$, where $A = \{1, 2, 3, 4, 5, 6, 7\}$, $B = \{a, b, c, d, e\}$. How many functions in $X$ are onto?
+\end{eg}
+\onslide<2>\begin{solution*}
+    For the first situation that 1 of $B$ matches 3 of $A$ and others match 1 of $A$ for each, we select 4 of 5 in $B$ and for each of them select 1 different item in $A$ so that there are ${}_4 C_1 \times {}_7 P_4$ functions in the first situation.
+    
+    For the second situation that 2 of $B$ match 2 of $A$ for each and others match 1 of $A$ for each, we select 3 of 5 in $B$, for each of them select 1 different item in $A$ and then from the rest 4 items in $A$ select 2 of them to match 1 of 2 rest item in $B$ so that there are ${}_5 C_2 \times {}_7 P_3 \times {}_4 C_2$ functions in the section situation.
+    
+    Totally, there are ${}_5 C_1 \times {}_7 P_4 + {}_5 C_2 \times {}_7 P_3 \times {}_4 C_2 = 16800$ functions.
+\end{solution*}
+\end{frame}
+
+\section{Advanced Counting Techniques}
+\subsection{Applications of Recurrence Relations}
+
+\begin{frame}[fragile]
+\frametitle{Codeword Enumeration}
+\begin{eg}
+    \label{eg:8}
+    Computer system considers a string of decimal digits a valid
+    codeword if it contains an even number of 0 digits. For instance, 1230407869 is valid,
+    whereas 120987045608 is not valid. Let $a_n$ be the number of valid $n$-digit codewords. Find
+    a recurrence relation for $a_n$.
+\end{eg}
+
+\onslide<2>\begin{solution*}
+    There are nine 1-digit codewords so that $a_1 = 9$.
+    There are two ways to form
+    a valid string with $n$ digits from a string with one fewer digit.
+    First, it can be obtained by appending a valid string of $n - 1$ digits with a digit other than 0, which has $9a_{n - 1}$ ways.
+    Second, it can be obtained by appending a 0 to a string of length $n - 1$ that is not valid, which has $10_{n - 1} - a_{n - 1}$ ways.
+    Because all valid strings of length n are produced in one of these two ways, it follows that there are $a_n = 9 a_{n - 1} + (10^{n - 1} - a_{n - 1}) = 8 a_{n - 1} + 10^{n - 1}$ valid strings of length $n$.
+\end{solution*}
+\end{frame}
+
+\subsection{Solving Linear Recurrence Relations}
+
+\begin{frame}[fragile]
+\frametitle{Recurrence Relation}
+\begin{eg}
+    Solve the recurrence relation $a_k = 3a_{k - 1}$ for $k = 1, 2, 3, \ldots$ and initial condition $a_0 = 2$.
+\end{eg}
+\onslide<2>\begin{solution*}
+    Let $G(x)$ be the generating function for the sequence $\{a_k\}$, that is, $G(x) = \sum_{k = 0}^{\infty} a_k x^k$.
+    Using the recurrence relation, we see that \begin{equation}
+    G(x) - 3xG(x) = \sum_{k = 0}^{\infty} a_k x^k - 3 \sum_{k = 1}^{\infty} a_{k - 1} x^{k} = a_0 + \sum_{k = 1}^{\infty} (a_k - 3 a_{k - 1}) x^{k}    = 2.
+    \end{equation}
+    Solving for $G(x)$ shows that $G(x) = \frac{2}{1 - 3x} = \sum_{k = 0}^\infty 2 \cdot 3^k x^k$.
+    Consequently, $a_k = 2 \cdot 3^k$.
+\end{solution*}
+\end{frame}
+
+\subsection{Generating Functions}
+
+\begin{frame}[fragile]
+\frametitle{Tokens}
+\begin{eg}
+    Use generating functions to determine the number of ways to insert tokens worth \$1, \$2,
+    and \$5 into a vending machine to pay for an item that costs $r$ dollars in both the cases when
+    the order in which the tokens are inserted does not matter.
+\end{eg}
+\onslide<2>\begin{solution*}
+    Because
+    we can use any number of \$1 tokens, any number of \$2 tokens, and any number of \$5 tokens,
+    the answer is the coefficient of $x^r$ in the generating function \begin{align}
+    \begin{aligned}
+    & \left(\sum_{i = 0}^{\infty} x^i\right) \left(\sum_{i = 0}^{\infty} x^{2i}\right) \left(\sum_{i = 0}^{\infty} x^{5i}\right)\\
+    = & \frac{1}{(1 - x)(1 - x^2)(1 - x^5)}.
+    \end{aligned}
+    \end{align}
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Raccoons}
+\begin{eg}
+    Let the lifespan of a raccoon be exactly 6 years.
+    Suppose there are 4 new-born raccoons at the 0th year and the number of new-born raccoons in each year is 3 times
+    that in the previous year. Let $b_r$ be the number of raccoons on $r$-th year where $r \ge 0$.
+    Give a closed form generating function for $b_r$.
+\end{eg}
+
+\onslide<2>\begin{solution*}
+    Let $N(x)$ be the generating function for the number sequence of newborn raccoons.
+    Using the recurrence relation, we see that $N(x) - 3xN(x) = 4$.
+    Solving for $N(x)$ shows that $N(x) = \frac{4}{1 - 3x}$.
+    Let $B(x)$ be the generating function for the number sequence of raccoons, then \begin{equation}
+    B(x) = \sum_{i = 0}^{5} x^i N(x) = N(x) \left(\sum_{i = 0}^{5} x^i\right) = N(x) \cdot \frac{(1 - x^6)}{1 - x} = \frac{4(1 - x^6)}{(1 - 3x)(1 - x)}.
+    \end{equation}
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Solve Codeword Enumeration}
+\begin{eg}
+    Suppose that a valid codeword is an $n$-digit number in decimal notation containing an even number of 0s.
+    Let an denote the number of valid codewords of length $n$.
+    In~\Cref{eg:8} we showed that the sequence $\{a_n\}$ satisfies the recurrence relation $a_n = 8 a_{n - 1} + 10^{n - 1}$ and the initial condition $a_1 = 9$. Use generating functions to find an explicit formula for $a_n$.
+\end{eg}
+
+\onslide<2>\begin{solution*}
+    we extend this sequence    by setting $a_0 = 1$.
+    Let $G(x) = \sum_{n = 0}^{\infty} a_n x_n$ be the generating function of the sequence $\{a_n\}$,
+    then $G(x) - 8x G(x) = 1 + \frac{x}{1 - 10x}$.
+    Solving for $G(x)$ shows that $G(x) = \frac{1 - 9x}{(1 - 8x)(1 - 10x)} = \frac{1}{2} \left(\frac{1}{1 - 8x} + \frac{1}{1 - 10x}\right) = \sum_{n = 0}^\infty \frac{1}{2} (8^n + 10^n) x^n$.
+    Consequently, we have shown that $a_n = \frac{1}{2} (8^n + 10^n)$.
+\end{solution*}
+\end{frame}
+
+\subsection{Applications of Inclusion-Exclusion}
+
+\begin{frame}[fragile]
+\frametitle{Inclusion Exclusion}
+\begin{columns}
+    \begin{column}{\linewidth}
+        \onslide<1->\begin{eg}
+            Out of 30 students, 15 of them have taken the course Discrete Mathematics, 8 of them have taken Algorithms and 6 of them have taken Economics. Moreover, we know that 3 of them have taken all three courses. Let $x$ be the number of students not taking any of these three courses. What is the smallest possible $x$? Explain your answer.
+        \end{eg}
+        \onslide<2>\begin{solution*}
+            Let $U$ be the set of all students, $A$ be the set of student taken Algorithms, $D$ be the set of students taken Discrete Mathematics and $E$ be the set of students taken Economics, then $x = \left|\overline{A \cup D \cup E}\right| = \left|U\right| - \left|A\right| - \left|D\right| - \left|E\right| + \left|A \cap D\right| + \left|A \cap E\right| + \left|D \cap E\right| - \left|A \cap D \cap E\right| = 1 + 2 \left|A \cap D \cap E\right| + \left|A \cap D \cap \overline{E}\right| + \left|A \cap \overline{D} \cap E\right| + \left|\overline{A} \cap D \cap E\right| \ge 7$. $x = 7$ when $\left|A \cap D \cap \overline{E}\right| = \left|A \cap \overline{D} \cap E\right| = \left|\overline{A} \cap D \cap E\right| = 0$.
+        \end{solution*}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\section{Relations}
+\subsection{Relations and Their Properties}
+
+\begin{frame}[fragile]
+\frametitle{Reflexive Relation}
+\onslide<1->\begin{eg}
+    If $R$ is a relation on a set $A$, prove or disprove that $R^2$ is reflexive $\Rightarrow$ $R$ is reflexive.
+\end{eg}
+\onslide<2->\begin{proof}
+    Let $A = \{0, 1\}, R = \{(0, 1), (1, 0)\}$ which is not reflexive, then $R^2 = \{(0, 0), (1, 1)\}$ is reflexive.
+\end{proof}
+\onslide<1->\begin{eg}
+    What is the reflexive closure of the relation $R = \{(a, b) \mid a < b\}$ on the set of integers?
+    \onslide<3>\begin{solution*}
+        $R \cup \Delta = \{(a, b) \mid a < b \} \cup \{(a, a) \mid a \in \mathbb{Z}\} = \{(a, b) \mid a \le b\}$.
+    \end{solution*}
+\end{eg}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Inverse Relation}
+\begin{columns}
+    \begin{column}{.6\linewidth}
+        Let $R$ be a relation from a set $A$ to a set $B$.
+        \begin{definition}
+            The \textbf{inverse relation} from $B$ to $A$, denoted by $R^{-1}$, is the set of ordered pairs $\{(b, a) \mid (a, b) \in R \}$.
+        \end{definition}
+        \begin{definition}
+            The \textbf{complementary relation} $\bar{R}$ is the set of ordered pairs $\{(a, b) \mid (a, b) \notin R \}$.
+        \end{definition}
+    \end{column}
+    \begin{column}{.4\linewidth}
+        \begin{eg}
+            Let $R$ be the relation $R = \{(a, b) \mid a < b\}$ on the set of integers. Find \begin{enumerate}
+                \onslide<1->\item $R^{-1}$ \onslide<2>$= \{(a, b) \mid a > b\}$
+                \onslide<1->\item $\bar{R}$ \onslide<2>$= \{(a, b) \mid a \ge b\}$
+            \end{enumerate}
+        \end{eg}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\subsection{Closures of Relations}
+
+\begin{frame}[fragile]
+\frametitle{Reflexive Closures}
+\begin{columns}
+    \begin{column}{.4\linewidth}
+        \begin{definition}
+            A \textbf{reflexive closure} of $R$\begin{enumerate}
+                \item contains $R$,
+                \item is reflexive,
+                \item is contained within every reflexive relation that contains $R$.
+            \end{enumerate}
+        \end{definition}
+        \begin{definition}
+            A \textbf{diagonal relation} $\Delta$ on $A$ is $\{(a, a) \mid a \in A \}$.
+        \end{definition}
+    \end{column}
+    \begin{column}{.6\linewidth}
+        \begin{theorem}
+            Given a relation $R$ on a set $A$, the reflexive closure of $R$ equals $R \cup \Delta$.
+        \end{theorem}
+        \onslide<2>\begin{proof}
+            \begin{enumerate}
+                \item $R \cup \Delta \supseteq R$.
+                \item $R \cup \Delta \supseteq \Delta$.
+                \item If there exists a reflexive set $S \supseteq \Delta$, $r \in R \cup \Delta$, $r \notin S$. Therefore $r \notin \Delta$, $r \in R$ so that $S \nsupseteq R$ which forms a contradictory.
+            \end{enumerate}
+        \end{proof}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Symmetric Relation}
+\begin{columns}
+    \begin{column}{.6\linewidth}
+        \onslide<1->\begin{theorem}
+            Given a relation $R$ on a set $A$, the symmetric closure of $R$ equals $R \cup R^{-1}$.
+        \end{theorem}
+        \onslide<2->\begin{proof}
+            \begin{enumerate}
+                \item $R \cup R^{-1} \supseteq R$.
+                \item $(R \cup R^{-1})^{-1} = R^{-1} \cup {R^{-1}}^{-1} = R \cup R^{-1}$.
+                \item If there exists a set $S \supseteq R$, $r \in R \cup R^{-1}$, $r \notin S$. Therefore $r \notin R$, $r \in R^{-1}$ so that $S \ne S^{-1}$ which forms a contradictory.
+            \end{enumerate}
+        \end{proof}
+    \end{column}
+    \begin{column}{.5\linewidth}
+        \onslide<1->\begin{eg}
+            What is the symmetric closure of the relation $R =\{(a, b) \mid a > b\}$ on the set of positive integers?
+        \end{eg}
+        \onslide<3>\begin{solution*}
+            \begin{align}
+            \begin{aligned}
+            & R \cup R^{-1} \\
+            = & \{(a, b) \mid a > b \} \cup \{(a, a) \mid a < b\} \\
+            = & \{(a, b) \mid a \ne b\}.
+            \end{aligned}
+            \end{align}
+        \end{solution*}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Closures}
+\onslide<1->\begin{eg}
+    Consider the relation $R = \{(3, 1), (1, 5), (2, 4), (5, 2)\}$ over the set $A = \{1, 2, 3, 4, 5\}$: \begin{enumerate}[(a)]
+        \item What is the reflexive closure of the symmetric closure of $R$?
+        \item What is the transitive closure of the reflexive closure of $R$?
+    \end{enumerate}
+\end{eg}
+\onslide<2>\begin{solution*}
+    \begin{enumerate}[(a)]
+        \item \begin{description}
+            \item[Symmetric closure] $\{(1, 3), (1, 5), (2, 4), (2, 5), (3, 1), (4, 2), (5, 1), (5, 2)\}$.
+            \item[Reflexive closure] $\{(1, 1), (1, 3), (1, 5), (2, 2), (2, 4), (2, 5), (3, 1), (3, 3), (4, 2), (4, 4), (5, 1), (5, 2), (5, 5)\}$.
+        \end{description}
+        \item \begin{description}
+            \item[Reflexive closure] $\{(1, 1), (1, 5), (2, 2), (2, 4), (3, 1), (3, 3), (4, 4), (5, 2), (5, 5)\}$.
+            \item[Transitive closure] $\{(1, 1), (1, 2), (1, 4), (1, 5), (2, 2), (2, 4), (3, 1), (3, 2), (3, 3), (3, 4), (3, 5), (4, 4), (5, 2), (5, 4), (5, 5)\}$.
+        \end{description}
+    \end{enumerate}
+\end{solution*}
+\end{frame}
+
+\subsection{Equivalence Relations}
+
+\begin{frame}[fragile]
+\frametitle{Equivalence Relation}
+\begin{definition}
+    A relation on a set $A$ is called an \textbf{equivalence relation} if it is reflexive, symmetric, and transitive.
+\end{definition}
+\begin{eg}
+    Let $R$ be the relation on the set of real numbers such that $(a, b) \in R$ if and only if $a - b$ is an integer. Is $R$ an equivalence relation?
+\end{eg}
+\onslide<2>\begin{solution*}
+    Because $a - a = 0$ is an integer for all real numbers $a$, $\forall a \in \mathbb{R}, (a, a) \in R$. Hence, $R$ is reflexive. Now suppose that $(a, b) \in R$. Then $a - b$ is an integer, so $b - a$ is also an integer. Hence, $(b, a) \in R$. It follows that $R$ is symmetric. If $(a, b), (b, c) \in R$, then $a - b$ and $b - c$ are integers. Therefore, $a - c = (a - b) + (b - c)$ is also an integer. Hence, $(a, c) \in R$. Thus, $R$ is transitive. Consequently, $R$ is an equivalence relation.
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Example of Equivalence Relation}
+\begin{eg}
+    Show the smallest equivalence relation contains $\{(a, b), (c, b), (d, c)\}$ on set $\{a, b, c, d, e\}$.
+\end{eg}
+\onslide<2>\begin{solution*}
+    \begin{enumerate}
+        \item Find Reflexsive Closure: $\{(a, a), (a, b), (b, b), (c, b), (c, c), (d, c), (d, d), (e, e)\}$.
+        \item Find Symmetric Closure: $\{(a, a), (a, b), (b, a), (b, b), (b, c), (c, b), (c, c), (c, d), (d, c), (d, d), (e, e)\}$.
+        \item Find Transitive Closure: $\{(a, a), (a, b), (a, c), (a, d), (b, a), (b, b), (b, c), (b, d), (c, a), (c, b), (c, c), (c, d), (d, a), (d, b), (d, c), (d, d), (e, e)\}$
+    \end{enumerate}
+\end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Equivalence Class}
+\onslide<1->\begin{eg}
+    Let $A = \{1, 2, 3, 4, 5, 6, 7, 8\} \times \{1, 2, 3, 4, 5, 6, 7, 8\}$. Define a relation $R$ on $A$ by: $((a, b), (c, d)) \in R$ if and only if $a \times b = c \times d$ \begin{enumerate}[(a)]
+        \item Show that $R$ is an equivalence relation on $A$.
+        \item Determin the equivalence class of $[(1, 1)], [(2, 2)], [(2, 4)]$ and $[(4, 3)]$.
+    \end{enumerate}
+\end{eg}
+\onslide<2>\begin{solution*}
+    \begin{enumerate}[(a)]
+        \item \begin{description}
+            \item[Reflexive] $(a, b) \in A \land a \times b = a \times b \Leftrightarrow ((a, b), (a, b)) \in R$.
+            \item[Symmetric] $((a, b), (c, d)) \in R \Leftrightarrow a \times b = c \times d \Leftrightarrow ((c, d), (a, b)) \in R$.
+            \item[Transitive] $((a, b), (c, d)) \in R \land ((c, d), (e, f)) \in R \Leftrightarrow a \times b = c \times d = e \times f \Rightarrow ((a, b), (e, f)) \in R$.
+        \end{description}
+        \item $\{(1, 1)\}$, $\{(1, 4), (2, 2), (4, 1)\}$, $\{(1, 8), (2, 4), (4, 2), (8, 1)\}$, $\{(2, 6), (3, 4), (4, 3), (6, 2)\}$.
+    \end{enumerate}
+\end{solution*}
+\end{frame}
+
+\plain{Questions?}
+
+\end{document}
