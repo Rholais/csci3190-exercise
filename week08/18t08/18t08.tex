@@ -57,43 +57,6 @@
 \maketitle
 
 \begin{frame}
-\frametitle{Complexity}
-\begin{columns}
-    \begin{column}{0.5\linewidth}
-        \onslide<1->\begin{eg}
-            Show the following: \begin{enumerate}
-                \item $3n^2 + 5n + 10 = O(n^2)$
-                \item $100 \log_2 n = O(n)$
-                \item $3^n = O(n!)$
-            \end{enumerate}
-        \end{eg}
-        \onslide<2->\begin{proof}
-            \begin{enumerate}
-                \item<2-> Let $N = 1, C = 19$, then \begin{equation}
-                \forall n \ge N, 3n^2 + 5n + 10 < C \cdot n^2.
-                \end{equation}
-                \item<3-> Let $N = 4, C = 51$, then $\forall n \ge N, 100 \log_2 n < C \cdot n$.
-                \item<4-> Let $N = 0, C = 5$, then $\forall n \ge N, 3^n < C \cdot n!$.
-            \end{enumerate}
-        \end{proof}
-    \end{column}
-    \begin{column}{0.6\linewidth}
-        \onslide<1->\begin{eg}
-            Determine whether $\log n!$ is $\Theta(n \log n)$.
-        \end{eg}
-        
-        \onslide<5->\begin{proof}
-            We can easily show that $(n - i)(i + 1) \ge n$ for $i = 0, 1, \cdots, n - 1$.
-            Hence, $(n!)^2 = (n \cdot 1)((n - 1) \cdot 2) \cdot ((n - 2) \cdot 3) \cdots (2 \cdot (n -
-            1)) \cdot (1 \cdot n) \ge n^n$. Therefore, $2 log n! \ge n log n$ so that $n \log n$ is $O(\log n!)$.
-           
-            $\exists c = 1, \exists N = 1$, such that $\forall n \ge N, n! \le n^n$, so that $\log n! \le c n\log n$. Thus $\log n! = O(n \log n)$ so that $n \log n = \Omega(\log n!)$. Hence, $\log n! = \Theta(n \log n)$.
-        \end{proof}
-    \end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}
 \frametitle{Pigeonhole Principle}
 \begin{columns}
     \begin{column}{0.6\linewidth}
