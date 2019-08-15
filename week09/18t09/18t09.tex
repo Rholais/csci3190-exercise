@@ -56,41 +56,6 @@
 
 \maketitle
 
-\begin{frame}
-\frametitle{Complexity}
-\begin{columns}
-    \begin{column}{0.4\linewidth}
-        \onslide<1->\begin{eg}
-            Show that $n^2 + 100 \sqrt{n} + 7 = O(n^2)$.
-        \end{eg}
-        \onslide<2->\begin{proof}
-            Let $C = 2, N = 25$, then $\forall n \ge N, n^2 + 100 \sqrt{n} + 7 < Cn^2$.
-        \end{proof}
-        \onslide<1->\begin{eg}
-            Prove by mathematical induction that \begin{equation}
-                \sum_{i = 1}^{n} \frac{1}{i^2} < 2 - \frac{1}{n}.
-            \end{equation}
-        \end{eg}
-    \end{column}
-    \begin{column}{0.7\linewidth}
-        \onslide<3->\begin{proof}
-            \begin{description}
-                \item[Basis step] When $n = 2$,
-                it's obvious that $1 + \frac{1}{4} < 2 - \frac{1}{2}$.
-                \item[Inductive step] Let statement $P(n)$ be $\sum_{i = 1}^{n} \frac{1}{i^2} < 2 - \frac{1}{n}$. When $P(k)$ is true, \begin{align}
-                    \begin{aligned}
-                    \sum_{i = 1}^{k + 1} \frac{1}{i^2} = & \sum_{i = 1}^{k} \frac{1}{i^2} + \frac{1}{(k + 1)^2}\\
-                    < & 2 - \frac{1}{k} + \frac{1}{k(k + 1)}\\
-                    = & 2 - \frac{1}{k + 1}.
-                    \end{aligned}
-                \end{align}
-                Then $P(k + 1)$ is also true.
-            \end{description}
-        \end{proof}
-    \end{column}
-\end{columns}
-\end{frame}
-
 \begin{frame}[allowframebreaks]
 \frametitle{Minimum}
 % \begin{columns}
