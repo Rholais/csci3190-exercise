@@ -57,43 +57,6 @@
 \maketitle
 
 \begin{frame}
-\frametitle{Bakery}
-\begin{columns}
-    \begin{column}{0.4\linewidth}
-        \onslide<1-> \begin{eg}
-            Jim wants to order $k$ pies from the bakery.
-            Unfortunately,
-            the bakery is only left with 3 apple pies,
-            2 banana pies and 4 cheese pies.
-            Let $d_k$ be the number of ways
-            to make up an order of $k$ pies.
-            \begin{enumerate}
-                \item Give a generating function for $d_k$.
-                \item What are $d_k$ when $k = 0, 1, \ldots, 9$?
-            \end{enumerate}
-        \end{eg}
-    \end{column}
-    \begin{column}{0.7\linewidth}
-        \begin{solution*}
-            \begin{enumerate}
-                \item<2-> \begin{align}
-                    \begin{aligned}
-                    & (1 + x + x^2)(1 + x + x^2 + x^3)\\
-                    & \qquad \cdot (1 + x + x^2 + x^3 + x^4)\\
-                    = & (1 + 2x + 3x^2 + 3x^3 + 2x^4 + x^5)\\
-                    & \qquad \cdot (1 + x + x^2 + x^3 + x^4)\\
-                    = & 1 + 3x + 6x^2 + 9x^3 + 11x^4 + 11x^5\\
-                    & \qquad + 9x^6 + 6x^7 + 3x^8 + x^9.
-                    \end{aligned}
-                \end{align}
-                \item<3> $d_0 = 1, d_1 = 3, d_2 = 6, d_3 = 9, d_4 = 11, d_5 = 11, d_6 = 9, d_7 = 6, d_8 = 3, d_9 = 1$.
-            \end{enumerate}
-        \end{solution*}
-    \end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}
 \frametitle{Exponential}
 \begin{columns}
     \begin{column}{0.6\linewidth}
