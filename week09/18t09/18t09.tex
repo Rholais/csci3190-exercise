@@ -56,56 +56,6 @@
 
 \maketitle
 
-\begin{frame}
-\frametitle{Exponential}
-\begin{columns}
-    \begin{column}{0.6\linewidth}
-        \onslide<1->\begin{eg}
-            \label{eg:8}
-            Devise a recursive algorithm to compute $a^{2^n}$,
-            where $a \in \mathbb{R} \land n \in \mathbb{N}^+$.
-        \end{eg}
-        \onslide<2->\begin{solution*}
-            The complexity of~\Cref{a:6-a} is $O(n)$.
-            \begin{algorithm}[H]
-                \caption{Recursive Algorithm}
-                \label{a:6-a}
-                \begin{algorithmic}
-                    \Procedure{Exp}{$n$, $a$}
-                    \If{$n$ = 0}
-                    \State \Return $a$
-                    \Else
-                    \State $p \leftarrow$ \Call{Exp}{$n - 1$, $a$}
-                    \State \Return $p \times p$
-                    \EndIf
-                    \EndProcedure
-                \end{algorithmic}
-            \end{algorithm}
-        \end{solution*}
-    \end{column}
-    \begin{column}{0.5\linewidth}
-        \onslide<1->\begin{eg}
-            Repeat~\Cref{eg:8} with an iterative algorithm.
-        \end{eg}
-        \onslide<3>\begin{solution*}
-            The complexity of~\Cref{a:6-b} is $O(n)$.
-            \begin{algorithm}[H]
-                \caption{Iterative Algorithm}
-                \label{a:6-b}
-                \begin{algorithmic}
-                    \Procedure{Exp}{$n$, $a$}
-                    \For{$i = 1, \ldots, n$}
-                    \State $a \leftarrow a \times a$
-                    \EndFor
-                    \State \Return $a$
-                    \EndProcedure
-                \end{algorithmic}
-            \end{algorithm}
-        \end{solution*}
-    \end{column}
-\end{columns}
-\end{frame}
-
 \begin{frame}[allowframebreaks]
 \frametitle{Fibonacci}
 \begin{eg}
