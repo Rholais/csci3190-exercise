@@ -56,64 +56,6 @@
 
 \maketitle
 
-\begin{frame}[allowframebreaks]
-\frametitle{Fibonacci}
-\begin{eg}
-Consider the computation of the $n$-th Fibonacci number:\begin{enumerate}
-\item Give the pseudo code of a recursive algorithm to compute the nth Fibonacci number. What is the
-complexity of your algorithm? Explain your answer.
-\item Give the pseudo code of an iterative algorithm to compute the nth Fibonacci number. What is the
-complexity of your algorithm? Explain your answer. 
-\end{enumerate}
-\end{eg}
-
-\newpage
-
-\begin{solution*}
-\begin{columns}
-\begin{column}{.6\linewidth}
-    \begin{algorithm}[H]
-        \caption{Recursive Algorithm}
-        \label{a-4-1}
-        \begin{algorithmic}
-            \Procedure{Fib}{$n$}
-            \If{$n = 0$}
-            \State\Return $0$
-            \EndIf
-            \If{$n = 1$}
-            \State\Return $1$
-            \EndIf
-            \State\Return \Call{Fib}{$n - 1$} + \Call{Fib}{$n - 2$}
-            \EndProcedure
-        \end{algorithmic}
-    \end{algorithm}
-    
-    $O(a_n) = \left(\frac{\sqrt{5} + 1}{2}\right)^n$.
-\end{column}
-
-\begin{column}{.5\linewidth}
-    \begin{algorithm}[H]
-        \caption{Iterative Algorithm}
-        \label{a-4-2}
-        \begin{algorithmic}
-            \Procedure{IterFib}{$n$}
-            \If{$n = 0$}\ \Return $0$
-            \EndIf
-            \State $x \coloneqq 0, y \coloneqq 1$
-            \For{$i \coloneqq 1, 2, \cdots, n - 1$}
-            \State $z \coloneqq x + y, x \coloneqq y, y \coloneqq z$
-            \EndFor
-            \State \Return $y$
-            \EndProcedure
-        \end{algorithmic}
-    \end{algorithm}
-    
-    The number of additions follows the expression $b_n = n - 1$ so that $O(b_n) = n$.
-\end{column}
-\end{columns}
-\end{solution*}
-\end{frame}
-
 \begin{frame}
 \frametitle{Mode}
 \begin{eg}
