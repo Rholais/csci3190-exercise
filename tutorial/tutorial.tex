@@ -345,6 +345,145 @@
 \end{frame}
 
 \subsection{Recursive Algorithms}
+
+\begin{frame}
+    \frametitle{Exponential}
+    \begin{columns}
+        \begin{column}{0.6\linewidth}
+            \onslide<1->\begin{eg}
+                \label{eg:inr:algo:exp}
+                Devise a recursive algorithm to compute $a^{2^n}$,
+                where $a \in \mathbb{R} \land n \in \mathbb{N}^+$.
+            \end{eg}
+            \onslide<2->\begin{solution*}
+                The complexity of~\Cref{a:inr:algo:exp} is $O(n)$.
+                \begin{algorithm}[H]
+                    \caption{Recursive Algorithm}
+                    \label{a:inr:algo:exp}
+                    \begin{algorithmic}
+                        \Procedure{Exp}{$n$, $a$}
+                        \If{$n$ = 0}
+                        \State \Return $a$
+                        \Else
+                        \State $p \leftarrow$ \Call{Exp}{$n - 1$, $a$}
+                        \State \Return $p \times p$
+                        \EndIf
+                        \EndProcedure
+                    \end{algorithmic}
+                \end{algorithm}
+            \end{solution*}
+        \end{column}
+        \begin{column}{0.5\linewidth}
+            \onslide<1->\begin{eg}
+                Repeat~\Cref{eg:inr:algo:exp} with an iterative algorithm.
+            \end{eg}
+            \onslide<3>\begin{solution*}
+                The complexity of~\Cref{a:6-b} is $O(n)$.
+                \begin{algorithm}[H]
+                    \caption{Iterative Algorithm}
+                    \label{a:6-b}
+                    \begin{algorithmic}
+                        \Procedure{Exp}{$n$, $a$}
+                        \For{$i = 1, \ldots, n$}
+                        \State $a \leftarrow a \times a$
+                        \EndFor
+                        \State \Return $a$
+                        \EndProcedure
+                    \end{algorithmic}
+                \end{algorithm}
+            \end{solution*}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{Fibonacci}
+    \begin{eg}
+        Consider the computation of the $n$-th Fibonacci number:\begin{enumerate}
+            \item Give the pseudo code of a recursive algorithm to compute the nth Fibonacci number. What is the
+            complexity of your algorithm? Explain your answer.
+            \item Give the pseudo code of an iterative algorithm to compute the nth Fibonacci number. What is the
+            complexity of your algorithm? Explain your answer. 
+        \end{enumerate}
+    \end{eg}
+    
+    \newpage
+    
+    \begin{solution*}
+        \begin{columns}
+            \begin{column}{.6\linewidth}
+                \begin{algorithm}[H]
+                    \caption{Recursive Algorithm}
+                    \label{a-4-1}
+                    \begin{algorithmic}
+                        \Procedure{Fib}{$n$}
+                        \If{$n = 0$}
+                        \State\Return $0$
+                        \EndIf
+                        \If{$n = 1$}
+                        \State\Return $1$
+                        \EndIf
+                        \State\Return \Call{Fib}{$n - 1$} + \Call{Fib}{$n - 2$}
+                        \EndProcedure
+                    \end{algorithmic}
+                \end{algorithm}
+                
+                $O(a_n) = \left(\frac{\sqrt{5} + 1}{2}\right)^n$.
+            \end{column}
+            
+            \begin{column}{.5\linewidth}
+                \begin{algorithm}[H]
+                    \caption{Iterative Algorithm}
+                    \label{a-4-2}
+                    \begin{algorithmic}
+                        \Procedure{IterFib}{$n$}
+                        \If{$n = 0$}\ \Return $0$
+                        \EndIf
+                        \State $x \coloneqq 0, y \coloneqq 1$
+                        \For{$i \coloneqq 1, 2, \cdots, n - 1$}
+                        \State $z \coloneqq x + y, x \coloneqq y, y \coloneqq z$
+                        \EndFor
+                        \State \Return $y$
+                        \EndProcedure
+                    \end{algorithmic}
+                \end{algorithm}
+                
+                The number of additions follows the expression $b_n = n - 1$ so that $O(b_n) = n$.
+            \end{column}
+        \end{columns}
+    \end{solution*}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Mode}
+    \begin{eg}
+        Give a recursive algorithm for finding a mode of a list of integers.
+    \end{eg}
+    \onslide<2>\begin{solution*}
+        \begin{algorithm}[H]
+            \caption{A Recursive Algorithm for Mode}
+            \label{a-5}
+            \begin{algorithmic}
+                \Procedure{mode}{$a_1, \cdots, a_n \in \mathbb{Z}$}
+                \If{$n = 1$}
+                \Return $a_1$
+                \EndIf
+                \State $m \eqqcolon $ \Call{mode}{$a_1, \cdots, a_{n - 1}$}
+                \If{$m = a_n$}
+                \Return $a_n$
+                \EndIf
+                \State $numM \eqqcolon$ number of $m$ in $a_1, \cdots, a_n$
+                \State $numN \eqqcolon$ number of $a_n$ in $a_1, \cdots, a_n$
+                \If{$numM \le numN$}
+                \Return $a_n$
+                \EndIf
+                \State\Return $m$
+                \EndProcedure
+            \end{algorithmic}
+        \end{algorithm}
+    \end{solution*}
+\end{frame}
+
 \begin{frame}
     \frametitle{Summation}
     \begin{columns}
@@ -565,6 +704,51 @@
 \end{solution*}
 \end{frame}
 
+\subsection{Divide-and-Conquer Algorithms and Recurrence Relations}
+\begin{frame}[allowframebreaks]
+    \frametitle{Minimum}
+    % \begin{columns}
+    %     \begin{column}{0.6\linewidth}
+    \begin{eg}
+        Consider~\Cref{a:3} to find the minimum of $n$ numbers.
+        Let $T(n)$ be the running time to solve FindMin() where $n$ is the number of elements in $A[]$.
+    \end{eg}
+    \begin{algorithm}[H]
+        \caption{Recursive Algorithm}
+        \label{a:3}
+        \begin{algorithmic}
+            \Procedure{FindMin}{$A[]$}
+            \If{\Call{len}{$A[]$} = 1}
+            \State \Return $A[0]$
+            \Else
+            \State $p \leftarrow$ \Call{FindMin}{1H of $A[]$}
+            \State $q \leftarrow$ \Call{FindMin}{2H of $A[]$}
+            \State \Return \Call{min}{$p$, $q$}
+            \EndIf
+            \EndProcedure
+        \end{algorithmic}
+    \end{algorithm}
+    \begin{enumerate}
+        \item Write a recurrence equation for $T(n)$.
+        \item Solve the recurrence and find the complexity of FindMin().
+    \end{enumerate}
+    \begin{solution*}
+        \begin{enumerate}
+            \item<2-> Let $a$ be the running time of the basis step,
+            $b$ be the running time of the min operation of two numbers, then we have
+            \begin{equation}
+            \begin{cases}
+            T(1) = a,\\
+            T(n) = 2T(\frac{n}{2}) + b.
+            \end{cases}
+            \end{equation}
+            \item<3-> $T(n) = 2T(\frac{n}{2}) + b = 4T(\frac{n}{4}) + 3b = \cdots = nT(1) + (n - 1)b = (a + b)n - b = O(n)$.
+        \end{enumerate}
+    \end{solution*}
+    %     \end{column}
+    % \end{columns}
+\end{frame}
+
 \subsection{Generating Functions}
 
 \begin{frame}[fragile]
@@ -657,6 +841,43 @@
                 \end{aligned}
                 \end{align}
                 So the number of ways is $1 + 3 + 3 = 7$.
+            \end{solution*}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Bakery}
+    \begin{columns}
+        \begin{column}{0.4\linewidth}
+            \onslide<1-> \begin{eg}
+                Jim wants to order $k$ pies from the bakery.
+                Unfortunately,
+                the bakery is only left with 3 apple pies,
+                2 banana pies and 4 cheese pies.
+                Let $d_k$ be the number of ways
+                to make up an order of $k$ pies.
+                \begin{enumerate}
+                    \item Give a generating function for $d_k$.
+                    \item What are $d_k$ when $k = 0, 1, \ldots, 9$?
+                \end{enumerate}
+            \end{eg}
+        \end{column}
+        \begin{column}{0.7\linewidth}
+            \begin{solution*}
+                \begin{enumerate}
+                    \item<2-> \begin{align}
+                    \begin{aligned}
+                    & (1 + x + x^2)(1 + x + x^2 + x^3)\\
+                    & \qquad \cdot (1 + x + x^2 + x^3 + x^4)\\
+                    = & (1 + 2x + 3x^2 + 3x^3 + 2x^4 + x^5)\\
+                    & \qquad \cdot (1 + x + x^2 + x^3 + x^4)\\
+                    = & 1 + 3x + 6x^2 + 9x^3 + 11x^4 + 11x^5\\
+                    & \qquad + 9x^6 + 6x^7 + 3x^8 + x^9.
+                    \end{aligned}
+                    \end{align}
+                    \item<3> $d_0 = 1, d_1 = 3, d_2 = 6, d_3 = 9, d_4 = 11, d_5 = 11, d_6 = 9, d_7 = 6, d_8 = 3, d_9 = 1$.
+                \end{enumerate}
             \end{solution*}
         \end{column}
     \end{columns}
