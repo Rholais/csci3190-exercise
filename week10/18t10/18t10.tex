@@ -56,24 +56,6 @@
 
 \maketitle
 
-\begin{frame}[fragile]
-\frametitle{Merge Sort}
-\begin{eg}
-    Prove that the merge sort algorithm is correct.
-\end{eg}
-\onslide<2>\begin{proof}
-    If
-    $n = 1$, then the algorithm does nothing, which is correct because
-    a list with one element is already sorted. Assume that
-    the algorithm works correctly for $n = 1$ through $n = k$. If
-    $n = k + 1$, then the list is split into two lists, $L_1$ and $L_2$. By the
-    inductive hypothesis, \textit{mergesort} correctly sorts each of these
-    sublists; furthermore, \textit{merge} correctly merges two sorted lists
-    into one because with each comparison the smallest element
-    in $L_1 \cup L_2$ not yet put into $L$ is put there.
-\end{proof}
-\end{frame}
-
 \begin{frame}
 \frametitle{Sorting Algorithm}
 \begin{theorem} \label{t-11-2-1}
