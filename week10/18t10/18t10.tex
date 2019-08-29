@@ -56,19 +56,6 @@
 
 \maketitle
 
-\begin{frame}
-\frametitle{Sorting Algorithm}
-\begin{theorem} \label{t-11-2-1}
-    A sorting algorithm based on binary comparisons requires at least $\lceil \log n! \rceil$ comparisons.
-\end{theorem}
-\onslide<2>\begin{proof}
-    The complexity of a sort based on binary comparisons
-    is measured in terms of the number of such comparisons used.
-    The largest number of binary comparisons ever needed to sort a list with $n$ elements gives the worst-case performance of the algorithm. The most comparisons used equals the longest path length in the decision tree representing the sorting procedure. In other words, the largest number of comparisons ever needed is equal to the height of the decision tree.
-    Because the height of a binary tree with $n!$ leaves is at least $\lceil \log n! \rceil$, at least $\lceil \log n! \rceil$ comparisons are needed.
-\end{proof}
-\end{frame}
-
 \begin{frame}[fragile]
 \frametitle{Cycle}
 \begin{eg}
