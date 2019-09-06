@@ -344,6 +344,32 @@
     \end{columns}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Right Triominoes}
+    \begin{columns}
+        \begin{column}{.3\linewidth}
+            \begin{eg}
+                Let $n \in \mathbb{N}^+$. Show that every $2^n \times 2^n$ checkerboard with one square removed can be tiled using right triominoes, where these pieces cover three squares at a time.
+            \end{eg}
+            \begin{figure}
+                \includegraphics[width=.4\linewidth]{triomino}
+                \caption{Triomino}
+            \end{figure}
+        \end{column}
+        \begin{column}{.8\linewidth}
+            \begin{proof}
+                \begin{description}
+                    \item[Base]<2-> $P(1)$ is true, obviously.
+                    \item[Induction]<3> Split the $2^{k + 1} \times 2^{k + 1}$ checkerboard with one square removed into four checkerboards of size $2^k \times 2^k$. Now temporarily remove the
+                    square from each of the three full checkerboards at the center of the original. By the inductive hypothesis,
+                    each of these four checkerboards with a square removed can be tiled by right triominoes. Furthermore, the three squares that were temporarily removed can be covered by one right
+                    triomino.
+                \end{description}
+            \end{proof}
+        \end{column}
+    \end{columns}
+\end{frame}
+
 \subsection{Recursive Algorithms}
 
 \begin{frame}
@@ -456,38 +482,8 @@
 
 \begin{frame}
     \frametitle{Mode}
-    \begin{eg}
-        Give a recursive algorithm for finding a mode of a list of integers.
-    \end{eg}
-    \onslide<2>\begin{solution*}
-        \begin{algorithm}[H]
-            \caption{A Recursive Algorithm for Mode}
-            \label{a-5}
-            \begin{algorithmic}
-                \Procedure{mode}{$a_1, \cdots, a_n \in \mathbb{Z}$}
-                \If{$n = 1$}
-                \Return $a_1$
-                \EndIf
-                \State $m \eqqcolon $ \Call{mode}{$a_1, \cdots, a_{n - 1}$}
-                \If{$m = a_n$}
-                \Return $a_n$
-                \EndIf
-                \State $numM \eqqcolon$ number of $m$ in $a_1, \cdots, a_n$
-                \State $numN \eqqcolon$ number of $a_n$ in $a_1, \cdots, a_n$
-                \If{$numM \le numN$}
-                \Return $a_n$
-                \EndIf
-                \State\Return $m$
-                \EndProcedure
-            \end{algorithmic}
-        \end{algorithm}
-    \end{solution*}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Summation}
     \begin{columns}
-        \begin{column}{0.5\linewidth}
+        \begin{column}{0.4\linewidth}
             \onslide<1->\begin{eg}
                 Give a recursive algorithm for finding the sum of the first $n$ positive integers.
             \end{eg}
@@ -506,7 +502,71 @@
                 \end{algorithm}
             \end{solution*}
         \end{column}
+        \begin{column}{0.7\linewidth}
+            \begin{eg}
+                Give a recursive algorithm for finding a mode of a list of integers.
+            \end{eg}
+            \onslide<2>\begin{solution*}
+                \begin{algorithm}[H]
+                    \caption{A Recursive Algorithm for Mode}
+                    \label{algo:inr:algo:mode}
+                    \begin{algorithmic}
+                        \Procedure{mode}{$a_1, \cdots, a_n \in \mathbb{Z}$}
+                        \If{$n = 1$}
+                        \Return $a_1$
+                        \EndIf
+                        \State $m \eqqcolon $ \Call{mode}{$a_1, \cdots, a_{n - 1}$}
+                        \If{$m = a_n$}
+                        \Return $a_n$
+                        \EndIf
+                        \State $numM \eqqcolon$ number of $m$ in $a_1, \cdots, a_n$
+                        \State $numN \eqqcolon$ number of $a_n$ in $a_1, \cdots, a_n$
+                        \If{$numM \le numN$}
+                        \Return $a_n$
+                        \EndIf
+                        \State\Return $m$
+                        \EndProcedure
+                    \end{algorithmic}
+                \end{algorithm}
+            \end{solution*}
+        \end{column}
     \end{columns}
+    
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Recursion Algorithm}
+    \begin{eg}
+        Give a recursive algorithm for tiling a $2^n \times 2^n$ checkerboard with one square missing using right triominoes.
+    \end{eg}
+    \onslide<2>\begin{solution*}
+        If $n = 1$ (basis step), place the one right triomino so that its
+        armpit corresponds to the hole in the $2 \times 2$ board. If $n > 1$, then
+        divide the board into four boards, each of size $2^{n - 1} \times 2^{n-1}$,
+        notice which quarter the hole occurs in, position one right triomino
+        at the center of the board with its armpit in the quarter
+        where the missing square is, and
+        invoke the algorithm recursively four times -- once on each of
+        the $2^{n - 1} \times 2^{n - 1}$ boards, each of which has one square missing.
+    \end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Merge Sort}
+    \begin{eg}
+        Prove that the merge sort algorithm is correct.
+    \end{eg}
+    \onslide<2>\begin{proof}
+        If
+        $n = 1$, then the algorithm does nothing, which is correct because
+        a list with one element is already sorted. Assume that
+        the algorithm works correctly for $n = 1$ through $n = k$. If
+        $n = k + 1$, then the list is split into two lists, $L_1$ and $L_2$. By the
+        inductive hypothesis, \textit{mergesort} correctly sorts each of these
+        sublists; furthermore, \textit{merge} correctly merges two sorted lists
+        into one because with each comparison the smallest element
+        in $L_1 \cup L_2$ not yet put into $L$ is put there.
+    \end{proof}
 \end{frame}
 
 \section{Counting}
@@ -542,9 +602,18 @@
                 There are four pairs can add up to 16. Form the set into four pigeonholes accordingly, let the selected numbers be pigeons. At least five pigeons must be selected to guarantee that at least one hole has two pigeons.
             \end{solution*}
         \end{column}
+        \begin{column}{0.4\linewidth}
+            \onslide<1->\begin{eg}
+                What is the least number of comparisons needed to merge any two lists in increasing order into one list in increasing order when the number of elements in the two lists are
+                
+                A) 1, 4? B) 2, 4? C) 3, 4? D) 4, 4?
+            \end{eg}
+            \onslide<3>\begin{solution*}
+                A.
+            \end{solution*}
+        \end{column}
     \end{columns}
 \end{frame}
-
 
 \subsection{Permutations and Combinations}
 \begin{frame}[fragile]
@@ -647,6 +716,56 @@
 \end{solution*}
 \end{frame}
 
+\begin{frame}[allowframebreaks]
+    \frametitle{Double Tower of Hanoi}
+    \begin{eg}
+        A Double Tower of Hanoi contains $2n$ disks of $n$ different sizes, two of each size. As usual, we can move
+        only one disk at a time, without putting a larger one over a smaller one. Assume that disks of equal size are
+        indistinguishable from each other:\begin{enumerate}[(a)]
+            \item Write a pseudo-code to solve the above problem recursively.
+            \item Set up a recurrence equation to count the number of steps to move $2n$ disks. 
+            \item Solve the recurrence equation and give the complexity of your algorithm.
+        \end{enumerate}
+    \end{eg}
+    \begin{solution*}
+        \begin{columns}
+            \begin{column}{.5\linewidth}
+                \begin{enumerate}[(a)]
+                    \item See Algorithm \ref{a-3}.
+                    \item $H_{2n} = 2H_{2n - 2} + 2$.
+                    \item \begin{align}
+                    H_{2n} & = 2(2H_{2n - 4} + 2) + 2\\
+                    & = 4H_{2n - 4} + 4 + 2\\
+                    & \cdots\\
+                    & = 2^{n + 1} - 2.\\
+                    & = O(2^n).
+                    \end{align}
+                \end{enumerate}
+            \end{column}
+            \begin{column}{.5\linewidth}
+                \begin{algorithm}[H]
+                    \caption{Double Tower of Hanoi}
+                    \label{a-3}
+                    \begin{algorithmic}
+                        \Procedure{Hanoi}{$h$, $b$, $e$, $m$}
+                        \If{$h$ = 0}
+                        \State \Return
+                        \ElsIf{$h$ = 2}
+                        \State \Call{Move}{$b$, $e$}
+                        \State \Call{Move}{$b$, $e$}
+                        \Else
+                        \State \Call{Hanoi}{$h - 2$, $b$, $m$, $e$}
+                        \State \Call{Hanoi}{2, $b$, $e$}
+                        \State \Call{Hanoi}{$h - 2$, $m$, $e$, $b$}
+                        \EndIf
+                        \EndProcedure
+                    \end{algorithmic}
+                \end{algorithm}
+            \end{column}
+        \end{columns}
+    \end{solution*}
+\end{frame}
+
 \begin{frame}
     \frametitle{Hanoi Tower}
     \begin{columns}
@@ -685,6 +804,66 @@
             \end{algorithm}
         \end{column}
     \end{columns}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{Longest Common Subsequence}
+    \begin{eg}
+        \begin{enumerate}[(a)]
+            \item Find the longest common subsequence between $\alpha = \mathtt{abcbdaccdb}$ and $\beta = \mathtt{bbcad}$ by constructing a table $len$ where $len[i, j]$ is the length of the longest common subsequence between $\alpha[1]\alpha[2]\cdots\alpha[i]$ and $\beta[1]\beta[2]\cdots\beta[j]$ where $i = 1\cdots 10$ and $j = 1\cdots 5$.
+            \item From the table $len$, find all the longest common subsequences between $\alpha$ and $\beta$. For each of the longest common subsequences, show how it can be found from the table.
+        \end{enumerate}
+    \end{eg}
+    \newpage
+    \begin{solution*}
+        \begin{table}
+            \centering
+            \caption{The Table $len$}
+            \label{t-6}
+            \begin{tabular}{c|ccccccccccc}
+                \toprule 
+                & 0 & a & b & c & b & d & a & c & c & d & b \\ 
+                \midrule 
+                0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 
+                b & 0 & 0 & \alert{1} & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ 
+                b & 0 & 0 & 1 & 1 & \alert{2} & 2 & 2 & 2 & 2 & 2 & 2 \\ 
+                c & 0 & 0 & 1 & \alert{2} & 2 & 2 & 2 & \alert{3} & 3 & 3 & 3 \\ 
+                a & 0 & 1 & 1 & 2 & 2 & 2 & \alert{3} & 3 & 3 & 3 & 3 \\ 
+                d & 0 & 1 & 1 & 2 & 2 & 3 & 3 & 3 & 3 & \alert{4} & 4 \\ 
+                \bottomrule 
+            \end{tabular}
+        \end{table}
+    \end{solution*}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{Recursive Algorithm}
+    \begin{eg}
+        Consider the longest common subsequence problem between sequence $A[1\cdots m]$ and sequence $B[1\cdots n]$. Give a
+        recursive algorithm to print out ALL the longest common subsequences assuming that you already build the
+        table $T[1\cdots m, 1\cdots n]$ where the entry $T[j, k]$ represents the length of the longest common subsequence between $A[1\cdots j]$ and $B[1\cdots k]$.
+    \end{eg}
+    \begin{solution*}
+        See Algorithm \ref{algo:act:arr:all}.
+        \begin{algorithm}[H]
+            \caption{Print Out ALL the LCSes}
+            \label{algo:act:arr:all}
+            \begin{algorithmic}
+                \Procedure{All}{$T$, $A$, $B$, $j$, $k$}
+                \If{$j \cdot k = 0$} \Return $\{``"\}$
+                \ElsIf{$A[j] = B[k]$} \Return $\{C + A[j] \colon Z \in \Call{All}{T, A, B, j - 1, k - 1}\}$
+                \Else
+                \State $R \coloneqq \{\}$
+                \If{$T[j, k - 1] \ge T[j - 1, k]$} $R \coloneqq R \cup \Call{All}{T, A, B, j, k - 1}$
+                \EndIf
+                \If{$T[j - 1, k] \ge T[j, k - 1]$} $R \coloneqq R \cup \Call{All}{T, A, B, j - 1, k}$
+                \EndIf
+                \State \Return $R$
+                \EndIf
+                \EndProcedure
+            \end{algorithmic}
+        \end{algorithm}
+    \end{solution*}
 \end{frame}
 
 \subsection{Solving Linear Recurrence Relations}
@@ -1030,7 +1209,7 @@
 \subsection{Equivalence Relations}
 
 \begin{frame}[fragile]
-\frametitle{Equivalence Relation}
+\frametitle{Definition of Equivalence Relation}
 \begin{definition}
     A relation on a set $A$ is called an \textbf{equivalence relation} if it is reflexive, symmetric, and transitive.
 \end{definition}
@@ -1076,9 +1255,8 @@
 \end{solution*}
 \end{frame}
 
-\subsection{Equivalence Relations}
 \begin{frame}[allowframebreaks]
-    \frametitle{Equivalence Relation}
+    \frametitle{Intersection of Equivalence Class}
     \begin{theorem}
         Let $R$ be an equivalence relation on a set $A$. These statements for elements $a$ and $b$ of $A$ are equivalent:\begin{enumerate}
             \item $aRb$
@@ -1101,6 +1279,154 @@
     Then by transitivity, because $aRc$ and $cRb$, we have $aRb$.
     
     Because 1 implies 2, 2 implies 3, and 3 implies 1, the three statements, 1, 2, and 3, are equivalent.
+\end{frame}
+
+\section{Graphs}
+\subsection{Connectivity}
+
+\begin{frame}[fragile]
+    \frametitle{Cycle}
+    \begin{eg}
+        Let $P_1$ and $P_2$ be two paths without cycle between the vertices $u$ and $v$
+        in the simple graph $G$ that do not contain the same set of edges (i.e., the two paths are not the same).
+        Show that there is a cycle in $G$.
+    \end{eg}
+    \onslide<2> \begin{proof}
+        Let the paths $P_1$ and $P_2$ be $u = x_0, x_1, \cdots, x_n = v$ and $u = y_0, y_1$,
+        $\cdots$, $y_m = v$, respectively. Since the paths do not contain cycles, they must diverge eventually. We can suppose that $x_0 = y_0, x_1 = y_1$, $\cdots$, $x_i = y_i$, but $x_{i + 1} \ne y_{i + 1}$. To form our cycle, we follow the path $y_i, y_{i + 1}, y_{i + 2}$, and so on,
+        until it once again first encounters a vertex on $P_1$. Once we are back on $P_1$, we
+        follow it along-forwards or backwards, as necessary-to return
+        to $x_i$. Since $x_i = y_i$, this certainly forms a cycle.
+    \end{proof}
+\end{frame}
+
+\subsection{Euler and Hamilton Paths}
+
+\begin{frame}[fragile]
+    \frametitle{Euler Path}
+    \onslide<1->\begin{columns}
+        \begin{column}{.5\linewidth}
+            \begin{eg}
+                Determine whether the given graph has an
+                Euler circuit. Construct such a circuit when one exists. If
+                no Euler circuit exists, determine whether the graph has an
+                Euler path and construct such a path if one exists.
+            \end{eg}
+        \end{column}
+        \begin{column}{.5\linewidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=.6\linewidth]{f-10-5-e-1}
+            \end{figure}
+        \end{column}
+    \end{columns}
+    \onslide<2>\begin{solution*}
+        Neither.
+    \end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Euler Circuit}
+    \onslide<1->\begin{columns}
+        \begin{column}{.5\linewidth}
+            \begin{eg}
+                Determine whether the given graph has an
+                Euler circuit. Construct such a circuit when one exists. If
+                no Euler circuit exists, determine whether the graph has an
+                Euler path and construct such a path if one exists.
+            \end{eg}
+        \end{column}
+        \begin{column}{.5\linewidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=.8\linewidth]{f-10-5-e-2}
+            \end{figure}
+        \end{column}
+    \end{columns}
+    \onslide<2>\begin{solution*}
+        $a, b, c, f, e, b, d, e, h, f, i, h, g, d, a.$
+    \end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Hamilton Path}
+    \onslide<1->\begin{columns}
+        \begin{column}{.5\linewidth}
+            \begin{eg}
+                Which of the simple graphs in Figure have a Hamilton circuit or, if not, a Hamilton path?
+            \end{eg}
+        \end{column}
+        \begin{column}{.5\linewidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\linewidth]{f-10-5-10}
+            \end{figure}
+        \end{column}
+    \end{columns}
+    \onslide<2>\begin{solution*}
+        $G_1$ has a Hamilton circuit: $a, b, c, d, e, a$. There is no Hamilton circuit in $G_2$ (this can
+        be seen by noting that any circuit containing every vertex must contain the edge $\{a, b\}$ twice),
+        but $G_2$ does have a Hamilton path, namely, $a, b, c, d$. $G_3$ has neither a Hamilton circuit nor a
+        Hamilton path, because any path containing all vertices must contain one of the edges $\{a, b\}, \{e, f\}$, and $\{c, d\}$ more than once.
+    \end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Hamilton Circuit}
+    \onslide<1->\begin{columns}
+        \begin{column}{.5\linewidth}
+            \begin{eg}
+                Show that neither graph displayed in Figure has a Hamilton circuit.
+            \end{eg}
+        \end{column}
+        \begin{column}{.5\linewidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\linewidth]{f-10-5-11}
+            \end{figure}
+        \end{column}
+    \end{columns}
+    \onslide<2>\begin{solution*}
+        There is no Hamilton circuit in $G$ because $G$ has a vertex of degree one, namely, $e$. Now consider $H$. Because the degrees of the vertices $a, b, d$, and $e$ are all two, every edge incident with these vertices must be part of any Hamilton circuit. It is now easy to see that no Hamilton circuit can exist in $H$, for any Hamilton circuit would have to contain four edges incident with c, which is impossible.
+    \end{solution*}
+\end{frame}
+
+\section{Trees}
+\subsection{Introduction to Trees}
+
+\begin{frame}[fragile]
+    \frametitle{Tree}
+    \begin{theorem}
+        An undirected graph is a tree if and only if there is a unique path without cycle between any two of its vertices.
+    \end{theorem}
+    \onslide<2>\begin{proof}
+        First assume that $T$ is a tree which is connected graph without cycle.
+        Because $T$ is connected, there is a path without cycle between two vertices $x$ and $y$.
+        Moreover, this path must be unique, for if there were a second such path,
+        they would form a cycle.    
+        This implies that there is a cycle in $T$.
+        
+        Now assume that there is a unique path without cycle between any two vertices of a graph $T$.
+        Then $T$ is connected, because there is a path between any two of its vertices.
+        Furthermore, $T$ can have no cycles.
+        To see that this is true, suppose $T$ had a cycle that contained the vertices $x$ and $y$.
+        Then there would be two simple paths between $x$ and $y$.
+    \end{proof}
+\end{frame}
+
+\subsection{Applications of Trees}
+
+\begin{frame}
+    \frametitle{Sorting Algorithm}
+    \begin{theorem} \label{t-11-2-1}
+        A sorting algorithm based on binary comparisons requires at least $\lceil \log n! \rceil$ comparisons.
+    \end{theorem}
+    \onslide<2>\begin{proof}
+        The complexity of a sort based on binary comparisons
+        is measured in terms of the number of such comparisons used.
+        The largest number of binary comparisons ever needed to sort a list with $n$ elements gives the worst-case performance of the algorithm. The most comparisons used equals the longest path length in the decision tree representing the sorting procedure. In other words, the largest number of comparisons ever needed is equal to the height of the decision tree.
+        Because the height of a binary tree with $n!$ leaves is at least $\lceil \log n! \rceil$, at least $\lceil \log n! \rceil$ comparisons are needed.
+    \end{proof}
 \end{frame}
 
 \plain{Questions?}
