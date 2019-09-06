@@ -56,15 +56,36 @@
 \subsection{Propositional Logic}
 
 \begin{frame}[fragile]
+\frametitle{Propositions}
+\onslide<1->\begin{eg}
+    Which of these sentences are propositions? What are the truth values of those that are propositions?
+    \begin{enumerate}
+        \item $2 + 3 = 5$.
+        \item $5 + 7 = 10$.
+        \item $x + 2 = 11$.
+        \item Answer this question.
+    \end{enumerate}
+\end{eg}
+\onslide<2>\begin{solution*}
+    \begin{enumerate}
+        \item Yes, T
+        \item Yes, F
+        \item No
+        \item No
+    \end{enumerate}
+\end{solution*}
+\end{frame}
+
+
+\begin{frame}[fragile]
     \frametitle{Tautological Implication}
     \onslide<1->\begin{eg}
-        Prove the following tautological implication: \begin{enumerate}[(b)]
-            \item $(p \land (p \rightarrow q) \land (s \lor r) \land (r \rightarrow \lnot q)) \Rightarrow s$.
-        \end{enumerate}
+        Prove the following tautological implication: \begin{equation}
+            (p \land (p \rightarrow q) \land (s \lor r) \land (r \rightarrow \lnot q)) \Rightarrow s.
+        \end{equation}
     \end{eg}
     \onslide<2>\begin{proof}
-        \begin{enumerate}[(b)]
-            \item \begin{align}
+        \begin{align}
             \begin{aligned}
             & (p \land (p \rightarrow q) \land (s \lor r) \land (r \rightarrow \lnot q)) \rightarrow s\\
             \equiv & \lnot (p \land (\lnot p \lor q) \land (s \lor r) \land (\lnot r \lor \lnot q)) \lor s\\
@@ -73,8 +94,7 @@
             \equiv & \lnot (p \land q \land \lnot r \land s) \lor s\\ \equiv & \lnot p \lor \lnot q \lor r \lor \lnot s \lor s\\
             \equiv & TRUE.
             \end{aligned}
-            \end{align}
-        \end{enumerate}
+        \end{align}
     \end{proof}
 \end{frame}
 
