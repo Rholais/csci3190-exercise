@@ -1411,6 +1411,31 @@
     \end{solution*}
 \end{frame}
 
+\subsection{Shortest-Path Problems}
+
+\begin{frame}[fragile]
+    \frametitle{Shortest Path}
+    \onslide<1->\begin{columns}
+        \begin{column}{.5\linewidth}
+            \begin{eg}
+                Find the length of a shortest path between $a$
+                and $z$ in the given weighted graph.
+            \end{eg}
+        \end{column}
+        \begin{column}{.5\linewidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\linewidth]{f-10-6-e-2}
+            \end{figure}
+        \end{column}
+    \end{columns}
+    \onslide<2>\begin{solution*}
+        \begin{equation}
+        2 + 2 + 1 + 2 = 7.
+        \end{equation}
+    \end{solution*}
+\end{frame}
+
 \section{Trees}
 \subsection{Introduction to Trees}
 
@@ -1431,6 +1456,38 @@
         Furthermore, $T$ can have no cycles.
         To see that this is true, suppose $T$ had a cycle that contained the vertices $x$ and $y$.
         Then there would be two simple paths between $x$ and $y$.
+    \end{proof}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Left Child}
+    \begin{columns}
+        \begin{column}{.6\linewidth}
+            \onslide<1->\begin{eg}
+                What are the left and right children of $d$ in the binary tree $T$ shown in Figure \ref{f-11-1-8} (where the order is that implied by the drawing)? What are the left and right subtrees of $c$?
+            \end{eg}
+            \onslide<2>\begin{solution*}
+                The left child of $d$ is $f$ and the right child is $g$.
+            \end{solution*}
+        \end{column}
+        \onslide<1->\begin{column}{.4\linewidth}
+            \begin{figure}
+                \centering
+                $\Tree [.a [.b [.d f g ] e ] [.c [.h j ] [.i k [.l m ]]]]$
+                \caption{A Binary Tree $T$}
+                \label{f-11-1-8}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{$m$-ary Tree}
+    \onslide<1->\begin{theorem}\label{t-11-1-3}
+        A full $m$-ary tree with $i$ internal vertices contains $n = m i + 1$ vertices.
+    \end{theorem}
+    \onslide<2>\begin{proof}
+        Every vertex, except the root, is the child of an internal vertex. Because each of the $i$ internal vertices has $m$ children, there are $m i$ vertices in the tree other than the root. Therefore, the tree contains $n = m i + 1$ vertices
     \end{proof}
 \end{frame}
 
