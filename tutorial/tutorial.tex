@@ -123,6 +123,26 @@
 \subsection{Propositional Equivalences}
 
 \begin{frame}[fragile]
+\frametitle{Tautology}
+\onslide<1->\begin{eg}
+    Try to prove the followings are tautologies.\begin{enumerate}[(a)]
+        \item $p \rightarrow (p \lor q)$.
+        \item $\neg p \rightarrow (p \rightarrow q)$.
+        \item $(p \land q) \rightarrow (p \rightarrow q)$.
+        \item $\neg (p \rightarrow q) \rightarrow p$
+    \end{enumerate}
+\end{eg}
+\onslide<2>\begin{proof}
+    \begin{enumerate}[(a)]
+        \item $p\rightarrow (p\lor q ) \equiv \neg p \lor (p \lor q) \equiv (\neg p \lor p) \lor q \equiv T \lor q \equiv T$.
+        \item $\neg p \rightarrow (p\rightarrow q) \equiv p \lor (\neg p\lor q) \equiv (p \lor \neg p) \lor q \equiv T \lor q \equiv T$.
+        \item $(p \land q)\rightarrow (p\rightarrow q) \equiv \neg (p\land q)\lor (\neg p\lor q) \equiv \neg p\lor \neg q\lor \neg p\lor q \equiv \neg p\lor (\neg q \lor q) \equiv \neg p\lor T \equiv T$.
+        \item $\neg (p\rightarrow q)\rightarrow p \equiv (p\rightarrow q)\lor p \equiv (\neg p\lor q)\lor p \equiv (\neg p\lor p)\lor q \equiv T\lor p \equiv T$
+    \end{enumerate}
+\end{proof}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Logical Equivalence}
 \onslide<1->\begin{eg}
     Show that the following are logically equivalent:\begin{enumerate}[(a)]
