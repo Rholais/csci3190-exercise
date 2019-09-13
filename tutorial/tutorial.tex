@@ -1513,6 +1513,22 @@
     \end{proof}
 \end{frame}
 
+\begin{frame}[fragile]
+    \frametitle{Full $m$-ary Tree}
+    \onslide<1->\begin{theorem}\label{t-11-1-4}
+        A full $m$-ary tree with \begin{enumerate}
+            \item $n$ vertices has $i = \frac{n - 1}{m}$ internal vertices and $l =\frac{(m - 1)n + 1}{m}$ leaves,
+            \item $i$ internal vertices has $n = mi + 1$ vertices and $l = (m - 1) i + 1$ leaves,
+            \item $l$ leaves has $n = \frac{m l - 1}{m - 1}$ vertices and $i = \frac{l - 1}{m - 1}$ internal vertices.
+        \end{enumerate}
+    \end{theorem}
+    \onslide<2>\begin{proof}
+        The three parts of the theorem can all be proved using the equality given in Theorem \ref{t-11-1-3}, that is, $n = m i + 1$, together with the equality $n = l + i$, which is true because each vertex is either a leaf or an internal vertex. 
+        
+        For example, solving for $i$ in $n = m i + 1$ gives $i = \frac{n - 1}{m}$. Then inserting this expression for $i$ into the equation $n = l + i$ shows that $l = n - i = n - \frac{n - 1}{m} = \frac{(m - 1)n + 1}{m}$.
+    \end{proof}
+\end{frame}
+
 \subsection{Applications of Trees}
 
 \begin{frame}
@@ -1526,6 +1542,34 @@
         The largest number of binary comparisons ever needed to sort a list with $n$ elements gives the worst-case performance of the algorithm. The most comparisons used equals the longest path length in the decision tree representing the sorting procedure. In other words, the largest number of comparisons ever needed is equal to the height of the decision tree.
         Because the height of a binary tree with $n!$ leaves is at least $\lceil \log n! \rceil$, at least $\lceil \log n! \rceil$ comparisons are needed.
     \end{proof}
+\end{frame}
+
+\subsection{Tree Traversal}
+
+\begin{frame}[fragile]
+    \frametitle{Preorder}
+    \begin{columns}
+        \begin{column}{.6\linewidth}
+            \onslide<1->\begin{example}
+                Determine the orders in which a preorder, a inorder and a postorder traversal visits the vertices of the given ordered rooted tree in Figure \ref{f-11-3-e7}.
+            \end{example}
+            \begin{solution*}
+                \begin{enumerate}
+                    \item<2-> $a, b, d, e, f, g, c$.
+                    \item<3-> $d, b, f, e, g, a, c$.
+                    \item<4-> $d, f, g, e, b, c, a$.
+                \end{enumerate}
+            \end{solution*}
+        \end{column}
+        \onslide<1->\begin{column}{.4\linewidth}
+            \begin{figure}
+                \centering
+                $\Tree [.a [.b d [.e f g ]] c ]$
+                \caption{A Rooted Tree $T$}
+                \label{f-11-3-e7}
+            \end{figure}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \plain{Questions?}
