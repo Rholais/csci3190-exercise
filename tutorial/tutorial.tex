@@ -1572,6 +1572,39 @@
     \end{columns}
 \end{frame}
 
+\begin{frame}[fragile]
+    \frametitle{Expression}
+    \begin{columns}
+        \begin{column}{.6\linewidth}
+            \onslide<1->\begin{example}
+                \begin{enumerate}
+                    \item Represent the expression $((x + 2) \uparrow 3) \cdot (y - (3 + x)) - 5$ using a binary tree.
+                    \item Write this expression in prefix notation.
+                    \item Write this expression in postfix notation.
+                    \item Write this expression in infix notation.
+                \end{enumerate}
+            \end{example}
+            \begin{solution*}
+                \begin{enumerate}
+                    \item<3-> $-\ \cdot\ \uparrow\ +\ x\ 2\ 3\ -\ y\ +\ 3\ x\ 5$
+                    \item<4-> $x\ 2\ +\ 3\ \uparrow\ y\ 3\ x\ +\ -\ \cdot\ 5\ -$
+                    \item<5-> $x\ +\ 2\ \uparrow\ 3\ \cdot\ y\ -\ 3\ +\ x\ -\ 5$
+                \end{enumerate}
+            \end{solution*}
+        \end{column}
+        \onslide<2->\begin{column}{.4\linewidth}
+            \begin{solution*}
+                \begin{figure}
+                    \centering
+                    $\Tree [.- [.\(\cdot\) [.\(\uparrow\) [.+ x 2 ] 3 ] [.- y [.+ 3 x ] ] ] 5 ]$
+                    \caption{A Rooted Tree $T$}
+                    \label{f-11-3-e16}
+                \end{figure}
+            \end{solution*}
+        \end{column}
+    \end{columns}
+\end{frame}
+
 \plain{Questions?}
 
 \end{document}
