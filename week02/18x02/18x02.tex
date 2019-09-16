@@ -94,9 +94,6 @@
 \section{Tautology Proof}
 Try to prove the followings are tautologies.
 \begin{enumerate}
-\item $\neg (p \rightarrow q) \rightarrow \neg q$
-\item $(p \land q) \rightarrow p$
-\item $(p \land (p \rightarrow q)) \rightarrow q$
 \item $(\neg q \land (p \rightarrow q)) \rightarrow \neg p$
 \item $ (p\lor q) \land (\neg p) \rightarrow q$
 \item $ ((p \lor q) \land (\neg p \lor r)) \rightarrow (q \lor r)$
@@ -319,48 +316,6 @@ between $A$ and $S$.
 
 \subsection{TAUTOLOGY PROOF}
 \begin{enumerate}
-\item $\neg (p \rightarrow q) \rightarrow \neg q$
-
-$\Leftrightarrow  (p \rightarrow q) \lor \neg q$
-
-$\Leftrightarrow  (\neg p \lor q) \lor \neg q$
-
-$\Leftrightarrow  \neg p \lor (q \lor \neg q)$
-
-$\Leftrightarrow  \neg p \lor T$
-
-$\Leftrightarrow   T$
-    
-\item $(p\land q)\rightarrow p$
-
-$\Leftrightarrow \neg (p\land q)\lor p$
-
-$\Leftrightarrow \neg p\lor \neg q \lor p$
-
-$\Leftrightarrow (\neg p\lor p )\lor \neg q $
-
-$\Leftrightarrow T\lor \neg q $
-
-$\Leftrightarrow T $
-\item $(p\land (p\rightarrow q))\rightarrow q$
-
-$\Leftrightarrow \neg (p\land (\neg p\lor q))\lor q$
-
-$\Leftrightarrow \neg p\lor \neg(\neg p\lor q)\lor q$
-
-$\Leftrightarrow \neg p\lor (p\land \neg q)\lor q$
-
-$\Leftrightarrow ((\neg p\lor p)\land (\neg p \lor \neg q))\lor q$
-
-$\Leftrightarrow (T\land (\neg p \lor \neg q))\lor q$
-
-$\Leftrightarrow \neg p \lor \neg q \lor q$
-
-$\Leftrightarrow \neg p \lor (\neg q \lor q)$
-
-$\Leftrightarrow \neg p \lor T$
-
-$\Leftrightarrow T $
 \item $(\neg q \land (p \rightarrow q))\rightarrow \neg p$
 
 $\Leftrightarrow  \neg (\neg q \land (\neg p \lor q))\lor \neg p$
