@@ -57,28 +57,6 @@
 \maketitle
 
 \begin{frame}[fragile]
-\frametitle{Tautologies}
-\begin{eg}
-    \begin{enumerate}
-        \item Determine if the following is a tautology. Show your proof. \begin{equation}
-        (p \to q) \to ((p \lor q) \to q).
-        \end{equation}
-        \item Determine if the followings are logically equivalent. Show your proof. \begin{equation}
-        (p \to q) \land (p \to r) \text{~and~} q \to r.
-        \end{equation}
-    \end{enumerate}
-\end{eg}
-\begin{proof}
-    \begin{enumerate}
-        \item<2-> $((p \to q) \to ((p \lor q) \to q)) \equiv \neg (\neg p \lor q) \lor (\neg(p \lor q) \lor q)$
-        $\equiv ((p \land \neg q) \lor (\neg p \land \neg q) \lor q)$
-        $\equiv (((p \lor \neg q) \land (\neg p \lor \neg q) \land \neg q) \lor q ) \equiv ((\neg q \land \neg q) \lor q) \equiv T$.
-        \item<3-> Let $p = 0, q = 1, r = 0$, then $lhs = 1, rhs = 0$.
-    \end{enumerate}
-\end{proof}
-\end{frame}
-
-\begin{frame}[fragile]
 \frametitle{Tautological Implications}
 \begin{columns}
     \begin{column}{.7\linewidth}
