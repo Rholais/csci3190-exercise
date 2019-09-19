@@ -1,5 +1,5 @@
 %!TEX program = xelatex
-\documentclass[10pt, compress, handout]{beamer}
+\documentclass[10pt, compress]{beamer}
 \usepackage[titleprogressbar]{../cls/beamerthemem}
 
 \usepackage{booktabs}
@@ -66,12 +66,12 @@
         \item Answer this question.
     \end{enumerate}
 \end{eg}
-\onslide<2>\begin{solution*}
+\begin{solution*}
     \begin{enumerate}
-        \item Yes, T
-        \item Yes, F
-        \item No
-        \item No
+        \item<2-> Yes, T
+        \item<3-> Yes, F
+        \item<4-> No
+        \item<5> No
     \end{enumerate}
 \end{solution*}
 \end{frame}
@@ -99,28 +99,28 @@
 \end{frame}
 
 
+\subsection{Propositional Equivalences}
+
 \begin{frame}[fragile]
     \frametitle{Tautological Implication}
     \onslide<1->\begin{eg}
         Prove the following tautological implication: \begin{equation}
-            (p \land (p \rightarrow q) \land (s \lor r) \land (r \rightarrow \lnot q)) \Rightarrow s.
+        (p \land (p \rightarrow q) \land (s \lor r) \land (r \rightarrow \lnot q)) \rightarrow s.
         \end{equation}
     \end{eg}
     \onslide<2>\begin{proof}
         \begin{align}
-            \begin{aligned}
-            & (p \land (p \rightarrow q) \land (s \lor r) \land (r \rightarrow \lnot q)) \rightarrow s\\
-            \equiv & \lnot (p \land (\lnot p \lor q) \land (s \lor r) \land (\lnot r \lor \lnot q)) \lor s\\
-            \equiv & \lnot (p \land q \land (\lnot r \lor \lnot q) \land (s \lor r)) \lor s\\
-            \equiv & \lnot (p \land q \land \lnot r \land (r \lor s)) \lor s\\
-            \equiv & \lnot (p \land q \land \lnot r \land s) \lor s\\ \equiv & \lnot p \lor \lnot q \lor r \lor \lnot s \lor s\\
-            \equiv & TRUE.
-            \end{aligned}
+        \begin{aligned}
+        & (p \land (p \rightarrow q) \land (s \lor r) \land (r \rightarrow \lnot q)) \rightarrow s\\
+        \equiv & \lnot (p \land (\lnot p \lor q) \land (s \lor r) \land (\lnot r \lor \lnot q)) \lor s\\
+        \equiv & \lnot (p \land q \land (\lnot r \lor \lnot q) \land (s \lor r)) \lor s\\
+        \equiv & \lnot (p \land q \land \lnot r \land (r \lor s)) \lor s\\
+        \equiv & \lnot (p \land q \land \lnot r \land s) \lor s\\ \equiv & \lnot p \lor \lnot q \lor r \lor \lnot s \lor s\\
+        \equiv & TRUE.
+        \end{aligned}
         \end{align}
     \end{proof}
 \end{frame}
-
-\subsection{Propositional Equivalences}
 
 \begin{frame}[fragile]
 \frametitle{Tautology}
@@ -149,13 +149,16 @@
         \item $\neg (p \rightarrow q) \rightarrow \neg q$.
         \item $(p \land q) \rightarrow p$.
         \item $(p \land (p \rightarrow q)) \rightarrow q$.
+        \item $((p \lor q) \land \neg p) \rightarrow q$.
     \end{enumerate}
 \end{eg}
-\onslide<2>\begin{proof}
+\begin{proof}
     \begin{enumerate}[(a)]
-        \item $\neg (p \rightarrow q) \rightarrow \neg q \equiv (p \rightarrow q) \lor \neg q \equiv (\neg p \lor q) \lor \neg q \equiv \neg p \lor (q \lor \neg q) \equiv \neg p \lor T \equiv T$.
-        \item $(p\land q)\rightarrow p \equiv \neg (p\land q)\lor p \equiv \neg p\lor \neg q \lor p \equiv (\neg p\lor p )\lor \neg q \equiv T\lor \neg q \equiv T$.
-        \item $(p\land (p\rightarrow q))\rightarrow q \equiv \neg (p\land (\neg p\lor q))\lor q \equiv \neg p\lor \neg(\neg p\lor q)\lor q \equiv \neg p\lor (p\land \neg q)\lor q \equiv ((\neg p\lor p)\land (\neg p \lor \neg q))\lor q \equiv (T\land (\neg p \lor \neg q))\lor q \equiv \neg p \lor \neg q \lor q \equiv \neg p \lor (\neg q \lor q \equiv \neg p \lor T \equiv T$.
+        \item<2-> $\neg (p \rightarrow q) \rightarrow \neg q \equiv (p \rightarrow q) \lor \neg q \equiv (\neg p \lor q) \lor \neg q \equiv \neg p \lor T \equiv T$.
+        \item<3-> $(p\land q)\rightarrow p \equiv \neg (p\land q)\lor p \equiv \neg p\lor \neg q \lor p \equiv (\neg p\lor p )\lor \neg q \equiv T\lor \neg q \equiv T$.
+        \item<4-> $(p\land (p\rightarrow q))\rightarrow q \equiv \neg (p\land (\neg p\lor q))\lor q \equiv \neg p\lor \neg(\neg p\lor q)\lor q \equiv \neg p\lor (p\land \neg q)\lor q \equiv ((\neg p\lor p)\land (\neg p \lor \neg q))\lor q \equiv (T\land (\neg p \lor \neg q))\lor q \equiv \neg p \lor \neg q \lor q \equiv \neg p \lor (\neg q \lor q \equiv \neg p \lor T \equiv T$.
+        \item<5> $((p \lor q) \land \neg p) \equiv (0 \lor (\neg p \land q))$
+        $\equiv (\neg p \land q) \Rightarrow q$.
     \end{enumerate}
 \end{proof}
 \end{frame}
@@ -203,6 +206,21 @@
             \item<3-> Let $p = 0, q = 1, r = 0$, then $lhs = 1, rhs = 0$.
         \end{enumerate}
     \end{proof}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Satisfiability}
+    \begin{columns}
+        \begin{column}{.4\linewidth}
+            \begin{definition}
+                A compound proposition is \textbf{satisfiable}
+                if there is an assignment of truth values to its variables that makes it true.
+                When no such assignments exists, that is,
+                when the compound proposition is false for all assignments of truth values to its variables,
+                the compound proposition is \textbf{unsatisfiable}.
+            \end{definition}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \subsection{Nested Quantifiers}
