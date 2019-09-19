@@ -59,7 +59,7 @@
 \frametitle{Propositions}
 \onslide<1->\begin{eg}
     Which of these sentences are propositions? What are the truth values of those that are propositions?
-    \begin{enumerate}
+    \begin{enumerate}[(a)]
         \item $2 + 3 = 5$.
         \item $5 + 7 = 10$.
         \item $x + 2 = 11$.
@@ -67,7 +67,7 @@
     \end{enumerate}
 \end{eg}
 \begin{solution*}
-    \begin{enumerate}
+    \begin{enumerate}[(a)]
         \item<2-> Yes, T
         \item<3-> Yes, F
         \item<4-> No
@@ -80,7 +80,7 @@
 \frametitle{Propositions}
 \onslide<1->\begin{eg}
     What is the negation of each of these propositions?
-    \begin{enumerate}
+    \begin{enumerate}[(a)]
         \item Sharon has an MP3 player.
         \item There is no pollution in New Jersey.
         \item $2 + 1 = 3$
@@ -88,7 +88,7 @@
     \end{enumerate}
 \end{eg}
 \begin{solution*}
-    \begin{enumerate}
+    \begin{enumerate}[(a)]
         \item<2-> Sharon does not have an MP3 player.
         \item<3-> There is pollution in New Jersey.
         \item<4-> $2 + 1 \ne 3$
@@ -96,7 +96,6 @@
     \end{enumerate}
 \end{solution*}
 \end{frame}
-
 
 \subsection{Propositional Equivalences}
 
@@ -131,12 +130,12 @@
         \item $\neg (p \rightarrow q) \rightarrow p$.
     \end{enumerate}
 \end{eg}
-\onslide<2>\begin{proof}
+\begin{proof}
     \begin{enumerate}[(a)]
-        \item $p\rightarrow (p\lor q ) \equiv \neg p \lor (p \lor q) \equiv (\neg p \lor p) \lor q \equiv T \lor q \equiv T$.
-        \item $\neg p \rightarrow (p\rightarrow q) \equiv p \lor (\neg p\lor q) \equiv (p \lor \neg p) \lor q \equiv T \lor q \equiv T$.
-        \item $(p \land q)\rightarrow (p\rightarrow q) \equiv \neg (p\land q)\lor (\neg p\lor q) \equiv \neg p\lor \neg q\lor \neg p\lor q \equiv \neg p\lor (\neg q \lor q) \equiv \neg p\lor T \equiv T$.
-        \item $\neg (p\rightarrow q)\rightarrow p \equiv (p\rightarrow q)\lor p \equiv (\neg p\lor q)\lor p \equiv (\neg p\lor p)\lor q \equiv T\lor p \equiv T$.
+        \item<2-> $p\rightarrow (p\lor q ) \equiv \neg p \lor (p \lor q) \equiv (\neg p \lor p) \lor q \equiv T \lor q \equiv T$.
+        \item<3-> $\neg p \rightarrow (p\rightarrow q) \equiv p \lor (\neg p\lor q) \equiv (p \lor \neg p) \lor q \equiv T \lor q \equiv T$.
+        \item<4-> $(p \land q)\rightarrow (p\rightarrow q) \equiv \neg (p\land q)\lor (\neg p\lor q) \equiv \neg p\lor \neg q\lor \neg p\lor q \equiv \neg p\lor (\neg q \lor q) \equiv \neg p\lor T \equiv T$.
+        \item<5> $\neg (p\rightarrow q)\rightarrow p \equiv (p\rightarrow q)\lor p \equiv (\neg p\lor q)\lor p \equiv (\neg p\lor p)\lor q \equiv T\lor p \equiv T$.
     \end{enumerate}
 \end{proof}
 \end{frame}
@@ -229,6 +228,47 @@
         $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r)$
         $\land (\neg p \lor \neg q \lor \neg r)$ true. Hence, it is unsatisfiable.
     \end{solution*}
+\end{frame}
+
+\subsection{Predicates and Quantifiers}
+
+\begin{frame}[fragile]
+    \frametitle{Quantifiers}
+    \begin{columns}
+        \begin{column}{.7\linewidth}
+            \begin{eg}
+                Determine the truth value of the followings, where $x, y \in \mathbb{I}^+$.
+                \begin{enumerate}
+                    \item $\forall x \forall y (2x^2 < y + 1)$
+                    \item $\forall x \exists y (2x^2 < y + 1)$
+                    \item $\exists x \forall y (2x^2 < y + 1)$
+                    \item $\exists x \exists y (2x^2 < y + 1)$
+                \end{enumerate}
+            \end{eg}
+            \begin{solution*}
+                \begin{enumerate}
+                    \item<2-> False. Let $x = 1, y = 1$, then $2x^2 = y + 1$.
+                    \item<3-> True. $\forall x \exists y = 2x^2$ s.t. $2x^2 < y + 1$.
+                    \item<4-> False. Let $y = 1, 2x^2 < y + 1$, then $x < 1$.
+                    \item<5-> True. Let $x = 1, y = 2$, then $2x^2 < y + 1$.
+                \end{enumerate}
+            \end{solution*}
+        \end{column}
+        \begin{column}{.4\linewidth}
+            \begin{eg}
+                Can you conclude that $A = B$ if $A, B$ and $C$ are sets such that: \begin{enumerate}
+                    \item $A \cup C = B \cup C$;
+                    \item $A \cap C = B \cap C$.
+                \end{enumerate}
+            \end{eg}
+            \begin{solution*}
+                \begin{enumerate}
+                    \item<6-> No. Let $A = \emptyset, B = C \supset A$, then $A \cup C = B \cup C$.
+                    \item<7-> No. Let $A \ne B, C = \emptyset$, then $A \cap C = B \cap C$.
+                \end{enumerate}
+            \end{solution*}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \subsection{Nested Quantifiers}
