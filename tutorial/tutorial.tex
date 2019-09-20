@@ -201,7 +201,7 @@
             \item<2-> $((p \to q) \to ((p \lor q) \to q)) \equiv \neg (\neg p \lor q) \lor (\neg(p \lor q) \lor q)$
             $\equiv ((p \land \neg q) \lor (\neg p \land \neg q) \lor q)$
             $\equiv (((p \lor \neg q) \land (\neg p \lor \neg q) \land \neg q) \lor q ) \equiv ((\neg q \land \neg q) \lor q) \equiv T$.
-            \item<3-> Let $p = 0, q = 1, r = 0$, then $lhs = 1, rhs = 0$.
+            \item<3> Let $p = 0, q = 1, r = 0$, then $lhs = 1, rhs = 0$.
         \end{enumerate}
     \end{proof}
 \end{frame}
@@ -238,7 +238,7 @@
         \begin{column}{.7\linewidth}
             \begin{eg}
                 Determine the truth value of the followings, where $x, y \in \mathbb{I}^+$.
-                \begin{enumerate}
+                \begin{enumerate}[(a)]
                     \item $\forall x \forall y (2x^2 < y + 1)$
                     \item $\forall x \exists y (2x^2 < y + 1)$
                     \item $\exists x \forall y (2x^2 < y + 1)$
@@ -246,23 +246,24 @@
                 \end{enumerate}
             \end{eg}
             \begin{solution*}
-                \begin{enumerate}
+                \begin{enumerate}[(a)]
                     \item<2-> False. Let $x = 1, y = 1$, then $2x^2 = y + 1$.
                     \item<3-> True. $\forall x \exists y = 2x^2$ s.t. $2x^2 < y + 1$.
                     \item<4-> False. Let $y = 1, 2x^2 < y + 1$, then $x < 1$.
-                    \item<5-> True. Let $x = 1, y = 2$, then $2x^2 < y + 1$.
+                    \item<5> True. Let $x = 1, y = 2$, then $2x^2 < y + 1$.
                 \end{enumerate}
             \end{solution*}
         \end{column}
         \begin{column}{.4\linewidth}
             \begin{eg}
-                Can you conclude that $A = B$ if $A, B$ and $C$ are sets such that: \begin{enumerate}
+                Can you conclude that $A = B$ if $A, B$ and $C$ are sets such that:
+                \begin{enumerate}[(a)]
                     \item $A \cup C = B \cup C$;
                     \item $A \cap C = B \cap C$.
                 \end{enumerate}
             \end{eg}
             \begin{solution*}
-                \begin{enumerate}
+                \begin{enumerate}[(a)]
                     \item<6-> No. Let $A = \emptyset, B = C \supset A$, then $A \cup C = B \cup C$.
                     \item<7-> No. Let $A \ne B, C = \emptyset$, then $A \cap C = B \cap C$.
                 \end{enumerate}
@@ -1462,6 +1463,31 @@
             \item<2-> Find Equivalence Classes: $[a] = \{a, b, c, d\}, [e] = \{e\}$.
             \item<3> Find Equivalence Relation: $\{(a, a), (a, b), (a, c), (a, d), (b, a), (b, b), (b, c), (b, d), (c, a),$
             $(c, b), (c, c), (c, d), (d, a), (d, b), (d, c), (d, d), (e, e)\}$
+        \end{enumerate}
+    \end{solution*}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Equivalence Relation}
+    \begin{eg}
+        Consider the relation $R$ over the set of all positive integers $\mathbb{I}^+$:    $R = \{(a, b) \mid |a - b| \equiv 0 \pmod{2}\}$
+        \begin{enumerate}[(a)]
+            \item Is $R$ an equivalence relation? Explain your answer.
+            \item How many equivalence classes of $R$ in $\mathbb{I}^+$ are there? What are they?
+        \end{enumerate}
+    \end{eg}
+    \begin{solution*}
+        \begin{enumerate}[(a)]
+            \item<2-> Yes. \begin{itemize}
+                \item $\forall a \in \mathbb{I}^+, |a - a| = 0$.
+                \item $|b - a| = |a - b|$.
+                \item $|a - c| \equiv a - c \equiv (a - b) + (b - c) \equiv |a - b| + |b - c| \pmod{2}$.
+            \end{itemize}
+            
+            \item<3-> \begin{itemize}
+                \item 2.
+                \item $[1] = \{a \mid a \equiv 1 \pmod{2}\}$, $[2] = \{a \mid a \equiv 0 \pmod{2}\}$.
+            \end{itemize}
         \end{enumerate}
     \end{solution*}
 \end{frame}

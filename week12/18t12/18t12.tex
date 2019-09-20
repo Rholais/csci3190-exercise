@@ -56,31 +56,6 @@
 
 \maketitle
 
-\begin{frame}
-\frametitle{Equivalence Relation}
-\begin{eg}
-    Consider the relation $R$ over the set of all positive integers $\mathbb{I}^+$:    $R = \{(a, b) \mid |a - b| \equiv 0 \pmod{2}\}$
-    \begin{enumerate}
-        \item Is $R$ an equivalence relation? Explain your answer.
-        \item How many equivalence classes of $R$ in $\mathbb{I}^+$ are there? What are they?
-    \end{enumerate}
-\end{eg}
-\begin{solution*}
-    \begin{enumerate}
-        \item<2-> Yes. \begin{itemize}
-            \item $\forall a \in \mathbb{I}^+, |a - a| = 0$.
-            \item $|b - a| = |a - b|$.
-            \item $|a - c| \equiv a - c \equiv (a - b) + (b - c) \equiv |a - b| + |b - c| \pmod{2}$.
-        \end{itemize}
-        
-        \item<3-> \begin{itemize}
-            \item 2.
-            \item $[1] = \{a \mid a \equiv 1 \pmod{2}\}$, $[2] = \{a \mid a \equiv 0 \pmod{2}\}$.
-        \end{itemize}
-    \end{enumerate}
-\end{solution*}
-\end{frame}
-
 \begin{frame}[fragile]
 \frametitle{Complexity}
 \onslide<1->\begin{eg}
