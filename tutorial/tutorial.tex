@@ -171,12 +171,12 @@
         \item $((q \rightarrow p) \land (\lnot p \rightarrow q) \land (q \rightarrow q)) \equiv p$.
     \end{enumerate}
 \end{eg}
-\onslide<2>\begin{proof}
+\begin{proof}
     \begin{enumerate}[(a)]
-        \item $\lnot p \land \lnot q \rightarrow \lnot r \equiv \lnot r \lor \lnot (\lnot p \land \lnot q) \equiv \lnot r \lor (p \lor q) \equiv r \rightarrow q \lor p$.
-        \item $p \rightarrow (q \land r) \equiv (q \land r) \lor \lnot p \equiv (\lnot p \lor q) \land (\lnot p \lor r) \equiv (p \rightarrow q) \land (p \rightarrow r)$.
-        \item $(p \lor q) \rightarrow r \equiv \lnot (p \lor q) \lor r \equiv (\lnot p \land \lnot q) \lor r    \equiv (\lnot p \lor r) \land (\lnot q \lor r) \equiv (p \rightarrow r) \land (q \rightarrow r)$.
-        \item $((q \rightarrow p) \land (\lnot p \rightarrow q) \land (q \rightarrow q)) \equiv ((\lnot q \lor p) \land (p \lor q) \land (\lnot q \lor q)) \equiv ((p \lor (q \land \lnot q)) \land TRUE) \equiv (p \lor FALSE) \equiv p$.
+        \item<2-> $\lnot p \land \lnot q \rightarrow \lnot r \equiv \lnot r \lor \lnot (\lnot p \land \lnot q) \equiv \lnot r \lor (p \lor q) \equiv r \rightarrow q \lor p$.
+        \item<3-> $p \rightarrow (q \land r) \equiv (q \land r) \lor \lnot p \equiv (\lnot p \lor q) \land (\lnot p \lor r) \equiv (p \rightarrow q) \land (p \rightarrow r)$.
+        \item<4-> $(p \lor q) \rightarrow r \equiv \lnot (p \lor q) \lor r \equiv (\lnot p \land \lnot q) \lor r    \equiv (\lnot p \lor r) \land (\lnot q \lor r) \equiv (p \rightarrow r) \land (q \rightarrow r)$.
+        \item<5> $((q \rightarrow p) \land (\lnot p \rightarrow q) \land (q \rightarrow q)) \equiv ((\lnot q \lor p) \land (p \lor q) \land (\lnot q \lor q)) \equiv ((p \lor (q \land \lnot q)) \land TRUE) \equiv (p \lor FALSE) \equiv p$.
     \end{enumerate}
 \end{proof}
 \end{frame}
@@ -1407,7 +1407,7 @@
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Equivalence Class}
+\frametitle{Relation of Relations}
 \onslide<1->\begin{eg}
     Let $A = \{1, 2, 3, 4, 5, 6, 7, 8\} \times \{1, 2, 3, 4, 5, 6, 7, 8\}$. Define a relation $R$ on $A$ by: $((a, b), (c, d)) \in R$ if and only if $a \times b = c \times d$ \begin{enumerate}[(a)]
         \item Show that $R$ is an equivalence relation on $A$.
@@ -1450,6 +1450,20 @@
     Then by transitivity, because $aRc$ and $cRb$, we have $aRb$.
     
     Because 1 implies 2, 2 implies 3, and 3 implies 1, the three statements, 1, 2, and 3, are equivalent.
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Equivalence Relation and Equivalence Class}
+    \begin{eg}
+        Find smallest equivalence relation on set $\{a, b, c, d, e\}$ containing relation $\{(a, b), (b, c), (d, c)\}$.
+    \end{eg}
+    \begin{solution*}
+        \begin{enumerate}
+            \item<2-> Find Equivalence Classes: $[a] = \{a, b, c, d\}, [e] = \{e\}$.
+            \item<3> Find Equivalence Relation: $\{(a, a), (a, b), (a, c), (a, d), (b, a), (b, b), (b, c), (b, d), (c, a),$
+            $(c, b), (c, c), (c, d), (d, a), (d, b), (d, c), (d, d), (e, e)\}$
+        \end{enumerate}
+    \end{solution*}
 \end{frame}
 
 \section{Graphs}
