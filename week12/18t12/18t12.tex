@@ -57,23 +57,6 @@
 \maketitle
 
 \begin{frame}[fragile]
-\frametitle{Complexity}
-\onslide<1->\begin{eg}
-    Show the following:\begin{enumerate}[(a)]
-        \item $3n^2 + 5n + 10 = O(n^2)$
-    \end{enumerate}
-\end{eg}
-\onslide<2>\begin{proof}
-    \begin{enumerate}[(a)]
-        \item \begin{description}
-            \item[Method 1] $\exists c = 4, \exists N = 6$, such that $\forall n > N, 3n^2 + 5n + 10 < 4n^2$.
-            \item[Method 2] Since $3 + \frac{5}{n} + \frac{10}{n^2} = O(1)$ and $n^2 = O(n^2)$, $3n^2 + 5n + 10 = O(n^2)$.
-        \end{description}
-    \end{enumerate}
-\end{proof}
-\end{frame}
-
-\begin{frame}[fragile]
 \frametitle{Terminology}
 \begin{columns}
     \begin{column}{.6\linewidth}
