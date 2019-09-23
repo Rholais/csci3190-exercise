@@ -285,12 +285,12 @@
         \item $\exists x \exists y [(x - y = 5) \land (2x + 4y = 4)]$.
     \end{enumerate}
 \end{eg}
-\onslide<2>\begin{proof}
+\begin{proof}
     \begin{enumerate}[(a)]
-        \item False. $x = 1 \land y = -1$ is a counterexample.
-        \item False. Let $x = 2$, no integer $y$ satisfying $y^2 = x$.
-        \item False. Let $x = 1, y = -1$, we have $xy < x$.
-        \item True. Let $x = 4, y = -1$, we have $x - y = 5 \land 2x + 4y = 4$.
+        \item<2-> False. $x = 1 \land y = -1$ is a counterexample.
+        \item<3-> False. Let $x = 2$, no integer $y$ satisfying $y^2 = x$.
+        \item<4-> False. Let $x = 1, y = -1$, we have $xy < x$.
+        \item<5> True. Let $x = 4, y = -1$, we have $x - y = 5 \land 2x + 4y = 4$.
     \end{enumerate}
 \end{proof}
 \end{frame}
@@ -449,11 +449,24 @@
 \begin{frame}
     \frametitle{Square Root}
     \begin{columns}
-        \begin{column}{0.4\linewidth}
+        \begin{column}{0.7\linewidth}
+            \onslide<1->\begin{eg}
+                Show the following: \begin{equation}
+                3n^2 + 5n + 10 = O(n^2).
+                \end{equation}
+            \end{eg}
+            \onslide<2->\begin{proof}
+                \begin{description}
+                    \item[Method 1] $\exists c = 4, \exists N = 6$, such that $\forall n > N, 3n^2 + 5n + 10 < 4n^2$.
+                    \item[Method 2] Since $3 + \frac{5}{n} + \frac{10}{n^2} = O(1)$ and $n^2 = O(n^2)$, $3n^2 + 5n + 10 = O(n^2)$.
+                \end{description}
+            \end{proof}
+        \end{column}
+        \begin{column}{0.3\linewidth}
             \onslide<1->\begin{eg}
                 Show that $n^2 + 100 \sqrt{n} + 7 = O(n^2)$.
             \end{eg}
-            \onslide<2->\begin{proof}
+            \onslide<3>\begin{proof}
                 Let $C = 2, N = 25$, then $\forall n \ge N, n^2 + 100 \sqrt{n} + 7 < Cn^2$.
             \end{proof}
         \end{column}
@@ -1667,6 +1680,31 @@
                 $\Tree [.a [.b [.d f g ] e ] [.c [.h j ] [.i k [.l m ]]]]$
                 \caption{A Binary Tree $T$}
                 \label{f-11-1-8}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Terminology}
+    \begin{columns}
+        \begin{column}{.6\linewidth}
+            \onslide<1->\begin{eg}
+                In the rooted tree $T$ (with root $a$) shown in Figure \ref{f-11-1-5},
+                find the parent of $c$, the children of $g$, the siblings of $h$, all ancestors of $e$,
+                all descendants of $b$, all internal vertices, and all leaves.
+                What is the subtree rooted at $g$?
+            \end{eg}
+            \onslide<2>\begin{solution*}
+                The parent of $c$ is $b$. The children of $g$ are $h$, $i$, and $j$. The siblings of $h$ are $i$ and $j$. The ancestors of $e$ are $c$, $b$, and $a$. The descendants of $b$ are $c$, $d$, and $e$. The internal vertices are $a$, $b$, $c$, $g$, $h$, and $j$. The leaves are $d$, $e$, $f$, $i$, $k$, $l$, and $m$.
+            \end{solution*}
+        \end{column}
+        \onslide<1->\begin{column}{.4\linewidth}
+            \begin{figure}
+                \centering
+                $\Tree [.a [.b [.c d e ] ] f [.g [.h k ] i [.j l m ]]]$
+                \caption{A Rooted Tree $T$}
+                \label{f-11-1-5}
             \end{figure}
         \end{column}
     \end{columns}
