@@ -309,11 +309,11 @@
                 \item If $A \subseteq B$ and $B \in C$, then $A \in C$.
             \end{enumerate}
         \end{eg}
-        \onslide<2>\begin{solution*}
+        \begin{solution*}
             \begin{enumerate}
-                \item Yes.
-                \item No. Let $A = \{0\}, B = \{0\}, C = \{\{0\}\}$.
-                \item No. Let $A = \emptyset, B = \{0\}, C = \{\{0\}\}$.
+                \item<2-> Yes.
+                \item<3-> No. Let $A = \{0\}, B = \{0\}, C = \{\{0\}\}$.
+                \item<4> No. Let $A = \emptyset, B = \{0\}, C = \{\{0\}\}$.
             \end{enumerate}
         \end{solution*}
     \end{column}
@@ -1637,6 +1637,31 @@
         \begin{equation}
         2 + 2 + 1 + 2 = 7.
         \end{equation}
+    \end{solution*}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Newark}
+    \onslide<1->\begin{columns}
+        \begin{column}{.5\linewidth}
+            \begin{eg}
+                Find a shortest route in distance between Newark and
+                Camden, and between Newark and Cape May, using
+                these roads.
+            \end{eg}
+        \end{column}
+        \begin{column}{.5\linewidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\linewidth]{f-10-6-e-17-a}
+            \end{figure}
+        \end{column}
+    \end{columns}
+    \onslide<2>\begin{solution*}
+        \begin{description}
+            \item[Camden] 80
+            \item[Cape May] 165
+        \end{description}
     \end{solution*}
 \end{frame}
 
